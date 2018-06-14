@@ -1,0 +1,54 @@
+['
+	the definition of these
+	' symbols '
+	 		---	none
+	( )		---	bracket
+	∀ ∃		---	quantifier
+	.		---	operator
+	⇒		---	relator
+	:		---	definer
+	,		---	separator ⊆ operator
+	' others '
+	◉
+']
+[' (x, y): x = 5 ⇒ y = 3, ∀x: ∈ R ']
+['
+	priority:
+	none bracket function
+	quantifier relator
+	operator
+	definer
+	separator  
+']
+
+
+a: = 1, ; constant
+
+a: = 2, ; 报错
+
+∀b: ∈ R, ; variable
+
+b: = 2, ; 报错
+
+c: = 1, ; iterative
+
+c += 1, ; 此时 c 的值为 2
+
+f:
+(
+	∈ function,
+	D: = R,
+	∀x: ∈ R,
+	f(x): = 1
+),
+
+f:
+(
+	∈ function,
+	D: = R,
+	∀x: ∈ R,
+	x ⇒ 1
+)
+
+f.D, ; return 'R'
+f.x, ; error

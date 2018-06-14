@@ -1,0 +1,5 @@
+: ('relator')
+(
+	.temp.subclass symbol,
+
+),
