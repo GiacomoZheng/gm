@@ -1,4 +1,4 @@
-['
+[" 
 	the definition of these
 	' symbols '
 	 		---	none
@@ -10,18 +10,20 @@
 	,		---	separator ⊆ operator
 	' others '
 	◉
-']
-[' (x, y): x = 5 ⇒ y = 3, ∀x: ∈ R ']
-['
+ "]
+
+[" (x, y): x = 5 ⇒ y = 3, ∀x: ∈ R "]
+
+[" 
 	priority:
 	none bracket function
 	quantifier relator
 	operator
 	definer
 	separator  
-']
+ "]
 
-
+[" 
 a: = 1, ; constant
 
 a: = 2, ; 报错
@@ -47,8 +49,9 @@ f:
 	∈ function,
 	D: = R,
 	∀x: ∈ R,
-	x ⇒ 1
+	x ↦ 1
 )
 
 f.D, ; return 'R'
 f.x, ; error
+ "]

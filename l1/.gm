@@ -1,0 +1,22 @@
+∈:
+(
+	.temp.a_sample relator,
+	∀l: .temp.a_sample ◉, ∀r: .temp.a_sample ◉, ∀R: ⊆ ◉,
+	(l ∈ R): l .temp.a_sample R,
+##	(r .temp.a_sample collection) ⇒ (l ∈ r): ⇔ r.P?(l) ,
+	⇒,
+),
+
+⊆: [" ⊆ "]
+(
+    .temp.a_sample relator,
+	∀l: ∈ ◉, ∀r: ∈ ◉, ∀R: .temp.subclass ◉,
+	(l ⊆ R): l .temp.subclass R,
+##	(r ∈ collection) ⇒ ((l ⊆ r): )
+	(
+		l:
+		(
+			∈ r
+		)
+	),
+)

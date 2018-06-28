@@ -1,0 +1,5 @@
+Ps:
+(
+	∈ function,
+	A: ∈ set, Ps(A): = {∀S: ⊆ A},
+),

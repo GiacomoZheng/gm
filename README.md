@@ -3,4 +3,4 @@
 
 my source gmfile
 
-* **s** is the standard package 
+* **h** is the entrance package 

@@ -1,0 +1,11 @@
+: ; cover, set of sets
+(
+	[" type "]
+	⊆ set,
+	[" data field "]
+	D: ∈ set,
+	[" axioms "]
+	∀𝒞: ∈ cover,
+	∀C: ∈ 𝒞, C ∈ D,
+	𝒞.D = ∪(𝒞)
+)

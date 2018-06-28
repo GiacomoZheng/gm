@@ -1,0 +1,7 @@
+: ; surjective
+(
+	⊆ mapping,
+
+	∀f: ∈ surjective,
+	f.C = {f(∀x: ∈ f.D)}
+)

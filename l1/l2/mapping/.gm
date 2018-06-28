@@ -1,0 +1,9 @@
+: ; mapping
+(
+	⊆ function,
+
+	D: ∈ set, ; domain
+	C: ∈ set, ; coodomain
+	∀f: ∈ function,
+	f(∀x: ∈ D): ∈ C,
+)

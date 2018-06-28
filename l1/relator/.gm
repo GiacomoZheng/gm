@@ -1,4 +1,4 @@
-: ('relator')
+: ; relator
 (
 	.temp.subclass symbol,
 

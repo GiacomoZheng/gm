@@ -1,0 +1,12 @@
+: ; collection
+(
+	⊆ ◉,
+
+	P?:
+	(
+		∈ function,
+		P?(∀x: ∈ ◉): ∈ ,
+	),
+	∀C: ∈ collection,
+	∀x: ∈ ◉, 
+)
