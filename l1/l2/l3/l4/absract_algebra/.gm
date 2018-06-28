@@ -10,6 +10,9 @@
 (
 	∈ relator,
 
-	∀A: ∈ group, 
-)
+	∀H: ∈ group, ∀G: ∈ group,
+	(H %subgroup% G): ⇔ ∀(H.D ⊆ G.D, &H.*& = &G.*&)
+),
+
+
 
