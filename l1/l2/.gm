@@ -3,3 +3,26 @@ Ps:
 	∈ function,
 	A: ∈ set, Ps(A): = {∀S: ⊆ A},
 ),
+
+∪:
+(
+	∈ symbunc,
+
+	∀τ: ∈ set, ; set of set
+	∪(τ): = {x: (∃C: ∈ τ, x ∈ C)},
+
+	∀A: ∈ ◉, ∀B: ∈ ◉,
+	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B): = ∪({A, B})
+)
+
+∩:
+(
+	∈ symbunc,
+
+	∀τ: ∈ set, ; set of set
+	∩(τ): = {x: (∀C: ∈ τ, x ∈ C)},
+
+	∀A: ∈ ◉, ∀B: ∈ ◉,
+	∀(A ∈ set, B ∈ set) ⇒ (A ∩ B): = ∩({A, B})
+)
+

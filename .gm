@@ -12,8 +12,6 @@
 	◉
  "]
 
-[" (x, y): x = 5 ⇒ y = 3, ∀x: ∈ R "]
-
 [" 
 	priority:
 	none bracket function
@@ -23,35 +21,47 @@
 	separator  
  "]
 
-[" 
-a: = 1, ; constant
-
-a: = 2, ; 报错
-
-∀b: ∈ R, ; variable
-
-b: = 2, ; 报错
-
-c: = 1, ; iterative
-
-c += 1, ; 此时 c 的值为 2
-
-f:
+infinity0:
 (
-	∈ function,
-	D: = R,
-	∀x: ∈ R,
-	f(x): = 1
+	[" type "]
+	⊆ set, ; it means this is the subclass of "set"
+	[" axioms "]
+	∀N: ∈ infinity0, ; N here is a sample of infinity0
+	0 ∈ N, ; the first requirement, we assume the 0 has been defined
+	∃s: ∈ bijection, ; a sample of bijection class
+	s.D = N, ; the domain of s is N
+	s.C = N \ {0} ; the codomian of s is N \ {0}
 ),
 
-f:
+[" the set of natural numbers "]
+N0: = ∩({A: (∀A: ∈ infinity0)}),
+
+Scr: ; successor function
 (
-	∈ function,
-	D: = R,
-	∀x: ∈ R,
-	x ↦ 1
+	∈ bijection,
+	D: = N, C: = N \ {0}
+),
+
+1: = Scr(0),
+
+infinity1: ; preparing for the real numbers
+(
+	⊆ infinity0, ; 
+
+	∀R: ∈ infinity1,
+	1: ∈ R, ; 0 ∈ R because this is the subclass of infinity0
+	∃m: ∈ bijection,
+	m.D = R × R \ {(x, x): (∀x: ∈ R)}, ; Cartesian product,
+	m.C = R \ {0, 1} ; 
+),
+
+[" the set of real numbers "]
+R0: = ∩({A: (∀A: ∈ infinity1)}),
+
+Mid: ; the mean value of two number, like Mid(0, 1) = 0.5
+(
+	∈ mapping, ; the function with domian and codomain
+	D: = R × R, C: = R,
+	∀x: ∈ R, Mid(x, x): = x
 )
 
-f.D, ; return 'R'
-f.x, ; error
- "]

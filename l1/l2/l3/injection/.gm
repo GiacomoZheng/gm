@@ -1,8 +1,8 @@
-: ; injective
+: ; injection
 (
 	⊆ mapping,
 
-	∀f: ∈ injective,
+	∀f: ∈ injection,
 	∀x: ∈ f.D, ∀y: ∈ f.D,
 	f(x) = f(y) ⇒ x = y
 )

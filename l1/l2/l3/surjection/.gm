@@ -1,7 +1,7 @@
-: ; surjective
+: ; surjection
 (
 	⊆ mapping,
 
-	∀f: ∈ surjective,
+	∀f: ∈ surjection,
 	f.C = {f(∀x: ∈ f.D)}
 )

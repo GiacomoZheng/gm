@@ -1,5 +1,0 @@
-: ; bijective
-(
-	⊆ injective,
-	⊆ surjective
-)
