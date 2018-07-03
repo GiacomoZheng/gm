@@ -21,47 +21,4 @@
 	separator  
  "]
 
-infinity0:
-(
-	[" type "]
-	⊆ set, ; it means this is the subclass of "set"
-	[" axioms "]
-	∀N: ∈ infinity0, ; N here is a sample of infinity0
-	0 ∈ N, ; the first requirement, we assume the 0 has been defined
-	∃s: ∈ bijection, ; a sample of bijection class
-	s.D = N, ; the domain of s is N
-	s.C = N \ {0} ; the codomian of s is N \ {0}
-),
-
-[" the set of natural numbers "]
-N0: = ∩({A: (∀A: ∈ infinity0)}),
-
-Scr: ; successor function
-(
-	∈ bijection,
-	D: = N, C: = N \ {0}
-),
-
-1: = Scr(0),
-
-infinity1: ; preparing for the real numbers
-(
-	⊆ infinity0, ; 
-
-	∀R: ∈ infinity1,
-	1: ∈ R, ; 0 ∈ R because this is the subclass of infinity0
-	∃m: ∈ bijection,
-	m.D = R × R \ {(x, x): (∀x: ∈ R)}, ; Cartesian product,
-	m.C = R \ {0, 1} ; 
-),
-
-[" the set of real numbers "]
-R0: = ∩({A: (∀A: ∈ infinity1)}),
-
-Mid: ; the mean value of two number, like Mid(0, 1) = 0.5
-(
-	∈ mapping, ; the function with domian and codomain
-	D: = R × R, C: = R,
-	∀x: ∈ R, Mid(x, x): = x
-)
 

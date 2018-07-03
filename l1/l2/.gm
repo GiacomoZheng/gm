@@ -1,7 +1,17 @@
+{…}:
+(
+	∈ bracket,
+)
+
+{…|…}:
+(
+	∈ bracket,
+)
+
 Ps:
 (
 	∈ function,
-	A: ∈ set, Ps(A): = {∀S: ⊆ A},
+	∀A: ∈ set, Ps(A): = {S|∀S: ⊆ A},
 ),
 
 ∪:
@@ -9,7 +19,7 @@ Ps:
 	∈ symbunc,
 
 	∀τ: ∈ set, ; set of set
-	∪(τ): = {x: (∃C: ∈ τ, x ∈ C)},
+	∪(τ): = {x| ∃C: ∈ τ, x ∈ C},
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
 	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B): = ∪({A, B})
@@ -20,9 +30,14 @@ Ps:
 	∈ symbunc,
 
 	∀τ: ∈ set, ; set of set
-	∩(τ): = {x: (∀C: ∈ τ, x ∈ C)},
+	∩(τ): = {x| ∀C: ∈ τ, x ∈ C},
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
 	∀(A ∈ set, B ∈ set) ⇒ (A ∩ B): = ∩({A, B})
-)
+),
 
+×:
+(
+	∈ symbol,
+	∀A: ∈ set, ∀B: ∈ set, (A × B): = {(x, y)| ∀x: ∈ A, ∀y: ∈ B}
+)

@@ -1,4 +1,4 @@
-: ; group, I'll completed the "structure" after learning "ring", "field" 
+: ; group, I'll complete the "structure" after learning "ring", "field" 
 (
 	[" type "]	
 	⊆ structure,
@@ -9,8 +9,8 @@
 	[" axioms "]
 	∀G: ∈ group,
 	∀x: ∈ G.D, ∀y: ∈ G.D, ∀z: ∈ G.D,
-	(x G.* y) ∈ G.D, ; closure
+	x G.* y ∈ G.D, ; closure
 	(x G.* y) G.* z = x G.* (y G.* z), ; association
-	(x G.* G.e) = (G.e G.* x) = x, ; identity
+	x G.* G.e = G.e G.* x = x, ; identity
 	∃x': ∈ G.D, x' G.* x = x G.* x' = G.e ; inverse
 )
