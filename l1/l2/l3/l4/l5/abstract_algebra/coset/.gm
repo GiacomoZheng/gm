@@ -7,6 +7,5 @@
 	g: ∈ G, ; generator
 
 	∀C: ∈ coset,
-	*: = &C.G.*&, ; as C is a varibale, the "*" here is a variable too
-	C = {g * h| ∀h: ∈ H} ; g in the left part
+	C = {g C.G.* h| ∀h: ∈ H} ; g in the left part
 )

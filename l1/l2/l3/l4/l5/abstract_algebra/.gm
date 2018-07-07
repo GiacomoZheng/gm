@@ -1,0 +1,38 @@
+𝒵:
+(
+	∈ group,
+	D: = Z,
+	*: = &+&,
+	e: = 0
+),
+
+×:
+(
+	∀x: ∈ N,
+	(x × 𝒵): = {x × z|∀z: ∈ Z}
+),
+
+≌:
+(
+	∈ relator,
+
+	∀A: ∈ group, ∀B: ∈ group,
+	(A ≌ B): ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ??? undetermined
+),
+
+%subgroup%:
+(
+	∈ relator,
+
+	∀H: ∈ group, ∀G: ∈ group,
+	(H %subgroup% G): ⇔ ∀(H.D ⊆ G.D, &H.*& = &G.*&, H.e = G.e)
+),
+
+/:
+(
+	∈ operator,
+
+	∀G: ∈ group, ∀H: %subgroup% G,
+	*: = &G.*&
+	(G / H): = {{x * h|∀h: ∈ H.D}|∀x: ∈ G.D} ; the set of all the left cosets of H
+)

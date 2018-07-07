@@ -1,0 +1,10 @@
+: ; preordered_set
+(
+	⊆ set,
+
+	≤: ∈ symbol,
+
+	∀S: ∈ preordered_set,
+	∀a: ∈ S, a S.≤ a, ; reflective
+	∀b: ∈ S, ∀c: ∈ S, ∀(a S.≤ b, b S.≤ c) ⇒ a S.≤ c ; transitive
+)

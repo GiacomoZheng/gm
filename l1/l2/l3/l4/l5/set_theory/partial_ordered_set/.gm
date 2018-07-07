@@ -1,0 +1,8 @@
+: ; partial_ordered_set
+(
+	⊆ preordered_set,
+
+	∀S: ∈ ordered_set
+	∀a: ∈ S, ∀b: ∈ S,
+	∀(a S.≤ b, b S.≤ a) ⇒ a = b ; antisymmetric
+)

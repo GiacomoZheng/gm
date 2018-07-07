@@ -1,0 +1,15 @@
+: ; cover
+(
+	[" type "]
+	⊆ set,
+
+	[" data field "]
+	D: ∈ set,
+	; this sentence means, every sample of cover has a set with it, I call it domain,
+	; other names like original set, the whole set showing similar ideas
+
+	[" axioms "]
+	∀𝒞: ∈ cover,
+	∀C: ∈ 𝒞, C ⊆ 𝒞.D, ; every element of the cover should be a subset of the domain of it
+	𝒞.D = ∪(𝒞) ; the union of all the sets in the cover should be the domain
+)

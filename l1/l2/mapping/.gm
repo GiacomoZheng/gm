@@ -1,9 +1,12 @@
-: ; mapping
+: ; mapping, mappings are the functions which has domain and codomain, (the mathematical function indeed)
 (
+	[" type "]
 	⊆ function,
 
+	[" attributions "]
 	D: ∈ set, ; domain
 	C: ∈ set, ; coodomain
-	∀f: ∈ function,
-	f(∀x: ∈ D): ∈ C,
+	
+	[" axioms "]
+	∀f: ∈ function, f(∀x: ∈ D) ∈ C
 )

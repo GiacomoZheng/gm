@@ -1,19 +1,23 @@
 [" 
 	the definition of these
 	' symbols '
+	@		--- locator
+	■		--- terminator
 	 		---	none
 	( )		---	bracket
-	∀ ∃		---	quantifier
+	∀ ∃ !	---	quantifier
 	.		---	operator
 	⇒		---	relator
 	:		---	definer
 	,		---	separator ⊆ operator
 	' others '
+	" "
 	◉
  "]
 
 [" 
 	priority:
+	locator terminator
 	none bracket function
 	quantifier relator
 	operator
