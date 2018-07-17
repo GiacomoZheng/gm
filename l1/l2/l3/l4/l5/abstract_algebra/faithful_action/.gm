@@ -1,0 +1,5 @@
+: ; faithful_action
+(
+	⊆ action,
+	⊆ injection
+)

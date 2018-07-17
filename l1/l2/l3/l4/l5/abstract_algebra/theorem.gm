@@ -1,0 +1,294 @@
+; Theorem: start
+	@giacomo.h.abstract_algebra, ; location
+	∀C: ∈ coset,
+	∃~: ∈ equivalence_relator, &~&.D = C.G.D,
+	∀a: ∈ C.G.D, a ~ b ⇔ C.G.e (C.G.* a)^-1 C.G.* b ∈ C.G ■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	G: ∈ group,
+	∀H: %subgroup% G, ∀K: %subgroup% G,
+	inter:
+	(
+		∈ group,
+
+		D: = H.D ∩ K.D,
+		*: = &G.*&,
+		e: = G.e
+	),
+	inter %subgroup% G ■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀m: ∈ N \ {0}, 𝒵/(m × 𝒵) = {{x + m × z|∀z: ∈ Z}|∀x: ∈ Z}
+	∃𝒴:
+	(
+		∈ group,
+		D: = {y| ∀y: ∈ C, y ^ m = 1},
+		*: = &+&,
+		e: = 1
+	),
+	𝒵/(m × 𝒵) ≌ 𝒴 ■
+; Theorem: end
+
+s"Lagrange Theorem":
+(
+	@giacomo.h.abstract_algebra,
+	G: ∈ group, H: %subgroup% G,
+	|G| ∈ N ⇒ |G|/|H| ∈ Z ■
+),
+; Proof: start
+	; Lemma: start
+		@giacomo.h.abstract_algebra,
+		G: ∈ group, H: %subgroup% G, *: = &G.*&
+		∀x: ∈ G.D, |H| = |x * H| ■
+	; Lemma: end
+	; Proof: start
+		@giacomo.h.abstract_algebra,
+		G: ∈ group, H: %subgroup% G, *: = &G.*&
+		∀x: ∈ G.D,
+		∃φ[x]:
+		(
+			∈ mapping,
+			D: = H, C: = x × H,
+			φ[x](∀h: ∈ H): = x * h
+		),
+		(
+			(
+				∀h: ∈ H, ∀h': ∈ H,
+				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
+			)
+			⇒ φ[x] ∈ injection,
+			(
+				∀y: ∈ φ[x].C,
+				∃h: ∈ H, y = x * h, φ[x](h) = y
+			)
+			⇒ φ[x] ∈ surjection
+		)
+		⇒ φ[x] ∈ bijection
+		⇒ |φ[x].C| = |φ[x]|
+		⇒ |H| = |x * H| ■
+	; Proof: end
+	@giacomo.h.abstract_algebra,
+	G: ∈ group, H: %subgroup% G, *: = &G.*&
+	(∀x: ∈ G.D, G.e ∈ H.D ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
+	|G| ∈ N ⇒
+	(
+		∃m: (∈ N, ≤ |G|),
+		|G| = |∪({x * H|∀x: ∈ G.D})|
+		= |∪({x[n] * H|∀x[∀n: (∈ N, ≤ m)]: ∈ G.D})|
+		= +[∀n: (∈ N, ≤ m)](|x[n] * H|)
+		= |H| × m
+	)■
+; Proof: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ cyclic_group,
+	∀H: %subgroup% G,
+	H ∈ cyclic_group ■
+; Theorem: end
+; Proof: start
+	; @giacomo.h.abstract_algebra,
+	; ∀G: ∈ cyclic_group,
+	; ∀H: %subgroup% G,
+	; ∀(
+	; 	H.D = {G.e} ⇒ H ∈ cyclic_group,
+	; 	!(H.D = {G.e}) ⇒
+	; 	(
+	; 		∃a: ∈ H, !(a = G.e),
+	; 		ex(a): = {G.e (G.* a)^n|∀n: ∈ Z}
+	; 		(
+	; 			ex(a) ⊆ H, ; H is a group
+				
+	; 		)
+	; 	)
+	; )
+; Proof: end
+
+"The converse of \"Lagrange\" when G is cyclic"
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	G: ∈ group, 
+	|G| ∈ N ⇒ (∀d: ∈ N m/d ∈ Z ⇒ (∃H: %subgroup% G, |H| = d))■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀m: (∈ N, > 1), ∀n: (∈ N, > 1),
+	𝒵/(m × 𝒵) × 𝒵/(n × 𝒵) ≌ 𝒵/((m × n) × 𝒵) ⇔ gcd(m, n) = 1■
+; Theorem: end
+
+s"Fundamental Theorem of Finite generated abelian group":
+(
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ finitely_generated_group,
+	G ∈ abelian_group ⇒ (∃m: ∈ N, ∃T: ∈ abelian_group, |T| ∈ N, G ≌ 𝒵^m × T)■
+),
+; Proof
+
+s"Cayley's Theorem":
+(
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∃T: %subgroup% sym(G.D), G ≌ T■
+)
+; similarly
+; Theorem: strat
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∃T: %subgroup% S[|G|], G ≌ T■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀μ: ∈ action, G: = μ.G, stab[μ](∀s: ∈ μ.S) %subgroup% G■
+; Theorem: end
+
+s"Orbit-Stabilizer Theorem":
+(
+	@giacomo.h.abstract_algebra,
+	∀μ: ∈ action, ∀s: ∈ μ.S,
+	|orb[μ](s)| ∈ N ⇒ |G / stab[μ](s)| = |orb[μ](x)|
+	; with the help of "Lagrange Theorem", we get
+	∀(|orb[μ](s)| ∈ N, |μ.G| ∈ N) ⇒ |G| = |stab[μ](s)| × |orb[μ](x)|
+	■
+),
+
+s"Sylow's First Theorem":
+(
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group,
+	|G| ∈ N ⇒
+	(
+		∀p: ∈ prime_number, ∀n: ∈ N, m: = |G|/(p^n),
+		∀(m ∈ N, gcd(m, p) = 1) ⇒
+		(
+			∃H: %subgroup% G, |H| = p^n
+		)
+	)■
+),
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, center(G) %subgroup% G■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀p: ∈ prime_number, ∀n: ∈ N,
+	|G| = p^n ⇒ !(center(G) = {G.e})■
+; Theorem: end
+
+; * About S[n], A[n], D[n]
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀n: ∈ N,
+	S[n] = gp({c(a, b)|∀(a, b): ∈ N^2, a ≤ n, b ≤ n}),
+	A[n] = gp({c(x, y, z)|∀(x, y, z): ∈ N^3, x ≤ n, y ≤ n, z ≤ n}),
+	σ: = D[n].σ, τ: = D[n].τ,
+	D[n] = gp({σ∘τ, τ}) ⇐ σ∘τ ∘ τ = σ,
+	order[D[n]](σ) = n,
+	order[D[n]](τ) = 2,
+	τ∘σ = σ^-1 ∘ τ
+	■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group,
+	G ∈ abelian_group ⇔ (∀H: %subgroup% G, H ∈ normal[G])■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀No: ∈ normal[G],
+	∃H: ∈ group, H.D = G / No, 
+	H.*
+	(
+		∈ symbol, ∀(x, y): ∈ (G / No)^2,
+		(x G.* No) * (y G.* No) = (x * y) G.* No
+	)■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀No: ∈ normal[G],
+	∀H: %subgroup% G, No.D ⊆ H.D ⇒ No ∈ normal[H]■
+; Theorem: end
+
+s"First Isomorphism Theorem": ; !
+(
+	∀f: ∈ homomorphism, ∃F: ∈ isomorphism,
+	F.DG = f.DG/ker(f), F.CG = Range(f),
+	∀x: ∈ f.D, F(x G.* ker(f)) = f(x),
+	; what's more
+	|G.D| = |ker(f)| × |Range(f)|
+),
+
+s"Second Isomorphism Theorem":
+(
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀H: %subgroup% G, ∀No: ∈ normal[G],
+	(H ∩ No) ∈ normal[G], H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
+),
+
+[" 
+ 	Let G be a group, and N a normal subgroup of G. Then
+
+	1.	If K is a subgroup of G such that  N ⊆ K ⊆ G, then K/N is a subgroup of G/N.
+	2.	Every subgroup of G/N is of the form K/N, for some subgroup K of G such that  N ⊆ K ⊆ G.
+	3.	If K is a normal subgroup of G such that  N ⊆ K ⊆ G, then K/N is a normal subgroup of G/N.
+	4.	Every normal subgroup of G/N is of the form K/N, for some normal subgroup K of G such that  N ⊆ K ⊆ G.
+	5.	If K is a normal subgroup of G such that  N ⊆ K ⊆ G, then the quotient group (G/N)/(K/N) is isomorphic to G/K.
+ "]
+s"Third Isomorphism Theorem":
+(
+	@giacomo.h.abstract_algebra,
+	∀No: ∈ normal[G], D: = {H|∀H: %subgroup% G, No.D ⊆ H.D}, C: = {∀J: %subgroup% G/No},
+	∃φ: ∈ bijection, φ.D = D, φ.C = C,
+	∀H: ∈ D, φ(H) = H / No■
+
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀No: ∈ normal[G], ∀H: %subgroup% G,
+	No.D ⊆ H.D ⇒
+	(H / No ⊆ G / No ⇔ H ∈ normal[G])■
+
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀No: ∈ normal[G], ∀H: (%subgroup% G, No.D ⊆ H.D),
+	H ∈ normal[G] ⇒ (G/N)/(H/N) ≌ G/H■ ; ! I'm sorry, it should be group here
+)
+
+; Theorem: start
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&, e: = G.e,
+	∀(H.D ∩ K.D = {e}, H * K = G) ⇒ H × K ≌ G■
+; Theorem: end
+; Proof: start
+	; Lemma: start
+		@giacomo.h.abstract_algebra,
+		∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&, e: = G.e,
+		H.D ∩ K.D = {e} ⇒ (∀h: ∈ H.D, ∀k: ∈ K.D, h * k = k * h)■
+	; Lemma: end
+	; Proof: start
+		@giacomo.h.abstract_algebra,
+		∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&,
+		H.D ∩ K.D = {e} ⇒
+		(
+			∀h: ∈ H.D, ∀k: ∈ K.D,
+			(
+				∃h': ∈ H, k * h * k^-1 * h^-1 = (k * h * k^-1) * h^-1 = h' * h^-1 ∈ H,
+				∃k': ∈ K, k * h * k^-1 * h^-1 = k * (h * k^-1 * h^-1) = k * k' ∈ K
+			)
+			⇒ k * h * k^-1 * h^-1 ∈ H ∩ K = {e} ⇒ h * k = k * h
+		)■
+	; Proof: end
+	@giacomo.h.abstract_algebra,
+	∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&, e: = G.e,
+	∃φ: ∈ mapping, φ.DG = H × K, φ.CG = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
+	φ ∈ homomorphism ⇐
+	(
+		∀(h1, h2): ∈ H.D^2, ∀(k1, k2): ∈ K.D^2,
+		φ(h1 * h2, k1 * k2) = h1 * h2 * k1 * k2 = h1 * k1 * h2 * k2
+	)
+; Proof: end

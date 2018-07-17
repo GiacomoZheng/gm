@@ -1,0 +1,8 @@
+: ; simple_group
+(
+	⊆ group,
+
+	∀G: ∈ simple_group,
+	
+	{tri(G), G} = normal[G]
+)

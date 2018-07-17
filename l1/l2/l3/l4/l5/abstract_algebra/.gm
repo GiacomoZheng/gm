@@ -6,18 +6,12 @@
 	e: = 0
 ),
 
-×:
-(
-	∀x: ∈ N,
-	(x × 𝒵): = {x × z|∀z: ∈ Z}
-),
-
 ≌:
 (
 	∈ relator,
 
 	∀A: ∈ group, ∀B: ∈ group,
-	(A ≌ B): ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ??? undetermined
+	(A ≌ B): ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
 ),
 
 %subgroup%:
@@ -28,6 +22,14 @@
 	(H %subgroup% G): ⇔ ∀(H.D ⊆ G.D, &H.*& = &G.*&, H.e = G.e)
 ),
 
+tri(∀G: ∈ group): ; the trivial subgroup of G
+(
+	∈ group,
+	D: = {G.e},
+	*: = &G.*&,
+	e: = G.e
+),
+
 /:
 (
 	∈ operator,
@@ -36,3 +38,114 @@
 	*: = &G.*&
 	(G / H): = {{x * h|∀h: ∈ H.D}|∀x: ∈ G.D} ; the set of all the left cosets of H
 )
+
+order[∀G: ∈ group](∀x: ∈ G):
+(
+	D: = {m|∀m: ∈ N, G.e (G.* x)^m = G.e}
+	!(D = ∅) ⇒ = inf(D)
+)
+; the domian of inf function do not contains ∅. If so, the error will occur
+
+×:
+(
+	∈ operator,
+	(∀x: ∈ N, (x × 𝒵): = {x × z|∀z: ∈ Z}),
+	(
+		[" direct product "]
+		∀A: ∈ group, ∀B: ∈ group,
+		(A × B):
+		(
+			∈ group,
+			D: = A.D × B.D,
+			*:
+			(
+				∈ operator,
+				∀(x1, y1): ∈ D, ∀(x2, y2): ∈ D, ((x1, y2) * (x2, y2)): = (x1 A.* x2, x2 B.* y2) 
+			),
+			e: = (A.e, B.e)
+		)
+	)
+),
+
+gcd(∀m: ∈ N, ∀n: ∈ N): = sup({m / k, n / k|∀k: ∈ N} ∩ N),
+lcm(∀m: ∈ N, ∀n: ∈ N): = inf({m × k, n × k|∀k: ∈ N})
+
+prime_number: = {n|∀n: ∈ N, gcd(n, 1) = n}
+
+gp[∀*: ∈ operator](∀S: ∈ set):
+(
+	[" if no error happens "]
+	∈ group,
+	D: = {x ^ m * y ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
+	*: = &*&,
+	e: ...
+),
+
+
+sym(∀S: ∈ set):
+(
+	∈ group,
+	D: = {f|∀f: ∈ permutation, f.D = S}, ; N here don't contains 0
+	*: = &∘&,
+	e:
+	(
+		∈ permutation,
+		D: = S,
+		e(∀x: ∈ D): = x
+	)
+)
+
+S[∀n: ∈ N]:
+(
+	D: = {m|∀m: ∈ N, m ≤ n},
+	= sym(D)
+),
+
+c(∀a: ∈ sequence):
+(
+	∈ circle,
+	Length: = a.cardinal,
+	
+),
+
+orb[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g, s)|∀g: ∈ G},
+stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = g},
+
+(a) Let G be a group and g 2 G. Prove that Z(a) := {g 2 G : ga = ag} is a subgroup of G (this is called the centralizer of a).
+(b) Prove that Z(G) := {x 2 G : xa = ax 8a 2 G} is a subgroup of G (this is called the center of G). [You may use (a) or do it directly]
+
+centralizer[∀G: ∈ group](∀a: ∈ G.D): = {g|∀g: ∈ G, a G.* g = g G.* a},
+center(∀G: ∈ group): = ∩[∀a: ∈ G.D]({centralizer[G](a)}),
+
+A[∀n: ∈ N]: ; alternating group
+(
+	∈ group,
+	D: = {f|∀f: ∈ S[n], f ∈ even_func},
+	*: = &S[n].*&
+	e: = S[n].e
+),
+
+D[∀n: ∈ N]: ; Dihedral group
+(
+	a[∀m: (∈ N, ≤ n)]: = m,
+	σ: = c(a),
+	b[∀m: (∈ N, ≤ n / 2)]: = c(m, 2 + n - m)
+	B[0]: i,
+	B[∀m: (∈ N, ≤ n / 2)]: = B[m - 1] ∘ b[m],
+	τ: = B[sup({∀m: (∈ N, ≤ n / 2)})],
+	= gp({σ, τ})
+),
+
+normal[∀G: ∈ group]:
+(
+	⊆ ◉,
+
+	*: = &G.*&
+
+	∀Nor: ∈ normal[G],
+	Nor %subgroup% G,
+	∀h: ∈ Nor, ∀g: ∈ G, g*h*g^-1 ∈ Nor
+),
+
+
+ker(∀f: ∈ homomorphism): = {x|∀x: ∈ f.D, f(x) = f.CG.e}

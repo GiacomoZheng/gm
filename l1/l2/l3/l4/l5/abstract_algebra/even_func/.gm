@@ -1,0 +1,11 @@
+: ; even_func
+(
+	⊆ function,
+
+	∀f: ∈ even_func,
+	∃m: ∈ N, m / 2 ∈ Z,
+	∃a[∀n: (∈ N, ≤ m)]: ∈ transposition,
+	t[0]: = i,
+	t[∀n: (∈ N, ≤ m)]: = t[n - 1] ∘ a[n],
+	f = t[n]
+)

@@ -1,0 +1,7 @@
+: ; random_space
+(
+	⊆ set,
+	
+	; f(∀r: ∈ R): ∈ {}
+	∀X: ∈ random_space, 
+)

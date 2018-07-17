@@ -6,11 +6,24 @@
         {
             "label": "tree",
             "type": "shell",
-            "command": "Set-Location C:\\Users\\admin\\Documents\\GitHub\\giacomo; tree > tree",
+            "command": "Set-Location C:\\Users\\admin\\Documents\\GitHub\\giacomo; tree > giacomo.pstree",
             "group": "build",
             "presentation": {
                 // Reveal the output only if unrecognized errors occur.
-                "reveal": "always"
+                "reveal": "silent"
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "update-grammar",
+            "type": "shell",
+            "command": /* "cd C:\\Users\\admin\\.vscode\\extensions; rm -r -Force vscode-gm; cp -r -Force C:\\Users\\admin\\Documents\\GitHub\\vscode-gm; cd vscode-gm; rm -r -Force .git; rm -r -Force plug-ins", */
+            "cd C:\\Users\\admin\\Documents\\GitHub\\vscode-gm; cp -r -Force snippets C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force syntaxes C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force language-configuration C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force package.json C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force CHANGELOG.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force README.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm;",
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
             },
             // Use the standard MS compiler pattern to detect errors, warnings and infos
             "problemMatcher": "$msCompile"

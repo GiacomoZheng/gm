@@ -10,11 +10,9 @@
 
 ∅: = {},
 
-Ps:
-(
-	∈ function,
-	∀A: ∈ set, Ps(A): = {S|∀S: ⊆ A},
-),
+Ps(∀A: ∈ set): = {S|∀S: ⊆ A},
+
+Range(∀f: ∈ mapping): = {f(x)|∀x: ∈ f.D}
 
 ∪:
 (

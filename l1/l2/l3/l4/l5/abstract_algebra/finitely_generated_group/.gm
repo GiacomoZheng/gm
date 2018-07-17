@@ -1,0 +1,7 @@
+: ; finitely_generated_group
+(
+	⊆ group,
+	
+	∀G: ∈ finitely_generated_group,
+	∃S: ⊆ G.D, |S| ∈ N, gp(S) = G.D
+)
