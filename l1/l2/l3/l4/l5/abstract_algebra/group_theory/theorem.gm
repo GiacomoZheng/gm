@@ -1,8 +1,8 @@
 ; Theorem: start
 	@giacomo.h.abstract_algebra, ; location
 	∀C: ∈ coset,
-	∃~: ∈ equivalence_relator, &~&.D = C.G.D,
-	∀a: ∈ C.G.D, a ~ b ⇔ C.G.e (C.G.* a)^-1 C.G.* b ∈ C.G ■
+	∃~: ∈ equivalence_relator, &~&.D = C.G,
+	∀a: ∈ C.G, a ~ b ⇔ C.G.e (C.G.* a)^-1 C.G.* b ∈ C.G ■
 ; Theorem: end
 
 ; Theorem: start
@@ -13,7 +13,7 @@
 	(
 		∈ group,
 
-		D: = H.D ∩ K.D,
+		D: = H ∩ K.D,
 		*: = &G.*&,
 		e: = G.e
 	),
@@ -43,12 +43,12 @@ s"Lagrange Theorem":
 	; Lemma: start
 		@giacomo.h.abstract_algebra,
 		G: ∈ group, H: %subgroup% G, *: = &G.*&
-		∀x: ∈ G.D, |H| = |x * H| ■
+		∀x: ∈ G, |H| = |x * H| ■
 	; Lemma: end
 	; Proof: start
 		@giacomo.h.abstract_algebra,
 		G: ∈ group, H: %subgroup% G, *: = &G.*&
-		∀x: ∈ G.D,
+		∀x: ∈ G,
 		∃φ[x]:
 		(
 			∈ mapping,
@@ -73,12 +73,12 @@ s"Lagrange Theorem":
 	; Proof: end
 	@giacomo.h.abstract_algebra,
 	G: ∈ group, H: %subgroup% G, *: = &G.*&
-	(∀x: ∈ G.D, G.e ∈ H.D ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
+	(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
 	|G| ∈ N ⇒
 	(
 		∃m: (∈ N, ≤ |G|),
-		|G| = |∪({x * H|∀x: ∈ G.D})|
-		= |∪({x[n] * H|∀x[∀n: (∈ N, ≤ m)]: ∈ G.D})|
+		|G| = |∪({x * H|∀x: ∈ G})|
+		= |∪({x[n] * H|∀x[∀n: (∈ N, ≤ m)]: ∈ G})|
 		= +[∀n: (∈ N, ≤ m)](|x[n] * H|)
 		= |H| × m
 	)■
@@ -95,8 +95,8 @@ s"Lagrange Theorem":
 	; ∀G: ∈ cyclic_group,
 	; ∀H: %subgroup% G,
 	; ∀(
-	; 	H.D = {G.e} ⇒ H ∈ cyclic_group,
-	; 	!(H.D = {G.e}) ⇒
+	; 	H = {G.e} ⇒ H ∈ cyclic_group,
+	; 	!(H = {G.e}) ⇒
 	; 	(
 	; 		∃a: ∈ H, !(a = G.e),
 	; 		ex(a): = {G.e (G.* a)^n|∀n: ∈ Z}
@@ -132,7 +132,7 @@ s"Fundamental Theorem of Finite generated abelian group":
 s"Cayley's Theorem":
 (
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∃T: %subgroup% sym(G.D), G ≌ T■
+	∀G: ∈ group, ∃T: %subgroup% sym(G), G ≌ T■
 )
 ; similarly
 ; Theorem: strat
@@ -197,13 +197,13 @@ s"Sylow's First Theorem":
 ; Theorem: start
 	@giacomo.h.abstract_algebra,
 	∀G: ∈ group,
-	G ∈ abelian_group ⇔ (∀H: %subgroup% G, H ∈ normal[G])■
+	G ∈ abelian_group ⇔ (∀H: %subgroup% G, H ∈ normal(G))■
 ; Theorem: end
 
 ; Theorem: start
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀No: ∈ normal[G],
-	∃H: ∈ group, H.D = G / No, 
+	∀G: ∈ group, ∀No: ∈ normal(G),
+	∃H: ∈ group, H = G / No, 
 	H.*
 	(
 		∈ symbol, ∀(x, y): ∈ (G / No)^2,
@@ -213,24 +213,24 @@ s"Sylow's First Theorem":
 
 ; Theorem: start
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀No: ∈ normal[G],
-	∀H: %subgroup% G, No.D ⊆ H.D ⇒ No ∈ normal[H]■
+	∀G: ∈ group, ∀No: ∈ normal(G),
+	∀H: %subgroup% G, No.D ⊆ H ⇒ No ∈ normal(H)■
 ; Theorem: end
 
 s"First Isomorphism Theorem": ; !
 (
 	∀f: ∈ homomorphism, ∃F: ∈ isomorphism,
-	F.DG = f.DG/ker(f), F.CG = Range(f),
+	F.D = f.D/ker(f), F.C = Range(f),
 	∀x: ∈ f.D, F(x G.* ker(f)) = f(x),
 	; what's more
-	|G.D| = |ker(f)| × |Range(f)|
+	|G| = |ker(f)| × |Range(f)|
 ),
 
 s"Second Isomorphism Theorem":
 (
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀H: %subgroup% G, ∀No: ∈ normal[G],
-	(H ∩ No) ∈ normal[G], H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
+	∀G: ∈ group, ∀H: %subgroup% G, ∀No: ∈ normal(G),
+	(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
 ),
 
 [" 
@@ -245,37 +245,37 @@ s"Second Isomorphism Theorem":
 s"Third Isomorphism Theorem":
 (
 	@giacomo.h.abstract_algebra,
-	∀No: ∈ normal[G], D: = {H|∀H: %subgroup% G, No.D ⊆ H.D}, C: = {∀J: %subgroup% G/No},
+	∀No: ∈ normal(G), D: = {H|∀H: %subgroup% G, No.D ⊆ H}, C: = {∀J: %subgroup% G/No},
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
 	∀H: ∈ D, φ(H) = H / No■
 
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀No: ∈ normal[G], ∀H: %subgroup% G,
-	No.D ⊆ H.D ⇒
-	(H / No ⊆ G / No ⇔ H ∈ normal[G])■
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: %subgroup% G,
+	No.D ⊆ H ⇒
+	(H / No ⊆ G / No ⇔ H ∈ normal(G))■
 
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀No: ∈ normal[G], ∀H: (%subgroup% G, No.D ⊆ H.D),
-	H ∈ normal[G] ⇒ (G/N)/(H/N) ≌ G/H■ ; ! I'm sorry, it should be group here
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (%subgroup% G, No.D ⊆ H),
+	H ∈ normal(G) ⇒ (G/N)/(H/N) ≌ G/H■ ; ! I'm sorry, it should be group here
 )
 
 ; Theorem: start
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&, e: = G.e,
-	∀(H.D ∩ K.D = {e}, H * K = G) ⇒ H × K ≌ G■
+	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
+	∀(H ∩ K.D = {e}, H * K = G) ⇒ H × K ≌ G■
 ; Theorem: end
 ; Proof: start
 	; Lemma: start
 		@giacomo.h.abstract_algebra,
-		∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&, e: = G.e,
-		H.D ∩ K.D = {e} ⇒ (∀h: ∈ H.D, ∀k: ∈ K.D, h * k = k * h)■
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
+		H ∩ K.D = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K.D, h * k = k * h)■
 	; Lemma: end
 	; Proof: start
 		@giacomo.h.abstract_algebra,
-		∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&,
-		H.D ∩ K.D = {e} ⇒
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&,
+		H ∩ K.D = {e} ⇒
 		(
-			∀h: ∈ H.D, ∀k: ∈ K.D,
+			∀h: ∈ H, ∀k: ∈ K.D,
 			(
 				∃h': ∈ H, k * h * k^-1 * h^-1 = (k * h * k^-1) * h^-1 = h' * h^-1 ∈ H,
 				∃k': ∈ K, k * h * k^-1 * h^-1 = k * (h * k^-1 * h^-1) = k * k' ∈ K
@@ -284,11 +284,11 @@ s"Third Isomorphism Theorem":
 		)■
 	; Proof: end
 	@giacomo.h.abstract_algebra,
-	∀G: ∈ group, ∀H: ∈ normal[G], ∀K: ∈ normal[G], *: = &G.*&, e: = G.e,
-	∃φ: ∈ mapping, φ.DG = H × K, φ.CG = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
+	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
+	∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
 	φ ∈ homomorphism ⇐
 	(
-		∀(h1, h2): ∈ H.D^2, ∀(k1, k2): ∈ K.D^2,
+		∀(h1, h2): ∈ H^2, ∀(k1, k2): ∈ K.D^2,
 		φ(h1 * h2, k1 * k2) = h1 * h2 * k1 * k2 = h1 * k1 * h2 * k2
 	)
 ; Proof: end

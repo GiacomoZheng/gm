@@ -24,3 +24,17 @@
 	definer
 	separator  
  "]
+
+⇒:
+(
+	∈ relator, ; a sample of symbol
+	∀A: ∈ statement,
+	∀B: ∈ statement,
+	B ⇒ (A ⇒ B),
+	(∀C: ∈ statement, A ⇒ (B ⇒ C)) ⇒ ((A ⇒ B) ⇒ (A ⇒ C),
+)
+A ⇒ (B ⇒ A),
+(!(A) ⇒ !(B)) ⇒ (B ⇒ A),
+
+
+!(A) ⇒ (A ⇒ B),

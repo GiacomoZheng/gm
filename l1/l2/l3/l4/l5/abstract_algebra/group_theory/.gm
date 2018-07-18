@@ -19,7 +19,7 @@
 	∈ relator,
 
 	∀H: ∈ group, ∀G: ∈ group,
-	(H %subgroup% G): ⇔ ∀(H.D ⊆ G.D, &H.*& = &G.*&, H.e = G.e)
+	(H %subgroup% G): ⇔ ∀(H ⊆ G, &H.*& = &G.*&, H.e = G.e)
 ),
 
 tri(∀G: ∈ group): ; the trivial subgroup of G
@@ -36,7 +36,7 @@ tri(∀G: ∈ group): ; the trivial subgroup of G
 
 	∀G: ∈ group, ∀H: %subgroup% G,
 	*: = &G.*&
-	(G / H): = {{x * h|∀h: ∈ H.D}|∀x: ∈ G.D} ; the set of all the left cosets of H
+	(G / H): = {{x * h|∀h: ∈ H}|∀x: ∈ G} ; the set of all the left cosets of H
 )
 
 order[∀G: ∈ group](∀x: ∈ G):
@@ -114,8 +114,8 @@ stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = g},
 (a) Let G be a group and g 2 G. Prove that Z(a) := {g 2 G : ga = ag} is a subgroup of G (this is called the centralizer of a).
 (b) Prove that Z(G) := {x 2 G : xa = ax 8a 2 G} is a subgroup of G (this is called the center of G). [You may use (a) or do it directly]
 
-centralizer[∀G: ∈ group](∀a: ∈ G.D): = {g|∀g: ∈ G, a G.* g = g G.* a},
-center(∀G: ∈ group): = ∩[∀a: ∈ G.D]({centralizer[G](a)}),
+centralizer[∀G: ∈ group](∀a: ∈ G): = {g|∀g: ∈ G, a G.* g = g G.* a},
+center(∀G: ∈ group): = ∩[∀a: ∈ G]({centralizer[G](a)}),
 
 A[∀n: ∈ N]: ; alternating group
 (
@@ -136,16 +136,16 @@ D[∀n: ∈ N]: ; Dihedral group
 	= gp({σ, τ})
 ),
 
-normal[∀G: ∈ group]:
+normal(∀G: ∈ group):
 (
 	⊆ ◉,
 
 	*: = &G.*&
 
-	∀Nor: ∈ normal[G],
+	∀Nor: ∈ normal(G),
 	Nor %subgroup% G,
 	∀h: ∈ Nor, ∀g: ∈ G, g*h*g^-1 ∈ Nor
 ),
 
 
-ker(∀f: ∈ homomorphism): = {x|∀x: ∈ f.D, f(x) = f.CG.e}
+ker(∀f: ∈ homomorphism): = {x|∀x: ∈ f.D, f(x) = f.C.e}

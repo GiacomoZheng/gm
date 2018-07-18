@@ -3,5 +3,5 @@
 	⊆ group,
 	
 	∀G: ∈ finitely_generated_group,
-	∃S: ⊆ G.D, |S| ∈ N, gp(S) = G.D
+	∃S: ⊆ G, |S| ∈ N, gp(S) = G
 )

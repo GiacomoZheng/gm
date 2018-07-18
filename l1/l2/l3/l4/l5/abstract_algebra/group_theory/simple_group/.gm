@@ -4,5 +4,5 @@
 
 	∀G: ∈ simple_group,
 	
-	{tri(G), G} = normal[G]
+	{tri(G), G} = normal(G)
 )

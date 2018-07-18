@@ -1,0 +1,7 @@
+: ; transposition
+(
+	⊆ cycle,
+
+	∀C: ∈ transposition,
+	C.Length = 2
+)

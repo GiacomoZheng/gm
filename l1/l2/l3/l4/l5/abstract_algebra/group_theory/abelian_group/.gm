@@ -3,6 +3,6 @@
 	⊆ group,
 
 	∀G: ∈ abelain_group,
-	∀a: ∈ G.D, ∀b: ∈ G.D,
+	∀a: ∈ G, ∀b: ∈ G,
 	a G.* b = b G.* a ; commutation
 )
