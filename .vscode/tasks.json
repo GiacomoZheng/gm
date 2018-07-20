@@ -6,7 +6,7 @@
         {
             "label": "tree",
             "type": "shell",
-            "command": "Set-Location C:\\Users\\admin\\Documents\\GitHub\\giacomo; tree > giacomo.pstree",
+            "command": "Set-Location C:\\Users\\admin\\Documents\\GitHub\\giacomo; tree > .pstree",
             "group": "build",
             "presentation": {
                 // Reveal the output only if unrecognized errors occur.

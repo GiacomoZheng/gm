@@ -1,0 +1,12 @@
+maximal(∀P: ∈ poset): ; diiferent from the biggest one
+(
+	⊆ ◉,
+
+	∀x: ∈ maximal(G),
+	!y: ∈ G, !(x = y) ⇒ x G.≤ y
+	[" equivalence to
+	```
+	∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
+	```
+	 "]
+)

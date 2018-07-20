@@ -11,7 +11,7 @@
 	∈ relator,
 
 	∀A: ∈ group, ∀B: ∈ group,
-	(A ≌ B): ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
+	(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
 ),
 
 %subgroup%:
@@ -19,15 +19,7 @@
 	∈ relator,
 
 	∀H: ∈ group, ∀G: ∈ group,
-	(H %subgroup% G): ⇔ ∀(H ⊆ G, &H.*& = &G.*&, H.e = G.e)
-),
-
-tri(∀G: ∈ group): ; the trivial subgroup of G
-(
-	∈ group,
-	D: = {G.e},
-	*: = &G.*&,
-	e: = G.e
+	(H %subgroup% G) ⇔ ∀(H ⊆ G, &H.*& = &G.*&, H.e = G.e)
 ),
 
 /:
@@ -109,10 +101,7 @@ c(∀a: ∈ sequence):
 ),
 
 orb[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g, s)|∀g: ∈ G},
-stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = g},
-
-(a) Let G be a group and g 2 G. Prove that Z(a) := {g 2 G : ga = ag} is a subgroup of G (this is called the centralizer of a).
-(b) Prove that Z(G) := {x 2 G : xa = ax 8a 2 G} is a subgroup of G (this is called the center of G). [You may use (a) or do it directly]
+stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = s},
 
 centralizer[∀G: ∈ group](∀a: ∈ G): = {g|∀g: ∈ G, a G.* g = g G.* a},
 center(∀G: ∈ group): = ∩[∀a: ∈ G]({centralizer[G](a)}),
