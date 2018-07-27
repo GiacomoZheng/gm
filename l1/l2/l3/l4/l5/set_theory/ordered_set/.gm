@@ -6,4 +6,4 @@
 	∀a: ∈ S, ∀b: ∈ S,
 	[" all the elements are comparable "]
 	!(a S.≤ b) ⇔ b S.≤ a ; closure
-)
+),

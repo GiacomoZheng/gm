@@ -6,4 +6,4 @@
 	∀a: ∈ S, ∀b: ∈ S,
 	[" not all the elements are comparable "]
 	∀(a S.≤ b, b S.≤ a) ⇒ a = b ; antisymmetric
-)
+),

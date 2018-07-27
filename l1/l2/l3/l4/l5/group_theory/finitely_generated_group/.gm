@@ -4,4 +4,4 @@
 	
 	∀G: ∈ finitely_generated_group,
 	∃S: ⊆ G, |S| ∈ N, gp(S) = G
-)
+),

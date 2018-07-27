@@ -8,4 +8,4 @@
 	f(f.a[∀n: (∈ N, < f.Length)]) = f.a[n + 1]
 	f(f.a[Length]) = f.a[1],
 	f(∀x: ∈ ◉): = x ; anything else
-)
+),

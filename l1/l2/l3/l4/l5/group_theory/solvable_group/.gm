@@ -1,0 +1,8 @@
+: ; solvable_group
+(
+	⊆ finite_group,
+
+	∀G: ∈ solvable_group,
+	∃A: ∈ composition_series(G)
+	∀S: ∈ A, S ∈ abelian_group
+),

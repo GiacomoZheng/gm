@@ -9,4 +9,4 @@ maximal(∀P: ∈ poset): ; diiferent from the biggest one
 	∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
 	```
 	 "]
-)
+),

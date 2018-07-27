@@ -5,4 +5,4 @@
 	∀G: ∈ abelain_group,
 	∀a: ∈ G, ∀b: ∈ G,
 	a G.* b = b G.* a ; commutation
-)
+),

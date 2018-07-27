@@ -22,7 +22,7 @@
 
 ; Theorem: start
 	@giacomo.h.group_theory,
-	∀m: ∈ N \ {0}, 𝒵/(m × 𝒵) = {{x + m × z|∀z: ∈ Z}|∀x: ∈ Z}
+	∀m: ∈ N \ {0}, Z/(m × Z) = {{x + m × z|∀z: ∈ Z}|∀x: ∈ Z}
 	∃𝒴:
 	(
 		∈ group,
@@ -30,7 +30,7 @@
 		*: = &+&,
 		e: = 1
 	),
-	𝒵/(m × 𝒵) ≌ 𝒴 ■
+	Z/(m × Z) ≌ 𝒴 ■
 ; Theorem: end
 
 s"Lagrange Theorem":
@@ -118,14 +118,14 @@ s"Lagrange Theorem":
 ; Theorem: start
 	@giacomo.h.group_theory,
 	∀m: (∈ N, > 1), ∀n: (∈ N, > 1),
-	𝒵/(m × 𝒵) × 𝒵/(n × 𝒵) ≌ 𝒵/((m × n) × 𝒵) ⇔ gcd(m, n) = 1■
+	Z/(m × Z) × Z/(n × Z) ≌ Z/((m × n) × Z) ⇔ gcd(m, n) = 1■
 ; Theorem: end
 
 s"Fundamental Theorem of Finite generated abelian group":
 (
 	@giacomo.h.group_theory,
 	∀G: ∈ finitely_generated_group,
-	G ∈ abelian_group ⇒ (∃m: ∈ N, ∃T: ∈ abelian_group, |T| ∈ N, G ≌ 𝒵^m × T)■
+	G ∈ abelian_group ⇒ (∃m: ∈ N, ∃T: ∈ abelian_group, |T| ∈ N, G ≌ Z^m × T)■
 ),
 ; Proof
 
@@ -133,7 +133,7 @@ s"Cayley's Theorem":
 (
 	@giacomo.h.group_theory,
 	∀G: ∈ group, ∃T: %subgroup% sym(G), G ≌ T■
-)
+),
 ; similarly
 ; Theorem: strat
 	@giacomo.h.group_theory,
@@ -257,7 +257,7 @@ s"Third Isomorphism Theorem":
 	@giacomo.h.group_theory,
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (%subgroup% G, No ⊆ H),
 	H ∈ normal(G) ⇒ (G/N)/(H/N) ≌ G/H■
-)
+),
 
 ; Theorem: start
 	@giacomo.h.group_theory,
@@ -321,7 +321,43 @@ s"Third Isomorphism Theorem":
 	H ∩ K = {e} ⇒
 	(
 		∃f: ∈ homomorphism, f.D = H × K, f.C = G, f ∈ injection
-	)
+	)■
 ; Theorem: end
 
+; Theorem: start
+	@giacomo.h.group_theory,
+	∀G: ∈ group,
+	∀S: ∈ conjugate(G), {G.e} ∈ S■
+; Theorem: end
 
+; Theorem: start
+	@giacomo.h.group_theory,
+	∀G: ∈ group,
+	∀H: ∈ normal(G),
+	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪(τ)■
+; Theorem: end
+
+; Theorem: start
+	@giacomo.h.group_theory,
+	∀G: ∈ group,
+	∀H: ∈ normal(G),
+	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪(τ)■
+; Theorem: end
+
+p"Jordon-Holder Theorem":
+(
+	@giacomo.h.group_theory,
+	∀G: ∈ finite_group,
+	∀A: ∈ composition_series(G),
+	∀B: ∈ composition_series(G),
+	|A| = |B|
+	∃f: ∈ bijection, f.D = A, f.C = B, ∀S: ∈ A, A ≌ f(A)■
+)
+
+; Theorem: start
+	@giacomo.h.group_theory,
+	A[5] ∈ solvable_group,
+	S[∀n: ∈ {3, 4}] ∈ solvable_group,
+	!(S[∀n: (∈ N, n ≥ 5)] ∈ solvable_group)
+	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group■
+; Theorem: end

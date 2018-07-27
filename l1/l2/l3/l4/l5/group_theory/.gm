@@ -1,11 +1,3 @@
-𝒵:
-(
-	∈ group,
-	D: = Z,
-	*: = &+&,
-	e: = 0
-),
-
 ≌:
 (
 	∈ relator,
@@ -29,33 +21,29 @@
 	∀G: ∈ group, ∀H: %subgroup% G,
 	*: = &G.*&
 	(G / H): = {{x * h|∀h: ∈ H}|∀x: ∈ G} ; the set of all the left cosets of H
-)
+),
 
 order[∀G: ∈ group](∀x: ∈ G):
 (
 	D: = {m|∀m: ∈ N, G.e (G.* x)^m = G.e}
 	!(D = ∅) ⇒ = inf(D)
-)
+),
 ; the domian of inf function do not contains ∅. If so, the error will occur
 
 ×:
 (
-	∈ operator,
-	(∀x: ∈ N, (x × 𝒵): = {x × z|∀z: ∈ Z}),
+	[" direct product "]
+	∀A: ∈ group, ∀B: ∈ group,
+	(A × B):
 	(
-		[" direct product "]
-		∀A: ∈ group, ∀B: ∈ group,
-		(A × B):
+		∈ group,
+		D: = A.D × B.D,
+		*:
 		(
-			∈ group,
-			D: = A.D × B.D,
-			*:
-			(
-				∈ operator,
-				∀(x1, y1): ∈ D, ∀(x2, y2): ∈ D, ((x1, y2) * (x2, y2)): = (x1 A.* x2, x2 B.* y2) 
-			),
-			e: = (A.e, B.e)
-		)
+			∈ operator,
+			∀(x1, y1): ∈ D, ∀(x2, y2): ∈ D, ((x1, y2) * (x2, y2)): = (x1 A.* x2, x2 B.* y2) 
+		),
+		e: = (A.e, B.e)
 	)
 ),
 
@@ -85,7 +73,7 @@ sym(∀S: ∈ set):
 		D: = S,
 		e(∀x: ∈ D): = x
 	)
-)
+),
 
 S[∀n: ∈ N]:
 (
@@ -137,4 +125,30 @@ normal(∀G: ∈ group):
 ),
 
 
-ker(∀f: ∈ homomorphism): = {x|∀x: ∈ f.D, f(x) = f.C.e}
+ker(∀f: ∈ homomorphism): = {x|∀x: ∈ f.D, f(x) = f.C.e},
+
+conjugate(∀G: ∈ group):
+(
+	⊆ ◉,
+
+	*: = &G.*&
+
+	∀S: ∈ conjugate(G),
+	∀h: ∈ S, S = {g*h*g^-1|∀g: ∈ G}
+),
+
+composition_series(∀G: ∈ finite_group): ; !
+(
+	⊆ set,
+
+	Length: ∈ N,
+
+	∀C: ∈ composition_series(G),
+	H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]: ⊆ G,
+	H[0] = {G.e}, H[C.Length] = G,
+	∀n: ∈ {m|∀m: ∈ N, 0 ≤ m < C.Length},
+	H[n] ∈ normal(H[n + 1]),
+	H[n + 1] / H[n] ∈ simple_group,
+	C = {H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]}
+),
+

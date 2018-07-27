@@ -12,4 +12,4 @@
 	(x G.* y) G.* z = x G.* (y G.* z), ; association
 	G.e ∈ G, x G.* G.e = G.e G.* x = x, ; identity
 	∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
-)
+),

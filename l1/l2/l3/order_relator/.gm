@@ -5,4 +5,4 @@
 	∀𝓅: ∈ order_relator,
 
 	∀a: ∈ &𝓅&.D, ∀b: ∈ &𝓅&.D, !(a 𝓅 b) ⇒ (b 𝓅 a) ; antisymmtric
-)
+),

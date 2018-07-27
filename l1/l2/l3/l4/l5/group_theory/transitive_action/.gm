@@ -4,4 +4,4 @@
 
 	∀μ: ∈ transitive_action,
 	orb[μ](∀x: ∈ μ.S) = μ.S
-)
+),

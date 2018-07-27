@@ -40,4 +40,4 @@ Mid: ; the mean value of two number, like Mid(0, 1) = 0.5
 	∈ mapping, ; the function with domian and codomain
 	D: = R × R, C: = R,
 	∀x: ∈ R, Mid(x, x): = x
-)
+),

@@ -9,4 +9,4 @@
 	
 	[" axioms "]
 	∀f: ∈ function, f(∀x: ∈ D) ∈ C
-)
+),

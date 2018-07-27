@@ -18,4 +18,4 @@
 	[" distribution "]
 	(a r.+ b) r.× c = a r.× c + b r.× c,
 	a r.× (b r.+ c) = a r.× b r.+ a r.× c
-)
+),

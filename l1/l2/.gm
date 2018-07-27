@@ -40,4 +40,4 @@ Range(∀f: ∈ mapping): = {f(x)|∀x: ∈ f.D}
 (
 	∈ symbol,
 	∀A: ∈ set, ∀B: ∈ set, (A × B): = {(x, y)| ∀x: ∈ A, ∀y: ∈ B}
-)
+),
