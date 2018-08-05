@@ -2,7 +2,7 @@
 (
 	.temp.a_sample relator,
 	∀l: .temp.a_sample ◉, ∀r: .temp.a_sample ◉, ∀R: ⊆ ◉,
-	(l ∈ R): l .temp.a_sample R,
+	l ∈ R ⇔ l .temp.a_sample R,
 ##	(r .temp.a_sample collection) ⇒ (l ∈ r) ⇔ r.P?(l) ,
 	⇒,
 ),
@@ -34,5 +34,5 @@
 i:
 (
 	∈ function,
-	i(∀x: ∈ ◉): = x
+	i(∀x: ∈ ◉) = x
 ),

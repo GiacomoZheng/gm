@@ -5,9 +5,9 @@ infinity0:
 	[" axioms "]
 	∀N: ∈ infinity0, ; N here is a sample of infinity0
 	0 ∈ N, ; the first requirement, we assume the 0 has been defined
-	∃s: ∈ bijection, ; a sample of bijection class
-	s.D = N, ; the domain of s is N
-	s.C = N \ {0} ; the codomian of s is N \ {0}
+	∃S: ∈ bijection, ; a sample of bijection class
+	S.D = N, ; the domain of S is N
+	S.C = N \ {0} ; the codomian of S is N \ {0}
 ),
 
 [" the set of natural numbers "]

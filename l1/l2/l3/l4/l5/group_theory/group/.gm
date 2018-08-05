@@ -7,6 +7,7 @@
 	e: ∈ ◉, ; identity
 	[" axioms "]
 	∀G: ∈ group,
+	!(G = ∅), ; non-empty
 	∀x: ∈ G, ∀y: ∈ G, ∀z: ∈ G,
 	x G.* y ∈ G, ; closure
 	(x G.* y) G.* z = x G.* (y G.* z), ; association

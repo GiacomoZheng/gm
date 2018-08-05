@@ -19,7 +19,7 @@
             "label": "update-grammar",
             "type": "shell",
             "command": /* "cd C:\\Users\\admin\\.vscode\\extensions; rm -r -Force vscode-gm; cp -r -Force C:\\Users\\admin\\Documents\\GitHub\\vscode-gm; cd vscode-gm; rm -r -Force .git; rm -r -Force plug-ins", */
-            "cd C:\\Users\\admin\\Documents\\GitHub\\vscode-gm; cp -r -Force snippets C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force syntaxes C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force language-configuration C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force package.json C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force CHANGELOG.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force README.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm;",
+            "cd C:\\Users\\admin\\Documents\\GitHub\\vscode-gm; cp -r -Force out C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force snippets C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force syntaxes C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force language-configuration.json C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force package.json C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force CHANGELOG.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force README.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm;",
             "group": "build",
             "presentation": {
                 // Reveal the output only if unrecognized errors occur.

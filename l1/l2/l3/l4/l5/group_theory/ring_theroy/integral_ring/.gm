@@ -1,0 +1,8 @@
+: ; integral_ring, or integral_domain in other books
+(
+	⊆ commutative_ring,
+	⊆ nontrivial_ring,
+
+	∀R: ∈ integral_ring,
+	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)
+),

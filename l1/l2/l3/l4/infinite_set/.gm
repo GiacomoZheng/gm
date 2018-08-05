@@ -1,0 +1,7 @@
+: ; infinite_set
+(
+	⊆ set,
+
+	∀S: ∈ infinite_set,
+	!(|S| ∈ N)
+)

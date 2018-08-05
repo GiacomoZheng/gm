@@ -1,0 +1,13 @@
+: ; ring_homomorphism
+(
+	⊆ homomorphism, ; abuout the '+'
+	D: ∈ ring, C: ∈ ring,
+
+	∀f: ∈ ring_homomorphism,
+	∀x: ∈ f.D, ∀y: ∈ f.D, f(x f.D.× y) = f(x) f.D.× f(y),
+	f(f.D.1) = f.C.1
+),
+[" 
+	properties:
+	f(f.D.0) = f.C.0
+ "]

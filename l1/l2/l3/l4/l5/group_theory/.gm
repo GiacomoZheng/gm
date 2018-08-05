@@ -1,3 +1,8 @@
+^:
+(
+	∈ 
+)
+
 ≌:
 (
 	∈ relator,
@@ -13,6 +18,21 @@
 	∀H: ∈ group, ∀G: ∈ group,
 	(H %subgroup% G) ⇔ ∀(H ⊆ G, &H.*& = &G.*&, H.e = G.e)
 ),
+[" 
+	```
+	similarly,
+	(
+		∈ relator,
+		∀G: ∈ group, ∀H: ⊆ G,
+		(H %subgroup% G) ⇔
+		∀(
+			%H.*% = %G.*%,
+			∀(x, y): ∈ H^2, H.e = G.e, x H.* y ∈ H,
+			∀z: ∈ H, z^-1 ∈ H
+		)
+	)
+	```
+ "]
 
 /:
 (

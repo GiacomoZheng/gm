@@ -1,0 +1,84 @@
+%subring%:
+(
+	∈ relator,
+
+	∀H: ∈ ring, ∀G: ∈ ring,
+	(H %subring% G) ⇔ ∀(H %subgroup% G, %H.×% = %G.×%, H.1 = G.1)
+),
+[" 
+	similarly,
+	```
+	(
+		∈ relator,
+		∀G: ∈ ring, ∀H: ⊆ G,
+		(H %subring% G) ⇔ ∀(H %subgroup% G, %H.×% = %G.×%, ∀(x, y): ∈ H^2, x H.× y ∈ H)
+	)
+	```
+ "]
+
+ideal(∀R: ∈ ring):
+(
+	⊆ abelian_group,
+
+	∀I: ∈ ideal(R),
+	I %subgroup% I.R,
+	∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I,
+
+	×: = &R.×&
+),
+; idealizer
+I[∀R: ring](∀τ: ⊆ I):
+(
+	⊆ ideal(R),
+	
+	I[R](τ) ⊆ τ
+),
+
+unit(∀R: ∈ ring): ; in wiki, there is no requirement to be commutative
+(
+	⊆ ◉,
+
+	∀x: ∈ unit(R),
+	×: = &R.×&,
+	∃y: ∈ R, x × y = y × x = R.1 ; commutative here
+),
+; this can be a set, at least when R is finite
+
+P[∀R: ∈ ring](∀x: ∈ ◉):
+(
+	∈ polynomial_ring,
+	P[R](x).x = x,
+	P[R](x).R = R
+),
+deg(∀Poly: ∈ polynomial_ring): = Poly.degree, ; 0 has no degree
+
+linear_poly(∀P[R](x): ∈ polynomial_ring): = {f(x)|∀f(x): ∈ P[R](x), deg(f(x)) = 1},
+
+irreducible(∀R: ∈ ring):
+(
+	⊆ ◉,
+	∀ir: ∈ irreducible(R),
+	×: = &R.×&
+	ir ∈ R, ∀(d1, d2): ∈ R,
+	d1 × d2 = ir ⇒ ∃(d1 ∈ unit(R), d2 ∈ unit(R))
+),
+
+/: ; !
+(
+	∀R: ∈ ring,
+	×: ∈ &R.×&,
+	∀a: ∈ R, ∀b: ∈ R,
+	(∃c: ∈ R, a = b × c) ⇒ a / b = c
+)
+
+root[∀R: ∈ ring](∀f: (f(x) ∈ P[R](x))): ; !
+; this definition restrict the f(x) as a polynomial under R
+(
+	⊆ ◉,
+
+	∀α: ∈ root[R](f),
+	α ∈ R, ; important
+	f(α) = R.0
+),
+; root[R](f) can be a set, I don't know how to prove it
+

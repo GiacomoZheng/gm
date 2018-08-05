@@ -1,6 +1,5 @@
 : ; finite_group
 (
 	⊆ group,
-	∀G: ∈ finite_group,
-	|G| ∈ N
+	⊆ finite_set
 ),

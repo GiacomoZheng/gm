@@ -1,12 +1,12 @@
 ; Theorem: start
-	@giacomo.h.group_theory, ; location
+	@giacomo.h.Group, ; location
 	∀C: ∈ coset,
 	∃~: ∈ equivalence_relator, &~&.D = C.G,
 	∀a: ∈ C.G, a ~ b ⇔ C.G.e (C.G.* a)^-1 C.G.* b ∈ C.G ■
 ; Theorem: end
 
 ; ! Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	G: ∈ group,
 	∀H: %subgroup% G, ∀K: %subgroup% G,
 	inter:
@@ -21,8 +21,8 @@
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
-	∀m: ∈ N \ {0}, Z/(m × Z) = {{x + m × z|∀z: ∈ Z}|∀x: ∈ Z}
+	@giacomo.h.Group,
+	∀m: ∈ N \ {0}, Z[m] = {{x + m × z|∀z: ∈ integer}|∀x: ∈ integer}
 	∃𝒴:
 	(
 		∈ group,
@@ -30,30 +30,30 @@
 		*: = &+&,
 		e: = 1
 	),
-	Z/(m × Z) ≌ 𝒴 ■
+	Z[m] ≌ 𝒴 ■
 ; Theorem: end
 
 s"Lagrange Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	G: ∈ group, H: %subgroup% G,
-	|G| ∈ N ⇒ |G|/|H| ∈ Z ■
+	|G| ∈ N ⇒ |G|/|H| ∈ integer ■
 ),
 ; Proof: start
 	; Lemma: start
-		@giacomo.h.group_theory,
+		@giacomo.h.Group,
 		G: ∈ group, H: %subgroup% G, *: = &G.*&
 		∀x: ∈ G, |H| = |x * H| ■
 	; Lemma: end
 	; Proof: start
-		@giacomo.h.group_theory,
+		@giacomo.h.Group,
 		G: ∈ group, H: %subgroup% G, *: = &G.*&
 		∀x: ∈ G,
 		∃φ[x]:
 		(
 			∈ mapping,
 			D: = H, C: = x × H,
-			φ[x](∀h: ∈ H): = x * h
+			φ[x](∀h: ∈ H) = x * h
 		),
 		(
 			(
@@ -71,7 +71,7 @@ s"Lagrange Theorem":
 		⇒ |φ[x].C| = |φ[x]|
 		⇒ |H| = |x * H| ■
 	; Proof: end
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	G: ∈ group, H: %subgroup% G, *: = &G.*&
 	(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
 	|G| ∈ N ⇒
@@ -85,13 +85,13 @@ s"Lagrange Theorem":
 ; Proof: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ cyclic_group,
 	∀H: %subgroup% G,
 	H ∈ cyclic_group ■
 ; Theorem: end
 ; Proof: start
-	; @giacomo.h.group_theory,
+	; @giacomo.h.Group,
 	; ∀G: ∈ cyclic_group,
 	; ∀H: %subgroup% G,
 	; ∀(
@@ -99,7 +99,7 @@ s"Lagrange Theorem":
 	; 	!(H = {G.e}) ⇒
 	; 	(
 	; 		∃a: ∈ H, !(a = G.e),
-	; 		ex(a): = {G.e (G.* a)^n|∀n: ∈ Z}
+	; 		ex(a): = {G.e (G.* a)^n|∀n: ∈ integer}
 	; 		(
 	; 			ex(a) ⊆ H, ; H is a group
 				
@@ -110,20 +110,20 @@ s"Lagrange Theorem":
 
 "The converse of \"Lagrange\" when G is cyclic"
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	G: ∈ group, 
-	|G| ∈ N ⇒ (∀d: ∈ N m/d ∈ Z ⇒ (∃H: %subgroup% G, |H| = d))■
+	|G| ∈ N ⇒ (∀d: ∈ N, m/d ∈ integer ⇒ (∃H: %subgroup% G, |H| = d))■
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀m: (∈ N, > 1), ∀n: (∈ N, > 1),
-	Z/(m × Z) × Z/(n × Z) ≌ Z/((m × n) × Z) ⇔ gcd(m, n) = 1■
+	Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1■
 ; Theorem: end
 
 s"Fundamental Theorem of Finite generated abelian group":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ finitely_generated_group,
 	G ∈ abelian_group ⇒ (∃m: ∈ N, ∃T: ∈ abelian_group, |T| ∈ N, G ≌ Z^m × T)■
 ),
@@ -131,23 +131,23 @@ s"Fundamental Theorem of Finite generated abelian group":
 
 s"Cayley's Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∃T: %subgroup% sym(G), G ≌ T■
 ),
 ; similarly
 ; Theorem: strat
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∃T: %subgroup% S[|G|], G ≌ T■
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀μ: ∈ action, G: = μ.G, stab[μ](∀s: ∈ μ.S) %subgroup% G■
 ; Theorem: end
 
 s"Orbit-Stabilizer Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀μ: ∈ action, ∀s: ∈ μ.S,
 	|orb[μ](s)| ∈ N ⇒ |G / stab[μ](s)| = |orb[μ](x)|
 	; with the help of "Lagrange Theorem", we get
@@ -157,7 +157,7 @@ s"Orbit-Stabilizer Theorem":
 
 s"Sylow's First Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group,
 	|G| ∈ N ⇒
 	(
@@ -170,19 +170,19 @@ s"Sylow's First Theorem":
 ),
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, center(G) %subgroup% G■
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀p: ∈ prime_number, ∀n: ∈ N,
 	|G| = p^n ⇒ !(center(G) = {G.e})■
 ; Theorem: end
 
 ; * About S[n], A[n], D[n]
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀n: ∈ N,
 	S[n] = gp({c(a, b)|∀(a, b): ∈ N^2, a ≤ n, b ≤ n}),
 	A[n] = gp({c(x, y, z)|∀(x, y, z): ∈ N^3, x ≤ n, y ≤ n, z ≤ n}),
@@ -195,13 +195,13 @@ s"Sylow's First Theorem":
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group,
 	G ∈ abelian_group ⇔ (∀H: %subgroup% G, H ∈ normal(G))■
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G),
 	∃H: ∈ group, H = G / No, 
 	H.*
@@ -212,7 +212,7 @@ s"Sylow's First Theorem":
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G),
 	∀H: %subgroup% G, No ⊆ H ⇒ No ∈ normal(H)■
 ; Theorem: end
@@ -228,7 +228,7 @@ s"First Isomorphism Theorem": ; !
 
 s"Second Isomorphism Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀H: %subgroup% G, ∀No: ∈ normal(G),
 	(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
 ),
@@ -244,23 +244,23 @@ s"Second Isomorphism Theorem":
  "]
 s"Third Isomorphism Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀No: ∈ normal(G), D: = {H|∀H: %subgroup% G, No ⊆ H}, C: = {∀J: %subgroup% G/No},
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
 	∀H: ∈ D, φ(H) = H / No■
 
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: %subgroup% G,
 	No ⊆ H ⇒
 	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G))■
 
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (%subgroup% G, No ⊆ H),
 	H ∈ normal(G) ⇒ (G/N)/(H/N) ≌ G/H■
 ),
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀H: ∈ group, ∀f: ∈ homomorphism,
 	∀(f.D = G, f.C = H) ⇒
 	(
@@ -269,18 +269,18 @@ s"Third Isomorphism Theorem":
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
 	∀(H ∩ K = {e}, H * K = G) ⇒ H × K ≌ G■
 ; Theorem: end
 ; Proof: start
 	; Lemma: start
-		@giacomo.h.group_theory,
+		@giacomo.h.Group,
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
 		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)■
 	; Lemma: end
 	; Proof: start
-		@giacomo.h.group_theory,
+		@giacomo.h.Group,
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&,
 		H ∩ K = {e} ⇒
 		(
@@ -292,7 +292,7 @@ s"Third Isomorphism Theorem":
 			⇒ k * h * k^-1 * h^-1 ∈ H ∩ K = {e} ⇒ h * k = k * h
 		)■
 	; Proof: end
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
 	*: = &G.*&, e: = G.e,
 	∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
@@ -315,7 +315,7 @@ s"Third Isomorphism Theorem":
 ; Proof: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
 	*: = &G.*&, e: = G.e,
 	H ∩ K = {e} ⇒
@@ -325,20 +325,20 @@ s"Third Isomorphism Theorem":
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group,
 	∀S: ∈ conjugate(G), {G.e} ∈ S■
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group,
 	∀H: ∈ normal(G),
 	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪(τ)■
 ; Theorem: end
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ group,
 	∀H: ∈ normal(G),
 	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪(τ)■
@@ -346,7 +346,7 @@ s"Third Isomorphism Theorem":
 
 p"Jordon-Holder Theorem":
 (
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	∀G: ∈ finite_group,
 	∀A: ∈ composition_series(G),
 	∀B: ∈ composition_series(G),
@@ -355,7 +355,7 @@ p"Jordon-Holder Theorem":
 )
 
 ; Theorem: start
-	@giacomo.h.group_theory,
+	@giacomo.h.Group,
 	A[5] ∈ solvable_group,
 	S[∀n: ∈ {3, 4}] ∈ solvable_group,
 	!(S[∀n: (∈ N, n ≥ 5)] ∈ solvable_group)
