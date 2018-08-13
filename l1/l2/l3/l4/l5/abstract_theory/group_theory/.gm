@@ -34,7 +34,7 @@ order[∀G: ∈ group](∀x: ∈ G):
 
 ×:
 (
-	[" direct product "]
+	[ direct product ]
 	∀A: ∈ group, ∀B: ∈ group,
 	(A × B):
 	(
@@ -56,7 +56,7 @@ prime_number: = {n|∀n: ∈ N, gcd(n, 1) = n}
 
 gp[∀*: ∈ operator](∀S: ∈ set):
 (
-	[" if no error happens "]
+	[ if no error happens ]
 	∈ group,
 	D: = {x ^ m * y ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
 	*: = &*&,

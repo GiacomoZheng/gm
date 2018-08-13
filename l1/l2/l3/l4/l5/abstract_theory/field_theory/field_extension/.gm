@@ -8,7 +8,7 @@
 
 	f.degree = |f.C / f.D| ; in fact, this is just a group on "+", as normal
 ),
-[" 
+[ 
 	it is true that a field_extension is always an injection,
 	so that the D is isomorphic to a subfield of C
- "]
+ ]

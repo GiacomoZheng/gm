@@ -1,8 +1,8 @@
 infinity0:
 (
-	[" type "]
+	[ type ]
 	⊆ set, ; it means this is the subclass of "set"
-	[" axioms "]
+	[ axioms ]
 	∀N: ∈ infinity0, ; N here is a sample of infinity0
 	0 ∈ N, ; the first requirement, we assume the 0 has been defined
 	∃S: ∈ bijection, ; a sample of bijection class
@@ -10,7 +10,7 @@ infinity0:
 	S.C = N \ {0} ; the codomian of S is N \ {0}
 ),
 
-[" the set of natural numbers "]
+[ the set of natural numbers ]
 N0: = ∩({A| ∀A: ∈ infinity0}),
 
 Scr: ; successor function
@@ -32,7 +32,7 @@ infinity1: ; preparing for the real numbers
 	m.C = R \ {0, 1} ; 
 ),
 
-[" the set of real numbers "]
+[ the set of real numbers ]
 R0: = ∩({A| ∀A: ∈ infinity1}),
 
 Mid: ; the mean value of two number, like Mid(0, 1) = 0.5

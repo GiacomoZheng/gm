@@ -233,7 +233,7 @@ s"Second Isomorphism Theorem":
 	(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
 ),
 
-[" 
+[ 
  	Let G be a group, and N a normal subgroup of G. Then
 
 	1.	If K is a subgroup of G such that  N ⊆ K ⊆ G, then K/N is a subgroup of G/N.
@@ -241,7 +241,7 @@ s"Second Isomorphism Theorem":
 	3.	If K is a normal subgroup of G such that  N ⊆ K ⊆ G, then K/N is a normal subgroup of G/N.
 	4.	Every normal subgroup of G/N is of the form K/N, for some normal subgroup K of G such that  N ⊆ K ⊆ G.
 	5.	If K is a normal subgroup of G such that  N ⊆ K ⊆ G, then the quotient group (G/N)/(K/N) is isomorphic to G/K.
- "]
+ ]
 s"Third Isomorphism Theorem":
 (
 	@giacomo.h.Group,

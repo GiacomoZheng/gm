@@ -7,7 +7,7 @@
 	∀x: ∈ f.D, ∀y: ∈ f.D, f(x f.D.× y) = f(x) f.D.× f(y),
 	f(f.D.1) = f.C.1
 ),
-[" 
+[ 
 	properties:
 	f(f.D.0) = f.C.0
- "]
+ ]

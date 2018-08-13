@@ -15,7 +15,7 @@
 	(a r.× b) r.× c = a r.× (b r.× c), ; association
 	r.1 ∈ r.D, r.1 r.× a = a = a r.× r.1, ; multiply identity
 
-	[" distribution "]
+	[ distribution ]
 	(a r.+ b) r.× c = a r.× c + b r.× c,
 	a r.× (b r.+ c) = a r.× b r.+ a r.× c
 ),

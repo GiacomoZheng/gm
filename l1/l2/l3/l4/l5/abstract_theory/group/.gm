@@ -1,11 +1,11 @@
 : ; group
 (
-	[" type "]	
+	[ type ]	
 	⊆ set,
-	[" data field "]
+	[ data field ]
 	*: ∈ operator,
 	e: ∈ ◉, ; identity
-	[" axioms "]
+	[ axioms ]
 	∀G: ∈ group,
 	!(G = ∅), ; non-empty
 	∀x: ∈ G, ∀y: ∈ G, ∀z: ∈ G,

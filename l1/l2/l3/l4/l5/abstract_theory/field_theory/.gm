@@ -11,7 +11,7 @@ subfield(∀L: ∈ field):
 )
 
 Q[∀K: ∈ field](∀x: ∈ ◉): = {p(x)/q(x)|∀{p(x), q(x)}: ⊆ P[K](x), !(q(x) = 0)}, ; !
-[" a field indeed "]
+[ a field indeed ]
 
 algebraic[∀L: ∈ field](∀K: ∈ subfield(L)): ; extension from the root
 (
@@ -32,7 +32,7 @@ minimal_polynomial[∀R: ∈ K](∀α: ∈ ◉): ; !
 		= "the polynomial with the minimal degree",
 	)
 ),
-[" this function is well-defined as result is unique "]
+[ this function is well-defined as result is unique ]
 
 
 

@@ -7,7 +7,7 @@
 	⇒,
 ),
 
-⊆: [" ⊆ "]
+⊆:
 (
     .temp.a_sample relator,
 	∀l: ∈ ◉, ∀r: ∈ ◉, ∀R: .temp.subclass ◉,

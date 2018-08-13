@@ -1,4 +1,4 @@
-[" 
+[ 
 	the definition of these
 	' symbols '
 	@		--- locator
@@ -13,9 +13,9 @@
 	' others '
 	" "
 	◉
- "]
+ ]
 
-[" 
+[ 
 	priority:
 	locator terminator
 	none bracket function
@@ -23,7 +23,7 @@
 	operator
 	definer
 	separator  
- "]
+ ]
 
 ⇒:
 (
