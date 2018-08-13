@@ -1,8 +1,8 @@
 : ; field
 (
 	⊆ commutative_ring,
-	⊆ nontrivial_ring,
 
 	∀F: ∈ field,
+	!(F = {F.0}),
 	∀x: ∈ F \ {F.0}, x ∈ unit(F)
 ),

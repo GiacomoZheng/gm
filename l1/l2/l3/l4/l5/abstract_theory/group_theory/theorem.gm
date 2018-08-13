@@ -8,7 +8,7 @@
 ; ! Theorem: start
 	@giacomo.h.Group,
 	G: ∈ group,
-	∀H: %subgroup% G, ∀K: %subgroup% G,
+	∀H: ∈ subgroup(G), ∀K: ∈ subgroup(G),
 	inter:
 	(
 		∈ group,
@@ -17,7 +17,7 @@
 		*: = &G.*&,
 		e: = G.e
 	),
-	inter %subgroup% G ■
+	inter ∈ subgroup(G) ■
 ; Theorem: end
 
 ; Theorem: start
@@ -36,18 +36,18 @@
 s"Lagrange Theorem":
 (
 	@giacomo.h.Group,
-	G: ∈ group, H: %subgroup% G,
+	G: ∈ group, H: ∈ subgroup(G),
 	|G| ∈ N ⇒ |G|/|H| ∈ integer ■
 ),
 ; Proof: start
 	; Lemma: start
 		@giacomo.h.Group,
-		G: ∈ group, H: %subgroup% G, *: = &G.*&
+		G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
 		∀x: ∈ G, |H| = |x * H| ■
 	; Lemma: end
 	; Proof: start
 		@giacomo.h.Group,
-		G: ∈ group, H: %subgroup% G, *: = &G.*&
+		G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
 		∀x: ∈ G,
 		∃φ[x]:
 		(
@@ -72,7 +72,7 @@ s"Lagrange Theorem":
 		⇒ |H| = |x * H| ■
 	; Proof: end
 	@giacomo.h.Group,
-	G: ∈ group, H: %subgroup% G, *: = &G.*&
+	G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
 	(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
 	|G| ∈ N ⇒
 	(
@@ -87,13 +87,13 @@ s"Lagrange Theorem":
 ; Theorem: start
 	@giacomo.h.Group,
 	∀G: ∈ cyclic_group,
-	∀H: %subgroup% G,
+	∀H: ∈ subgroup(G),
 	H ∈ cyclic_group ■
 ; Theorem: end
 ; Proof: start
 	; @giacomo.h.Group,
 	; ∀G: ∈ cyclic_group,
-	; ∀H: %subgroup% G,
+	; ∀H: ∈ subgroup(G),
 	; ∀(
 	; 	H = {G.e} ⇒ H ∈ cyclic_group,
 	; 	!(H = {G.e}) ⇒
@@ -112,7 +112,7 @@ s"Lagrange Theorem":
 ; Theorem: start
 	@giacomo.h.Group,
 	G: ∈ group, 
-	|G| ∈ N ⇒ (∀d: ∈ N, m/d ∈ integer ⇒ (∃H: %subgroup% G, |H| = d))■
+	|G| ∈ N ⇒ (∀d: ∈ N, m/d ∈ integer ⇒ (∃H: ∈ subgroup(G), |H| = d))■
 ; Theorem: end
 
 ; Theorem: start
@@ -132,17 +132,17 @@ s"Fundamental Theorem of Finite generated abelian group":
 s"Cayley's Theorem":
 (
 	@giacomo.h.Group,
-	∀G: ∈ group, ∃T: %subgroup% sym(G), G ≌ T■
+	∀G: ∈ group, ∃T: ∈ subgroup(sym(G)), G ≌ T■
 ),
 ; similarly
 ; Theorem: strat
 	@giacomo.h.Group,
-	∀G: ∈ group, ∃T: %subgroup% S[|G|], G ≌ T■
+	∀G: ∈ group, ∃T: ∈ subgroup(S[|G|]), G ≌ T■
 ; Theorem: end
 
 ; Theorem: start
 	@giacomo.h.Group,
-	∀μ: ∈ action, G: = μ.G, stab[μ](∀s: ∈ μ.S) %subgroup% G■
+	∀μ: ∈ action, G: = μ.G, stab[μ](∀s: ∈ μ.S) ∈ subgroup(G)■
 ; Theorem: end
 
 s"Orbit-Stabilizer Theorem":
@@ -164,14 +164,14 @@ s"Sylow's First Theorem":
 		∀p: ∈ prime_number, ∀n: ∈ N, m: = |G|/(p^n),
 		∀(m ∈ N, gcd(m, p) = 1) ⇒
 		(
-			∃H: %subgroup% G, |H| = p^n
+			∃H: ∈ subgroup(G), |H| = p^n
 		)
 	)■
 ),
 
 ; Theorem: start
 	@giacomo.h.Group,
-	∀G: ∈ group, center(G) %subgroup% G■
+	∀G: ∈ group, center(G) ∈ subgroup(G)■
 ; Theorem: end
 
 ; Theorem: start
@@ -197,7 +197,7 @@ s"Sylow's First Theorem":
 ; Theorem: start
 	@giacomo.h.Group,
 	∀G: ∈ group,
-	G ∈ abelian_group ⇔ (∀H: %subgroup% G, H ∈ normal(G))■
+	G ∈ abelian_group ⇔ (∀H: ∈ subgroup(G), H ∈ normal(G))■
 ; Theorem: end
 
 ; Theorem: start
@@ -214,7 +214,7 @@ s"Sylow's First Theorem":
 ; Theorem: start
 	@giacomo.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G),
-	∀H: %subgroup% G, No ⊆ H ⇒ No ∈ normal(H)■
+	∀H: ∈ subgroup(G), No ⊆ H ⇒ No ∈ normal(H)■
 ; Theorem: end
 
 s"First Isomorphism Theorem": ; !
@@ -229,7 +229,7 @@ s"First Isomorphism Theorem": ; !
 s"Second Isomorphism Theorem":
 (
 	@giacomo.h.Group,
-	∀G: ∈ group, ∀H: %subgroup% G, ∀No: ∈ normal(G),
+	∀G: ∈ group, ∀H: ∈ subgroup(G), ∀No: ∈ normal(G),
 	(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
 ),
 
@@ -245,17 +245,17 @@ s"Second Isomorphism Theorem":
 s"Third Isomorphism Theorem":
 (
 	@giacomo.h.Group,
-	∀No: ∈ normal(G), D: = {H|∀H: %subgroup% G, No ⊆ H}, C: = {∀J: %subgroup% G/No},
+	∀No: ∈ normal(G), D: = {H|∀H: ∈ subgroup(G), No ⊆ H}, C: = {∀J: ∈ subgroup(G)/No},
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
 	∀H: ∈ D, φ(H) = H / No■
 
 	@giacomo.h.Group,
-	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: %subgroup% G,
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: ∈ subgroup(G),
 	No ⊆ H ⇒
 	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G))■
 
 	@giacomo.h.Group,
-	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (%subgroup% G, No ⊆ H),
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ subgroup(G), No ⊆ H),
 	H ∈ normal(G) ⇒ (G/N)/(H/N) ≌ G/H■
 ),
 

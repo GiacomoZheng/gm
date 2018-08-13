@@ -1,37 +1,30 @@
-%subring%:
+subring(∀R: ∈ ring):
 (
-	∈ relator,
+	⊆ ring,
+	⊆ subgroup(R),
 
-	∀H: ∈ ring, ∀G: ∈ ring,
-	(H %subring% G) ⇔ ∀(H %subgroup% G, %H.×% = %G.×%, H.1 = G.1)
+	∀H: ∈ subring(R),
+	%H.×% = %G.×%,
+	H.1 = G.1
 ),
-[" 
-	similarly,
-	```
-	(
-		∈ relator,
-		∀G: ∈ ring, ∀H: ⊆ G,
-		(H %subring% G) ⇔ ∀(H %subgroup% G, %H.×% = %G.×%, ∀(x, y): ∈ H^2, x H.× y ∈ H)
-	)
-	```
- "]
 
 ideal(∀R: ∈ ring):
 (
+	"two-side ideal indeed",
 	⊆ abelian_group,
 
 	∀I: ∈ ideal(R),
-	I %subgroup% I.R,
+	I ∈ subgroup(R), ; in fact, as abelian, I ∈ normal(R),
 	∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I,
 
 	×: = &R.×&
 ),
 ; idealizer
-I[∀R: ring](∀τ: ⊆ I):
+I[∀R: ∈ ring](∀τ: ⊆ R):
 (
-	⊆ ideal(R),
+	∈ ideal(R),
 	
-	I[R](τ) ⊆ τ
+	τ ⊆ I[R](τ) ; generators
 ),
 
 unit(∀R: ∈ ring): ; in wiki, there is no requirement to be commutative
@@ -44,7 +37,7 @@ unit(∀R: ∈ ring): ; in wiki, there is no requirement to be commutative
 ),
 ; this can be a set, at least when R is finite
 
-P[∀R: ∈ ring](∀x: ∈ ◉):
+P[∀R: ∈ ring](∀x: ∈ ◉): ; !
 (
 	∈ polynomial_ring,
 	P[R](x).x = x,
@@ -72,8 +65,8 @@ irreducible(∀R: ∈ ring):
 )
 
 root[∀R: ∈ ring](∀f: (f(x) ∈ P[R](x))): ; !
-; this definition restrict the f(x) as a polynomial under R
 (
+	"this definition restrict the f(x) as a polynomial under R",
 	⊆ ◉,
 
 	∀α: ∈ root[R](f),
@@ -81,4 +74,32 @@ root[∀R: ∈ ring](∀f: (f(x) ∈ P[R](x))): ; !
 	f(α) = R.0
 ),
 ; root[R](f) can be a set, I don't know how to prove it
+
+principle_ideal(∀R: ∈ ring):
+(
+	⊆ ideal(R),
+
+	∀P: ∈ principle_ideal(R),
+	∃g: ∈ P, P = I[P]({g})
+),
+
+maximal_ideal(∀R: ∈ ring):
+(
+	⊆ ideal(R),
+
+	∀M: ∈ maximal_ideal(R),
+	!(M = R),
+	∀Id: ∈ ideal(R),
+	M ⊆ Id ⇒ ∃(Id = R, Id = M)
+),
+
+prime_ideal(∀R: ∈ ring):
+(
+	⊆ ideal(R),
+
+	∀P: ∈ prime_ideal,
+	∀{a, b}: ⊆ R,
+	a R.× b ∈ P ⇒ ∃(a ∈ P, b ∈ P)
+),
+
 

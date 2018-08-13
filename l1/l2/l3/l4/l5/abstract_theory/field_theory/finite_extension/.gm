@@ -1,0 +1,7 @@
+: ; finite_extension, omit the field here
+(
+	⊆ field_extension,
+
+	∀f: ∈ finite_extension,
+	|f.C / f.D| ∈ s.N
+),

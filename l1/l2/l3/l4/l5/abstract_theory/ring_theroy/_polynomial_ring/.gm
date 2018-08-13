@@ -8,11 +8,11 @@
 	∀Poly: ∈ polynomial_ring,
 	Poly.degree ≥ 0, ; ! 0 has no degree
 
-	∃SupR: ∈ ring, Poly.R %subring% SupR, Poly.x ∈ SupR,
+	∃SupR: ∈ ring, Poly.R ∈ subring(SupR), Poly.x ∈ SupR,
 
 	∀f(Poly.x): ∈ Poly,
 	S: = {m|∀m: ∈ integer, m ≥ 0, m ≤ Poly.degree}
-	a[∀n: ∈ S]: ∈ Poly.R,
+	a[∀n: ∈ S]: ∈ Poly.R, ; ! should be method
 	!(a[Poly.degree] = R.0),
 	f(Poly.x) = +[∀n: ∈ S](a[n] (Poly.R.× Poly.x) ^ n),
 

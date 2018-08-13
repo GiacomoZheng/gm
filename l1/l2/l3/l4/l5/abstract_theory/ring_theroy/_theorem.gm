@@ -24,7 +24,7 @@ s"kernel of ring homomorphism is seldom the subring":
 	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
 	f.D = R ⇒
 	(
-		ker(f) %subring% R ⇔ f.C ∈ trivial_ring ⇔ ker(f) = R
+		ker(f) ∈ subring(R) ⇔ f.C ∈ trivial_ring ⇔ ker(f) = R
 	)■
 ),
 
@@ -32,7 +32,7 @@ s"kernel of ring homomorphism is an ideal":
 (
 	@giacomo.h.Ring,
 	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
-	ker(f) ∈ ideal, ker(f).R = R■
+	ker(f) ∈ ideal(R)■
 ),
 
 s"the quotient group under the ideal is ring":
@@ -112,14 +112,21 @@ s"cancel theorem of integral ring about multiplication":
 	),
 	[" i don't know "]
 
+s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
+(
+	∀x: ∈ ◉, ∀f(x): ∈ P[s.Z](x),
+	∀R: ∈ ring, ∀a: ∈ R,
+	f(a) ∈ R
+),
+
 s"relationship between a ring and its polynomial ring":
 (
 	@giacomo.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉,
+	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	R ∈ commutative_ring ⇒ P[R](x) ∈ commutative_ring,
-	R ∈ integral_ring ⇒ P[R](x) ∈ integral_ring
-	; TODO: UFD
-	; TODO: PID may not be 
+	R ∈ integral_ring ⇒ P[R](x) ∈ integral_ring,
+	R ∈ unique_factorization_ring ⇒ P[R](x) ∈ unique_factorization_ring,
+	s.Z ∈ principle_ideal_ring, !(P[s.Z](x) ∈ principle_ideal_ring)
 	■
 ),
 
@@ -137,7 +144,7 @@ s"division algorithm of polynomial ring":
 (
 	(
 		@giacomo.h.Ring, ; the first
-		∀K: ∈ field, ∀x: ∈ ◉,
+		∀K: ∈ field, ∀x: ∈ ◉, ; !
 		∀f(x): ∈ P[K](x), ∀g(x): ∈ P[J](x),
 		!(g(x) = R.0) ⇒
 		(
@@ -160,7 +167,7 @@ s"division algorithm"
 s"degree, multiplication and addition":
 (
 	@giacomo.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉,
+	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	×: &R.×&,
 	∀{a, b}: ⊆ P[R](x),
 	!((a, b) = (R.0, R.0)) ⇒ deg(a × b) = deg(a) + deg(b)■
@@ -183,7 +190,7 @@ s"root and linear factor":
 s"number of roots and the degree of polynomial":
 (
 	@giacomo.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉,
+	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	×: &R.×&,
 	∀f(x): ∈ P[R](x),
 	|{∀a: ∈ root[R](f)}| ≤ deg(f(x))■
@@ -206,13 +213,28 @@ s"intersection at the infinite domain make two polynomial the same":
 	∀(R ∈ infinite_set, (∀a: ∈ R, f(a) = g(a))) ⇒ f = g■ ; as function's "equal"
 ),
 
+s"PID and UFD":
+(
+	Z ∈ principle_ideal_ring,
+	∀x: ∈ ◉, ∀y: ∈ ◉, ; !
+	∀K: ∈ field,
+	K ∈ principle_ideal_ring,
+	P[K](x) ∈ principle_ideal_ring,
+
+	!(P[Z](x) ∈ principle_ideal_ring),
+	!(P[K](x, y) ∈ principle_ideal_ring), ; as I[P[K](x, y)]({x, y})
+
+	principle_ideal_ring ⊆ unique_factorization_ring,
+	principle_ideal_ring ⊆ Noetherian_ring
+)
+
 s"Fundamental Theorem of Algebra":,
-[" every non-constant polynomial over C has a root "]
+[" every non-constant polynomial over Complex numbers has a root "]
 
 s"irreducible polynomials in P[R](x) are linears and irreducible quadratic":
 (
 	@giacomo.h.Ring,
-	∀x: ∈ ◉,
+	∀x: ∈ ◉, ; !
 	p(x): ∈ P[s.R](x),
 	S: = {n|∀n: ∈ integer, n ≥ 0, n ≤ deg(p(x))},
 	∃α[∀n: ∈ S]: ∈ s.C,
@@ -233,6 +255,87 @@ s"irreducible polynomials in P[R](x) are linears and irreducible quadratic":
 	p(y) = ×[∀n: ∈ S1](y - α[n]) × ×[∀n: ∈ S2](y - β[n])
 	= ×[∀n: ∈ S1](y - α[n]) × ×[{j1, j2}: ⊆ S2](y^2 - (β[j1]+β[j2]) * y + β[j1] * β[j2]) ; !
 	■
+),
+
+s"rational root test":
+(
+	@giacomo.h.Ring,
+	∀x: ∈ ◉, ; !
+	∀f(x): ∈ P[s.Z](x),
+	n: = deg(f(x)),
+	a: = f(x).a,
+	∀r: ∈ root[s.Q](f), ; *
+	∃(
+		r = 0,
+		(
+			∃{p, q}: ⊆ s.Z \ {0}, r = p / q,
+			a[0] / p ∈ s.Z,
+			a[n] / q ∈ s.Z
+		)
+	)■
+),
+
+s"Eisenstein's criterion": ; + add it to cheeting paper,
+(
+	@giacomo.h.Ring,
+	∀x: ∈ ◉, ; !
+	∀f(x): ∈ P[s.Z](x),
+	n: = deg(f(x)),
+	S: = {m|∀m: ∈ s.Z, 0 ≤ m ≤ n},
+	a: = f(x).a,
+	(
+		∃p: ∈ prime_number,
+		!(a[0] / p^2),
+		!(a[n] / p),
+		a[∀n: ∈ S\{n}]/ p
+	)
+	⇒ f(x) ∈ irreducible(R)■
 )
 
+s"the ideal over a prime number in Z is maximal":
+(
+	@giacomo.h.Ring,
+	∀p: ∈ prime_number, I[s.Z]({p}) ∈ maximal_ideal(Z)■
+),
 
+s"ideals of R contains I bijects to ideals of R/I":
+(
+	@giacomo.h.Ring,
+	∃f: ∈ bijection,
+	f.D = {∀x: ∈ ideal(R/Id)},
+	f.C = {∀x: (∈ ideal(R), Id ⊆ x)}■
+),
+
+s"nature of quotient ring":
+(
+	; "indeed it is a part of third isomorphism theorems",
+	@giacomo.h.Ring,
+	∀R: ∈ commutative_ring, ∀Id: ∈ ideal(R),
+	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_ring,
+	Id ∈ maximal_ideal(R) ⇔ R/Id ∈ field■
+),
+[" ```
+	Id ∈ prime_ideal ⇒
+	(
+		!(R/Id ∈ integral_ring) ⇒
+		(
+			∃{a + Id, b + Id}: ⊆ R/Id, !(a ∈ Id), !(b ∈ Id),
+			(a + Id) (R/Id).× (b + Id) = R.0 + Id
+			⇒ (a R.× b) + Id = R.0 + Id
+			⇒ a R.× b ∈ Id
+		)
+		⇒ !(Id ∈ prime_ring)
+	)
+	⇒ R/Id ∈ integral_ring,
+
+	R/Id ∈ field
+	⇒ {∀x: ∈ ideal(R/Id)} = {R/Id, (R/Id).0}
+	⇒ {∀x: (∈ ideal(R), Id ⊆ x)} = {R, Id}
+``` "]
+
+s"chaim of rings and feild": ; + wait for addition
+(
+	@giacomo.h.Ring,
+	ring ⊇ commutative_ring ⊇ integral_ring ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
+	■
+),

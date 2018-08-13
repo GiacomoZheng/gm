@@ -1,0 +1,37 @@
+s"the ring homomorphism of fields are always injective":
+(
+	@giacomo.h.Ring,
+	∀f: ∈ ring_homomorphism,
+	f.D ∈ field ⇒ f ∈ injection■
+),
+[" ker(f) contains no unit, as a * a^-1 = 1 ≠ 0 "]
+
+s"extension field with irreducible polynomial":
+(
+	@giacomo.h.Ring,
+	K: ∈ field,
+	∀x: ∈ ◉, ; !
+	∀f(x): ∈ irreducible(P[K](x)),
+	K': = P[K](x) / I[P[K](x)]({f(x)}),
+	
+	∃f: ∈ field_extension, f.D = K, f.C = K',
+	∃α: ∈ K', f(α) = K.0,
+	|K' / K| = deg(f)■
+),
+["" ```
+	∀f(x): ∈ irreducible(P[K](x)),
+	I[P[K](x)]({f(x)}) ∈ maximal(P[K](x)),
+	∃i: ∈ field_extension, i.D = K, i.C = K',
+	∀c: ∈ K, i(c) = c + I[P[K](x)]({f(x)}),
+``` "]
+
+s"rational field is the smallest subfield contain the aim":, ; +
+
+s"degree of extension equal to dimension of vector space":, ; +
+
+s"finite extension includes algebraic extension": ; +
+(
+	"{1, α, α^2, …, α^n} linear dependent"
+),
+
+s"C is algebraic closure":, ; +
