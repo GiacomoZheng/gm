@@ -8,8 +8,8 @@
 	∀d[∀n: ∈ s.N]:
 	(
 		∈ ideal(R),
-		d[1]
-		∀n: ∈ s.N, d[n] ⊆ d[n + 1],
+		d[0] = Id,
+		∀n: ∈ s.N, d[n] ⊆ d[n + 1]
 	),
 	∃m: ∈ s.N, ∀n: (∈ N, ≥ m), d[n] = d[m]
 )

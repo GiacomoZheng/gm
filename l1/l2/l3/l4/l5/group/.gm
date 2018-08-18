@@ -1,7 +1,7 @@
 : ; group
 (
-	[ type ]	
-	⊆ set,
+	[ type ]
+	⊆ set, ; as a subclass of set
 	[ data field ]
 	*: ∈ operator,
 	e: ∈ ◉, ; identity

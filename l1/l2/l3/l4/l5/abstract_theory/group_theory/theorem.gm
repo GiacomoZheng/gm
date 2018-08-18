@@ -1,3 +1,20 @@
+s"direct product of two groups is also a group":
+(
+	@giacomo.h.Group,
+	∀A: ∈ group, ∀B: ∈ group, C: = A × B,
+	C ∈ group, ∀(x1, y1): ∈ C, ∀(x2, y2): ∈ C,
+	(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)■
+),
+
+s"uniqueness in group":
+(
+	@giacomo.h.Group,
+	∀G: ∈ group, *: = &G.*&, e: = G.e
+	∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
+	∀a: ∈ G, 
+	■
+),
+
 ; Theorem: start
 	@giacomo.h.Group, ; location
 	∀C: ∈ coset,
@@ -9,28 +26,18 @@
 	@giacomo.h.Group,
 	G: ∈ group,
 	∀H: ∈ subgroup(G), ∀K: ∈ subgroup(G),
-	inter:
-	(
-		∈ group,
-
-		D: = H ∩ K,
-		*: = &G.*&,
-		e: = G.e
-	),
-	inter ∈ subgroup(G) ■
+	inter: = H ∩ K
+	inter ∈ subgroup(G),
+	&inter.*& = &G.*&,
+	inter.e = G.e■
 ; Theorem: end
 
 ; Theorem: start
 	@giacomo.h.Group,
-	∀m: ∈ N \ {0}, Z[m] = {{x + m × z|∀z: ∈ integer}|∀x: ∈ integer}
-	∃𝒴:
-	(
-		∈ group,
-		D: = {y| ∀y: ∈ C, y ^ m = 1},
-		*: = &+&,
-		e: = 1
-	),
-	Z[m] ≌ 𝒴 ■
+	∀m: ∈ N \ {0}, Z[m] = {{x + m × z}[∀z: ∈ integer]}[∀x: ∈ integer]
+	∃𝒴: = {y| ∀y: ∈ C, y ^ m = 1},
+	𝒴 ∈ group, &𝒴.*& = &+&, 𝒴.e = 1
+	Z[m] ≌ 𝒴■
 ; Theorem: end
 
 s"Lagrange Theorem":

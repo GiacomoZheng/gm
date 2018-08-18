@@ -18,7 +18,7 @@ s"extension field with irreducible polynomial":
 	∃α: ∈ K', f(α) = K.0,
 	|K' / K| = deg(f)■
 ),
-[" ```
+[ ```
 	∀f(x): ∈ irreducible(P[K](x)),
 	I[P[K](x)]({f(x)}) ∈ maximal(P[K](x)),
 	∃i: ∈ field_extension, i.D = K, i.C = K',

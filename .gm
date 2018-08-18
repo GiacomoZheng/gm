@@ -1,3 +1,4 @@
+[…]: …, ; annotation
 [ 
 	the definition of these
 	' symbols '
@@ -36,5 +37,21 @@
 A ⇒ (B ⇒ A),
 (!(A) ⇒ !(B)) ⇒ (B ⇒ A),
 
-
 !(A) ⇒ (A ⇒ B),
+
+
+
+∀a: ∈ ◉,
+A: = {a, {a}},
+B: = {a},
+∀(B ∈ A, B ⊆ A),
+
+∃f: ∈ permutation,
+; the mapping with the same domain and codomain
+f.D = A,
+f(a) = {a},
+f({a}) = a,
+
+[ now, what is f(B)? ]
+f(B) = f({a}) = a, ; as element,
+f(B) = {f(a)} = {{a}}, ; as subset,

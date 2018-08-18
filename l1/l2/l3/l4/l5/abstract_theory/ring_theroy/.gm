@@ -52,17 +52,9 @@ irreducible(∀R: ∈ ring):
 	⊆ ◉,
 	∀ir: ∈ irreducible(R),
 	×: = &R.×&
-	ir ∈ R, ∀(d1, d2): ∈ R,
-	d1 × d2 = ir ⇒ ∃(d1 ∈ unit(R), d2 ∈ unit(R))
+	ir ∈ R,
+	∀(d1, d2): ∈ R, d1 × d2 = ir ⇒ ∃(d1 ∈ unit(R), d2 ∈ unit(R))
 ),
-
-/: ; !
-(
-	∀R: ∈ ring,
-	×: ∈ &R.×&,
-	∀a: ∈ R, ∀b: ∈ R,
-	(∃c: ∈ R, a = b × c) ⇒ a / b = c
-)
 
 root[∀R: ∈ ring](∀f: (f(x) ∈ P[R](x))): ; !
 (

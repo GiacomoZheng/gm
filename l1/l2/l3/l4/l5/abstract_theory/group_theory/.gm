@@ -1,3 +1,18 @@
+inv[∀G: ∈ group](∀g: ∈ G):
+(
+	*: = &G.*&, e: = G.e,
+	∃g': ∈ G, g' * g = g * g' = e,
+	= g'
+),
+
+coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
+(
+	⊆ set,
+	
+	∀C: ∈ coset[G](H),
+	∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; left coset indeed
+),
+
 ≌:
 (
 	∈ relator,
@@ -16,74 +31,34 @@ subgroup(G):
 	&H.*& = &G.*&
 ),
 
-/:
-(
-	∈ operator,
-
-	∀G: ∈ group, ∀H: ∈ subgroup(G),
-	*: = &G.*&
-	(G / H): = {{x * h|∀h: ∈ H}|∀x: ∈ G} ; the set of all the left cosets of H
-),
-
 order[∀G: ∈ group](∀x: ∈ G):
 (
-	D: = {m|∀m: ∈ N, G.e (G.* x)^m = G.e}
+	D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
 	!(D = ∅) ⇒ = inf(D)
 ),
 ; the domian of inf function do not contains ∅. If so, the error will occur
 
-×:
-(
-	[ direct product ]
-	∀A: ∈ group, ∀B: ∈ group,
-	(A × B):
-	(
-		∈ group,
-		D: = A.D × B.D,
-		*:
-		(
-			∈ operator,
-			∀(x1, y1): ∈ D, ∀(x2, y2): ∈ D, ((x1, y2) * (x2, y2)): = (x1 A.* x2, x2 B.* y2) 
-		),
-		e: = (A.e, B.e)
-	)
-),
+gcd(∀m: ∈ N, ∀n: ∈ N): = sup({m / k, n / k}[∀k: ∈ N] ∩ N),
+lcm(∀m: ∈ N, ∀n: ∈ N): = inf({m × k, n × k}[∀k: ∈ N])
 
-gcd(∀m: ∈ N, ∀n: ∈ N): = sup({m / k, n / k|∀k: ∈ N} ∩ N),
-lcm(∀m: ∈ N, ∀n: ∈ N): = inf({m × k, n × k|∀k: ∈ N})
+prime_number: = {n}[∀n: ∈ N, gcd(n, 1) = n]
 
-prime_number: = {n|∀n: ∈ N, gcd(n, 1) = n}
-
-gp[∀*: ∈ operator](∀S: ∈ set):
+gp[∀*: ∈ operator](∀S: ∈ set): ; !
 (
 	[ if no error happens ]
 	∈ group,
-	D: = {x ^ m * y ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
+	D: = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
 	*: = &*&,
 	e: ...
 ),
 
+; symmetric group
+sym(∀S: ∈ set): = {f|∀f: ∈ permutation, f.D = S},
+; this is a group with ∘ as operater
 
-sym(∀S: ∈ set):
-(
-	∈ group,
-	D: = {f|∀f: ∈ permutation, f.D = S}, ; N here don't contains 0
-	*: = &∘&,
-	e:
-	(
-		∈ permutation,
-		D: = S,
-		e(∀x: ∈ D): = x
-	)
-),
+S[∀n: ∈ N]: = sym({m|∀m: ∈ N, m ≤ n})
 
-S[∀n: ∈ N]:
-(
-	D: = {m|∀m: ∈ N, m ≤ n},
-	= sym(D)
-),
-
-c(∀a: ∈ sequence):
+c(∀a: ∈ sequence): ; !
 (
 	∈ circle,
 	Length: = a.cardinal,
@@ -94,15 +69,10 @@ orb[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g, s)|∀g: ∈ G},
 stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = s},
 
 centralizer[∀G: ∈ group](∀a: ∈ G): = {g|∀g: ∈ G, a G.* g = g G.* a},
-center(∀G: ∈ group): = ∩[∀a: ∈ G]({centralizer[G](a)}),
+center(∀G: ∈ group): = ∩({centralizer[G](a)}[∀a: ∈ G]),
 
-A[∀n: ∈ N]: ; alternating group
-(
-	∈ group,
-	D: = {f|∀f: ∈ S[n], f ∈ even_func},
-	*: = &S[n].*&
-	e: = S[n].e
-),
+; alternating group
+A[∀n: ∈ N]: = {f}[∀f: ∈ S[n], f ∈ even_func],
 
 D[∀n: ∈ N]: ; Dihedral group
 (
@@ -136,7 +106,7 @@ conjugate(∀G: ∈ group):
 	*: = &G.*&
 
 	∀S: ∈ conjugate(G),
-	∀h: ∈ S, S = {g*h*g^-1|∀g: ∈ G}
+	∀h: ∈ S, S = {g * h (* g) ^ -1|∀g: ∈ G} ; !
 ),
 
 composition_series(∀G: ∈ finite_group): ; !

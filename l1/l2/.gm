@@ -1,4 +1,4 @@
-{…}:
+{…}[…]:
 (
 	∈ bracket,
 ),
@@ -10,16 +10,16 @@
 
 ∅: = {},
 
-Ps(∀A: ∈ set) = {S|∀S: ⊆ A},
+Ps(∀A: ∈ set) = {S}[∀S: ⊆ A],
 
-Range(∀f: ∈ mapping) = {f(x)|∀x: ∈ f.D}
+Range(∀f: ∈ mapping) = {f(x)}[∀x: ∈ f.D],
 
 ∪:
 (
 	∈ symbunc,
 
 	∀τ: ∈ set, ; set of set
-	∪(τ) = {x| ∃C: ∈ τ, x ∈ C},
+	∪(τ) = {x}[∀x: ∈ ◉, ∃C: ∈ τ, x ∈ C],
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
 	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪({A, B})
@@ -30,7 +30,7 @@ Range(∀f: ∈ mapping) = {f(x)|∀x: ∈ f.D}
 	∈ symbunc,
 
 	∀τ: ∈ set, ; set of set
-	∩(τ) = {x| ∀C: ∈ τ, x ∈ C},
+	∩(τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C],
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
 	∀(A ∈ set, B ∈ set) ⇒ A ∩ B = ∩({A, B})
@@ -39,5 +39,6 @@ Range(∀f: ∈ mapping) = {f(x)|∀x: ∈ f.D}
 ×:
 (
 	∈ symbol,
-	∀A: ∈ set, ∀B: ∈ set, A × B = {(x, y)| ∀x: ∈ A, ∀y: ∈ B}
+	∀A: ∈ set, ∀B: ∈ set,
+	A × B = {(x, y)}[∀x: ∈ A, ∀y: ∈ B]
 ),
