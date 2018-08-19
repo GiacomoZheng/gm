@@ -1,0 +1,17 @@
+: ; vector_space
+(
+	⊆ abelian_group,
+	+: ∈ operator,
+	×: ∈ operator,
+	F: ∈ field,
+
+	∀V: ∈ vector_space,
+	&V.+& = &V.*&,
+	∀v: ∈ V,
+	∀a: ∈ V.F, a V.× v = v V.× a ∈ V, ; closure, with the closure in abelian group
+	V.F.1 V.× v = v, ; identity
+	∀b: ∈ V.F, (a V.F.× b) V.× v = a V.F.× (b V.× v), ; compatibility
+	
+	∀u: ∈ V, a V.× (u + v) = a V.× u + a V.× v, ; distribution
+	(a + b) V.× v = a V.× v + c V.× v
+),
