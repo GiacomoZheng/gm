@@ -1,0 +1,6 @@
+: ; reflective_relator
+(
+	⊆ relator,
+	∀𝓅: ∈ preorder_relator,
+	∀a: ∈ &𝓅&.D, a 𝓅 a
+)

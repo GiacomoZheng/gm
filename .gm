@@ -4,7 +4,7 @@
 	' symbols '
 	@		--- locator
 	■		--- terminator
-	 		---	none
+	 		---	delimiter
 	( )		---	bracket
 	∀ ∃ !	---	quantifier
 	.		---	operator
@@ -26,13 +26,14 @@
 	separator  
  ]
 
+[ ```
 ⇒:
 (
 	∈ relator, ; a sample of symbol
 	∀A: ∈ statement,
 	∀B: ∈ statement,
 	B ⇒ (A ⇒ B),
-	(∀C: ∈ statement, A ⇒ (B ⇒ C)) ⇒ ((A ⇒ B) ⇒ (A ⇒ C),
+	(∀C: ∈ statement, A ⇒ (B ⇒ C)) ⇒ ((A ⇒ B) ⇒ (A ⇒ C)),
 )
 A ⇒ (B ⇒ A),
 (!(A) ⇒ !(B)) ⇒ (B ⇒ A),
@@ -55,3 +56,5 @@ f({a}) = a,
 [ now, what is f(B)? ]
 f(B) = f({a}) = a, ; as element,
 f(B) = {f(a)} = {{a}}, ; as subset,
+
+``` ]

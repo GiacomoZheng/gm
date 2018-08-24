@@ -5,11 +5,11 @@
 	∀R: ∈ Noetherian_ring,
 
 	∀Id: ∈ ideal(R),
-	∀d[∀n: ∈ s.N]:
+	∀d[∀n: ∈ N]:
 	(
 		∈ ideal(R),
 		d[0] = Id,
-		∀n: ∈ s.N, d[n] ⊆ d[n + 1]
+		∀n: ∈ N, d[n] ⊆ d[n + 1]
 	),
-	∃m: ∈ s.N, ∀n: (∈ N, ≥ m), d[n] = d[m]
+	∃m: ∈ N, ∀n: (∈ N, ≥ m), d[n] = d[m]
 )

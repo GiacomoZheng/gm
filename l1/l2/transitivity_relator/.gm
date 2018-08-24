@@ -1,0 +1,6 @@
+: ; transitivity_relator
+(
+	⊆ relator,
+	∀𝓅: ∈ preorder_relator,
+	∀b: ∈ &𝓅&.D, ∀c: ∈ &𝓅&.D, ∀(a 𝓅 b, b 𝓅 c) ⇒ a 𝓅 c
+),

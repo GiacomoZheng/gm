@@ -3,14 +3,14 @@
 	[ type ]
 	⊆ set, ; as a subclass of set
 	[ data field ]
-	*: ∈ operator,
+	*: ∈ associative_operator,
 	e: ∈ ◉, ; identity
 	[ axioms ]
 	∀G: ∈ group,
 	!(G = ∅), ; non-empty
+	G ⊆ &*&.D,
 	∀x: ∈ G, ∀y: ∈ G, ∀z: ∈ G,
 	x G.* y ∈ G, ; closure
-	(x G.* y) G.* z = x G.* (y G.* z), ; association
 	G.e ∈ G, x G.* G.e = G.e G.* x = x, ; identity
 	∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
 ),

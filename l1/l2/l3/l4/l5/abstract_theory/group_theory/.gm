@@ -1,8 +1,29 @@
+i(∀x: ∈ ◉): = x, ; identity function
+
 inv[∀G: ∈ group](∀g: ∈ G):
 (
+	[ valid because the unqeness of the inverse in the group  ]
 	*: = &G.*&, e: = G.e,
 	∃g': ∈ G, g' * g = g * g' = e,
 	= g'
+),
+
+subgroup(∀G: ∈ group):
+(
+	⊆ group,
+
+	∀H: ∈ subgroup(G)),
+	H ⊆ G,
+	H.e = G.e,
+	&H.*& = &G.*&
+),
+
+order[∀G: ∈ group](∀x: ∈ G):
+(
+	"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
+	D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
+	!(D = ∅) ⇒ = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur
+	; otherwise return the cardinal of Z
 ),
 
 coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
@@ -21,42 +42,18 @@ coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
 	(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
 ),
 
-subgroup(G):
-(
-	⊆ group,
-
-	∀H: ∈ subgroup(G)),
-	H ⊆ G,
-	H.e = G.e,
-	&H.*& = &G.*&
-),
-
-order[∀G: ∈ group](∀x: ∈ G):
-(
-	D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
-	!(D = ∅) ⇒ = inf(D)
-),
-; the domian of inf function do not contains ∅. If so, the error will occur
-
 gcd(∀m: ∈ N, ∀n: ∈ N): = sup({m / k, n / k}[∀k: ∈ N] ∩ N),
 lcm(∀m: ∈ N, ∀n: ∈ N): = inf({m × k, n × k}[∀k: ∈ N])
 
 prime_number: = {n}[∀n: ∈ N, gcd(n, 1) = n]
 
-gp[∀*: ∈ operator](∀S: ∈ set): ; !
-(
-	[ if no error happens ]
-	∈ group,
-	D: = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
-	*: = &*&,
-	e: ...
-),
+; !
+gp[∀*: ∈ operator](∀S: ∈ set): = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
 
-; symmetric group
-sym(∀S: ∈ set): = {f|∀f: ∈ permutation, f.D = S},
-; this is a group with ∘ as operater
+; 
+; this is a group with ∘ as operator, f^-1 as inverse of f
 
-S[∀n: ∈ N]: = sym({m|∀m: ∈ N, m ≤ n})
+S[∀n: ∈ N]: = sym({m|∀m: ∈ N, 1 ≤ m ≤ n}),
 
 c(∀a: ∈ sequence): ; !
 (
@@ -71,19 +68,11 @@ stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = s},
 centralizer[∀G: ∈ group](∀a: ∈ G): = {g|∀g: ∈ G, a G.* g = g G.* a},
 center(∀G: ∈ group): = ∩({centralizer[G](a)}[∀a: ∈ G]),
 
-; alternating group
+; alternating group ; !
 A[∀n: ∈ N]: = {f}[∀f: ∈ S[n], f ∈ even_func],
 
-D[∀n: ∈ N]: ; Dihedral group
-(
-	a[∀m: (∈ N, ≤ n)]: = m,
-	σ: = c(a),
-	b[∀m: (∈ N, ≤ n / 2)]: = c(m, 2 + n - m)
-	B[0]: i,
-	B[∀m: (∈ N, ≤ n / 2)]: = B[m - 1] ∘ b[m],
-	τ: = B[sup({∀m: (∈ N, ≤ n / 2)})],
-	= gp({σ, τ})
-),
+D[∀n: ∈ N]: ; Dihedral group ; !
+= gp[*: ∈ operator]({σ, τ}[∃σ: ∈ ◉, ∃τ: ∈ ◉, order[&*&](σ) = n, order[&*&](τ) = 2, σ * τ = τ (* σ)^2]),
 
 normal(∀G: ∈ group):
 (

@@ -1,5 +1,6 @@
-Group: = l1.l2.l3.l4.l5.group_theory,
+Abstract: = l1.l2.l3.l4.l5.abstract_algebra,
+	Group: = Abstract.group_theory,
+	Ring: = Abstract.ring_theory,
+	Field: = Abstract.field_theory,
 
-Ring: = Group.ring_theory,
-
-Field: = Ring.field_theory
+Set: = l1.l2.l3.l4.l5.set_theory,

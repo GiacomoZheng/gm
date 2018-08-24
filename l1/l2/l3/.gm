@@ -1,3 +1,18 @@
+^: ; !
+(
+	∈ symbol,
+	∀n: ∈ s.Z,
+
+	∀f: ∈ bijection,
+	i: = f.i, ; the identity permutation with the domain of f 
+	∃f': ∈ bijection, f' ∘ f = f ∘ f' = i,
+	f ^ 0 = i,
+	f ^ -1 = f',
+	n > 0 ⇒ f ^ n = f ^ (n - 1) ∘ f,
+	n < 0 ⇒ f ^ n = f ^ (n + 1) ∘ f ^ -1
+),
+
+[```
 infinity0:
 (
 	[ type ]
@@ -41,3 +56,4 @@ Mid: ; the mean value of two number, like Mid(0, 1) = 0.5
 	D: = R × R, C: = R,
 	∀x: ∈ R, Mid(x, x): = x
 ),
+```]

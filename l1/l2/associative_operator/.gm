@@ -1,0 +1,7 @@
+: ; associative_operator
+(
+	⊆ operator,
+
+	∀𝓅: ∈ associative_operator,
+	∀{a, b, c}: ⊆ &𝓅&.D, (a 𝓅 b) 𝓅 c = a 𝓅 (b 𝓅 c)
+),

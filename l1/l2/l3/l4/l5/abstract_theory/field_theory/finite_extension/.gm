@@ -3,5 +3,5 @@
 	⊆ field_extension,
 
 	∀f: ∈ finite_extension,
-	|f.C / f.D| ∈ s.N
+	|f.C / f.D| ∈ N
 ),

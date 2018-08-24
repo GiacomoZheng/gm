@@ -3,5 +3,5 @@
 	⊆ set,
 
 	∀S: ∈ finite_set,
-	|S| ∈ N
+	|S| ∈ s.N
 ),

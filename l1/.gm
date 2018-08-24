@@ -1,3 +1,4 @@
+[ ```
 ∈:
 (
 	.temp.a_sample relator,
@@ -20,13 +21,23 @@
 		)
 	),
 ),
+``` ]
 
 =:
 (
 	∈ symbol,
 	∀a: ∈ ◉, ∀b: ∈ ◉,
 	(a = b) ⇔ (∀C: ⊆ ◉, a ∈ C ⇔ b ∈ C),
+	; ? a = b ⇔ a ∈ {b}
 	
 	∀A: ⊆ ◉, ∀B: ⊆ ◉,
 	(A = B) ⇔ ∀(A ⊆ B, B ⊆ A)
 ),
+
+∘:
+(
+	∈ operator,
+	
+	∀f: ∈ function, ∀g: ∈ function,
+	∀x: ∈ ◉, (f ∘ g)(x) = f(g(x))
+)

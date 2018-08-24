@@ -52,7 +52,7 @@ s"the quotient group under the ideal is ring":
 s"Euclidean Algorithm":
 (
 	@giacomo.h.Ring,
-	S: = {∀x: ∈ integer} \ {0},
+	S: = {∀x: ∈ s.Z} \ {0},
 	∀{a, b}: ⊆ S,
 	(∃(u, v): ∈ S, a × u + b × u = gcd(a, b)),
 	(∀(u, v): ∈ S, a × u + b × u / gcd(a, b) ∈ S)■
@@ -201,7 +201,7 @@ s"enough intersection points make two polynomial the same":
 	@giacomo.h.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
-	∃m: ∈ integer, m > deg(f(x)), m > deg(g(x)),
+	∃m: ∈ s.Z, m > deg(f(x)), m > deg(g(x)),
 	(∃A: ⊆ R, |A| = m, (∀a: ∈ A, f(a) = g(a))) ⇒ f = g■ ; as function's "equal"
 ),
 
@@ -210,7 +210,10 @@ s"intersection at the infinite domain make two polynomial the same":
 	@giacomo.h.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
-	∀(R ∈ infinite_set, (∀a: ∈ R, f(a) = g(a))) ⇒ f = g■ ; as function's "equal"
+	∀(
+		!(R ∈ finite_set),
+		(∀a: ∈ R, f(a) = g(a))
+	) ⇒ f = g■ ; as function's "equal"
 ),
 
 s"PID and UFD":
@@ -231,12 +234,12 @@ s"PID and UFD":
 s"Fundamental Theorem of Algebra":,
 [ every non-constant polynomial over Complex numbers has a root ]
 
-s"irreducible polynomials in P[R](x) are linears and irreducible quadratic":
+s"irreducible polynomials in P[R](x) are linears and irreducible quadratic": ; !
 (
 	@giacomo.h.Ring,
 	∀x: ∈ ◉, ; !
 	p(x): ∈ P[s.R](x),
-	S: = {n|∀n: ∈ integer, n ≥ 0, n ≤ deg(p(x))},
+	S: = {n|∀n: ∈ s.Z, n ≥ 0, n ≤ deg(p(x))},
 	∃α[∀n: ∈ S]: ∈ s.C,
 	∀y: ∈ s.R, p(y) = ×[∀n: ∈ S](y - α[n]),
 	p(y) ∈ s.R ⇒ p(y) = conj(p(y))
@@ -244,7 +247,7 @@ s"irreducible polynomials in P[R](x) are linears and irreducible quadratic":
 	⇒ p(y) = ×[∀n: ∈ S](y - conj(α[n])),
 	q(x): = ×[∀n: ∈ S](x - conj(α[n])),
 	∀(
-		R: ∈ infinite_set,
+		!(R ∈ finite_set),
 		(∀y: ∈ s.R, q(y) = p(y))
 	)
 	⇒ p = q,

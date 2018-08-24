@@ -43,7 +43,7 @@ splitting_field: ; + , splitting field
 	∀f(x): ∈ P[K](x),
 	L: = ∩({(
 		∈ field,
-		S: = {m}[∀m: ∈ s.N, m < deg(f)], ; with numbers of them is deg(f)
+		S: = {m}[∀m: ∈ N, m < deg(f)], ; with numbers of them is deg(f)
 		∃a[∀n: ∈ S]: ∈ L,
 		×[∀n: ∈ S](x - a[n]) = f(x)
 	)}),

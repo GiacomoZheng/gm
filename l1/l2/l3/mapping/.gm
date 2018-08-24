@@ -2,11 +2,11 @@
 (
 	[ type ]
 	⊆ function,
-
 	[ attributions ]
 	D: ∈ set, ; domain
 	C: ∈ set, ; coodomain
-	
 	[ axioms ]
-	∀f: ∈ function, f(∀x: ∈ D) ∈ C
+	∀f: ∈ function, f(∀x: ∈ D) ∈ C,
+	[ method ]
+	i(∀x: ∈ f.D) = x
 ),
