@@ -1,5 +1,5 @@
 : ; preorder_relator
 (
 	⊆ reflective_relator,
-	⊆ transitivity_relator
+	⊆ transitive_relator
 ),

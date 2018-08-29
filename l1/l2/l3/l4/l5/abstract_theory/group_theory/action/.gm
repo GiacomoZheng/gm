@@ -8,6 +8,7 @@
 	∀μ: ∈ action,
 	μ.D = μ.G × μ.S, μ.C = μ.S,
 	∀s: ∈ μ.S,
-	∀(x, y): ∈ G^2, μ(x G.* y, s) = μ(x, μ(y, s))
+
+	∀{x, y}: ∈ G, μ(x G.* y, s) = μ(x, μ(y, s)), ; compatibility
 	μ(G.e, s) = s
 ),

@@ -1,6 +1,6 @@
 "power set", "poset", "maximal",
 ; Theorem: start
-	@giacomo.h.set_theory,
+	@gm.h.set_theory,
 	∀X: ∈ set, Ps(X) ∈ poset, &PS(X).≤& = &⊆&,
 	X ∈ maximal(G) ; in fact, it is the only one
 	■
@@ -8,7 +8,7 @@
 
 "finite set", "posoet", "maximal",
 ; Theorem: start
-	@giacomo.h.set_theory,
+	@gm.h.set_theory,
 	∀P: ∈ poset,
 	P ∈ finite_set ⇒ (∃x: ∈ P, x ∈ maximal(G)),
 	■

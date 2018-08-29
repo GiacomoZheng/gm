@@ -7,3 +7,8 @@
 	∀x: ∈ f.D, ∀y: ∈ f.D,
 	f(x f.D.* y) = f(x) f.C.* f(y)
 ),
+[ ```
+	∀a: ∈ G,
+	e * f(a) = f(a) = f(e * a) = f(e) * f(a) ⇒ f(e) = e
+	e = f(e) = f(a * a') = f(a) * f(inv(a)) ⇒ f(inv(a)) = inv(f(a))
+``` ]

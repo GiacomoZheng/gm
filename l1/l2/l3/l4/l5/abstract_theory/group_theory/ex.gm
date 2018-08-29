@@ -1,0 +1,13 @@
+Np: = {n}[∀n: ∈ s.Z, n > 0]
+
+; Dihedral group ; !
+D[∀n: ∈ Np]: = gp[*: ∈ operator]({σ, τ}[∃σ: ∈ ◉, ∃τ: ∈ ◉, order[&*&](σ) = n, order[&*&](τ) = 2, σ * τ = τ (* σ)^2]),
+[```
+	σ: = D[n].σ, τ: = D[n].τ,
+	D[n] = gp({σ∘τ, τ}) ⇐ σ∘τ ∘ τ = σ,
+	order[D[n]](σ) = n,
+	order[D[n]](τ) = 2,
+	τ∘σ = σ^-1 ∘ τ
+``` ]
+Qu: ; Quaternion group ; !
+= {1, -1, i, -i, j, -j, k, -k}[{1, i, j, k}:] ; +

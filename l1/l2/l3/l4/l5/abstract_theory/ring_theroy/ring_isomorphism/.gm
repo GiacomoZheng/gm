@@ -1,5 +1,0 @@
-: ; ring_isomorphism
-(
-	⊆ ring_homomorphism,
-	⊆ bijection
-),

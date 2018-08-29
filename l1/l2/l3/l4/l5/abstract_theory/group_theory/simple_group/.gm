@@ -3,6 +3,5 @@
 	⊆ group,
 
 	∀G: ∈ simple_group,
-	
-	{{G.e}, G} = normal(G)
+	∀x: ∈ normal(G), x ∈ {{G.e}, G}
 ),

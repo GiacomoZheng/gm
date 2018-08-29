@@ -1,7 +1,0 @@
-: ; automorphism
-(
-	⊆ isomorphism,
-
-	∀f: ∈ automorphism,
-	f.D = f.C
-),

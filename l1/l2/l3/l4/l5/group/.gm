@@ -7,10 +7,9 @@
 	e: ∈ ◉, ; identity
 	[ axioms ]
 	∀G: ∈ group,
-	!(G = ∅), ; non-empty
 	G ⊆ &*&.D,
 	∀x: ∈ G, ∀y: ∈ G, ∀z: ∈ G,
 	x G.* y ∈ G, ; closure
-	G.e ∈ G, x G.* G.e = G.e G.* x = x, ; identity
+	G.e ∈ G, x G.* G.e = G.e G.* x = x, ; identity and nonempty
 	∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
 ),

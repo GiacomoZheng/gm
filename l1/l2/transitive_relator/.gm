@@ -1,4 +1,4 @@
-: ; transitivity_relator
+: ; transitive_relator
 (
 	⊆ relator,
 	∀𝓅: ∈ preorder_relator,

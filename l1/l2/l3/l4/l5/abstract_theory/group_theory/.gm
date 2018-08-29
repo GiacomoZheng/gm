@@ -1,4 +1,9 @@
-i(∀x: ∈ ◉): = x, ; identity function
+fac:
+(
+	∈ function,
+	fac(0) = 1,
+	fac(∀n: (∈ s.Z, n > 0)) = fac(n - 1) * n
+),
 
 inv[∀G: ∈ group](∀g: ∈ G):
 (
@@ -8,23 +13,44 @@ inv[∀G: ∈ group](∀g: ∈ G):
 	= g'
 ),
 
-subgroup(∀G: ∈ group):
-(
-	⊆ group,
-
-	∀H: ∈ subgroup(G)),
-	H ⊆ G,
-	H.e = G.e,
-	&H.*& = &G.*&
-),
-
 order[∀G: ∈ group](∀x: ∈ G):
 (
 	"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
 	D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
 	!(D = ∅) ⇒ = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur
-	; otherwise return the cardinal of Z
+	; + otherwise return the cardinal of Z
 ),
+
+ker(∀f: ∈ group.homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D],
+
+$:
+(
+	"to get a permutation corresponding to the element in the group",
+	∈ symbol,
+	∀σ: ∈ action, ∀x: ∈ σ.G,
+	∃f(∀a: ∈ σ.S): = σ(x, a),
+	σ$x = f
+),
+
+subgroup(∀G: ∈ group): ; differnet from other books
+(
+	⊆ group,
+
+	∀H: ∈ subgroup(G),
+	H ⊆ G,
+	H.e = G.e,
+	&H.*& = &G.*&
+),
+
+C[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G], ; centralizer
+
+Z(∀G: ∈ group): = C[G](G), ; center
+
+N[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G], ; normalizer
+
+stabilizer[∀μ: ∈ action](∀s: ∈ μ.S): = {g|μ(g, s) = s}[∀g: ∈ G],
+
+orb[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g, s)}[∀g: ∈ G],
 
 coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
 (
@@ -39,7 +65,7 @@ coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
 	∈ relator,
 
 	∀A: ∈ group, ∀B: ∈ group,
-	(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
+	(A ≌ B) ⇔ (∃f: ∈ group.isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
 ),
 
 gcd(∀m: ∈ N, ∀n: ∈ N): = sup({m / k, n / k}[∀k: ∈ N] ∩ N),
@@ -50,7 +76,6 @@ prime_number: = {n}[∀n: ∈ N, gcd(n, 1) = n]
 ; !
 gp[∀*: ∈ operator](∀S: ∈ set): = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}
 
-; 
 ; this is a group with ∘ as operator, f^-1 as inverse of f
 
 S[∀n: ∈ N]: = sym({m|∀m: ∈ N, 1 ≤ m ≤ n}),
@@ -62,17 +87,8 @@ c(∀a: ∈ sequence): ; !
 	
 ),
 
-orb[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g, s)|∀g: ∈ G},
-stab[∀μ: ∈ action](∀s: ∈ μ.S): = {g|∀g: ∈ G, μ(g, s) = s},
-
-centralizer[∀G: ∈ group](∀a: ∈ G): = {g|∀g: ∈ G, a G.* g = g G.* a},
-center(∀G: ∈ group): = ∩({centralizer[G](a)}[∀a: ∈ G]),
-
 ; alternating group ; !
 A[∀n: ∈ N]: = {f}[∀f: ∈ S[n], f ∈ even_func],
-
-D[∀n: ∈ N]: ; Dihedral group ; !
-= gp[*: ∈ operator]({σ, τ}[∃σ: ∈ ◉, ∃τ: ∈ ◉, order[&*&](σ) = n, order[&*&](τ) = 2, σ * τ = τ (* σ)^2]),
 
 normal(∀G: ∈ group):
 (
@@ -82,11 +98,8 @@ normal(∀G: ∈ group):
 
 	∀Nor: ∈ normal(G),
 	Nor ∈ subgroup(G),
-	∀h: ∈ Nor, ∀g: ∈ G, g*h*g^-1 ∈ Nor
+	∀h: ∈ Nor, ∀g: ∈ G, g*h*inv[G](g) ∈ Nor
 ),
-
-
-ker(∀f: ∈ homomorphism): = {x|∀x: ∈ f.D, f(x) = f.C.e},
 
 conjugate(∀G: ∈ group):
 (

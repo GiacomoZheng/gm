@@ -1,6 +1,6 @@
 s"the ring homomorphism of fields are always injective":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀f: ∈ ring_homomorphism,
 	f.D ∈ field ⇒ f ∈ injection■
 ),
@@ -8,7 +8,7 @@ s"the ring homomorphism of fields are always injective":
 
 s"extension field with irreducible polynomial":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	K: ∈ field,
 	∀x: ∈ ◉, ; !
 	∀f(x): ∈ irreducible(P[K](x)),

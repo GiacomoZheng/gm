@@ -1,7 +1,7 @@
 ; ! a little bit change will be done when I complete the definition of polynomial ring
 s"trivial_ring has only one identity, vice versa":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring,
 	R ∈ trivial_ring ⇔ R.0 = R.1■
 ),
@@ -13,14 +13,14 @@ s"trivial_ring has only one identity, vice versa":
 
 s"the range of ring homomorphism":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring,
 	R ∈ trivial_ring ⇔ R.0 = R.1■
 ),
 
 s"kernel of ring homomorphism is seldom the subring":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
 	f.D = R ⇒
 	(
@@ -30,14 +30,14 @@ s"kernel of ring homomorphism is seldom the subring":
 
 s"kernel of ring homomorphism is an ideal":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
 	ker(f) ∈ ideal(R)■
 ),
 
 s"the quotient group under the ideal is ring":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ∀I: ∈ ideal(R),
 	I ∈ normal(R), ; abelian
 	R/I ∈ ring,
@@ -51,30 +51,30 @@ s"the quotient group under the ideal is ring":
 
 s"Euclidean Algorithm":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	S: = {∀x: ∈ s.Z} \ {0},
 	∀{a, b}: ⊆ S,
-	(∃(u, v): ∈ S, a × u + b × u = gcd(a, b)),
-	(∀(u, v): ∈ S, a × u + b × u / gcd(a, b) ∈ S)■
+	(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)),
+	(∀{u, v}: ⊆ S, a × u + b × u / gcd(a, b) ∈ S)■
 ),
 
 s"the unit of Z[n] are the ones coprime to the n":, ; !
 
 s"prime size group can be a field":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀p: ∈ prime_number, Z[p] ∈ field■
 ),
 
 s"fields are integral ring (domain)":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	field ⊆ integral_ring■
 ),
 
 s"finite integral ring are fields":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ integral_ring, R ∈ finite_set ⇒ R ∈ field■
 ),
 [ proof ```
@@ -97,7 +97,7 @@ s"finite integral ring are fields":
 
 s"cancel theorem of integral ring about multiplication":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ integral_ring,
 	∀{a, b, c}: ⊆ R, ×: = &R.×&,
 	∀(a × c = b × c, !(c = R.0)) ⇒ a = c■
@@ -105,7 +105,7 @@ s"cancel theorem of integral ring about multiplication":
 	s"lemma: zreo divisors have no multipication inverse": ; !
 	; it doesn't matter to consider 0 in it or whether the ring is commutative
 	(
-		@giacomo.h.Ring,
+		@gm.h.Ring,
 		∀R: ∈ nontrivial_ring,
 		∀a: ∈ R, ∀x: ∈ R \ {R.0},
 		∃(a R.× x = R.0, x R.× a = R.0) ⇒ (!y: ∈ R, a R.× y = y R.× a = R.1)■
@@ -121,7 +121,7 @@ s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
 
 s"relationship between a ring and its polynomial ring":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	R ∈ commutative_ring ⇒ P[R](x) ∈ commutative_ring,
 	R ∈ integral_ring ⇒ P[R](x) ∈ integral_ring,
@@ -143,7 +143,7 @@ s"P[set of real_number](x) / I[real_number](x) ≌ complex_number":, ; !
 s"division algorithm of polynomial ring":
 (
 	(
-		@giacomo.h.Ring, ; the first
+		@gm.h.Ring, ; the first
 		∀K: ∈ field, ∀x: ∈ ◉, ; !
 		∀f(x): ∈ P[K](x), ∀g(x): ∈ P[J](x),
 		!(g(x) = R.0) ⇒
@@ -157,7 +157,7 @@ s"division algorithm of polynomial ring":
 
 s"division algorithm"
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ×: = &R.×&,
 	∀p: ∈ irreducible(R),
 	∀a: ∈ P[R](x), ∀b: ∈ P[J](x),
@@ -166,7 +166,7 @@ s"division algorithm"
 
 s"degree, multiplication and addition":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	×: &R.×&,
 	∀{a, b}: ⊆ P[R](x),
@@ -175,7 +175,7 @@ s"degree, multiplication and addition":
 
 s"root and linear factor":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀f(x): ∈ P[R](x),
 	∀a: ∈ R,
@@ -189,7 +189,7 @@ s"root and linear factor":
 
 s"number of roots and the degree of polynomial":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	×: &R.×&,
 	∀f(x): ∈ P[R](x),
@@ -198,7 +198,7 @@ s"number of roots and the degree of polynomial":
 
 s"enough intersection points make two polynomial the same":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
 	∃m: ∈ s.Z, m > deg(f(x)), m > deg(g(x)),
@@ -207,7 +207,7 @@ s"enough intersection points make two polynomial the same":
 
 s"intersection at the infinite domain make two polynomial the same":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
 	∀(
@@ -236,7 +236,7 @@ s"Fundamental Theorem of Algebra":,
 
 s"irreducible polynomials in P[R](x) are linears and irreducible quadratic": ; !
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀x: ∈ ◉, ; !
 	p(x): ∈ P[s.R](x),
 	S: = {n|∀n: ∈ s.Z, n ≥ 0, n ≤ deg(p(x))},
@@ -262,7 +262,7 @@ s"irreducible polynomials in P[R](x) are linears and irreducible quadratic": ; !
 
 s"rational root test":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀x: ∈ ◉, ; !
 	∀f(x): ∈ P[s.Z](x),
 	n: = deg(f(x)),
@@ -280,7 +280,7 @@ s"rational root test":
 
 s"Eisenstein's criterion": ; + add it to cheeting paper,
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀x: ∈ ◉, ; !
 	∀f(x): ∈ P[s.Z](x),
 	n: = deg(f(x)),
@@ -297,13 +297,13 @@ s"Eisenstein's criterion": ; + add it to cheeting paper,
 
 s"the ideal over a prime number in Z is maximal":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀p: ∈ prime_number, I[s.Z]({p}) ∈ maximal_ideal(Z)■
 ),
 
 s"ideals of R contains I bijects to ideals of R/I":
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∃f: ∈ bijection,
 	f.D = {∀x: ∈ ideal(R/Id)},
 	f.C = {∀x: (∈ ideal(R), Id ⊆ x)}■
@@ -312,7 +312,7 @@ s"ideals of R contains I bijects to ideals of R/I":
 s"nature of quotient ring":
 (
 	; "indeed it is a part of third isomorphism theorems",
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	∀R: ∈ commutative_ring, ∀Id: ∈ ideal(R),
 	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_ring,
 	Id ∈ maximal_ideal(R) ⇔ R/Id ∈ field■
@@ -338,7 +338,7 @@ s"nature of quotient ring":
 
 s"chaim of rings and feild": ; + wait for addition
 (
-	@giacomo.h.Ring,
+	@gm.h.Ring,
 	ring ⊇ commutative_ring ⊇ integral_ring ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
 	■
 ),
