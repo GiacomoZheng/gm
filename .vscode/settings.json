@@ -1,3 +1,47 @@
 {
-	"editor.matchBrackets": true
+	"bracketPairColorizer.independentPairColors": [
+        [
+            "()",
+            [
+                "#ff8080",
+                "#ffff80",
+                "#80ff80",
+                "#00ff80",
+                "#80ffff",
+                "#0080ff"
+            ],
+            "Red"
+        ],
+        [
+            "[]",
+            [
+                "#ff8080",
+                "#ffff80",
+                "#80ff80",
+                "#00ff80",
+                "#80ffff",
+                "#0080ff"
+            ],
+            "Red"
+        ],
+        [
+            "{}",
+            [
+                "#ff8080",
+                "#ffff80",
+                "#80ff80",
+                "#00ff80",
+                "#80ffff",
+                "#0080ff"
+            ],
+            "Red"
+        ],
+        [
+            "&&",
+            [
+                "#ff8080"
+            ],
+            "Red"
+        ]
+    ],
 }

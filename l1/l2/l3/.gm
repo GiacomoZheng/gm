@@ -12,6 +12,12 @@
 	n < 0 ⇒ f ^ n = f ^ (n + 1) ∘ f ^ -1
 ),
 
+
+gcd(∀m: ∈ s.Z, ∀n: ∈ s.Z): = sup({m / k, n / k}[∀k: ∈ s.Z] ∩ s.Z), ; !
+lcm(∀m: ∈ s.Z, ∀n: ∈ s.Z): = inf({m × k, n × k}[∀k: ∈ s.Z]), ; !
+
+prime_number: = {n|gcd(n, 1) = n}[∀n: ∈ s.Z], ; !
+
 [```
 infinity0:
 (

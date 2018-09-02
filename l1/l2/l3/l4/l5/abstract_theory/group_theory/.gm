@@ -21,7 +21,7 @@ order[∀G: ∈ group](∀x: ∈ G):
 	; + otherwise return the cardinal of Z
 ),
 
-ker(∀f: ∈ group.homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D],
+ker(∀f: ∈ group.homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D], 
 
 $:
 (
@@ -32,7 +32,7 @@ $:
 	σ$x = f
 ),
 
-subgroup(∀G: ∈ group): ; differnet from other books
+subgroup(∀G: ∈ group): ; different from other books
 (
 	⊆ group,
 
@@ -67,11 +67,6 @@ coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
 	∀A: ∈ group, ∀B: ∈ group,
 	(A ≌ B) ⇔ (∃f: ∈ group.isomorphism, ∀(f.D = A, f.C = B)) ; ? undetermined
 ),
-
-gcd(∀m: ∈ N, ∀n: ∈ N): = sup({m / k, n / k}[∀k: ∈ N] ∩ N),
-lcm(∀m: ∈ N, ∀n: ∈ N): = inf({m × k, n × k}[∀k: ∈ N])
-
-prime_number: = {n}[∀n: ∈ N, gcd(n, 1) = n]
 
 ; !
 gp[∀*: ∈ operator](∀S: ∈ set): = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}

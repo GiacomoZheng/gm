@@ -1,10 +1,17 @@
-s"direct product of two groups is also a group":
-(
-	@gm.h.Group,
-	∀A: ∈ group, ∀B: ∈ group, C: = A × B,
-	C ∈ group, ∀(x1, y1): ∈ C, ∀(x2, y2): ∈ C,
-	(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)■
-),
+; about the examples
+	s"direct product of two groups is also a group":
+	(
+		@gm.h.Group,
+		∀A: ∈ group, ∀B: ∈ group, C: = A × B,
+		C ∈ group, ∀(x1, y1): ∈ C, ∀(x2, y2): ∈ C,
+		(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)■
+	),
+
+	s"symmetric group":
+	(
+		@gm.h.Group,
+		∀S: ∈ set, sym(S) ∈ group, &sym(S).*& = &∘&, sym(S).e = i■
+	),
 
 s"uniqueness in group": ; +
 (
@@ -32,10 +39,23 @@ s"cancellation in a group":
 	a * u = a * v ⇔ u = v ⇔ u * a = v * a■ ; because the inverse of every element exist
 ),
 
-s"symmetric group":
+s"the numbers divides order":
 (
 	@gm.h.Group,
-	∀S: ∈ set, sym(S) ∈ group, &sym(S).*& = &∘&, sym(S).e = i■
+	∀G: ∈ group, *: = &G.*&, e: = G.e,
+	∀x: ∈ G, ∀m: ∈ s.Z, e (* x)^m = e ⇒ m / order[G](x) ∈ s.Z
+	■
+),
+
+
+s"the orders in a group":
+(
+	@gm.h.Group,
+	∀G: ∈ group, *: = &G.*&, e: = G.e,
+	∀x: ∈ G, ∀m: (∈ s.Z, !(m = 0)),
+	n: = order[G](x),
+	!(n ∈ s.N) ⇒ !(order[G](e (* x)^m) ∈ s.N),
+	n ∈ s.N ⇒ order[G](e (* x)^m) = n / gcd(n, m)■
 ),
 
 s"relation between isomorphic groups":
@@ -47,7 +67,7 @@ s"relation between isomorphic groups":
 	∀x: ∈ G, order[G](x) = order[H](φ(x))■
 ),
 
-s"G is homomorphic to the set of permutations on its action"
+s"G is homomorphic to the set of permutations under its action"
 (
 	@gm.h.Group,
 	∀σ: ∈ action,
@@ -57,7 +77,7 @@ s"G is homomorphic to the set of permutations on its action"
 	f(∀x: ∈ G): = σ$x,
 	f ∈ group.homomorphism, f.D = G, f.C = H■ 
 ),
-[ prove ```
+[ ```
 	; first, prove the H is a group
 	&∘& ∈ associative_operator,
 	∀{x, y}: ⊆ G, {σ$x, σ$y} ⊆ H, *: = &G.*&,
@@ -69,7 +89,7 @@ s"G is homomorphic to the set of permutations on its action"
 	f(x * y) = σ$(x * y) = σ$x ∘ σ$y = f(x) ∘ f(y)
 ``` ]
 
-s"relation of subgroup is transitive":
+s"relation (of) subgroup is transitive":
 (
 	@gm.h.Group,
 	∀G: ∈ group,
@@ -139,12 +159,34 @@ s"stabilizers and kernel of action are subgroup":
 	ker(f) = ∩({stabilizer[μ](s)}[∀s: ∈ μ.S]) = {g|∀s: ∈ μ.S, μ(g, s) = s}[∀g: ∈ G]■
 ),
 
-s"two cyclic group with the same cardinal is isomorphic":
-(
-	@gm.h.Group,
-	∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
-	|G| = |H| ⇒ (∃f: ∈ isomorphism, ∀(f.D = G, f.C = H))■
-),
+; about cyclic_group
+	s"orders in a cyclic group":
+	(
+		∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
+		∃g: ∈ G, H = gp[&*&](g),
+		order[G](g) = |H|,
+		|H| ∈ s.N ⇒ ( ; finite
+			n: = |H|,
+			S: = {m|0 ≤ m < n}[∀m: ∈ s.Z], ; |S| = n
+			∀(
+				e (* g)^n = e,
+				|{e (* g)^n}[∀m: ∈ S]| = n, ; 1, g, g * g, … e (* g)^(n-1), distinct
+			)
+		),
+		|H| = |s.N| ⇒ ∀( ; infinite
+			(∀n: ∈ s.Z, e (* g)^n = e ⇒ n = 0),
+			; equivalently
+			(∀n: ∈ s.Z, ∀m: ∈ s.Z, e (* g)^n = e (* g)^m ⇒ n = m)
+		)
+	),
+
+	s"two cyclic group with the same cardinal is isomorphic":
+	(
+		∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
+		|G| = |H| ⇒ (∃f: ∈ isomorphism, ∀(f.D = G, f.C = H))
+	),
+
+	s""
 
 ; Theorem: start
 	@gm.h.Group, ; location
