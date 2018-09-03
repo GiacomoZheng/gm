@@ -1,0 +1,10 @@
+: ; monoid
+(
+	⊆ semigroup, ; associative magma 
+
+	∀S: ∈ monoid,
+	!(S = ∅), ; nonempty
+	S.e: ∈ S, ; identity, and as nonempty, it is possible
+	∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
+),
+[ chaim: monoid ⊆ semigroup ⊆ maga ]

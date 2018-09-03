@@ -1,5 +1,8 @@
 Np: = {n}[∀n: ∈ s.Z, n > 0]
 
+; group of roots of 1
+U[∀n: ∈ Np]: = {ξ^m}[∀m: (∈ s.Z, 0 ≤ m < n), ζ: (∈ s.C, ζ^n = 1)],
+
 ; Dihedral group ; !
 D[∀n: ∈ Np]: = gp[*: ∈ operator]({σ, τ}[∃σ: ∈ ◉, ∃τ: ∈ ◉, order[&*&](σ) = n, order[&*&](τ) = 2, σ * τ = τ (* σ)^2]),
 [```

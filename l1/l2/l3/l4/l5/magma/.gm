@@ -1,0 +1,8 @@
+: ; magma
+(
+	⊆ set,
+
+	∀S: ∈ magma,
+	S.*: ∈ operator,
+	∀x: ∈ S, ∀y: ∈ S, x S.* y ∈ S ; closure
+),

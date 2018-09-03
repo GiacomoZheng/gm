@@ -1,0 +1,8 @@
+: ; semigroup
+(
+	⊆ magma, ; closure on *
+
+	∀S: ∈ semigroup,
+	S.* ∈ associative_operator, S ⊆ &S.*&.D ; association
+),
+[ chaim: semigroup ⊆ magma ]

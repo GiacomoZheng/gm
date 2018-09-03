@@ -1,15 +1,8 @@
 : ; group
 (
-	[ type ]
-	⊆ set, ; as a subclass of set
+	⊆ monoid, ; semigroup with identity
 
 	∀G: ∈ group,
-	G.*: ∈ associative_operator,
-	G.e: ∈ G, ; identity
-	
-	G ⊆ &*&.D,
-	∀x: ∈ G, ∀y: ∈ G, ∀z: ∈ G,
-	x G.* y ∈ G, ; closure
-	x G.* G.e = G.e G.* x = x, ; identity and nonempty
 	∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
 ),
+[ chaim: group ⊆ monoid ⊆ semigroup ⊆ maga ]

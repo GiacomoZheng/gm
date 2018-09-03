@@ -5,3 +5,4 @@
 	∀G: ∈ abelain_group,
 	&G.*& ∈ commutative_operator
 ),
+[ chaim: abelian group ⊆ group ]
