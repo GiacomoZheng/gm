@@ -2,11 +2,11 @@
 (
 	∈ mapping,
 
-	G: ∈ group,
-	S: ∈ set,
-
 	∀μ: ∈ action,
-	μ.D = μ.G × μ.S, μ.C = μ.S,
+	μ.G: ∈ group,
+	μ.S: = μ.C,
+
+	μ.D = μ.G × μ.S,
 	∀s: ∈ μ.S,
 
 	∀{x, y}: ∈ G, μ(x G.* y, s) = μ(x, μ(y, s)), ; compatibility

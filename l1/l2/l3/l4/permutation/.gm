@@ -1,7 +1,6 @@
 : ; permutation
 (
 	⊆ bijiection,
-
 	∀P: ∈ permutation,
 	P.C = P.D
 ),

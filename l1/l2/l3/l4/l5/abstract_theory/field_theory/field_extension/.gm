@@ -1,12 +1,11 @@
-: ; field_extension
+: ; field_extension ; !
 (
 	⊆ ring_homomorphsim,
-	degree: ∈ ◉,
 
 	∀f: ∈ field_extension,
 	f.D ∈ field, f.C ∈ field,
 
-	f.degree = |f.C / f.D| ; in fact, this is just a group on "+", as normal
+	f.degree: = |f.C / f.D| ; in fact, this is just a group on "+", as normal
 ),
 [ 
 	it is true that a field_extension is always an injection,

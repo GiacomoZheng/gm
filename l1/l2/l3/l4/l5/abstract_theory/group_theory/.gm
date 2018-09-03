@@ -89,8 +89,7 @@ normal(∀G: ∈ group):
 (
 	⊆ ◉,
 
-	*: = &G.*&
-
+	*: = &G.*&,
 	∀Nor: ∈ normal(G),
 	Nor ∈ subgroup(G),
 	∀h: ∈ Nor, ∀g: ∈ G, g*h*inv[G](g) ∈ Nor
@@ -100,8 +99,7 @@ conjugate(∀G: ∈ group):
 (
 	⊆ ◉,
 
-	*: = &G.*&
-
+	*: = &G.*&,
 	∀S: ∈ conjugate(G),
 	∀h: ∈ S, S = {g * h (* g) ^ -1|∀g: ∈ G} ; !
 ),
@@ -110,9 +108,9 @@ composition_series(∀G: ∈ finite_group): ; !
 (
 	⊆ set,
 
-	Length: ∈ N,
-
 	∀C: ∈ composition_series(G),
+
+	C.Length: ∈ N,
 	H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]: ⊆ G,
 	H[0] = {G.e}, H[C.Length] = G,
 	∀n: ∈ {m|∀m: ∈ N, 0 ≤ m < C.Length},
@@ -120,4 +118,3 @@ composition_series(∀G: ∈ finite_group): ; !
 	H[n + 1] / H[n] ∈ simple_group,
 	C = {H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]}
 ),
-
