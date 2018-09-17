@@ -32,7 +32,7 @@ infinity0:
 ),
 
 [ the set of natural numbers ]
-N0: = ∩({A| ∀A: ∈ infinity0}),
+N0: = ∩[]({A| ∀A: ∈ infinity0}),
 
 Scr: ; successor function
 (
@@ -54,7 +54,7 @@ infinity1: ; preparing for the real numbers
 ),
 
 [ the set of real numbers ]
-R0: = ∩({A| ∀A: ∈ infinity1}),
+R0: = ∩[]({A| ∀A: ∈ infinity1}),
 
 Mid: ; the mean value of two number, like Mid(0, 1) = 0.5
 (

@@ -1,7 +1,41 @@
-: ; set
+: ; set; with ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
 (
-	⊆ collection,
-	∀C: ∈ set,
-	∀x: ∈ C,
-	...
+	∈:
+	(
+		∈ relator
+	),
+	
+	⊆ ◉, ; it means it is a class
+
+	(
+		∀A: ∈ set,
+		∃B: ∈ set, ∀x: ∈ ◉, x ∈ A ⇔ x ∈ B
+	), ; 1. extension, ; ? I don't know why we need it
+
+	(
+		∀A: ∈ set,
+		!(A = ∅) ⇒
+		(
+			∃x: ∈ A, x ∈ set ⇒ x ∩ A = ∅ ; ! if not?
+		)
+	), ; 2. regularity
+
+	(
+		∀A: ∈ set,
+		∀cls: ⊆ ◉,
+		∃B: ∈ set, ∀x: ∈ B, x ∈ cls
+	), ; 3. specification
+
+	(
+		∃∅: ∈ set,
+		∀x: ∈ ◉, !(x ∈ ◉)
+	), ; 3.2: empty set
+	(
+		∀x: ∈ ◉, ∃A: ∈ set,
+		∀y: ∈ A, y = x
+	), ; 3.3: existence singleton set
+	(
+
+	)
+
 ),

@@ -1,6 +1,6 @@
-: ; transitive_relator
+: ; antitransitive_relator
 (
 	⊆ relator,
-	∀𝓅: ∈ transitive_relator,
+	∀𝓅: ∈ antitransitive_relator,
 	∀b: ∈ &𝓅&.D, ∀c: ∈ &𝓅&.D, ∀(a 𝓅 b, b 𝓅 c) ⇒ !(a 𝓅 c)
 ),

@@ -1,8 +1,8 @@
-; ! a little bit change will be done when I complete the definition of polynomial ring
+; ! a little bit change will be done when I complete the definition of polynomial unity_ring
 s"trivial_ring has only one identity, vice versa":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring,
+	∀R: ∈ unity_ring,
 	R ∈ trivial_ring ⇔ R.0 = R.1■
 ),
 [ proof ```
@@ -11,36 +11,36 @@ s"trivial_ring has only one identity, vice versa":
 	R.0 = R.1 ⇒ r = R.1 R.× r = R.0 R.× r = R.0
 ``` ]
 
-s"the range of ring homomorphism":
+s"the range of unity_ring homomorphism":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring,
+	∀R: ∈ unity_ring,
 	R ∈ trivial_ring ⇔ R.0 = R.1■
 ),
 
-s"kernel of ring homomorphism is seldom the subring":
+s"kernel of unity_ring homomorphism is seldom the subring":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
+	∀R: ∈ unity_ring, ∀f: ∈ ring_homomorphism,
 	f.D = R ⇒
 	(
 		ker(f) ∈ subring(R) ⇔ f.C ∈ trivial_ring ⇔ ker(f) = R
 	)■
 ),
 
-s"kernel of ring homomorphism is an ideal":
+s"kernel of unity_ring homomorphism is an ideal":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
+	∀R: ∈ unity_ring, ∀f: ∈ ring_homomorphism,
 	ker(f) ∈ ideal(R)■
 ),
 
-s"the quotient group under the ideal is ring":
+s"the quotient group under the ideal is unity_ring":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ∀I: ∈ ideal(R),
+	∀R: ∈ unity_ring, ∀I: ∈ ideal(R),
 	I ∈ normal(R), ; abelian
-	R/I ∈ ring,
+	R/I ∈ unity_ring,
 	×: ; x here is a variable as the I below is.
 	(
 		∀{a + I, b + I}: ⊆ R/I,
@@ -66,13 +66,13 @@ s"prime size group can be a field":
 	∀p: ∈ prime_number, Z[p] ∈ field■
 ),
 
-s"fields are integral ring (domain)":
+s"fields are integral unity_ring (domain)":
 (
 	@gm.h.Ring,
 	field ⊆ integral_ring■
 ),
 
-s"finite integral ring are fields":
+s"finite integral unity_ring are fields":
 (
 	@gm.h.Ring,
 	∀R: ∈ integral_ring, R ∈ finite_set ⇒ R ∈ field■
@@ -95,7 +95,7 @@ s"finite integral ring are fields":
 	⇒ (∀x: R \{R.0}, x ∈ unit(R)) ⇒ R ∈ field
 ``` ]
 
-s"cancel theorem of integral ring about multiplication":
+s"cancel theorem of integral unity_ring about multiplication":
 (
 	@gm.h.Ring,
 	∀R: ∈ integral_ring,
@@ -103,7 +103,7 @@ s"cancel theorem of integral ring about multiplication":
 	∀(a × c = b × c, !(c = R.0)) ⇒ a = c■
 ),
 	s"lemma: zreo divisors have no multipication inverse": ; !
-	; it doesn't matter to consider 0 in it or whether the ring is commutative
+	; it doesn't matter to consider 0 in it or whether the unity_ring is commutative
 	(
 		@gm.h.Ring,
 		∀R: ∈ nontrivial_ring,
@@ -112,17 +112,17 @@ s"cancel theorem of integral ring about multiplication":
 	),
 	[ i don't know ]
 
-s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
+s"the functions of Z[x] is closure on any unity_ring": ; Z[x] is the nonation
 (
 	∀x: ∈ ◉, ∀f(x): ∈ P[s.Z](x),
-	∀R: ∈ ring, ∀a: ∈ R,
+	∀R: ∈ unity_ring, ∀a: ∈ R,
 	f(a) ∈ R
 ),
 
-s"relationship between a ring and its polynomial ring":
+s"relationship between a unity_ring and its polynomial unity_ring":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉, ; !
+	∀R: ∈ unity_ring, ∀x: ∈ ◉, ; !
 	R ∈ commutative_ring ⇒ P[R](x) ∈ commutative_ring,
 	R ∈ integral_ring ⇒ P[R](x) ∈ integral_ring,
 	R ∈ unique_factorization_ring ⇒ P[R](x) ∈ unique_factorization_ring,
@@ -140,7 +140,7 @@ s"P[R](x) / I[R]({x}) ≌ R":,
 
 s"P[set of real_number](x) / I[real_number](x) ≌ complex_number":, ; !
 
-s"division algorithm of polynomial ring":
+s"division algorithm of polynomial unity_ring":
 (
 	(
 		@gm.h.Ring, ; the first
@@ -158,7 +158,7 @@ s"division algorithm of polynomial ring":
 s"division algorithm"
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ×: = &R.×&,
+	∀R: ∈ unity_ring, ×: = &R.×&,
 	∀p: ∈ irreducible(R),
 	∀a: ∈ P[R](x), ∀b: ∈ P[J](x),
 	(a × b) / p ∈ P[R](x) ⇒ ∃(a / p ∈ P[R](x), b / p ∈ P[R](x))■
@@ -167,7 +167,7 @@ s"division algorithm"
 s"degree, multiplication and addition":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉, ; !
+	∀R: ∈ unity_ring, ∀x: ∈ ◉, ; !
 	×: &R.×&,
 	∀{a, b}: ⊆ P[R](x),
 	!((a, b) = (R.0, R.0)) ⇒ deg(a × b) = deg(a) + deg(b)■
@@ -190,7 +190,7 @@ s"root and linear factor":
 s"number of roots and the degree of polynomial":
 (
 	@gm.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉, ; !
+	∀R: ∈ unity_ring, ∀x: ∈ ◉, ; !
 	×: &R.×&,
 	∀f(x): ∈ P[R](x),
 	|{∀a: ∈ root[R](f)}| ≤ deg(f(x))■
@@ -309,7 +309,7 @@ s"ideals of R contains I bijects to ideals of R/I":
 	f.C = {∀x: (∈ ideal(R), Id ⊆ x)}■
 ),
 
-s"nature of quotient ring":
+s"nature of quotient unity_ring":
 (
 	; "indeed it is a part of third isomorphism theorems",
 	@gm.h.Ring,
@@ -339,6 +339,6 @@ s"nature of quotient ring":
 s"chaim of rings and feild": ; + wait for addition
 (
 	@gm.h.Ring,
-	ring ⊇ commutative_ring ⊇ integral_ring ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
+	unity_ring ⊇ commutative_ring ⊇ integral_ring ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
 	■
 ),

@@ -5,7 +5,7 @@
 	∀G: ∈ group, ∀H: ∈ subgroup(G), *: = &G.*&
 	G / H = {{x * h}[∀h: ∈ H}]}[∀x: ∈ G], ; the set of all the left cosets of H
 
-	∀R: ∈ ring,
+	∀R: ∈ unity_ring,
 	×: ∈ &R.×&,
 	∀a: ∈ R, ∀b: ∈ R,
 	(∃c: ∈ R, a = b × c) ⇒ a / b = c

@@ -10,5 +10,10 @@
 	∀s: ∈ μ.S,
 
 	∀{x, y}: ∈ G, μ(x G.* y, s) = μ(x, μ(y, s)), ; compatibility
-	μ(G.e, s) = s
+	μ(G.e, s) = s,
+
+	[ attributions ]
+		stabilizer[∀μ: ∈ action](∀s: ∈ μ.S): = {g|μ(g, s) = s}[∀g: ∈ G],
+		orbit[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g, s)}[∀g: ∈ G],
+
 ),

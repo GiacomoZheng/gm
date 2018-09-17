@@ -1,0 +1,5 @@
+: ; isomorphism
+(
+	⊆ bijection,
+	⊆ homomorphism ; unity_ring.homomorphism
+),

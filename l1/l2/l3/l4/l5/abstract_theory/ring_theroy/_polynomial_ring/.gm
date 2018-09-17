@@ -1,14 +1,14 @@
 : ; polynomial_ring, in fact, this class won't be used frequently. we will use the P[]() instead
 (
-	⊆ ring,
+	⊆ unity_ring,
 	x: ∈ ◉,
-	R: ∈ ring,
+	R: ∈ unity_ring,
 	degree: ∈ s.Z,
 
 	∀Poly: ∈ polynomial_ring,
 	Poly.degree ≥ 0, ; ! 0 has no degree
 
-	∃SupR: ∈ ring, Poly.R ∈ subring(SupR), Poly.x ∈ SupR,
+	∃SupR: ∈ unity_ring, Poly.R ∈ subring(SupR), Poly.x ∈ SupR,
 
 	∀f(Poly.x): ∈ Poly,
 	S: = {m}[∀m: ∈ s.Z, m ≥ 0, m ≤ Poly.degree]

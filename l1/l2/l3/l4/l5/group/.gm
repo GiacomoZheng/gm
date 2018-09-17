@@ -4,5 +4,106 @@
 
 	∀G: ∈ group,
 	∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
+	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ maga ]
+
+	; the "group" above is just a location for the ones below
+		subgroup(∀G: ∈ group): ; different from other books
+		(
+			⊆ group,
+			∀H: ∈ subgroup(G),
+			H ⊆ G,
+			H.e = G.e,
+			&H.*& = &G.*&
+		),
+
+		inv[∀G: ∈ group](∀g: ∈ G):
+		(
+			[ valid because the unqeness of the inverse in the group  ]
+			*: = &G.*&, e: = G.e,
+			∃g': ∈ G, g' * g = g * g' = e,
+			= g'
+		),
+
+		order[∀G: ∈ group](∀x: ∈ G):
+		(
+			"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
+			D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
+			!(D = ∅) ⇒ = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur
+			; + otherwise return the cardinal of Z
+		),
+
+		ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D], 
+
+		$:
+		(
+			"to get a permutation corresponding to the element in the group",
+			∈ symbol,
+			∀σ: ∈ action, ∀x: ∈ σ.G,
+			∃f(∀a: ∈ σ.S): = σ(x, a),
+			σ$x = f
+		),
+
+		C[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G], ; centralizer
+
+		Z(∀G: ∈ group): = C[G](G), ; center
+
+		N[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G], ; normalizer
+
+		coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
+		(
+			⊆ set,
+			
+			∀C: ∈ coset[G](H),
+			∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; left coset indeed
+		),
+
+		≌: ; ! undetermined
+		(
+			∈ relator,
+
+			∀A: ∈ group, ∀B: ∈ group,
+			(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B))
+		),
+
+		gp[∀*: ∈ operator](∀S: ∈ set): = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}, ; !
+
+		c(∀a: ∈ tuple): ; ! here means a tuple with finite length
+		(
+			∈ circle,
+			c(a).Length = a.cardinal ; !
+		),
+
+		normal(∀G: ∈ group):
+		(
+			⊆ ◉,
+
+			*: = &G.*&,
+			∀Nor: ∈ normal(G),
+			Nor ∈ subgroup(G),
+			∀h: ∈ Nor, ∀g: ∈ G, g*h*inv[G](g) ∈ Nor
+		),
+
+		conjugate(∀G: ∈ group):
+		(
+			⊆ ◉,
+
+			*: = &G.*&,
+			∀S: ∈ conjugate(G),
+			∀h: ∈ S, S = {g * h (* g) ^ -1|∀g: ∈ G} ; !
+		),
+
+		composition_series(∀G: ∈ finite_group): ; !
+		(
+			⊆ set,
+
+			∀C: ∈ composition_series(G),
+
+			C.Length: ∈ N,
+			H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]: ⊆ G,
+			H[0] = {G.e}, H[C.Length] = G,
+			∀n: ∈ {m|∀m: ∈ N, 0 ≤ m < C.Length},
+			H[n] ∈ normal(H[n + 1]),
+			H[n + 1] / H[n] ∈ simple_group,
+			C = {H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]}
+		),
 ),
-[ chaim: group ⊆ monoid ⊆ semigroup ⊆ maga ]

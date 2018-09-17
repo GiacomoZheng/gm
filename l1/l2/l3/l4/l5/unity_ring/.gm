@@ -1,4 +1,4 @@
-: ; ring
+: ; unity_ring
 (
 	⊆ abelian_group,
 
@@ -7,7 +7,7 @@
 	0: ∈ ◉,
 	1: ∈ ◉,
 
-	∀r: ∈ ring,
+	∀r: ∈ unity_ring,
 	&r.+& = &r.*&,
 	r.0 = r.e, ; about group
 

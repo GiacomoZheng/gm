@@ -20,10 +20,10 @@ Range(∀f: ∈ mapping) = {f(x)}[∀x: ∈ f.D],
 	∈ symbunc,
 
 	∀τ: ∈ set, ; set of set
-	∪(τ) = {x}[∀x: ∈ ◉, ∃C: ∈ τ, x ∈ C],
+	∪[](τ) = {x}[∀x: ∈ ◉, ∃C: ∈ τ, x ∈ C],
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
-	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪({A, B})
+	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪[]({A, B})
 ),
 
 ∩:
@@ -31,10 +31,10 @@ Range(∀f: ∈ mapping) = {f(x)}[∀x: ∈ f.D],
 	∈ symbunc,
 
 	∀τ: ∈ set, ; set of set
-	∩(τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C],
+	∩[](τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C],
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
-	∀(A ∈ set, B ∈ set) ⇒ A ∩ B = ∩({A, B})
+	∀(A ∈ set, B ∈ set) ⇒ A ∩ B = ∩[]({A, B})
 ),
 
 ×:

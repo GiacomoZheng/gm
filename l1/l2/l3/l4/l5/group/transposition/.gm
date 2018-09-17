@@ -1,6 +1,6 @@
 : ; transposition
 (
-	⊆ cycle,
+	⊆ circle,
 
 	∀C: ∈ transposition,
 	C.Length = 2

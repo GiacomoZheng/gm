@@ -3,5 +3,5 @@
 	⊆ mapping,
 
 	∀f: ∈ surjection,
-	f.C = {f(x)| ∀x: ∈ f.D}
+	f.C = {f(x)}[∀x: ∈ f.D]
 ),

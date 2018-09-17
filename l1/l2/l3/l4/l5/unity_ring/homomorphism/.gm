@@ -3,7 +3,7 @@
 	⊆ group.homomorphism, ; abuout the '+'
 
 	∀f: ∈ homomorphism,
-	f.D ∈ ring, f.C ∈ ring,
+	f.D ∈ unity_ring, f.C ∈ unity_ring,
 	∀x: ∈ f.D, ∀y: ∈ f.D, f(x f.D.× y) = f(x) f.D.× f(y),
 	f(f.D.1) = f.C.1
 ),

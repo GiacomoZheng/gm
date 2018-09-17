@@ -3,3 +3,8 @@
 	⊆ injection,
 	⊆ surjection
 ),
+[ property ``` ; !
+	∀f: ∈ bijection,
+	∃f': ∈ bijection, f'.D = f.D, f'.C = f.C, f ∘ f' = f.i, f' ∘ f = f'.i
+	; f.i is the identity mapping with f's domain
+``` ]

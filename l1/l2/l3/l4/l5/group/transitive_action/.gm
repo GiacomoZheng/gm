@@ -3,5 +3,5 @@
 	⊆ action,
 
 	∀μ: ∈ transitive_action,
-	orb[μ](∀x: ∈ μ.S) = μ.S
+	orbit[μ](∀x: ∈ μ.S) = μ.S
 ),

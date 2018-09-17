@@ -1,0 +1,11 @@
+s"conditions for a subspace":
+(
+	∀V: ∈ vector_space,
+	∀U: ⊆ V,
+	U ∈ subspace(V) ⇔
+	∀(
+		V.0 ∈ U, ; additive identity
+		∀{u, w}: ⊆ U, u V.+ w ∈ U, ; closuse over addition
+		∀a: ∈ V.F, ∀s: ∈ U, a V.× u ∈ U ; clouse over scalar multiplication
+	),
+),

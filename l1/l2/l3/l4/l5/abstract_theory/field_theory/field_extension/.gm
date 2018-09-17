@@ -1,6 +1,6 @@
 : ; field_extension ; !
 (
-	⊆ ring_homomorphsim,
+	⊆ unity_ring.homomorphism,
 
 	∀f: ∈ field_extension,
 	f.D ∈ field, f.C ∈ field,

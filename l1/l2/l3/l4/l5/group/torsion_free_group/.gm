@@ -1,0 +1,7 @@
+: ; torsion_free_group
+(
+	⊆ group,
+	∀T: ∈ torsion_free_group,
+	∀x: ∈ T, !(x = T.e) ⇒ !(order[T](x) ∈ s.N)
+),
+[ example: Z ]
