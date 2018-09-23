@@ -1,3 +1,7 @@
+; about alias
+	continuous_function: = topological_space.homomorphism,
+; end
+
 /:
 (
 	∈ operator,

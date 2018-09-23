@@ -1,4 +1,4 @@
-: ; torsion_group
+: ; torsion_group, or periodic_group
 (
 	⊆ group,
 	∀T: ∈ torsion_group,

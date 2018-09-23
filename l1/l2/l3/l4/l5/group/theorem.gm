@@ -124,7 +124,7 @@ s"the numbers leading 0 divides the order":
 	e = e (* x)^n = e (* x)^(m × q + r) = e (* x)^(m × q) (* x)^r = e ((* x)^m)^q (* x)^r = e (* x)^r ⇒ r = 0
 ``` ]
 
-; about the subgroups
+; about the subgroup
 	s"criterions of subgroup":
 	(
 		@gm.h.Group,
@@ -136,7 +136,7 @@ s"the numbers leading 0 divides the order":
 		)■
 	),
 
-	s"relation (of) subgroup is transitive":
+	s"relation of subgroup (of) is transitive":
 	(
 		@gm.h.Group,
 		∀G: ∈ group,
@@ -144,6 +144,8 @@ s"the numbers leading 0 divides the order":
 		∀I: ∈ subgroup(H),
 		I ∈ subgroup(G)■
 	),
+
+	s"any intersection of subgroups are still subgroup"
 
 	s"centralizers, centers and normalizers are all subgroup":
 	(
@@ -186,22 +188,6 @@ s"the numbers leading 0 divides the order":
 		)
 	``` ]
 ; end
-
-s"the cardinal of the cyclic (sub)group is the order of generator":
-(
-	@gm.h.Group,
-	∀G: ∈ cyclic_group, *: = &G.*&, e: = G.e,
-	∃g: ∈ G, {e (* g)^n}[∀n: ∈ s.Z] = G,
-	|G| = order[G](g)■
-),
-[ proof```
-	!(|G| ∈ s.N) ⇒ |G| = order[G](g) ; the cardinal of Z
-	|G| ∈ s.N ⇒
-	(
-		S: = {n|0 ≤ n < order[G](g)},
-		|G| = |{e (* g)^n}[∀n: ∈ s.Z]| = |{e (* g)^n}[∀n: ∈ S]| = |S| = order[G](g)
-	),
-``` ]
 
 s"the orders in a group":
 (
@@ -247,10 +233,35 @@ s"G is homomorphic to the set of permutations under its action"
 ; about cyclic_group
 	s"every cyclic group is an abelian group":
 	(
-		∀G: ∈ cyclic_group,
-
+		cyclic_group ⊆ abelian_group
 	),
-	s"orders in a cyclic group":
+	[ proof```
+		∀G: ∈ cyclic_group, ∃g: ∈ G, {G.e (G.*g)^z}[∀z: ∈ s.Z] = G,
+		∀{a, b}: ⊆ G, ∃{m, n}: ∈ Z,
+		a = G.e (G.*g)^m, b = G.e (G.*g)^n,
+		(
+			a G.* b = G.e (*g)^m G.* G.e (G.*g)^n = G.e (*g)^(m + n),
+			b G.* a = G.e (*g)^n G.* G.e (G.*g)^m = G.e (*g)^(n + m)
+		)
+		⇒ a G.* b = b G.* a ⇒ G ∈ abelian_group
+	``` ]
+	s"the cardinal of the cyclic (sub)group is the order of generator":
+	(
+		@gm.h.Group,
+		∀G: ∈ cyclic_group, *: = &G.*&, e: = G.e,
+		∃g: ∈ G, {e (* g)^n}[∀n: ∈ s.Z] = G,
+		|G| = order[G](g)■
+	),
+	[ proof```
+		!(|G| ∈ s.N) ⇒ |G| = order[G](g) ; the cardinal of Z
+		|G| ∈ s.N ⇒
+		(
+			S: = {n|0 ≤ n < order[G](g)},
+			|G| = |{e (* g)^n}[∀n: ∈ s.Z]| = |{e (* g)^n}[∀n: ∈ S]| = |S| = order[G](g)
+		),
+	``` ]
+
+	s"about the orders in a cyclic group":
 	(
 		∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
 		∃g: ∈ G, H = gp[&*&](g),
@@ -285,7 +296,7 @@ s"the parity of any element of S[n] is an invariant": ; + define the permutaion 
 ),
 
 ; Theorem: start
-	@gm.h.Group, ; location
+	@gm.h.Group,
 	∀C: ∈ coset,
 	∃~: ∈ equivalence_relator, &~&.D = C.G,
 	∀a: ∈ C.G, a ~ b ⇔ C.G.e (C.G.* a)^-1 C.G.* b ∈ C.G ■

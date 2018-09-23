@@ -1,0 +1,43 @@
+: ; topological_space
+(
+	⊆ set,
+
+	∀X: ∈ topological_space,
+	X.τ: ∈ cover,
+	∅ ∈ X.τ, X.τ.D ∈ X.τ,
+	∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
+	∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ,
+	[ attibutes ]
+	X.→:
+	(
+		∈ preorder_relator, ; reflective and transitive
+		∀{a, b}: ∈ X,
+		a X.→ b ⇔ (∀S: ∈ X.τ, b ∈ S ⇒ a ∈ S)
+	),
+
+	[ for location ]
+		; about alias 
+			topology(∀X: ∈ topological_space): = X.τ,
+			open_set(∀X: ∈ topological_space): = X.τ,
+
+			homeomorphism: = isomorphism, ; I don't like it name
+			bicontinuous_function: = isomorphism,
+		; end
+
+		Nbh[∀X: ∈ topological_space](∀x: ∈ X):
+		(
+			"neighborhood of x",
+			⊆ ◉,
+			∀A: ∈ Nbh[X](x),
+			A ⊆ X,
+			∃O: ∈ X.τ,
+			x ∈ O, O ⊆ A
+		),
+
+		open_cover(∀C: ∈ topological_space):
+		(
+			⊆ cover(C),
+			∀𝒞: ∈ open_cover(C),
+			𝒞 ⊆ C.τ 
+		),
+),

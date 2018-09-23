@@ -14,14 +14,14 @@ s"extension field with irreducible polynomial":
 	∀f(x): ∈ irreducible(P[K](x)),
 	K': = P[K](x) / I[P[K](x)]({f(x)}),
 	
-	∃f: ∈ field_extension, f.D = K, f.C = K',
+	∃f: ∈ extension, f.D = K, f.C = K',
 	∃α: ∈ K', f(α) = K.0,
 	|K' / K| = deg(f)■
 ),
 [ ```
 	∀f(x): ∈ irreducible(P[K](x)),
 	I[P[K](x)]({f(x)}) ∈ maximal(P[K](x)),
-	∃i: ∈ field_extension, i.D = K, i.C = K',
+	∃i: ∈ extension, i.D = K, i.C = K',
 	∀c: ∈ K, i(c) = c + I[P[K](x)]({f(x)}),
 ``` ]
 

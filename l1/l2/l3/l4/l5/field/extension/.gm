@@ -1,0 +1,13 @@
+: ; extension
+(
+	⊆ unity_ring.homomorphism,
+
+	∀f: ∈ extension,
+	f.D ∈ field, f.C ∈ field,
+
+	f.degree: = |f.C / Range(f)|; !
+),
+[ 
+	it is true that a field.extension is always an injection,
+	so that the D is isomorphic to a subfield of C
+ ]

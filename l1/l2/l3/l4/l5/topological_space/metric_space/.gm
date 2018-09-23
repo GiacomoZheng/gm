@@ -1,0 +1,20 @@
+: ; metric_space
+(
+	⊆ topologiacl_space,
+
+	Rp0: = {x|x ≥ 0}[∀x: ∈ s.R],
+	Rp: = Rp0 \ {0},
+
+	∀M: ∈ metric_space,
+	M.d: ∈ mapping, M.d.D = M × M, M.d.C = Rp0,
+	∀{x, y}: ⊆ M,
+	M.d(x, y) = M.d(y, x), ; symmetry
+	∀z: ∈ M, M.d(x, y) ≤ M.d(x, z) + M.d(z, y), ; subadditivity
+
+	B[∀M: ∈ metric_space, ∀ε: ∈ Rp](∀x: ∈ M): = {y|M.d(x, y) < ε}[∀y: ∈ M],
+	∀x: ∈ M, ∀ε: ∈ Rp, B[M, ε](x) ∈ M.τ, ; to make it be a topological_space
+
+	M.d(x, y) = 0 ⇔ x = y, ; discernible
+	[ location ]
+
+)

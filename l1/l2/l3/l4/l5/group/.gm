@@ -7,7 +7,12 @@
 	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ maga ]
 
 	; the "group" above is just a location for the ones below
-		subgroup(∀G: ∈ group): ; different from other books
+		; about alias
+			periodic_group: = torsion_group
+		; end
+		
+		subgroup(∀G: ∈ group):; different from other books
+		; + I want to gneralize it for all the strucures, named sub
 		(
 			⊆ group,
 			∀H: ∈ subgroup(G),
@@ -89,7 +94,7 @@
 
 			*: = &G.*&,
 			∀S: ∈ conjugate(G),
-			∀h: ∈ S, S = {g * h (* g) ^ -1|∀g: ∈ G} ; !
+			∀h: ∈ S, S = {g * h * inv[G](g)|∀g: ∈ G} ; !
 		),
 
 		composition_series(∀G: ∈ finite_group): ; !

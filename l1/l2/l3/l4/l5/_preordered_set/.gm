@@ -1,0 +1,8 @@
+: ; preordered_set
+(
+	⊆ set,
+
+	∀S: ∈ preordered_set,
+	S.≤: ∈ preorder_relator,
+	S ⊆ &s.≤&.D
+),

@@ -1,6 +1,6 @@
 : ; algebraic_extension
 (
-	⊆ field_extension,
+	⊆ extension,
 
 	∀f: ∈ algebraic_extension,
 	∀α: ∈ f.C, α ∈ algebraic[f.C](f.D)

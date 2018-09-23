@@ -1,0 +1,23 @@
+: ; poset
+(
+	⊆ preordered_set,
+
+	∀S: ∈ poset,
+	∀a: ∈ S, ∀b: ∈ S,
+	[ not all the elements are comparable ]
+	∀(a S.≤ b, b S.≤ a) ⇒ a = b, ; antisymmetric
+
+	[  ]
+		maximal(∀P: ∈ poset): ; diiferent from the biggest one
+		(
+			⊆ ◉,
+
+			∀x: ∈ maximal(G),
+			!y: ∈ G, !(x = y) ⇒ x G.≤ y
+			[ equivalence to
+			```
+			∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
+			```
+			]
+		)
+),

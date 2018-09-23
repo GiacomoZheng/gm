@@ -1,0 +1,14 @@
+: ; compact_set
+(
+	⊆ topological_space,
+
+	∀C: ∈ compact_set,
+	∀𝒞: ∈ open_cover(C),
+	∃𝒮: ⊆ 𝒞, ; subset
+	𝒮 ∈ cover(C),
+	𝒮 ∈ finite_set ; !
+),
+∀a,b ∈ X,
+∀(a, b): ∈ X^2,
+∀{x, y}: ⊆ A,
+{x^2|x ≥ 3}[∀x: ∈ {1,2,3,4}] = {9, 16}

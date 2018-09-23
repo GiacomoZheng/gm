@@ -1,0 +1,9 @@
+: ; discrete_set
+(
+	⊆ topological_space,
+	∀D: ∈ discrete_set,
+	D.τ = Ps(D)
+	[ equivalently```
+		∀x: ∈ D, {x} ∈ D.τ
+	``` ]
+),

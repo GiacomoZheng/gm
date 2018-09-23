@@ -1,4 +1,4 @@
-: ; transitive_action
+: ; transitive_action; ! I want to pick another name
 (
 	⊆ action,
 

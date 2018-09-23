@@ -15,17 +15,21 @@
 	
 	∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
 	(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
+	
 	[ property: ... ]
-
-	subspace(∀V: ∈ vector_space):
-	(
-		⊆ vector_space,
-		∀S: ∈ subspace(V),
-		&S.+& = &V.+&,
-		S.0 = V.0,
-		&S.×& = &V.×&,
-		S.F = V.F
-	)
+		; about alias
+			linear_mappging: = homomorphim,
+		; end
+		
+		subspace(∀V: ∈ vector_space):
+		(
+			⊆ vector_space,
+			∀S: ∈ subspace(V),
+			&S.+& = &V.+&,
+			S.0 = V.0,
+			&S.×& = &V.×&,
+			S.F = V.F
+		),
 ),
 [ 
 ∀V: ∈ vector_space,

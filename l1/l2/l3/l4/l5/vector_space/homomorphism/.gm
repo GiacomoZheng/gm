@@ -1,0 +1,7 @@
+: ; homomorphism
+(
+	⊆ mapping,
+	∀f: ∈ homomorphism,
+	f.D ∈ vector_space,
+	f.C ∈ vector_space,
+),

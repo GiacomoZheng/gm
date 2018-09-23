@@ -1,3 +1,21 @@
+cover(∀S: ∈ set):
+(
+	"cover of S",
+	⊆ set,
+	∀𝒞: ∈ cover,
+	∀C: ∈ 𝒞, C ⊆ S, ; every element of the cover should be a subset of the S of it
+	S = ∪[](𝒞) ; + the union of all the sets in the cover should be the S
+),
+
+partition(∀S: ∈ set):
+(
+	⊆ cover(S),
+
+	∀𝒫: ∈ partition(S),
+	∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
+	!(A = B) ⇒ A ∩ B = ∅
+),
+
 ^: ; !
 (
 	∈ symbol,
