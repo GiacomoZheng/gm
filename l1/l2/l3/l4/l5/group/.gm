@@ -3,23 +3,35 @@
 	⊆ monoid, ; semigroup with identity
 
 	∀G: ∈ group,
-	∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
+	∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse
 	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ maga ]
+	G.^: ; ?
+	(
+		∈ 
+	)
 
 	; the "group" above is just a location for the ones below
 		; about alias
 			periodic_group: = torsion_group
 		; end
 		
-		subgroup(∀G: ∈ group):; different from other books
-		; + I want to gneralize it for all the strucures, named sub
-		(
-			⊆ group,
-			∀H: ∈ subgroup(G),
-			H ⊆ G,
-			H.e = G.e,
-			&H.*& = &G.*&
-		),
+		; + generalize
+			subgroup(∀G: ∈ group): ; different from other books
+			; + I want to gneralize it for all the strucures, named sub
+			(
+				⊆ group,
+				∀H: ∈ subgroup(G),
+				H ⊆ G,
+				H.e = G.e,
+				&H.*& = &G.*&
+			),
+
+			generate_by[∀G: ∈ group](∀S: ⊆ G): ; G here is the domain
+			(
+				"indeed, get the minimum subgroup contains S",
+				= ∩[∀H: ∈ subgroup(G), S ⊆ H](H)
+			),
+		; end
 
 		inv[∀G: ∈ group](∀g: ∈ G):
 		(
@@ -33,8 +45,16 @@
 		(
 			"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
 			D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
-			!(D = ∅) ⇒ = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur
+			!(D = ∅) ⇒ = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur; ! I may change the inf function later
 			; + otherwise return the cardinal of Z
+		),
+
+		generator(∀G: ∈ cyclic_group):
+		(
+			⊆ ◉,
+			∀g: ∈ generator(G),
+			g ∈ G,
+			G = {G.e (G.* g)^n}[∀n: ∈ s.Z]
 		),
 
 		ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D], 
@@ -54,28 +74,22 @@
 
 		N[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G], ; normalizer
 
-		coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
+		derived_sub(∀G: ∈ group): = generate_by[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G])
+
+		l'coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
 		(
 			⊆ set,
 			
-			∀C: ∈ coset[G](H),
-			∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; left coset indeed
+			∀C: ∈ l'coset[G](H),
+			∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; Order
 		),
 
-		≌: ; ! undetermined
+		r'coset[∀G: ∈ group](∀H: ∈ subgroup(G)):
 		(
-			∈ relator,
-
-			∀A: ∈ group, ∀B: ∈ group,
-			(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B))
-		),
-
-		gp[∀*: ∈ operator](∀S: ∈ set): = {(* x)^ m (* y) ^ n|∀x: ∈ S, ∀y: ∈ S, ∀m: ∈ N, ∀n: ∈ N}, ; !
-
-		c(∀a: ∈ tuple): ; ! here means a tuple with finite length
-		(
-			∈ circle,
-			c(a).Length = a.cardinal ; !
+			⊆ set,
+			
+			∀C: ∈ r'coset[G](H),
+			∃g: ∈ G, C = {h G.* g}[∀h: ∈ H] ; Order
 		),
 
 		normal(∀G: ∈ group):
@@ -86,6 +100,22 @@
 			∀Nor: ∈ normal(G),
 			Nor ∈ subgroup(G),
 			∀h: ∈ Nor, ∀g: ∈ G, g*h*inv[G](g) ∈ Nor
+		),
+
+		; free_group(∀S: ∈ set)
+
+		≌: ; ! undetermined
+		(
+			∈ relator,
+
+			∀A: ∈ group, ∀B: ∈ group,
+			(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B))
+		),
+
+		c(∀a: ∈ tuple): ; ! here means a tuple with finite length
+		(
+			∈ circle,
+			c(a).Length = a.cardinal ; !
 		),
 
 		conjugate(∀G: ∈ group):

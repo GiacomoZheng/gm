@@ -1,0 +1,7 @@
+: ; homomorphism
+(
+	⊆ unity_ring.homomorphism,
+
+	∀f: ∈ homomorphism,
+	f.D ∈ field, f.C ∈ field
+),

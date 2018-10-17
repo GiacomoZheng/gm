@@ -3,15 +3,17 @@ cover(∀S: ∈ set):
 	"cover of S",
 	⊆ set,
 	∀𝒞: ∈ cover,
+	!({} ∈ 𝒞), ; * others may not require the sets in covers nonempty
 	∀C: ∈ 𝒞, C ⊆ S, ; every element of the cover should be a subset of the S of it
 	S = ∪[](𝒞) ; + the union of all the sets in the cover should be the S
 ),
+[ the only cover of ∅ is {} ]
 
 partition(∀S: ∈ set):
 (
 	⊆ cover(S),
 
-	∀𝒫: ∈ partition(S),
+	∀𝒫: ∈ partition(S), ; sets in 𝒫 is nonempty as I define cover as so
 	∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
 	!(A = B) ⇒ A ∩ B = ∅
 ),

@@ -1,14 +1,12 @@
-s"the unity_ring homomorphism of fields are always injective":
+@gm.h.Field,
+s"the unity ring homomorphism of fields are always injective":
 (
-	@gm.h.Ring,
-	∀f: ∈ ring_homomorphism,
-	f.D ∈ field ⇒ f ∈ injection■
+	homomorphism = extnesion
 ),
 [ ker(f) contains no unit, as a * a^-1 = 1 ≠ 0 ]
 
 s"extension field with irreducible polynomial":
 (
-	@gm.h.Ring,
 	K: ∈ field,
 	∀x: ∈ ◉, ; !
 	∀f(x): ∈ irreducible(P[K](x)),
@@ -16,7 +14,7 @@ s"extension field with irreducible polynomial":
 	
 	∃f: ∈ extension, f.D = K, f.C = K',
 	∃α: ∈ K', f(α) = K.0,
-	|K' / K| = deg(f)■
+	|K' / K| = deg(f)
 ),
 [ ```
 	∀f(x): ∈ irreducible(P[K](x)),
@@ -35,3 +33,4 @@ s"finite extension includes algebraic extension": ; +
 ),
 
 s"C is algebraic closure":, ; +
+■

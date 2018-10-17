@@ -18,35 +18,19 @@
 	
 	[ property: ... ]
 		; about alias
-			linear_mappging: = homomorphim,
 		; end
-		
-		subspace(∀V: ∈ vector_space):
-		(
-			⊆ vector_space,
-			∀S: ∈ subspace(V),
-			&S.+& = &V.+&,
-			S.0 = V.0,
-			&S.×& = &V.×&,
-			S.F = V.F
-		),
-),
-[ 
-∀V: ∈ vector_space,
-; 等价于
-∀V:
-(
-	∈ abelian_group,
-	+: = &*&,
-	0: = e,
-	×: ∈ symbol, ; !
-	F: ∈ field,
 
-	∀v: ∈ V,
-	∀a: ∈ V.F, a V.× v = v V.× a ∈ V, ; closure, with the closure in abelian group
-	V.F.1 V.× v = v, ; identity
-	∀b: ∈ V.F, (a V.F.× b) V.× v = a V.× (b V.× v), ; compatibility
-	
-	∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
-	(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
-) ]
+		; + generalize
+			subspace(∀V: ∈ vector_space):
+			(
+				⊆ vector_space,
+				∀S: ∈ subspace(V),
+				&S.+& = &V.+&,
+				S.0 = V.0,
+				&S.×& = &V.×&,
+				S.F = V.F
+			),
+
+			generate_by[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ subspace(G), S ⊆ H](H)
+		; end		
+),

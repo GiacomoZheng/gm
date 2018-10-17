@@ -8,11 +8,11 @@ T: = {z||z| = 1}[∀z: ∈ s.C],
 ; Group in linear algebra ; !
 M[∀n: ∈ Np](∀V: ∈ vector_space): = {[all the n × n matrices over V]},
 ; General Linear group ; !
-GL[∀n: ∈ Np](∀V: ∈ vector_space): = M[n](V) \ {A|matrix.det(A) = 0}[∀A: ∈ M[n](V)], ; ! otherwise, the error of ∀(), ... : would happen
+GL[∀n: ∈ Np](∀V: ∈ vector_space): = M[n](V) \ {A|matrix.det(A) = 0}[∀A: ∈ M[n](V)], ; ! otherwise, the error of "∀(), ... :" would happen
 ; Special Linear group
 SL[∀n: ∈ Np](∀V: ∈ vector_space): = {A|det(A) = 1}[∀A: ∈ M[n](V)],
 
-Z[∀n: ∈ Np]: ; unity_ring of integers modulo n; ! I don't know how to define it up to now
+Z[∀n: ∈ Np]: ; unity_ring of integers modulo n ; ! I don't know how to define it up to now
 (
 	......
 ),
@@ -37,16 +37,17 @@ D[∀n: ∈ Np]:
 ),
 [ ```
 	σ: = D[n].σ, τ: = D[n].τ,
-	D[n] = gp({σ∘τ, τ}) ⇐ σ∘τ ∘ τ = σ,
+	D[n] = gp({σ∘τ, τ}) ⇐ σ∘τ ∘ τ = σ, ; !
 	order[D[n]](σ) = n,
 	order[D[n]](τ) = 2,
 	τ∘σ = σ^-1 ∘ τ
 ``` ]
 
-Qu: ; Quaternion group ; !
+Qu: ; Quaternion group 
 = {1, -1, i, -i, j, -j, k, -k}[{1, i, j, k}:] ; +
 
-; Free group ; ? a class or a sample
+; Free group
+; ? a class or a sample
 F[∀S: ∈ set]:
 (
 

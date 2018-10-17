@@ -3,15 +3,15 @@
 	⊆ set,
 
 	∀X: ∈ topological_space,
-	X.τ: ∈ cover,
-	∅ ∈ X.τ, X.τ.D ∈ X.τ,
+	X.τ: ⊆ Ps(X),
+	∅ ∈ X.τ, X ∈ X.τ,
 	∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
 	∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ,
 	[ attibutes ]
 	X.→:
 	(
 		∈ preorder_relator, ; reflective and transitive
-		∀{a, b}: ∈ X,
+		∀{a, b}: ⊆ X,
 		a X.→ b ⇔ (∀S: ∈ X.τ, b ∈ S ⇒ a ∈ S)
 	),
 

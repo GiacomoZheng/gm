@@ -2,8 +2,12 @@
 (
 	⊆ topological_space,
 	∀D: ∈ discrete_set,
-	D.τ = Ps(D)
-	[ equivalently```
-		∀x: ∈ D, {x} ∈ D.τ
-	``` ]
+	∀{x, y}: ⊆ D, !(x = y) ⇒ ∀(!(x D.→ y), !(y D.→ x))
+	[ equivalently
+		```∃(x D.→ y, y D.→ x) ⇒ x = y```
+		or
+		```D.τ = Ps(D)```
+		or
+		```∀x: ∈ D, {x} ∈ D.τ```
+	]
 ),

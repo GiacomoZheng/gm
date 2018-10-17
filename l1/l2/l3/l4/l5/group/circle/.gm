@@ -6,13 +6,13 @@
 	f.Length: ∈ s.N,
 	S: = {n|0 ≤ n < f.Length},
 
-	∃a[∀n: ∈ S]: ∈ ◉, 
-	∀n: ∈ S\{0}, f(a[n - 1]) = a[n],
-	f(a[f.Length - 1]) = a[0],
+	f.a[∀n: ∈ S]: ∈ ◉, 
+	∀n: ∈ S\{0}, f(f.a[n - 1]) = f.a[n],
+	f(f.a[f.Length - 1]) = f.a[0],
 
 	∀x: ∈ ◉, 
 	!(
-		∃n: ∈ S, x = a[n]
+		∃n: ∈ S, x = f.a[n]
 	)
 	⇒ f(x) = x ; anything else
 ),

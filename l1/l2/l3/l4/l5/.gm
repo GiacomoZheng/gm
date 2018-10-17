@@ -1,13 +1,16 @@
 ; about alias
 	continuous_function: = topological_space.homomorphism,
+	linear_space: = vector_space,
+	linear_mappging: = vector_space.homomorphim,
+	linear_transformation: = vector_space.homomorphim,
 ; end
 
-/:
+/: ; !
 (
 	∈ operator,
 
 	∀G: ∈ group, ∀H: ∈ subgroup(G), *: = &G.*&
-	G / H = {{x * h}[∀h: ∈ H}]}[∀x: ∈ G], ; the set of all the left cosets of H
+	G / H = {{x * h}[∀h: ∈ H]}[∀x: ∈ G], ; the set of all the left cosets of H
 
 	∀R: ∈ unity_ring,
 	×: ∈ &R.×&,

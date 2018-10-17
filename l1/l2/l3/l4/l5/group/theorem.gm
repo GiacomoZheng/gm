@@ -1,4 +1,41 @@
-; a weeker criterion of group
+@gm.h.Group,
+; about basis
+	s"uniqueness in group": ; +
+	(
+		∀G: ∈ group, *: = &G.*&, e: = G.e
+		∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
+		∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
+			∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
+		
+	),
+	[ proof```
+		"indentity:", ∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ (i = i * e = e * i = e) ⇒ i = e,
+		"inverse:", ∀a: ∈ G, ∃a': ∈ G, ∀g: ∈ G, a * g = g * a = e
+		⇒ a' = a' * (a * g) = a' * a * g = (a' * a) * g = g ⇒ g = a'
+	``` ]
+
+	s"inverse":
+	(
+		∀G: ∈ group, ∀a: ∈ G,
+		inv[G](inv[G](a)) = a ; the inverse of inverse is itself
+		∀b: ∈ G, *: = &G.*&,
+		inv[G](a * b) = inv[G](b) * inv[G](a) ; be careful about the order
+	),
+	[ proof```
+		∀G: ∈ group, ∀a: ∈ G, ∀b: ∈ G, *: = &G.*&,
+		"inverse of inverse:",
+		a = a * e = (a * inv[G](a)) * inv[G](inv[G](a)) = e * inv[G](inv[G](a)) = inv[G](inv[G](a)), ; because of two-side inverse and two-side identity
+	``` ]
+
+	s"cancellation in a group":
+	(
+		∀G: ∈ group, ∀a: ∈ G, *: = &G.*&,
+		∀{u, v}: ⊆ G,
+		a * u = a * v ⇔ u = v ⇔ u * a = v * a ; because the inverse of every element exist
+	),
+; end
+
+; about a weeker criterion of group
 	s"the semigroup with same side identity and inverse is a group":
 	(
 		r'_group:
@@ -36,20 +73,18 @@
 	``` ]
 ; end
 
-; about the examples
+; about examples
 	s"direct product of two groups is also a group":
 	(
-		@gm.h.Group,
 		∀A: ∈ group, ∀B: ∈ group, C: = A × B,
 		C ∈ group, ∀(x1, y1): ∈ C, ∀(x2, y2): ∈ C,
-		(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)■
+		(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)
 	),
 
 	s"symmetric group":
 	(
-		@gm.h.Group,
 		∀S: ∈ set, i(∀x: ∈ S): = x,
-		sym(S) ∈ group, &sym(S).*& = &∘&, sym(S).e = i■
+		sym(S) ∈ group, &sym(S).*& = &∘&, sym(S).e = i
 	),
 	[ proof```
 		∀{α, β}: ∈ sym(S),
@@ -67,97 +102,62 @@
 
 	s"linear group":
 	(
-		@gm.h.Group,
 		∀n: ∈ Np, ∀V: ∈ vector_space,
 		ex.GL[n](V) ∈ group, &GL[n](V).*& = &∘&, ; here the matrices are regraded functions
-		ex.SL[n](V) ∈ group, &SL[n](V).*& = &∘&■
+		ex.SL[n](V) ∈ subgroup(ex.GL[n](V))
 	),
 ; end
 
-s"uniqueness in group": ; +
-(
-	@gm.h.Group,
-	∀G: ∈ group, *: = &G.*&, e: = G.e
-	∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
-	∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
-		∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
-	■
-),
-[ proof```
-	"indentity:", ∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ (i = i * e = e * i = e) ⇒ i = e,
-	"inverse:", ∀a: ∈ G, ∃a': ∈ G, ∀g: ∈ G, a * g = g * a = e
-	⇒ a' = a' * (a * g) = a' * a * g = (a' * a) * g = g ⇒ g = a'
-``` ]
-
-s"inverse":
-(
-	@gm.h.Group,
-	∀G: ∈ group, ∀a: ∈ G,
-	inv[G](inv[G](a)) = a ; the inverse of inverse is itself
-	∀b: ∈ G, *: = &G.*&,
-	inv[G](a * b) = inv[G](b) * inv[G](a) ; be careful about the order
-	■
-),
-[ proof```
-	∀G: ∈ group, ∀a: ∈ G, ∀b: ∈ G, *: = &G.*&,
-	"inverse of inverse:",
-	a = a * e = (a * inv[G](a)) * inv[G](inv[G](a)) = e * inv[G](inv[G](a)) = inv[G](inv[G](a)), ; because of two-side inverse and two-side identity
-``` ]
-
-s"cancellation in a group":
-(
-	@gm.h.Group,
-	∀G: ∈ group, ∀a: ∈ G, *: = &G.*&,
-	∀{u, v}: ⊆ G,
-	a * u = a * v ⇔ u = v ⇔ u * a = v * a■ ; because the inverse of every element exist
-),
-
-s"the numbers leading 0 divides the order":
-(
-	@gm.h.Group,
-	∀G: ∈ group, *: = &G.*&, e: = G.e,
-	∀x: ∈ G, ∀n: ∈ s.Z, e (* x)^n = e ⇒ n / order[G](x) ∈ s.Z■
-),
-[ proof```
-	m: = order[T](x),
-	∃{q, r}: ⊆ s.Z, n = m × q + r, 0 ≤ r < m, ; the division theorem on Z ; assume it here
-	e = e (* x)^n = e (* x)^(m × q + r) = e (* x)^(m × q) (* x)^r = e ((* x)^m)^q (* x)^r = e (* x)^r ⇒ r = 0
-``` ]
-
-; about the subgroup
+; about subgroup
 	s"criterions of subgroup":
 	(
-		@gm.h.Group,
 		∀G: ∈ group, ∀H: ⊆ G,
 		H ∈ subgroup(G) ⇔
 		∀(
 			!(H = ∅),
 			(∀{x, y}: ⊆ H, x G.* inv[G](y) ∈ H)
-		)■
+		)
 	),
 
 	s"relation of subgroup (of) is transitive":
 	(
-		@gm.h.Group,
 		∀G: ∈ group,
 		∀H: ∈ subgroup(G),
 		∀I: ∈ subgroup(H),
-		I ∈ subgroup(G)■
+		I ∈ subgroup(G)
 	),
 
-	s"any intersection of subgroups are still subgroup"
+	s"any intersection of subgroups are still subgroup":
+	(
+		∀G: ∈ group,
+		∀ℋ: ∈ {∀H: ∈ subgroup(G)},
+		∩[](ℋ) ∈ subgroup(G)
+	),
+	[ prove```
+		e: = G.e, K: = ∩[](ℋ), *: = &G.*&,
+		(∀H: ∈ ℋ, e ∈ H) ⇒ !(K = ∅),
+		∀{a, b}: ∈ K,
+		(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
+	``` ]
+
+	s"the subgroup of Z is always nZ":
+	(
+		∀G: ∈ subgroup(s.Z), ; "+" as operator
+		∃n: ∈ s.Z, Z': = {n × z}[∀z: ∈ s.Z], G = Z'
+	),
+	[  ] ; + after the Euclidean algorithm
 
 	s"centralizers, centers and normalizers are all subgroup":
 	(
-		@gm.h.Group,
-		∀G: ∈ group, *: = &G.*&, e: = G.e,
+		∀G: ∈ group,
 		∀A: ⊆ G,
 		C[G](A) ∈ subgroup(G),
 		Z(G) ∈ subgroup(G),
 		N[G](A) ∈ subgroup(G)
-		C[G](A) ∈ subgroup(N[G](A))■
+		C[G](A) ∈ subgroup(N[G](A))
 	),
 	[ prove ```
+		*: = &G.*&, e: = G.e,
 		C[G](A) ∈ subgroup(G) ⇐
 		(
 			∀a: ∈ A,
@@ -187,50 +187,46 @@ s"the numbers leading 0 divides the order":
 			&C[G](A).*& = &N[G](A).*&
 		)
 	``` ]
+
+	s"inner subgroup":
+	(
+		∀G: ∈ group,
+		∀H: ∈ subgroup(G), ∀K: ∈ subgroup(G),
+		F: = {h G.* k}[∀h: ∈ H, ∀k: ∈ K],
+		F ∈ subgroup(G),
+		; + in addition
+		E: = {k G.* h}[∀h: ∈ H, ∀k: ∈ K],
+		E = F
+	),
 ; end
 
-s"the orders in a group":
-(
-	@gm.h.Group,
-	∀G: ∈ group, *: = &G.*&, e: = G.e,
-	∀x: ∈ G, ∀m: (∈ s.Z, !(m = 0)),
-	n: = order[G](x),
-	!(n ∈ s.N) ⇒ !(order[G](e (* x)^m) ∈ s.N),
-	n ∈ s.N ⇒ order[G](e (* x)^m) = n / gcd(n, m)■
-),
+; about order ; +
+	s"the orders in a group": ; + Proposition 3.13
+	(
+		∀G: ∈ group, *: = &G.*&, e: = G.e,
+		∀x: ∈ G, ∀m: (∈ s.Z, !(m = 0)),
+		n: = order[G](x),
+		!(n ∈ s.N) ⇒ !(order[G](e (* x)^m) ∈ s.N),
+		n ∈ s.N ⇒ order[G](e (* x)^m) = n / gcd(n, m)
+	),
+	[ proof```
+		d: = gcd(n, m),
+		e (* x)
+	``` ]
 
-s"relation between isomorphic groups":
-(
-	@gm.h.Group,
-	∀φ: ∈ isomorphism, G: = φ.D, H: = φ.C,
-	|G| = |H|,
-	G ∈ abelian_group ⇔ H ∈ abelian_group,
-	∀x: ∈ G, order[G](x) = order[H](φ(x))■
-),
+	s"the numbers causing to identity divides the order":
+	(
+		∀G: ∈ group, *: = &G.*&, e: = G.e,
+		∀x: ∈ G, ∀n: ∈ s.Z, e (* x)^n = e ⇒ n / order[G](x) ∈ s.Z
+	),
+	[ proof```
+		m: = order[T](x),
+		∃{q, r}: ⊆ s.Z, n = m × q + r, 0 ≤ r < m, ; the division theorem on Z ; assume it here
+		e = e (* x)^n = e (* x)^(m × q + r) = e (* x)^(m × q) (* x)^r = e ((* x)^m)^q (* x)^r = e (* x)^r ⇒ r = 0
+	``` ]
+; end
 
-s"G is homomorphic to the set of permutations under its action"
-(
-	@gm.h.Group,
-	∀σ: ∈ action,
-	∀G: = σ.D,
-	H: = {σ$x}[∀x: ∈ G],
-	H ∈ group, &H.*& = &∘&,
-	f(∀x: ∈ G): = σ$x,
-	f ∈ homomorphism, f.D = G, f.C = H■ 
-),
-[ ```
-	; first, prove the H is a group
-	&∘& ∈ associative_operator,
-	∀{x, y}: ⊆ G, {σ$x, σ$y} ⊆ H, *: = &G.*&,
-	∀a: ∈ σ.S,
-	(σ$x ∘ σ$y)(a) = σ(x, σ(y, a)) = σ(x * y, a) = σ$(x * y)(a), σ$(x * y) ∈ H,
-	i = H.e, i ∈ H,
-	(σ$x ∘ σ$inv(x))(a) = σ(x * inv(x), a) = a, inv(σ$x) = σ$inv(x)
-	; Then the homomorphism
-	f(x * y) = σ$(x * y) = σ$x ∘ σ$y = f(x) ∘ f(y)
-``` ]
-
-; about cyclic_group
+; about cyclic_group ; +
 	s"every cyclic group is an abelian group":
 	(
 		cyclic_group ⊆ abelian_group
@@ -245,12 +241,30 @@ s"G is homomorphic to the set of permutations under its action"
 		)
 		⇒ a G.* b = b G.* a ⇒ G ∈ abelian_group
 	``` ]
+
+	s"cyclic group is the minimal subgroup contains the generator":
+	(
+
+	),
+
+	s"the subgroup of cyclic group is still cyclic":
+	(
+		∀G: ∈ cyclic_group, subgroup(G) ∈ cyclic_group
+	), ; +
+	[ proof```
+		e: = G.e, *: = &G.*&, g: ∈ generator(G),
+		∀H: ∈ subgroup(G),
+		H = {e} ⇒ H ∈ cyclic_group,
+		
+			∀(G.e (G.* g)^n): ∈ H,
+			∃{m, q, r}: ∈ s.Z, n = m × q + r, 0 ≤ r < m,
+	``` ]
+
 	s"the cardinal of the cyclic (sub)group is the order of generator":
 	(
-		@gm.h.Group,
 		∀G: ∈ cyclic_group, *: = &G.*&, e: = G.e,
 		∃g: ∈ G, {e (* g)^n}[∀n: ∈ s.Z] = G,
-		|G| = order[G](g)■
+		|G| = order[G](g)
 	),
 	[ proof```
 		!(|G| ∈ s.N) ⇒ |G| = order[G](g) ; the cardinal of Z
@@ -264,7 +278,7 @@ s"G is homomorphic to the set of permutations under its action"
 	s"about the orders in a cyclic group":
 	(
 		∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
-		∃g: ∈ G, H = gp[&*&](g),
+		∃g: ∈ G, H = gp[&*&](g), ; !
 		order[G](g) = |H|,
 		|H| ∈ s.N ⇒ ( ; finite
 			n: = |H|,
@@ -290,134 +304,158 @@ s"G is homomorphic to the set of permutations under its action"
 	s""
 ; end
 
-s"the parity of any element of S[n] is an invariant": ; + define the permutaion matrix before
-(
-	s"any element of S[n] can be written as a permutation matrix, whose determinant is +1 or -1":,
-),
-
-; Theorem: start
-	@gm.h.Group,
-	∀C: ∈ coset,
-	∃~: ∈ equivalence_relator, &~&.D = C.G,
-	∀a: ∈ C.G, a ~ b ⇔ C.G.e (C.G.* a)^-1 C.G.* b ∈ C.G ■
-; Theorem: end
-
-; Theorem: start
-	@gm.h.Group,
-	∀m: ∈ s.N \ {0}, Z[m] = {{x + m × z}[∀z: ∈ s.Z]}[∀x: ∈ s.Z]
-	∃𝒴: = {y| ∀y: ∈ C, y ^ m = 1},
-	𝒴 ∈ group, &𝒴.*& = &+&, 𝒴.e = 1
-	Z[m] ≌ 𝒴■
-; Theorem: end
-
-s"Lagrange Theorem":
-(
-	@gm.h.Group,
-	G: ∈ group, H: ∈ subgroup(G),
-	|G| ∈ s.N ⇒ |G|/|H| ∈ s.N ■
-),
-[ proof, ```
-	; Lemma: start
-		@gm.h.Group,
-		G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
-		∀x: ∈ G, |H| = |x * H| ■
-	; Lemma: end
-	[ proof, ```
-		@gm.h.Group,
-		G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
-		∀x: ∈ G,
-		∃φ[x]:
-		(
-			∈ mapping,
-			D: = H, C: = x × H,
-			φ[x](∀h: ∈ H) = x * h
-		),
-		(
-			(
-				∀h: ∈ H, ∀h': ∈ H,
-				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
-			)
-			⇒ φ[x] ∈ injection,
-			(
-				∀y: ∈ φ[x].C,
-				∃h: ∈ H, y = x * h, φ[x](h) = y
-			)
-			⇒ φ[x] ∈ surjection
-		)
-		⇒ φ[x] ∈ bijection
-		⇒ |φ[x].C| = |φ[x]|
-		⇒ |H| = |x * H| ■
-	``` ]
-	@gm.h.Group,
-	G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
-	(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
-	|G| ∈ s.N ⇒
+; about permutation group
+	s"computations in permutation group": ; + I don't complete the "c" up to now
 	(
-		∃m: (∈ s.N, ≤ |G|),
-		|G| = |∪[]({x * H|∀x: ∈ G})|
-		= |∪[]({x[n] * H|∀x[∀n: (∈ s.N, ≤ m)]: ∈ G})|
-		= +[∀n: (∈ s.N, ≤ m)](|x[n] * H|)
-		= |H| × m
-	)■
-``` ]
+		∀n: ∈ s.N,
+		∀σ: ∈ S[n], 
+	),
+	s"the parity of any element of S[n] is an invariant": ; + define the permutaion matrix before
+	(
+		s"any element of S[n] can be written as a permutation matrix, whose determinant is +1 or -1":,
+	),
 
-; Theorem: start
-	@gm.h.Group,
-	∀G: ∈ cyclic_group,
-	∀H: ∈ subgroup(G),
-	H ∈ cyclic_group ■
-; Theorem: end
 
-s"The converse of \"Lagrange\" when G is cyclic":
-(
-	@gm.h.Group,
-	G: ∈ group, 
-	|G| ∈ s.N ⇒ (∀d: ∈ s.N, m/d ∈ s.Z ⇒ (∃H: ∈ subgroup(G), |H| = d))■
-),
+	∀n: ∈ s.N,
+	|S[n]| = fac(n), ; n * (n - 1) * … * 1
+	S[n] = gp({c(a, b)|∀(a, b): ∈ s.N^2, a ≤ n, b ≤ n}),
+	A[n] = gp({c(x, y, z)|∀(x, y, z): ∈ s.N^3, x ≤ n, y ≤ n, z ≤ n})
+; end
 
-; Theorem: start
-	@gm.h.Group,
-	∀m: (∈ s.N, > 1), ∀n: (∈ s.N, > 1),
-	Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1■
-; Theorem: end
+; about morphism
+	s"relation between isomorphic groups":
+	(
+		∀φ: ∈ isomorphism, G: = φ.D, H: = φ.C,
+		|G| = |H|,
+		G ∈ abelian_group ⇔ H ∈ abelian_group,
+		∀x: ∈ G, order[G](x) = order[H](φ(x))
+	),
 
-s"Fundamental Theorem of Finite generated abelian group":
-(
-	@gm.h.Group,
-	∀G: ∈ finitely_generated_group,
-	G ∈ abelian_group ⇒ (∃m: ∈ s.N, ∃T: ∈ abelian_group, |T| ∈ s.N, G ≌ Z^m × T)■
-),
-; Proof
+	s"G is homomorphic to a set of permutations under its action"
+	(
+		∀ω: ∈ action,
+		∀G: = ω.D,
+		H: = {ω$x}[∀x: ∈ G],
+		H ∈ group, &H.*& = &∘&,
+		f(∀x: ∈ G): = ω$x,
+		f ∈ homomorphism, f.D = G, f.C = H 
+	),
+	[ ```
+		; first, prove the H is a group
+		&∘& ∈ associative_operator,
+		∀{x, y}: ⊆ G, {ω$x, ω$y} ⊆ H, *: = &G.*&,
+		∀a: ∈ ω.S,
+		(ω$x ∘ ω$y)(a) = ω(x, ω(y, a)) = ω(x * y, a) = ω$(x * y)(a), ω$(x * y) ∈ H,
+		i = H.e, i ∈ H,
+		(ω$x ∘ ω$inv(x))(a) = ω(x * inv(x), a) = a, inv(ω$x) = ω$inv(x)
+		; Then the homomorphism
+		f(x * y) = ω$(x * y) = ω$x ∘ ω$y = f(x) ∘ f(y)
+	``` ]
+; end
+
+; about Z[n]
+	s"":
+	(
+		∀m: (∈ s.N, > 1), ∀n: (∈ s.N, > 1),
+		Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1
+	),
+; end
+
+; about abelian group
+	s"classification of finite abelian group":
+	(
+		∀T: ∈ abelian_group, n: = |T|,
+		T ∈ finite_group ⇒ 
+	),
+
+	s"Fundamental Theorem of Finite generated abelian group":
+	(
+		∀G: ∈ finitely_generated_group,
+		G ∈ abelian_group ⇒
+		(
+			∃m: ∈ s.N,(∃T: ∈ abelian_group, |T| ∈ s.N), G ≌ Z^m × T
+		)
+	),
+	; Proof
+; end
+
+; about coset
+	s"the elements in the same coset":
+	(
+		∀G: ∈ group, ∀H: ∈ subgroup(G),
+		∀{a, b}: ⊆ G,
+		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H
+	),
+; end
+
+; about Lagrange's Theorem
+	s"Lagrange's Theorem":
+	(
+		G: ∈ group, H: ∈ subgroup(G),
+		|G| ∈ s.N ⇒ |G|/|H| ∈ s.N 
+	),
+	[ proof, ```
+		; Lemma: start
+			G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
+			∀x: ∈ G, |H| = |x * H| 
+		; Lemma: end
+		[ proof, ```
+			G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
+			∀x: ∈ G,
+			∃φ[x]:
+			(
+				∈ mapping,
+				D: = H, C: = x × H,
+				φ[x](∀h: ∈ H) = x * h
+			),
+			(
+				(
+					∀h: ∈ H, ∀h': ∈ H,
+					φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
+				)
+				⇒ φ[x] ∈ injection,
+				(
+					∀y: ∈ φ[x].C,
+					∃h: ∈ H, y = x * h, φ[x](h) = y
+				)
+				⇒ φ[x] ∈ surjection
+			)
+			⇒ φ[x] ∈ bijection
+			⇒ |φ[x].C| = |φ[x]|
+			⇒ |H| = |x * H| 
+		``` ]
+		G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
+		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
+		|G| ∈ s.N ⇒
+		(
+			∃m: (∈ s.N, ≤ |G|),
+			|G| = |∪[]({x * H|∀x: ∈ G})|
+			= |∪[]({x[n] * H|∀x[∀n: (∈ s.N, ≤ m)]: ∈ G})|
+			= +[∀n: (∈ s.N, ≤ m)](|x[n] * H|)
+			= |H| × m
+		)
+	``` ]
+
+	s`The converse of "Lagrange" when G is cyclic`:
+	(
+		G: ∈ group, 
+		|G| ∈ s.N ⇒ (∀d: ∈ s.N, m/d ∈ s.Z ⇒ (∃H: ∈ subgroup(G), |H| = d))
+	),
+
+	s"the group with size prime is cyclic"
+; end
 
 s"Cayley's Theorem":
 (
-	@gm.h.Group,
-	∀G: ∈ group, ∃T: ∈ subgroup(sym(G)), G ≌ T■
+	∀G: ∈ group, ∃T: ∈ subgroup(sym(G)), G ≌ T
 ),
 ; similarly
 ; Theorem: strat
-	@gm.h.Group,
-	∀G: ∈ group, ∃T: ∈ subgroup(S[|G|]), G ≌ T■
+	∀G: ∈ group, ∃T: ∈ subgroup(S[|G|]), G ≌ T
 ; Theorem: end
-
-; Theorem: start
-	@gm.h.Group,
-	∀μ: ∈ action, G: = μ.G, stab[μ](∀s: ∈ μ.S) ∈ subgroup(G)■
-; Theorem: end
-
-s"Orbit-Stabilizer Theorem":
-(
-	@gm.h.Group,
-	∀μ: ∈ action, ∀s: ∈ μ.S,
-	|orbit[μ](s)| ∈ s.N ⇒ |G / stab[μ](s)| = |orbit[μ](x)|
-	; with the help of "Lagrange Theorem", we get
-	∀(|orbit[μ](s)| ∈ s.N, |μ.G| ∈ s.N) ⇒ |G| = |stab[μ](s)| × |orbit[μ](x)|
-	■
-),
 
 s"Sylow's First Theorem":
 (
-	@gm.h.Group,
 	∀G: ∈ group,
 	|G| ∈ s.N ⇒
 	(
@@ -426,50 +464,89 @@ s"Sylow's First Theorem":
 		(
 			∃H: ∈ subgroup(G), |H| = p^n
 		)
-	)■
+	)
 ),
 
 ; Theorem: start
-	@gm.h.Group,
-	∀G: ∈ group, center(G) ∈ subgroup(G)■
-; Theorem: end
-
-; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group, ∀p: ∈ prime_number, ∀n: ∈ s.N,
-	|G| = p^n ⇒ !(center(G) = {G.e})■
+	|G| = p^n ⇒ !(center(G) = {G.e})
 ; Theorem: end
 
-; * About S[n], A[n]
-; Theorem: start
-	@gm.h.Group,
-	∀n: ∈ s.N,
-	|S[n]| = fac(n), ; n * (n - 1) * … * 1
-	S[n] = gp({c(a, b)|∀(a, b): ∈ s.N^2, a ≤ n, b ≤ n}),
-	A[n] = gp({c(x, y, z)|∀(x, y, z): ∈ s.N^3, x ≤ n, y ≤ n, z ≤ n})■
-; Theorem: end
+
+
+; about normal
+	s"inner direct product is commutative": ; ?
+	(
+		"the prelude of normal",
+		∀G: ∈ group, *: = &G.*&,
+		∀H: ⊆ G, ∀K: ⊆ G,
+		{h * k}[∀h: ∈ H, ∀k: ∈ K] ∈ subgroup(G) ⇒
+		{h * k}[∀h: ∈ H, ∀k: ∈ K] = {k * h}[∀h: ∈ H, ∀k: ∈ K]
+	),
+
+	s"criterions of normal": ; +
+	(
+
+	),
+
+	s"all the subgroup of Quaternion group are normal":
+	(
+		{1, -1, i, -i, j, -j, k, -k}: = ex.Qu,
+		𝒮: = {
+			{1}, ex.Qu,
+			{1, -1}, {1, i}, {1, -i}, {1, j}, {1, -j}, {1, k}, {1, -k}
+		},
+		∀S: ∈ 𝒮, S ∈ normal(G)
+	),
+	[ prove it one by one ]
+
+	s"all abelian groups are Dedekind group":
+	(
+		abelian_group ⊆ Dedekind_group
+	),
+	[ prove ```
+		∀G: ∈ abelian_group, *: = &G.*&,
+		∀H: ∈ subgroup(G),
+		(∀a: ∈ G, ∀h: ∈ H, a * h * inv[G](a) = h ∈ H) ⇒ H ∈ normal(G)
+	```]
+
+	s"center of a group is always a normal subgroup":
+	(
+		∀G: ∈ group,
+		Z(G) ∈ normal(G)
+	),
+	[ proof```
+		*: = &G.*&,
+		Z(G) = {z|z * g = g * z}[∀g: ∈ G],
+		∀g: ∈ G, ∀z: ∈ Z(G), g * z * inv[G](g) = z * g * inv[G](g) = z ∈ Z(G)
+	``` ]
+
+	s"commutator group is the smallest normal group quotient to an abelian group":
+	(
+		∀G: ∈ group, ∀H: ∈ normal(G),
+		G/H ∈ abelian_group ⇔ derived_sub(G) ∈ noraml(H)
+	),
+	; [ proof```
+		(G/H ∈ abelian_group ⇒ derived_sub(G) ∈ noraml(H)) ⇐
+		(
+
+		)
+	``` ]
+; end
 
 ; Theorem: start
-	@gm.h.Group,
-	∀G: ∈ group,
-	G ∈ abelian_group ⇔ (∀H: ∈ subgroup(G), H ∈ normal(G))■
-; Theorem: end
-
-; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G),
 	∃H: ∈ group, H = G / No, 
 	H.*
 	(
-		∈ symbol, ∀(x, y): ∈ (G / No)^2,
-		(x G.* No) * (y G.* No) = (x * y) G.* No
-	)■
+		∈ symbol, ∀{x, y}: ⊆ G / No,
+		(x G.* No) * (y G.* No) = (x G.* y) G.* No
+	)
 ; Theorem: end
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G),
-	∀H: ∈ subgroup(G), No ⊆ H ⇒ No ∈ normal(H)■
+	∀H: ∈ subgroup(G), No ⊆ H ⇒ No ∈ normal(H)
 ; Theorem: end
 
 s"First Isomorphism Theorem": ; !
@@ -483,9 +560,8 @@ s"First Isomorphism Theorem": ; !
 
 s"Second Isomorphism Theorem":
 (
-	@gm.h.Group,
 	∀G: ∈ group, ∀H: ∈ subgroup(G), ∀No: ∈ normal(G),
-	(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No■
+	(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No
 ),
 
 [ 
@@ -499,43 +575,36 @@ s"Second Isomorphism Theorem":
  ]
 s"Third Isomorphism Theorem":
 (
-	@gm.h.Group,
 	∀No: ∈ normal(G), D: = {H|∀H: ∈ subgroup(G), No ⊆ H}, C: = {∀J: ∈ subgroup(G)/No},
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
-	∀H: ∈ D, φ(H) = H / No■
+	∀H: ∈ D, φ(H) = H / No
 
-	@gm.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: ∈ subgroup(G),
 	No ⊆ H ⇒
-	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G))■
+	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G))
 
-	@gm.h.Group,
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ subgroup(G), No ⊆ H),
-	H ∈ normal(G) ⇒ (G/s.N)/(H/s.N) ≌ G/H■
+	H ∈ normal(G) ⇒ (G/s.N)/(H/s.N) ≌ G/H
 ),
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group, ∀H: ∈ group, ∀f: ∈ homomorphism,
 	∀(f.D = G, f.C = H) ⇒
 	(
 		ker(f) = {G.e} ⇒ f ∈ injection
-	)■
+	)
 ; Theorem: end
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
-	∀(H ∩ K = {e}, H * K = G) ⇒ H × K ≌ G■
+	∀(H ∩ K = {e}, H * K = G) ⇒ H × K ≌ G
 ; Theorem: end
 [ proof, ```
 	; Lemma: start
-		@gm.h.Group,
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
-		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)■
+		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)
 	; Lemma: end
 	[ proof, ```
-		@gm.h.Group,
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&,
 		H ∩ K = {e} ⇒
 		(
@@ -545,9 +614,8 @@ s"Third Isomorphism Theorem":
 				∃k': ∈ K, k * h * k^-1 * h^-1 = k * (h * k^-1 * h^-1) = k * k' ∈ K
 			)
 			⇒ k * h * k^-1 * h^-1 ∈ H ∩ K = {e} ⇒ h * k = k * h
-		)■
+		)
 	``` ]
-	@gm.h.Group,
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
 	*: = &G.*&, e: = G.e,
 	∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
@@ -566,53 +634,48 @@ s"Third Isomorphism Theorem":
 			φ(H × K) = {h * k|∀(h, k): ∈ H × K} = H * K = G
 		)
 	)
-	⇒ φ ∈ isomorphism ⇒ H × K ≌ G■
+	⇒ φ ∈ isomorphism ⇒ H × K ≌ G
 ``` ]
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
 	*: = &G.*&, e: = G.e,
 	H ∩ K = {e} ⇒
 	(
 		∃f: ∈ homomorphism, f.D = H × K, f.C = G, f ∈ injection
-	)■
+	)
 ; Theorem: end
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group,
-	∀S: ∈ conjugate(G), {G.e} ∈ S■
+	∀S: ∈ conjugate(G), {G.e} ∈ S
 ; Theorem: end
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group,
 	∀H: ∈ normal(G),
-	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪[](τ)■
+	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪[](τ)
 ; Theorem: end
 
 ; Theorem: start
-	@gm.h.Group,
 	∀G: ∈ group,
 	∀H: ∈ normal(G),
-	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪[](τ)■
+	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪[](τ)
 ; Theorem: end
 
 p"Jordon-Holder Theorem":
 (
-	@gm.h.Group,
 	∀G: ∈ finite_group,
 	∀A: ∈ composition_series(G),
 	∀B: ∈ composition_series(G),
 	|A| = |B|
-	∃f: ∈ bijection, f.D = A, f.C = B, ∀S: ∈ A, A ≌ f(A)■
+	∃f: ∈ bijection, f.D = A, f.C = B, ∀S: ∈ A, A ≌ f(A)
 )
 
 ; Theorem: start
-	@gm.h.Group,
 	A[5] ∈ solvable_group,
 	S[∀n: ∈ {3, 4}] ∈ solvable_group,
 	∀n: (∈ s.N, n ≥ 5), !(S[n] ∈ solvable_group),
-	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group■
+	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group
 ; Theorem: end
+■
