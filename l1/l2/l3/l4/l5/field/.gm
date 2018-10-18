@@ -2,9 +2,11 @@
 (
 	⊆ commutative_ring,
 
-	∀F: ∈ field,
-	!(F = {F.0}),
-	∀x: ∈ F \ {F.0}, x ∈ unit(F),
+	(
+		∀F: ∈ field,
+		!(F = {F.0}),
+		∀x: ∈ F \ {F.0}, x ∈ unit(F)
+	),
 
 	[ attributes ]
 		; about alias
@@ -47,7 +49,7 @@
 		),
 		[ this function is well-defined as result is unique ]
 
-		splitting_field: ; + , splitting field
+		splitting_field: ; !
 		(
 			∈ function,
 

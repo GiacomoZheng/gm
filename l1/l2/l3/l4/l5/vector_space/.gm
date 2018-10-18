@@ -2,20 +2,21 @@
 (
 	⊆ abelian_group,
 
-	∀V: ∈ vector_space,
-	V.+: = &V.*&,
-	V.0: = V.e,
-	V.×: ∈ symbol, ; !
-	V.F: ∈ field,
+	(
+		∀V: ∈ vector_space,
+		V.+: = &V.*&,
+		V.0: = V.e,
+		V.×: ∈ symbol, ; !
+		V.F: ∈ field,
 
-	∀v: ∈ V,
-	∀a: ∈ V.F, a V.× v = v V.× a ∈ V, ; closure, with the closure in abelian group
-	V.F.1 V.× v = v, ; identity
-	∀b: ∈ V.F, (a V.F.× b) V.× v = a V.× (b V.× v), ; compatibility
-	
-	∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
-	(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
-	; + to deal with the temporary
+		∀v: ∈ V,
+		∀a: ∈ V.F, a V.× v = v V.× a ∈ V, ; closure, with the closure in abelian group
+		V.F.1 V.× v = v, ; identity
+		∀b: ∈ V.F, (a V.F.× b) V.× v = a V.× (b V.× v), ; compatibility
+
+		∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
+		(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
+	); + to deal with the temporary
 	[ property: ... ]
 		; about alias
 		; end

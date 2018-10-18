@@ -2,16 +2,18 @@
 (
 	∈ mapping,
 
-	∀μ: ∈ action,
-	μ.G: ∈ group,
-	μ.S: ∈ set,
+	(
+		∀μ: ∈ action,
+		μ.G: ∈ group,
+		μ.S: ∈ set,
 
-	μ.D = μ.G × μ.S,
-	μ.C = μ.S,
-	∀s: ∈ μ.S,
+		μ.D = μ.G × μ.S,
+		μ.C = μ.S,
+		∀s: ∈ μ.S,
 
-	∀{x, y}: ∈ G, μ(x G.* y, s) = μ(x, μ(y, s)), ; compatibility
-	μ(G.e, s) = s,
+		∀{x, y}: ∈ G, μ(x G.* y, s) = μ(x, μ(y, s)), ; compatibility
+		μ(G.e, s) = s
+	),
 
 	[ attributions ]
 		stabilizer[∀μ: ∈ action](∀s: ∈ μ.S): = {g|μ(g, s) = s}[∀g: ∈ G],

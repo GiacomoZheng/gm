@@ -2,10 +2,12 @@
 (
 	⊆ preordered_set,
 
-	∀S: ∈ poset,
-	∀a: ∈ S, ∀b: ∈ S,
-	[ not all the elements are comparable ]
-	∀(a S.≤ b, b S.≤ a) ⇒ a = b, ; antisymmetric
+	(
+		∀S: ∈ poset,
+		∀a: ∈ S, ∀b: ∈ S,
+		[ not all the elements are comparable ]
+		∀(a S.≤ b, b S.≤ a) ⇒ a = b ; antisymmetric
+	),
 
 	[  ]
 		maximal(∀P: ∈ poset): ; diiferent from the biggest one

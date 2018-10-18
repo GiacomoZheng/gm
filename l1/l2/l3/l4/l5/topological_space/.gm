@@ -2,6 +2,7 @@
 (
 	⊆ set,
 
+	; ? I may choose my "→" version
 	∀X: ∈ topological_space,
 	X.τ: ⊆ Ps(X),
 	∅ ∈ X.τ, X ∈ X.τ,

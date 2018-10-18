@@ -2,8 +2,10 @@
 (
 	⊆ monoid, ; semigroup with identity
 
-	∀G: ∈ group,
-	∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse
+	(
+		∀G: ∈ group,
+		∃x': ∈ G, x' G.* x = x G.* x' = G.e ; inverse
+	),
 	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ maga ]
 	G.^: ; ?
 	(
