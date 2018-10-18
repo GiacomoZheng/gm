@@ -200,7 +200,7 @@
 	),
 ; end
 
-; about order ; +
+; + about order
 	s"the orders in a group": ; + Proposition 3.13
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
@@ -226,7 +226,7 @@
 	``` ]
 ; end
 
-; about cyclic_group ; +
+; + about cyclic_group
 	s"every cyclic group is an abelian group":
 	(
 		cyclic_group ⊆ abelian_group
@@ -275,6 +275,12 @@
 		),
 	``` ]
 
+	s"direct product of finite cyclic group":
+	(
+		∀m: (∈ s.N, > 1), ∀n: (∈ s.N, > 1),
+		Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1
+	),
+
 	s"about the orders in a cyclic group":
 	(
 		∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
@@ -300,26 +306,27 @@
 		∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
 		|G| = |H| ⇒ (∃f: ∈ isomorphism, ∀(f.D = G, f.C = H))
 	),
-
-	s""
 ; end
 
 ; about permutation group
 	s"computations in permutation group": ; + I don't complete the "c" up to now
 	(
 		∀n: ∈ s.N,
-		∀σ: ∈ S[n], 
+		∀σ: ∈ S[n], ∀c(i, …, j): ∈ circle, ; !
+		σ ∘ c(i, …, j) ∘ inv[S[n]](σ) = c(σ(i), …, σ(j))
 	),
 	s"the parity of any element of S[n] is an invariant": ; + define the permutaion matrix before
 	(
 		s"any element of S[n] can be written as a permutation matrix, whose determinant is +1 or -1":,
 	),
 
-
-	∀n: ∈ s.N,
-	|S[n]| = fac(n), ; n * (n - 1) * … * 1
-	S[n] = gp({c(a, b)|∀(a, b): ∈ s.N^2, a ≤ n, b ≤ n}),
-	A[n] = gp({c(x, y, z)|∀(x, y, z): ∈ s.N^3, x ≤ n, y ≤ n, z ≤ n})
+	s"cardinal and generators":
+	(
+		∀n: ∈ s.N, |S[n]| = ×[∀j: (∈ s.N, 1 ≤ j ≤ n)](j),
+		; S[n] = gp({c(a, b)|∀(a, b): ∈ s.N^2, a ≤ n, b ≤ n}),
+		; +
+		; A[n] = generate_by[S[n]]({c(i, j, k)})
+	),
 ; end
 
 ; about morphism
@@ -351,14 +358,17 @@
 		; Then the homomorphism
 		f(x * y) = ω$(x * y) = ω$x ∘ ω$y = f(x) ∘ f(y)
 	``` ]
-; end
 
-; about Z[n]
-	s"":
+	s"Cayley's Theorem":
 	(
-		∀m: (∈ s.N, > 1), ∀n: (∈ s.N, > 1),
-		Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1
+		∀G: ∈ group, ∃T: ∈ subgroup(sym(G)), G ≌ T
 	),
+	[ similarly ```
+		∀G: ∈ group, ∃T: ∈ subgroup(S[|G|]), G ≌ T
+	 ```
+	 proof with regular action```
+
+	``` ]
 ; end
 
 ; about abelian group
@@ -445,15 +455,6 @@
 	s"the group with size prime is cyclic"
 ; end
 
-s"Cayley's Theorem":
-(
-	∀G: ∈ group, ∃T: ∈ subgroup(sym(G)), G ≌ T
-),
-; similarly
-; Theorem: strat
-	∀G: ∈ group, ∃T: ∈ subgroup(S[|G|]), G ≌ T
-; Theorem: end
-
 s"Sylow's First Theorem":
 (
 	∀G: ∈ group,
@@ -472,9 +473,7 @@ s"Sylow's First Theorem":
 	|G| = p^n ⇒ !(center(G) = {G.e})
 ; Theorem: end
 
-
-
-; about normal
+; + about normal
 	s"inner direct product is commutative": ; ?
 	(
 		"the prelude of normal",
@@ -521,7 +520,7 @@ s"Sylow's First Theorem":
 		∀g: ∈ G, ∀z: ∈ Z(G), g * z * inv[G](g) = z * g * inv[G](g) = z ∈ Z(G)
 	``` ]
 
-	s"commutator group is the smallest normal group quotient to an abelian group":
+	s"commutator group is the smallest normal group quotient to an abelian group": ; +
 	(
 		∀G: ∈ group, ∀H: ∈ normal(G),
 		G/H ∈ abelian_group ⇔ derived_sub(G) ∈ noraml(H)

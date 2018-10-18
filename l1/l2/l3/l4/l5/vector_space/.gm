@@ -15,7 +15,7 @@
 	
 	∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
 	(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
-	
+	; + to deal with the temporary
 	[ property: ... ]
 		; about alias
 		; end
@@ -32,5 +32,24 @@
 			),
 
 			generate_by[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ subspace(G), S ⊆ H](H)
-		; end		
+		; end
+
+		independent(∀V: ∈ vector_space):
+		(
+			⊆ set,
+			∀I: ∈ independent(V),
+			∀c[∀α: ∈ I]: ∈ V.F,
+			V.+[∀α: ∈ I](c[α] V.× α) = V.0 ⇒ c[∀α: ∈ I] = V.F.0 ; ? as an abelian group, order of addition is unimportant
+		),
+
+		combination[∀V: ∈ vector_space](∀S: ∈ V):
+		(
+			⊆ ◉,
+			∀x: ∈ combination[V](S),
+			∃c[∀α: ∈ S]: ∈ V.F,
+			x = V.+[∀α: ∈ I](c[α] V.× α) ; ?
+		),
+
+		span[∀V: ∈ vector_space](S): = {∀x: ∈ combination[V](S)}
+
 ),

@@ -9,3 +9,36 @@ s"conditions for a subspace":
 		∀a: ∈ V.F, ∀s: ∈ U, a V.× u ∈ U ; clouse over scalar multiplication
 	),
 ),
+
+s"the span of a subset is just the minimum subspace contains it":
+(
+	∀V: ∈ vector_space, ∀S: ⊆ V,
+	span[V](S) = generate_by[V](S)
+),
+[ ```
+	s"span is a subspace":
+	(
+		(
+			∀{x, y}: ⊆ span[V](S),
+			∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](c[α] V.× α),
+			∃d[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](d[α] V.× α),
+			x V.+ y = V.+[∀α: ∈ I]((c[α] + d[α]) V.× α) ∈ span[V](S)
+		),
+		(
+			∀z: ∈ span[V](S), ∀a: ∈ V.F,
+			∃e[∀α: ∈ S]: ∈ V.F, z = V.+[∀α: ∈ I](e[α] V.× α),
+			a V.× z = V.+[∀α: ∈ I]((a V.F.× e[α]) V.× α) ∈ span[V](S)
+		),
+	),
+	s"all the subspace contains S contains span[V](S)":
+	(
+		∀W: ∈ subspace(V),
+		S ⊆ W ⇒
+		(
+			∀x: ∈ span[V](S),
+			∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](c[α] V.× α) ∈ W
+		)
+		⇒ span[V](S) ⊆ W
+	),
+	"completed"
+``` ]
