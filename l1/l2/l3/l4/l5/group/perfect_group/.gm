@@ -1,0 +1,6 @@
+: ; perfect_group
+(
+	⊆ group,
+	∀G: ∈ perfect_group,
+	G = derived_sub(G) ; ?
+),

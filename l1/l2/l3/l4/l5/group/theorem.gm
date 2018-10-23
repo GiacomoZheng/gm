@@ -300,12 +300,6 @@
 			(∀n: ∈ s.Z, ∀m: ∈ s.Z, e (* g)^n = e (* g)^m ⇒ n = m)
 		)
 	),
-
-	s"two cyclic group with the same cardinal is isomorphic":
-	(
-		∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
-		|G| = |H| ⇒ (∃f: ∈ isomorphism, ∀(f.D = G, f.C = H))
-	),
 ; end
 
 ; about permutation group
@@ -320,34 +314,77 @@
 		s"any element of S[n] can be written as a permutation matrix, whose determinant is +1 or -1":,
 	),
 
-	s"cardinal and generators":
+	s"cardinal and generators": ; ? about the circle
 	(
-		∀n: ∈ s.N, |S[n]| = ×[∀j: (∈ s.N, 1 ≤ j ≤ n)](j),
+		∀n: ∈ s.N, S: = {∀m: 1 ≤ m ≤ n},
+		|S[n]| = ×[∀j: (∈ s.N, 1 ≤ j ≤ n)](j),
 		; S[n] = gp({c(a, b)|∀(a, b): ∈ s.N^2, a ≤ n, b ≤ n}),
-		; +
-		; A[n] = generate_by[S[n]]({c(i, j, k)})
+		n ≥ 3 ⇒ A[n] = generate_by[S[n]]({c(i, j, k)}[∀{i, j, k}: ⊆ S])
 	),
+	[ proof (not very serious), 
+	 ]
 ; end
 
 ; about morphism
-	s"relation between isomorphic groups":
+	s"the inverse of an isomorphism is still a homomorphism (isomorphism too)"
+	s"properties of a homomorphism":
+	(
+		∀φ: ∈ homomorphism,
+		G: = φ.D, H: = φ.C,
+		φ(G.e) = H.e,
+		∀g: ∈ G, φ(inv[G](g)) = inv[H](φ(g)),
+		∀n: ∈ s.Z, φ(G.e (G.* g)^n) = H.e (H.* φ(g))^n
+	),
+	[ proof ]
+
+	s"range of a homomorphism is a subgroup of the codomain, with reserve the property of domain": ; this one is very general
+	(
+		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
+		R ∈ subgroup(φ.C),
+
+		G ∈ abelian_group ⇒ R ∈ abelian_group,
+		G ∈ cyclic_group ⇒ R ∈ cyclic_group
+	),
+	[ proof```
+	``` ]
+
+	s"relation between isomorphic groups": ; +
 	(
 		∀φ: ∈ isomorphism, G: = φ.D, H: = φ.C,
-		|G| = |H|,
+		|G| = |H|, ; injection
 		G ∈ abelian_group ⇔ H ∈ abelian_group,
+		G ∈ cyclic_group ⇔ H ∈ cyclic_group,
 		∀x: ∈ G, order[G](x) = order[H](φ(x))
 	),
+	[ proof is the similar to the above ones, with two directions ]
 
-	s"G is homomorphic to a set of permutations under its action"
+	s"two cyclic group with the same cardinal is isomorphic":
+	(
+		∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
+		|G| = |H| ⇒ (∃f: ∈ isomorphism, ∀(f.D = G, f.C = H))
+	),
+	[ proof```
+		∃g: ∈ generator(G), ∃h: ∈ generator(H),
+		∀n: ∈ s.Z, ∃φ(∀x: ∈ G): ∈ 
+	``` ]
+	; and equvalently
+	s"all the cyclic groups are isomorphic to Z[n] or Z":
+	(
+		∀G: ∈ cyclic_group, n: = |G|,
+		n ∈ s.N ⇒ G ≌ Z[|G|],
+		n = |s.Z| ⇒ G ≌ Z
+	),
+
+	s"G is homomorphic to a permutations group under its action"
 	(
 		∀ω: ∈ action,
 		∀G: = ω.D,
 		H: = {ω$x}[∀x: ∈ G],
 		H ∈ group, &H.*& = &∘&,
-		f(∀x: ∈ G): = ω$x,
+		∃f(∀x: ∈ G): = ω$x,
 		f ∈ homomorphism, f.D = G, f.C = H 
 	),
-	[ ```
+	[ proof```
 		; first, prove the H is a group
 		&∘& ∈ associative_operator,
 		∀{x, y}: ⊆ G, {ω$x, ω$y} ⊆ H, *: = &G.*&,
@@ -368,6 +405,22 @@
 	 ```
 	 proof with regular action```
 
+	``` ]
+
+	s"kernel of a homomorphism is a normal subgroup of domain": ; this theorem is not very general, but it is very powerful
+	(
+		∀f: ∈ homomorphism,
+		ker(f) ∈ normal(f.D)
+	),
+
+	s"First Isomorphism Theorem": ; ?
+	(
+		∀f: ∈ homomorphism, f.D / ker(f) ≌ range(f) ; !
+	),
+	[ proof```
+		∃F: ∈ isomorphism, *: = &f.D.*&,
+		F.D = f.D / ker(f), F.C = range(f),
+		F(a * )
 	``` ]
 ; end
 
@@ -474,14 +527,21 @@ s"Sylow's First Theorem":
 ; Theorem: end
 
 ; + about normal
-	s"inner direct product is commutative": ; ?
+	s"inner direct product is commutative":
 	(
 		"the prelude of normal",
 		∀G: ∈ group, *: = &G.*&,
-		∀H: ⊆ G, ∀K: ⊆ G,
-		{h * k}[∀h: ∈ H, ∀k: ∈ K] ∈ subgroup(G) ⇒
+		∀H: ∈ subgroup(G), ∀K: ∈ subgroup(G),
 		{h * k}[∀h: ∈ H, ∀k: ∈ K] = {k * h}[∀h: ∈ H, ∀k: ∈ K]
+		⇔ {h * k}[∀h: ∈ H, ∀k: ∈ K] ∈ subgroup(G)
+		⇔ {k * h}[∀h: ∈ H, ∀k: ∈ K] ∈ subgroup(G),
 	),
+	[ proof```
+		s"1 ⇒ 2":
+		(
+			S: = generate_by[G]({h, k}), S = (H * K) ∪ (K * H)
+		)
+	``` ]
 
 	s"criterions of normal": ; +
 	(
@@ -525,12 +585,28 @@ s"Sylow's First Theorem":
 		∀G: ∈ group, ∀H: ∈ normal(G),
 		G/H ∈ abelian_group ⇔ derived_sub(G) ∈ noraml(H)
 	),
-	; [ proof```
+	[ proof```
 		(G/H ∈ abelian_group ⇒ derived_sub(G) ∈ noraml(H)) ⇐
 		(
 
 		)
 	``` ]
+; end
+
+; about conjugate
+	s"the elements in center has the singleton conjugate set": ; by the way, all the other conjugate sets bigger than two
+	(
+		∀G: ∈ group,
+		∀x: ∈ Z(G),
+		conjugate[G](x) = {x}
+	),
+
+	s"all the normal group are the (disjoint) union of conjugate sets":
+	(
+		∀G: ∈ group,
+		∀N: ∈ noraml(G),
+		∃T: ⊆ G, N = ∪[∀t: ∈ T](conjugate[G](t))
+	),
 ; end
 
 ; Theorem: start
@@ -547,15 +623,6 @@ s"Sylow's First Theorem":
 	∀G: ∈ group, ∀No: ∈ normal(G),
 	∀H: ∈ subgroup(G), No ⊆ H ⇒ No ∈ normal(H)
 ; Theorem: end
-
-s"First Isomorphism Theorem": ; !
-(
-	∀f: ∈ homomorphism, ∃F: ∈ isomorphism,
-	F.D = f.D/ker(f), F.C = Range(f),
-	∀x: ∈ f.D, F(x G.* ker(f)) = f(x),
-	; what's more
-	|G| = |ker(f)| × |Range(f)|
-),
 
 s"Second Isomorphism Theorem":
 (

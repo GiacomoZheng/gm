@@ -108,7 +108,9 @@ s"cancel theorem of integral unity_ring about multiplication":
 		@gm.h.Ring,
 		∀R: ∈ nontrivial_ring,
 		∀a: ∈ R, ∀x: ∈ R \ {R.0},
-		∃(a R.× x = R.0, x R.× a = R.0) ⇒ (!y: ∈ R, a R.× y = y R.× a = R.1)■
+		∃(
+			a R.× x = R.0, x R.× a = R.0
+		) ⇒ (!y: ∈ R, a R.× y = y R.× a = R.1)■
 	),
 	[ i don't know ]
 

@@ -1,7 +1,0 @@
-: ; surjection
-(
-	⊆ mapping,
-
-	∀f: ∈ surjection,
-	f.C = {f(x)}[∀x: ∈ f.D]
-),

@@ -1,4 +1,5 @@
-[ ```
+[ 
+	; ```
 ∈:
 (
 	.temp.a_sample relator,
@@ -23,7 +24,14 @@
 ),
 ``` ]
 
-=:
+; about alias, set
+	mapping: = set.homomorphism,
+	injection: = set.monomorphism,
+	surjection: = set.epimorphism,
+	bijection: = set.isomorphism,
+; end
+
+=: ; ?
 (
 	∈ symbol,
 	∀a: ∈ ◉, ∀b: ∈ ◉,

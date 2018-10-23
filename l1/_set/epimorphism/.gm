@@ -1,0 +1,7 @@
+: ; epimorphism
+(
+	⊆ homomorphism,
+
+	∀f: ∈ epimorphism,
+	f.C = {f(x)}[∀x: ∈ f.D]
+),

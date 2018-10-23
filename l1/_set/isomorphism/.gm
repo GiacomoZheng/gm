@@ -1,0 +1,6 @@
+: ; isomorphism
+(
+	; ⊆ homomorphism,
+	⊆ monomorphism,
+	⊆ epimorphism
+),

@@ -1,9 +1,10 @@
-
 # gm
 
 my source gmfile
 
-* **h** is the entrance package 
+**the folder names** are the true name of the `.gm` file in it.
+
+the names start with `_` is the ones uncompleted up to now.
 
 ## about the better comment
 * `; *` is equal to `; NOTE`, meaning it is important.

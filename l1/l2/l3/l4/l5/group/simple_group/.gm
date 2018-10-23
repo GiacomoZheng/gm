@@ -1,5 +1,6 @@
 : ; simple_group
 (
+	"the groups which has no new group in its quetient groups"
 	⊆ group,
 
 	∀G: ∈ simple_group,

@@ -1,0 +1,9 @@
+: ; homomorphism
+(
+	⊆ function,
+	∀f: ∈ homomorphism,
+	f.D: ∈ set, ; domain
+	f.C: ∈ set, ; coodomain
+	∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in
+	; ? maybe I'll add an identity
+),

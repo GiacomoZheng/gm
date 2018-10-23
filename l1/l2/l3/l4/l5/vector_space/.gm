@@ -16,7 +16,7 @@
 
 		∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
 		(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
-	); + to deal with the temporary
+	) ; + to deal with the temporary
 	[ property: ... ]
 		; about alias
 		; end

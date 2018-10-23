@@ -1,0 +1,8 @@
+: ; monomorphism
+(
+	⊆ homomorphism,
+
+	∀f: ∈ monomorphism,
+	∀x: ∈ f.D, ∀y: ∈ f.D,
+	f(x) = f(y) ⇒ x = y
+),
