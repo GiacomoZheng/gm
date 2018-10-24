@@ -1,3 +1,0 @@
-sym(∀S: ∈ set): = {f|f.D = S}[∀f: ∈ permutation], ; symmetric group
-
-conj(∀x: ∈ s.C): = ... ; +

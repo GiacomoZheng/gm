@@ -1,0 +1,7 @@
+: ; endomorphism
+(
+	⊆ homomorphism,
+
+	∀f: ∈ endomorphism,
+	f.D = f.C
+),

@@ -1,5 +1,4 @@
-[ 
-	; ```
+[ ```
 ∈:
 (
 	.temp.a_sample relator,
@@ -29,6 +28,8 @@
 	injection: = set.monomorphism,
 	surjection: = set.epimorphism,
 	bijection: = set.isomorphism,
+
+	permutation: = set.automorphism,
 ; end
 
 =: ; ?
@@ -42,7 +43,7 @@
 	(A = B) ⇔ ∀(A ⊆ B, B ⊆ A)
 ),
 
-∘:
+∘: ; ?
 (
 	∈ operator,
 	

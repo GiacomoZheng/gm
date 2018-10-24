@@ -38,6 +38,10 @@ lcm(∀m: ∈ s.Z, ∀n: ∈ s.Z): = inf({m × k, n × k}[∀k: ∈ s.Z]), ; !
 
 prime_number: = {n|gcd(n, 1) = n}[∀n: ∈ s.Z], ; !
 
+sym(∀S: ∈ set): = {f|f.D = S}[∀f: ∈ permutation], ; symmetric group
+
+conj(∀x: ∈ s.C): = ... ; +
+
 [```
 infinity0:
 (

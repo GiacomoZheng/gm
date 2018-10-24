@@ -5,6 +5,7 @@
 		∀G: ∈ group, *: = &G.*&, e: = G.e
 		∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
 		∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
+		
 			∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
 		
 	),
