@@ -1,0 +1,12 @@
+@gm.h, ; !
+; about generalizing
+	s"criterion of trivial topological space"
+	(
+		∀T: ∈ trivial,
+		∀{a, b}: ⊆ T, ∀(!(a T.→ b), !(b T.→ a)) ; my version
+	),
+	[ equivalently```
+		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
+	``` ]
+; end
+■

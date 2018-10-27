@@ -10,25 +10,26 @@
 
 	[ attributes ]
 		; about alias
-			homomorphism: = extension,
 		; end
 		
-		subfield(∀L: ∈ field):
-		(
-			⊆ field,
+		; about generalize
+			sub(∀L: ∈ field):
+			(
+				⊆ field,
 
-			∀K: ∈ subfield(L),
-			K ⊆ L,
-			K.0 = L.0,
-			K.1 = L.1,
-			&K.+& = &L.+&,
-			&K.×& = &L.×&
-		),
+				∀K: ∈ sub(L),
+				K ⊆ L,
+				K.0 = L.0,
+				K.1 = L.1,
+				&K.+& = &L.+&,
+				&K.×& = &L.×&
+			),
+		; end
 
 		Q[∀K: ∈ field](∀x: ∈ ◉): = {p(x)/q(x)}[∀{p(x), q(x)}: ⊆ P[K](x), !(q(x) = 0)], ; !
 		[ a field indeed ]
 
-		algebraic[∀L: ∈ field](∀K: ∈ subfield(L)): ; extension from the root
+		algebraic[∀L: ∈ field](∀K: ∈ sub(L)): ; extension from the root
 		(
 			⊆ ◉,
 
@@ -39,7 +40,7 @@
 
 		minimal_polynomial[∀R: ∈ K](∀α: ∈ ◉): ; !
 		(
-			(∃L: K ∈ subfield(L), α ∈ L) ⇒
+			(∃L: K ∈ sub(L), α ∈ L) ⇒
 			(
 				∀x: ∈ ◉, ; !
 				K': = P[K](x),

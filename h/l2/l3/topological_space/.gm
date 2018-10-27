@@ -17,7 +17,7 @@
 	),
 
 	[ for location ]
-		; about alias 
+		; about alias
 			topology(∀X: ∈ topological_space): = X.τ,
 			open_set(∀X: ∈ topological_space): = X.τ,
 

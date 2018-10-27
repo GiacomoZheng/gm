@@ -1,4 +1,12 @@
 @gm.h.Group,
+; about generalizing
+	s"criterion of trivial group"
+	(
+		∀G: ∈ trivial,
+		G = {G.e}
+	),
+; end
+
 ; about basis
 	s"uniqueness in group": ; +
 	(

@@ -35,7 +35,7 @@ gm
 				├─torsion_free_group
 				├─torsion_group
 				├─transposition
-				├─trivial_group
+				├─trivial
 				├─_even_func
 				└─_finitely_generated_group
 			├─magma
@@ -49,8 +49,9 @@ gm
 				├─discrete_set
 				├─homomorphism
 				├─isomorphism
-				└─metric_space
+				├─metric_space
 					└─_complete_space
+				└─trivial
 			├─unity_ring
 				├─homomorphism
 				└─isomorphism

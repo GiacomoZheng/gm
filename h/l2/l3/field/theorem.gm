@@ -1,4 +1,18 @@
 @gm.h.Field,
+; about generalizing
+	s"there is no such a thing as trivial field",
+	s"the unity ring homomorphism of fields are always injective":
+	(
+		homomorphism = extnesion
+	),
+	[ ker(f) contains no unit, as a * a^-1 = 1 ≠ 0 ]
+
+	s"criterion of subfield":
+	(
+		; +
+	)
+; end
+
 s"the unity ring homomorphism of fields are always injective":
 (
 	homomorphism = extnesion

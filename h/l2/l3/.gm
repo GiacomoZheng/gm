@@ -3,6 +3,11 @@
 	linear_space: = vector_space,
 	linear_mappging: = vector_space.homomorphim,
 	linear_transformation: = vector_space.homomorphim,
+
+	trivial_group: = group.trivial,
+	trivial_field: = field.trivial,
+	trivial_topological_space: = topological_space.trivial,
+
 ; end
 
 /: ; !
