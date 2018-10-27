@@ -1,0 +1,17 @@
+: ; rng, the ring without multiplication identity
+(
+	"an abelian group on +, and a semigroup on ×",
+	⊆ abelian_group,
+	∀R: ∈ rng,
+
+	R.+: = &R.*&,
+	R.0: = R.e,
+	R.×: ∈ operator,
+
+	∀{a, b, c}: ⊆ R,
+	(a R.× b) R.× c = a R.× (b R.× c), ; association
+
+	[ distribution ] ; ? I think here can be simpler
+	(a R.+ b) R.× c = a R.× c R.+ b R.× c,
+	a R.× (b R.+ c) = a R.× b R.+ a R.× c
+),

@@ -1,6 +1,6 @@
 : ; Noetherian_ring
 (
-	⊆ unity_ring,
+	⊆ ring,
 
 	∀R: ∈ Noetherian_ring,
 

@@ -1,7 +1,7 @@
 : ; nontrivial_ring
 (
-	⊆ unity_ring,
+	⊆ ring,
 
-	∀R: ∈ unity_ring,
+	∀R: ∈ ring,
 	!(R = {R.0})
 ),

@@ -1,6 +1,6 @@
 : ; commutative_ring
 (
-	⊆ unity_ring,
+	⊆ ring,
 
 	∀R: ∈ commutative_ring,
 	×: = R.×,

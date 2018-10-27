@@ -1,0 +1,9 @@
+: ; ring, with multiplication identity
+(
+	⊆ rng,
+
+	∀R: ∈ ring,
+	R.1: ∈ R,
+	∀a: ∈ R,
+	R.1 R.× a = a = a R.× R.1 ; multiply identity
+),

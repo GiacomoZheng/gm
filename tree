@@ -52,7 +52,7 @@ gm
 				├─metric_space
 					└─_complete_space
 				└─trivial
-			├─unity_ring
+			├─ring
 				├─homomorphism
 				└─isomorphism
 			├─vector_space

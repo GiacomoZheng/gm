@@ -1,6 +1,6 @@
-subring(∀R: ∈ unity_ring):
+subring(∀R: ∈ ring):
 (
-	⊆ unity_ring,
+	⊆ ring,
 	⊆ subgroup(R),
 
 	∀H: ∈ subring(R),
@@ -8,7 +8,7 @@ subring(∀R: ∈ unity_ring):
 	H.1 = G.1
 ),
 
-ideal(∀R: ∈ unity_ring):
+ideal(∀R: ∈ ring):
 (
 	"two-side ideal indeed",
 	⊆ abelian_group,
@@ -20,14 +20,14 @@ ideal(∀R: ∈ unity_ring):
 	×: = &R.×&
 ),
 ; idealizer
-I[∀R: ∈ unity_ring](∀τ: ⊆ R):
+I[∀R: ∈ ring](∀τ: ⊆ R):
 (
 	∈ ideal(R),
 	
 	τ ⊆ I[R](τ) ; generators
 ),
 
-unit(∀R: ∈ unity_ring): ; in wiki, there is no requirement to be commutative
+unit(∀R: ∈ ring): ; in wiki, there is no requirement to be commutative
 (
 	⊆ ◉,
 
@@ -37,7 +37,7 @@ unit(∀R: ∈ unity_ring): ; in wiki, there is no requirement to be commutative
 ),
 ; this can be a set, at least when R is finite
 
-P[∀R: ∈ unity_ring](∀x: ∈ ◉): ; !
+P[∀R: ∈ ring](∀x: ∈ ◉): ; !
 (
 	∈ polynomial_ring,
 	P[R](x).x = x,
@@ -47,7 +47,7 @@ deg(∀Poly: ∈ polynomial_ring): = Poly.degree, ; 0 has no degree
 
 linear_poly(∀P[R](x): ∈ polynomial_ring): = {f(x)|∀f(x): ∈ P[R](x), deg(f(x)) = 1},
 
-irreducible(∀R: ∈ unity_ring):
+irreducible(∀R: ∈ ring):
 (
 	⊆ ◉,
 	∀ir: ∈ irreducible(R),
@@ -56,7 +56,7 @@ irreducible(∀R: ∈ unity_ring):
 	∀(d1, d2): ∈ R, d1 × d2 = ir ⇒ ∃(d1 ∈ unit(R), d2 ∈ unit(R))
 ),
 
-root[∀R: ∈ unity_ring](∀f: (f(x) ∈ P[R](x))): ; !
+root[∀R: ∈ ring](∀f: (f(x) ∈ P[R](x))): ; !
 (
 	"this definition restrict the f(x) as a polynomial under R",
 	⊆ ◉,
@@ -67,7 +67,7 @@ root[∀R: ∈ unity_ring](∀f: (f(x) ∈ P[R](x))): ; !
 ),
 ; root[R](f) can be a set, I don't know how to prove it
 
-principle_ideal(∀R: ∈ unity_ring):
+principle_ideal(∀R: ∈ ring):
 (
 	⊆ ideal(R),
 
@@ -75,7 +75,7 @@ principle_ideal(∀R: ∈ unity_ring):
 	∃g: ∈ P, P = I[P]({g})
 ),
 
-maximal_ideal(∀R: ∈ unity_ring):
+maximal_ideal(∀R: ∈ ring):
 (
 	⊆ ideal(R),
 
@@ -85,7 +85,7 @@ maximal_ideal(∀R: ∈ unity_ring):
 	M ⊆ Id ⇒ ∃(Id = R, Id = M)
 ),
 
-prime_ideal(∀R: ∈ unity_ring):
+prime_ideal(∀R: ∈ ring):
 (
 	⊆ ideal(R),
 
