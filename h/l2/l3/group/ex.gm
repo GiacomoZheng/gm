@@ -1,0 +1,54 @@
+Np: = {n}[∀n: ∈ h.Z, n > 0]
+
+; group of roots of 1
+U[∀n: ∈ Np]: = {ξ^m}[∀m: (∈ h.Z, 0 ≤ m < n), ζ: (∈ s.C, ζ^n = 1)],
+; Circle group
+T: = {z||z| = 1}[∀z: ∈ s.C],
+
+; Group in linear algebra ; !
+M[∀n: ∈ Np](∀V: ∈ vector_space): = {[all the n × n matrices over V]},
+; General Linear group ; !
+GL[∀n: ∈ Np](∀V: ∈ vector_space): = M[n](V) \ {A|matrix.det(A) = 0}[∀A: ∈ M[n](V)], ; ! otherwise, the error of "∀(), ... :" would happen
+; Special Linear group
+SL[∀n: ∈ Np](∀V: ∈ vector_space): = {A|det(A) = 1}[∀A: ∈ M[n](V)],
+
+Z[∀n: ∈ Np]: ; unity_ring of integers modulo n ; ! I don't know how to define it up to now
+(
+	......
+),
+
+S[∀n: ∈ N]: = sym({m|∀m: ∈ N, 1 ≤ m ≤ n}), ; + may not be here
+
+; alternating group ; !
+A[∀n: ∈ N]: = {f}[∀f: ∈ S[n], f ∈ even_func],
+
+; Dihedral group ; !
+D[∀n: ∈ Np]:
+(
+	∈ subgrooup(S[n]),
+	A: = {m|1 ≤ m ≤ n}[∀m: ∈ N],
+	a[∀m: ∈ A\{n}]: = m + 1, a[n]: = 1,
+	b[∀m: ∈ A]: = n + 1 - m,
+
+	; some of the books writes differnetlt
+	σ: = c(a[∀m: ∈ A]), ; some book write as r, rotation
+	τ: = c(b[∀m: ∈ A]), ; some book write as s, symmetric
+	{σ, τ} ⊆ D[n]
+),
+[ ```
+	σ: = D[n].σ, τ: = D[n].τ,
+	D[n] = gp({σ∘τ, τ}) ⇐ σ∘τ ∘ τ = σ, ; !
+	order[D[n]](σ) = n,
+	order[D[n]](τ) = 2,
+	τ∘σ = σ^-1 ∘ τ
+``` ]
+
+Qu: ; Quaternion group 
+= {1, -1, i, -i, j, -j, k, -k}[{1, i, j, k}:] ; +
+
+; Free group
+; ? a class or a sample
+F[∀S: ∈ set]:
+(
+
+)

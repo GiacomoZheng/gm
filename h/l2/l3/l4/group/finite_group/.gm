@@ -1,5 +1,0 @@
-: ; finite_group
-(
-	⊆ group,
-	⊆ finite_set
-),

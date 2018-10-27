@@ -1,7 +1,0 @@
-: ; torsion_group, or periodic_group
-(
-	⊆ group,
-	∀T: ∈ torsion_group,
-	∀x: ∈ T, order[T](x) ∈ s.N
-),
-[ chaim: finite_group ⊆ torsion_group ]

@@ -27,34 +27,27 @@
  ]
 
 [ ```
-⇒:
-(
-	∈ relator, ; a sample of symbol
-	∀A: ∈ statement,
-	∀B: ∈ statement,
-	B ⇒ (A ⇒ B),
-	(∀C: ∈ statement, A ⇒ (B ⇒ C)) ⇒ ((A ⇒ B) ⇒ (A ⇒ C)),
-)
-A ⇒ (B ⇒ A),
-(!(A) ⇒ !(B)) ⇒ (B ⇒ A),
+	⇒:
+	(
+		∈ relator, ; a sample of symbol
+		∀A: ∈ statement,
+		∀B: ∈ statement,
+		B ⇒ (A ⇒ B),
+		(∀C: ∈ statement, A ⇒ (B ⇒ C)) ⇒ ((A ⇒ B) ⇒ (A ⇒ C)),
+	)
+	A ⇒ (B ⇒ A),
+	(!(A) ⇒ !(B)) ⇒ (B ⇒ A),
 
-!(A) ⇒ (A ⇒ B),
-
-
-
-∀a: ∈ ◉,
-A: = {a, {a}},
-B: = {a},
-∀(B ∈ A, B ⊆ A),
-
-∃f: ∈ permutation,
-; the mapping with the same domain and codomain
-f.D = A,
-f(a) = {a},
-f({a}) = a,
-
-[ now, what is f(B)? ]
-f(B) = f({a}) = a, ; as element,
-f(B) = {f(a)} = {{a}}, ; as subset,
-
+	!(A) ⇒ (A ⇒ B),
 ``` ]
+
+=: ; ?
+(
+	∈ symbol,
+	∀a: ∈ ◉, ∀b: ∈ ◉,
+	(a = b) ⇔ (∀C: ⊆ ◉, a ∈ C ⇔ b ∈ C),
+	
+	∀A: ⊆ ◉, ∀B: ⊆ ◉,
+	(A = B) ⇔ ∀(A ⊆ B, B ⊆ A)
+),
+

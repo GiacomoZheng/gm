@@ -1,7 +1,0 @@
-: ; finite_set
-(
-	⊆ set,
-
-	∀S: ∈ finite_set,
-	|S| ∈ s.N
-),

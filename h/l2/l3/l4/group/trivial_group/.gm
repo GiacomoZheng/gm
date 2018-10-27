@@ -1,7 +1,0 @@
-: ; trivial_group
-(
-	⊆ group,
-
-	∀G: ∈ group,
-	G = {G.e}
-),

@@ -2,9 +2,12 @@
 
 my source gmfile
 
-**the folder names** are the true name of the `.gm` file in it.
+**the folder names** are the true name of the `.gm` file in it, like `group/.gm` is the definition of group.
 
-the names start with `_` is the ones uncompleted up to now.
+The names start with `_` is the ones uncompleted up to now.
+The file `h` is the entry of the whole file
+
+The file `tree` is the menu of the whole file
 
 ## about the better comment
 * `; *` is equal to `; NOTE`, meaning it is important.

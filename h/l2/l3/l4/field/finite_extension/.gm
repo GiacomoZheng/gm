@@ -1,7 +1,0 @@
-: ; finite_extension
-(
-	⊆ extension,
-
-	∀f: ∈ finite_extension,
-	f.degree ∈ s.N ; !
-),

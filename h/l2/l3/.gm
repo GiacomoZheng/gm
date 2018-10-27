@@ -1,89 +1,19 @@
-cover(∀S: ∈ set):
+; about alias
+	continuous_function: = topological_space.homomorphism,
+	linear_space: = vector_space,
+	linear_mappging: = vector_space.homomorphim,
+	linear_transformation: = vector_space.homomorphim,
+; end
+
+/: ; !
 (
-	"cover of S",
-	⊆ set,
-	∀𝒞: ∈ cover,
-	!({} ∈ 𝒞), ; * others may not require the sets in covers nonempty
-	∀C: ∈ 𝒞, C ⊆ S, ; every element of the cover should be a subset of the S of it
-	S = ∪[](𝒞) ; + the union of all the sets in the cover should be the S
+	∈ operator,
+
+	∀G: ∈ group, ∀H: ∈ normal(G), *: = &G.*&
+	G / H = {{x * h}[∀h: ∈ H]}[∀x: ∈ G], ; as noraml, the two cosets are the same
+
+	∀R: ∈ unity_ring,
+	×: ∈ &R.×&,
+	∀a: ∈ R, ∀b: ∈ R,
+	(∃c: ∈ R, a = b × c) ⇒ a / b = c
 ),
-[ the only cover of ∅ is {} ]
-
-partition(∀S: ∈ set):
-(
-	⊆ cover(S),
-
-	∀𝒫: ∈ partition(S), ; sets in 𝒫 is nonempty as I define cover as so
-	∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
-	!(A = B) ⇒ A ∩ B = ∅
-),
-
-^: ; !
-(
-	∈ symbol,
-	∀n: ∈ s.Z,
-
-	∀f: ∈ bijection,
-	i: = f.i, ; the identity permutation with the domain of f 
-	∃f': ∈ bijection, f' ∘ f = f ∘ f' = i,
-	f ^ 0 = i,
-	f ^ -1 = f',
-	n > 0 ⇒ f ^ n = f ^ (n - 1) ∘ f,
-	n < 0 ⇒ f ^ n = f ^ (n + 1) ∘ f ^ -1
-),
-
-
-gcd(∀m: ∈ s.Z, ∀n: ∈ s.Z): = sup({m / k, n / k}[∀k: ∈ s.Z] ∩ s.Z), ; !
-lcm(∀m: ∈ s.Z, ∀n: ∈ s.Z): = inf({m × k, n × k}[∀k: ∈ s.Z]), ; !
-
-prime_number: = {n|gcd(n, 1) = n}[∀n: ∈ s.Z], ; !
-
-sym(∀S: ∈ set): = {f|f.D = S}[∀f: ∈ permutation], ; symmetric group
-
-conj(∀x: ∈ s.C): = ... ; +
-
-[```
-infinity0:
-(
-	[ type ]
-	⊆ set, ; it means this is the subclass of "set"
-	[ axioms ]
-	∀N: ∈ infinity0, ; N here is a sample of infinity0
-	0 ∈ N, ; the first requirement, we assume the 0 has been defined
-	∃S: ∈ bijection, ; a sample of bijection class
-	S.D = N, ; the domain of S is N
-	S.C = N \ {0} ; the codomian of S is N \ {0}
-),
-
-[ the set of natural numbers ]
-N0: = ∩[]({A| ∀A: ∈ infinity0}),
-
-Scr: ; successor function
-(
-	∈ bijection,
-	D: = N, C: = N \ {0}
-),
-
-1: = Scr(0),
-
-infinity1: ; preparing for the real numbers
-(
-	⊆ infinity0, ; 
-
-	∀R: ∈ infinity1,
-	1: ∈ R, ; 0 ∈ R because this is the subclass of infinity0
-	∃m: ∈ bijection,
-	m.D = R × R \ {(x, x)| ∀x: ∈ R}, ; Cartesian product,
-	m.C = R \ {0, 1} ; 
-),
-
-[ the set of real numbers ]
-R0: = ∩[]({A| ∀A: ∈ infinity1}),
-
-Mid: ; the mean value of two number, like Mid(0, 1) = 0.5
-(
-	∈ mapping, ; the function with domian and codomain
-	D: = R × R, C: = R,
-	∀x: ∈ R, Mid(x, x): = x
-),
-```]

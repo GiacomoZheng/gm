@@ -1,27 +1,6 @@
-[ ```
-∈:
-(
-	.temp.a_sample relator,
-	∀l: .temp.a_sample ◉, ∀r: .temp.a_sample ◉, ∀R: ⊆ ◉,
-	l ∈ R ⇔ l .temp.a_sample R,
-##	(r .temp.a_sample collection) ⇒ (l ∈ r) ⇔ r.P?(l) ,
-	⇒,
-),
-
-⊆:
-(
-    .temp.a_sample relator,
-	∀l: ∈ ◉, ∀r: ∈ ◉, ∀R: .temp.subclass ◉,
-	(l ⊆ R): l .temp.subclass R,
-##	(r ∈ collection) ⇒ ((l ⊆ r): )
-	(
-		l:
-		(
-			∈ r
-		)
-	),
-),
-``` ]
+; about location
+	
+; end
 
 ; about alias, set
 	mapping: = set.homomorphism,
@@ -32,21 +11,26 @@
 	permutation: = set.automorphism,
 ; end
 
-=: ; ?
+{…}:
 (
-	∈ symbol,
-	∀a: ∈ ◉, ∀b: ∈ ◉,
-	(a = b) ⇔ (∀C: ⊆ ◉, a ∈ C ⇔ b ∈ C),
-	; ? a = b ⇔ a ∈ {b}
-	
-	∀A: ⊆ ◉, ∀B: ⊆ ◉,
-	(A = B) ⇔ ∀(A ⊆ B, B ⊆ A)
+	∈ bracket,
 ),
 
-∘: ; ?
+{…|…}:
 (
-	∈ operator,
-	
-	∀f: ∈ function, ∀g: ∈ function,
-	∀x: ∈ ◉, (f ∘ g)(x) = f(g(x))
-)
+	∈ bracket,
+),
+
+∅: = {},
+
+Ps(∀A: ∈ set) = {S}[∀S: ⊆ A],
+
+Range(∀f: ∈ mapping) = {f(x)}[∀x: ∈ f.D],
+
+
+; ? I don't how to deal with them now
+; * but I suggest you to write h.* than just use NZQR 
+N: = {}, ; 0, 1, 2, …
+Z: = {},
+Q: = {},
+R: = {},
