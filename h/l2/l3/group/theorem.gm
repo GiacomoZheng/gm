@@ -323,7 +323,7 @@
 		s"any element of S[n] can be written as a permutation matrix, whose determinant is +1 or -1":,
 	),
 
-	s"cardinal and generators": ; ? about the circle
+	s"cardinal and generators of permutation group": ; ? about the circle
 	(
 		∀n: ∈ h.N, S: = {∀m: 1 ≤ m ≤ n},
 		|S[n]| = ×[∀j: (∈ h.N, 1 ≤ j ≤ n)](j),

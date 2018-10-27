@@ -2,8 +2,7 @@
 (
 	⊆ mapping,
 	∀f: ∈ homomorphism,
-	f.D ∈ topological_space,
-	f.C ∈ topological_space,
-	∀x: ∈ f.D,
-	f(y: f.D.→ x) f.C.→ f(x)
+	f.D ∈ topological_space, f.C ∈ topological_space,
+	∀{x, y}: ⊆ f.D,
+	y f.D.→ x ⇒ f(y) f.C.→ f(x)
 )
