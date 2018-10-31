@@ -1,20 +1,10 @@
-subring(∀R: ∈ ring):
+ideal(∀R: ∈ ring): ; + after the semigroup
 (
-	⊆ ring,
-	⊆ subgroup(R),
-
-	∀H: ∈ subring(R),
-	%H.×% = %G.×%,
-	H.1 = G.1
-),
-
-ideal(∀R: ∈ ring):
-(
-	"two-side ideal indeed",
-	⊆ abelian_group,
+	"two-side ideal",
+	⊆ abelian_group, ; ? rng
 
 	∀I: ∈ ideal(R),
-	I ∈ subgroup(R), ; in fact, as abelian, I ∈ normal(R),
+	I ∈ group.sub(R), ; in fact, as abelian, I ∈ normal(R),
 	∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I,
 
 	×: = &R.×&

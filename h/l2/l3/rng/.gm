@@ -6,12 +6,38 @@
 
 	R.+: = &R.*&,
 	R.0: = R.e,
-	R.×: ∈ operator,
 
+	R.×: ∈ operator,
 	∀{a, b, c}: ⊆ R,
 	(a R.× b) R.× c = a R.× (b R.× c), ; association
 
 	[ distribution ] ; ? I think here can be simpler
 	(a R.+ b) R.× c = a R.× c R.+ b R.× c,
-	a R.× (b R.+ c) = a R.× b R.+ a R.× c
+	a R.× (b R.+ c) = a R.× b R.+ a R.× c,
+
+	; location
+		; + generalize
+			sub(∀R: ∈ rng):
+			(
+				⊆ rng,
+				⊆ group.sub(R),
+
+				∀H: ∈ sub(R),
+				&H.×& = &G.×&,
+			),
+
+		; to ring
+			neg[∀R: ∈ rng](∀a: ∈ R): = group.inv[R](a),
+
+			P[∀R: ∈ rng]:
+			(
+				∈ function, ; ?
+				∀R': (∈ rng, R ∈ sub(R')),
+				∀x: ∈ R',
+				S[∀n: ∈ s.N]: = {}
+				P[R](x): = {y|∀n: ∈ s.N, ∃c[∀n: ∈ s.N]: ⊆ R, a }[∀y: ∈ R']
+				; we can prove it is unique with the consistent definition
+			),
+		; end
+	
 ),

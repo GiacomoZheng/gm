@@ -2,12 +2,12 @@
 (
 	⊆ set,
 
-	; ? I may choose my "→" version
+	; ? I may choose my "→" version instead
 	∀X: ∈ topological_space,
 	X.τ: ⊆ Ps(X),
 	∅ ∈ X.τ, X ∈ X.τ,
 	∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
-	∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ,
+	∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ, ; ?
 	[ attibutes ]
 	X.→:
 	(
@@ -19,26 +19,57 @@
 	[ for location ]
 		; about alias
 			topology(∀X: ∈ topological_space): = X.τ,
-			open_set(∀X: ∈ topological_space): = X.τ,
 
 			homeomorphism: = isomorphism, ; I don't like it name
 			bicontinuous_function: = isomorphism,
+			close_set: = closed_set, ; someone others may use it
+		; end
+
+		; + generalize
+			sub(∀S: ∈ set):
+			(
+				"subset",
+				⊆ set,
+				∀A: ∈ sub(S),
+				A ⊆ S ; ?
+			),
+			
+			closure[∀X: ∈ topological_space](∀A: ⊆ X): = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; directly A ⊆ its closure
 		; end
 
 		Nbh[∀X: ∈ topological_space](∀x: ∈ X):
 		(
-			"neighborhood of x",
-			⊆ ◉,
+			"neighborhood of x in X",
+			⊆ set.sub(X),
 			∀A: ∈ Nbh[X](x),
-			A ⊆ X,
 			∃O: ∈ X.τ,
 			x ∈ O, O ⊆ A
+		),
+
+		open_set(∀X: ∈ topological_space): ; ? it is just the coresponding class of τ
+		(
+			⊆ set.sub(X),
+		)
+
+		closed_set(∀X: ∈ topological_space): ; ?
+		(
+			⊆ set.sub(X),
+			∀F: ∈ closed_set(X),
+			∀x: ∈ X, (∃y: ∈ F, y X.→ x) ⇒ x ∈ F
 		),
 
 		open_cover(∀C: ∈ topological_space):
 		(
 			⊆ cover(C),
 			∀𝒞: ∈ open_cover(C),
-			𝒞 ⊆ C.τ 
+			𝒞 ⊆ C.τ
 		),
+
+		dense_sub(∀X: ∈ topological_space):
+		(
+			⊆ set.sub(X),
+			∀D: ∈ dense_sub(X),
+			closure[X](D) = X
+		),
+		[ I may write dwon some equivalent version of it ]
 ),

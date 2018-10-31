@@ -2,5 +2,5 @@
 (
 	⊆ group,
 	∀G: ∈ perfect_group,
-	G = derived_sub(G) ; ?
+	G = commutator_sub(G) ; ?
 ),

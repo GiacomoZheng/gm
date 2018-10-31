@@ -1,0 +1,34 @@
+@gm.h.Ring,
+; * all the theorem for the rng are also true for ring
+; about basis
+	s"the identity is unique":
+	(
+		∀R: ∈ ring, ×: = &R.×&,
+		∀i: ∈ R, (∀a: ∈ R, a R.× i = a = i R.× a) ⇒ R.1 = i
+	),
+	[ proof```i = i * 1 = i```]
+	
+	s"the multiplication inverse in a ring is unique if it exist":
+	(
+		∀R: ∈ ring, ∀r: ∈ unit(R),
+		∀{r', r''}: ∈ R,
+		r R.× r' = r' R.× r = R.1 = r R.× r'' = r'' R.× r ⇒ r'' = r'
+	),
+	[ proof, the same as in the group```
+		r' = r' × r × r'' = r''
+	```]
+
+	s"multiplying the negation of identity can get the negation":
+	(
+		∀R: ∈ ring, 1: = R.1, ∀a: ∈ R,
+		neg[R](R.1) R.× a = neg[R](a)
+	),
+	[ proof```
+		neg[R](R.1) R.× a + a = (neg[R](R.1) + R.1) R.× a = R.0,
+		; the right neg is the same
+	```]
+
+	s""
+; end
+
+■

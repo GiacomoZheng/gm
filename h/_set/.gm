@@ -34,6 +34,19 @@
 
 		)
 	; end
-	
-	; ×:
+	⊆ ◉,
+	(
+
+	),
+
+	; location
+		; + generalize
+			sub(∀S: ∈ set):
+			(
+				"subset",
+				⊆ set,
+				∀A: ∈ sub(S),
+				A ⊆ S ; ?
+			),
+		; end
 ),

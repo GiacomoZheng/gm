@@ -1,7 +1,0 @@
-: ; nontrivial_ring
-(
-	⊆ ring,
-
-	∀R: ∈ ring,
-	!(R = {R.0})
-),

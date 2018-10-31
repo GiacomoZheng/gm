@@ -11,8 +11,9 @@
 	M.d(x, y) = M.d(y, x), ; symmetry
 	∀z: ∈ M, M.d(x, y) ≤ M.d(x, z) + M.d(z, y), ; subadditivity
 
-	B[∀M: ∈ metric_space, ∀ε: ∈ Rp](∀x: ∈ M): = {y|M.d(x, y) < ε}[∀y: ∈ M],
-	∀x: ∈ M, ∀ε: ∈ Rp, B[M, ε](x) ∈ M.τ, ; to make it be a topological_space
+	; B[∀M: ∈ metric_space, ∀ε: ∈ Rp](∀x: ∈ M): = {y|M.d(x, y) < ε}[∀y: ∈ M],
+	; ∀x: ∈ M, ∀ε: ∈ Rp, B[M, ε](x) ∈ M.τ,
+	M.d(x, y) ↔ 0 ⇔ x R.↔ y, ; ! to make it be a topological_space
 
 	M.d(x, y) = 0 ⇔ x = y, ; discernible
 	[ location ]

@@ -1,7 +1,7 @@
 : ; Dedekind_group
 (
 	∀D: ∈ Dedekind_group,
-	subgroup(D) = normal(D)
+	sub(D) = normal(D)
 ),
 [ chaim: group ⊇ Dedekind_group ⊇ abelian_group
 By the way, the nonabelian Dedekind groups are called Hamiltonian group

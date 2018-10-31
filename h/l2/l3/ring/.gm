@@ -5,5 +5,30 @@
 	∀R: ∈ ring,
 	R.1: ∈ R,
 	∀a: ∈ R,
-	R.1 R.× a = a = a R.× R.1 ; multiply identity
+	R.1 R.× a = a = a R.× R.1, ; multiply identity
+	
+	; location
+		; + generalize
+			sub(∀R: ∈ ring):
+			(
+				⊆ ring,
+				⊆ rng.sub(R), ; the same "×"
+
+				∀H: ∈ sub(R),
+				H.1 = G.1
+			),
+		; end
+	
+	unit(∀R: ∈ ring):
+	(
+		⊆ ◉,
+		∀x: ∈ unit(R),
+		x ∈ R,
+		∃x': ∈ R, x' R.× x'' = R.1 = x'' R.× x' 
+	),
+
+	inv[∀R: ∈ ring](∀x: ∈ unit(R)):
+	(
+		"valid because of the inverse is unique",
+	)
 ),

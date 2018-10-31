@@ -39,6 +39,6 @@ s"the span of a subset is just the minimum subspace contains it":
 			∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](c[α] V.× α) ∈ W
 		)
 		⇒ span[V](S) ⊆ W
-	),
-	"completed"
+	)
 ``` ]
+

@@ -1,0 +1,90 @@
+s"every cyclic group is an abelian group":
+(
+	cyclic_group ⊆ abelian_group
+),
+[ proof```
+	∀G: ∈ cyclic_group, ∃g: ∈ G, {G.e (G.*g)^z}[∀z: ∈ h.Z] = G,
+	∀{a, b}: ⊆ G, ∃{m, n}: ∈ Z,
+	a = G.e (G.*g)^m, b = G.e (G.*g)^n,
+	(
+		a G.* b = G.e (*g)^m G.* G.e (G.*g)^n = G.e (*g)^(m + n),
+		b G.* a = G.e (*g)^n G.* G.e (G.*g)^m = G.e (*g)^(n + m)
+	)
+	⇒ a G.* b = b G.* a ⇒ G ∈ abelian_group
+``` ]
+
+s"cyclic group is the minimal subgroup contains the generator":
+(
+
+),
+
+s"the subgroup of cyclic group is still cyclic":
+(
+	∀G: ∈ cyclic_group, sub(G) ⊆ cyclic_group
+), ; +
+[ proof```
+	e: = G.e, *: = &G.*&, g: ∈ generator(G),
+	∀H: ∈ sub(G),
+	H = {e} ⇒ H ∈ cyclic_group,
+	
+		∀(G.e (G.* g)^n): ∈ H,
+		∃{m, q, r}: ∈ h.Z, n = m × q + r, 0 ≤ r < m,
+``` ]
+
+s"the cardinal of the cyclic (sub)group is the order of generator":
+(
+	∀G: ∈ cyclic_group, *: = &G.*&, e: = G.e,
+	∃g: ∈ G, {e (* g)^n}[∀n: ∈ h.Z] = G,
+	|G| = order[G](g)
+),
+[ proof```
+	!(|G| ∈ h.N) ⇒ |G| = order[G](g) ; the cardinal of Z
+	|G| ∈ h.N ⇒
+	(
+		S: = {n|0 ≤ n < order[G](g)},
+		|G| = |{e (* g)^n}[∀n: ∈ h.Z]| = |{e (* g)^n}[∀n: ∈ S]| = |S| = order[G](g)
+	),
+``` ]
+
+s"direct product of finite cyclic group":
+(
+	∀m: (∈ h.N, > 1), ∀n: (∈ h.N, > 1),
+	Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1
+),
+
+s"about the orders in a cyclic group":
+(
+	∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
+	∃g: ∈ G, H = gp[&*&](g), ; !
+	order[G](g) = |H|,
+	|H| ∈ h.N ⇒ ( ; finite
+		n: = |H|,
+		S: = {m|0 ≤ m < n}[∀m: ∈ h.Z], ; |S| = n
+		∀(
+			e (* g)^n = e,
+			|{e (* g)^n}[∀m: ∈ S]| = n, ; 1, g, g * g, … e (* g)^(n-1), distinct
+		)
+	),
+	|H| = |h.N| ⇒ ∀( ; infinite
+		(∀n: ∈ h.Z, e (* g)^n = e ⇒ n = 0),
+		; equivalently
+		(∀n: ∈ h.Z, ∀m: ∈ h.Z, e (* g)^n = e (* g)^m ⇒ n = m)
+	)
+),
+
+s"two cyclic group with the same cardinal is isomorphic":
+(
+	∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
+	|G| = |H| ⇒ G ≌ H
+),
+[ proof```
+	∃g: ∈ generator(G), ∃h: ∈ generator(H),
+	∀n: ∈ h.Z, ∃φ(∀(g G.^ n): ∈ G): = h H.^ n ; + I need to define G.^ later
+``` ]
+; and equvalently
+s"all the cyclic groups are isomorphic to Z[n] or Z":
+(
+	∀G: ∈ cyclic_group, n: = |G|,
+	n ∈ h.N ⇒ G ≌ Z[|G|],
+	n = |h.Z| ⇒ G ≌ Z
+),

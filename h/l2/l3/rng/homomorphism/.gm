@@ -1,0 +1,8 @@
+: ; homomorphism
+(
+	⊆ group.homomorphism, ; about the '+'
+
+	∀f: ∈ homomorphism,
+	f.D ∈ rng, f.C ∈ rng,
+	∀x: ∈ f.D, ∀y: ∈ f.D, f(x f.D.× y) = f(x) f.D.× f(y)
+),

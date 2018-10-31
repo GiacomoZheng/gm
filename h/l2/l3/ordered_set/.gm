@@ -1,4 +1,4 @@
-: ; ordered_set
+: ; ordered_set, or totally_ordered_set
 (
 	⊆ poset,
 

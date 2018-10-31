@@ -11,14 +11,12 @@ s"trivial_ring has only one identity, vice versa":
 	R.0 = R.1 ⇒ r = R.1 R.× r = R.0 R.× r = R.0
 ``` ]
 
-s"the range of ring homomorphism":
+s"the range of ring homomorphism is a subring":
 (
-	@gm.h.Ring,
-	∀R: ∈ ring,
-	R ∈ trivial_ring ⇔ R.0 = R.1■
+
 ),
 
-s"kernel of ring homomorphism is seldom the subring":
+s"kernel of ring homomorphism is seldom a subring":
 (
 	@gm.h.Ring,
 	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,

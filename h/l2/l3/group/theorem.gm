@@ -42,33 +42,38 @@
 		∀{u, v}: ⊆ G,
 		a * u = a * v ⇔ u = v ⇔ u * a = v * a ; because the inverse of every element exist
 	),
-; end
 
-; about a weeker criterion of group
+	s"direct product of two groups is also a group":
+	(
+		∀A: ∈ group, ∀B: ∈ group, C: = A × B,
+		C ∈ group, ∀(x1, y1): ∈ C, ∀(x2, y2): ∈ C,
+		(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)
+	),
+
 	s"the semigroup with same side identity and inverse is a group":
 	(
-		r'_group:
+		r'group:
 		(
 			⊆ semigroup,
-			∀G: ∈ r'_group, !(G = ∅),
+			∀G: ∈ r'group, !(G = ∅),
 			G.e: ∈ G,
 			*: = &G.*&,
 			∀g: ∈ G, g * G.e = g, ; right identity
 				∃g': ∈ G, g * g' = G.e ; right inverse
 		),
-		l'_group:
+		l'group:
 		(
 			⊆ semigroup,
-			∀G: ∈ l'_group, !(G = ∅),
+			∀G: ∈ l'group, !(G = ∅),
 			G.e: ∈ G,
 			*: = &G.*&,
 			∀g: ∈ G, G.e * g = g, ; left identity
 				∃g': ∈ G, g' * g = G.e ; left inverse
 		),
-		l'_group = group = r'_group
+		l'group = group = r'group
 	),
 	[ proof with the example of r'group```
-		∀R: ∈ r'_group, *: = &R.*&, e: = G.e,
+		∀R: ∈ r'group, *: = &R.*&, e: = G.e,
 		∀g: ∈ G, ∃g': ∈ G, g * g' = e,
 		∃g'': ∈ G, g' * g'' = e,
 		g' * g = e ⇐
@@ -82,14 +87,7 @@
 	``` ]
 ; end
 
-; about examples
-	s"direct product of two groups is also a group":
-	(
-		∀A: ∈ group, ∀B: ∈ group, C: = A × B,
-		C ∈ group, ∀(x1, y1): ∈ C, ∀(x2, y2): ∈ C,
-		(x1, y1) C.* (x2, y2) = (x1 A.* x2, y1 B.* y2)
-	),
-
+; ? about examples
 	s"symmetric group":
 	(
 		∀S: ∈ set, i(∀x: ∈ S): = x,
@@ -113,15 +111,26 @@
 	(
 		∀n: ∈ Np, ∀V: ∈ vector_space,
 		ex.GL[n](V) ∈ group, &GL[n](V).*& = &∘&, ; here the matrices are regraded functions
-		ex.SL[n](V) ∈ subgroup(ex.GL[n](V))
+		ex.SL[n](V) ∈ sub(ex.GL[n](V))
 	),
+
+	s"all the subgroup of Quaternion group are normal":
+	(
+		{1, -1, i, -i, j, -j, k, -k}: = ex.Qu,
+		𝒮: = {
+			{1}, ex.Qu,
+			{1, -1}, {1, i}, {1, -i}, {1, j}, {1, -j}, {1, k}, {1, -k}
+		},
+		∀S: ∈ 𝒮, S ∈ normal(G)
+	),
+	[ prove it one by one ]
 ; end
 
 ; about subgroup
 	s"criterions of subgroup":
 	(
 		∀G: ∈ group, ∀H: ⊆ G,
-		H ∈ subgroup(G) ⇔
+		H ∈ sub(G) ⇔
 		∀(
 			!(H = ∅),
 			(∀{x, y}: ⊆ H, x G.* inv[G](y) ∈ H)
@@ -131,16 +140,16 @@
 	s"relation of subgroup (of) is transitive":
 	(
 		∀G: ∈ group,
-		∀H: ∈ subgroup(G),
-		∀I: ∈ subgroup(H),
-		I ∈ subgroup(G)
+		∀H: ∈ sub(G),
+		∀I: ∈ sub(H),
+		I ∈ sub(G)
 	),
 
 	s"any intersection of subgroups are still subgroup":
 	(
 		∀G: ∈ group,
-		∀ℋ: ∈ {∀H: ∈ subgroup(G)},
-		∩[](ℋ) ∈ subgroup(G)
+		∀ℋ: ∈ {∀H: ∈ sub(G)},
+		∩[](ℋ) ∈ sub(G)
 	),
 	[ prove```
 		e: = G.e, K: = ∩[](ℋ), *: = &G.*&,
@@ -149,9 +158,9 @@
 		(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
 	``` ]
 
-	s"the subgroup of Z is always nZ":
+	s"the sub of Z is always nZ":
 	(
-		∀G: ∈ subgroup(h.Z), ; "+" as operator
+		∀G: ∈ sub(h.Z), ; "+" as operator
 		∃n: ∈ h.Z, Z': = {n × z}[∀z: ∈ h.Z], G = Z'
 	),
 	[  ] ; + after the Euclidean algorithm
@@ -160,14 +169,14 @@
 	(
 		∀G: ∈ group,
 		∀A: ⊆ G,
-		C[G](A) ∈ subgroup(G),
-		Z(G) ∈ subgroup(G),
-		N[G](A) ∈ subgroup(G)
-		C[G](A) ∈ subgroup(N[G](A))
+		C[G](A) ∈ sub(G),
+		Z(G) ∈ sub(G),
+		N[G](A) ∈ sub(G)
+		C[G](A) ∈ sub(N[G](A))
 	),
 	[ prove ```
 		*: = &G.*&, e: = G.e,
-		C[G](A) ∈ subgroup(G) ⇐
+		C[G](A) ∈ sub(G) ⇐
 		(
 			∀a: ∈ A,
 			e * a = a * e ⇒ e ∈ C[G](A) ⇒ !(C[G](A) = ∅),
@@ -178,7 +187,7 @@
 			⇒ k * inv[G](h) ∈ C[G](A)
 		),
 		Z(G) = C[G](G),
-		N[G](A) ∈ subgroup(G) ⇐
+		N[G](A) ∈ sub(G) ⇐
 		(
 			∀a: ∈ A,
 			e * a = a * e ⇒ e ∈ N[G](A) ⇒ !(N[G](A) = ∅),
@@ -188,7 +197,7 @@
 			⇒ (k * inv[G](h)) * a * inv[G](k * inv[G](h)) ∈ A
 			⇒ k * inv[G](h) ∈ N[G](A)
 		),
-		C[G](A) ∈ subgroup(N[G](A)) ⇐
+		C[G](A) ∈ sub(N[G](A)) ⇐
 		(
 			C[G](A) ∈ group,
 			C[G](A) ⊆ N[G](A),
@@ -197,16 +206,20 @@
 		)
 	``` ]
 
-	s"inner subgroup":
+	s"inner subgroups are commutative":
 	(
-		∀G: ∈ group,
-		∀H: ∈ subgroup(G), ∀K: ∈ subgroup(G),
-		F: = {h G.* k}[∀h: ∈ H, ∀k: ∈ K],
-		F ∈ subgroup(G),
-		; + in addition
-		E: = {k G.* h}[∀h: ∈ H, ∀k: ∈ K],
-		E = F
+		∀G: ∈ group, *: = &G.*&,
+		∀H: ∈ sub(G), ∀K: ∈ sub(G),
+		{h * k}[∀h: ∈ H, ∀k: ∈ K] = {k * h}[∀h: ∈ H, ∀k: ∈ K]
+		⇔ {h * k}[∀h: ∈ H, ∀k: ∈ K] ∈ sub(G)
+		⇔ {k * h}[∀h: ∈ H, ∀k: ∈ K] ∈ sub(G),
 	),
+	[ proof```
+		s"1 ⇒ 2":
+		(
+			S: = generate_by[G]({h, k}), S = (H * K) ; +
+		)
+	``` ]
 ; end
 
 ; + about order
@@ -235,88 +248,12 @@
 	``` ]
 ; end
 
-; + about cyclic_group
-	s"every cyclic group is an abelian group":
-	(
-		cyclic_group ⊆ abelian_group
-	),
-	[ proof```
-		∀G: ∈ cyclic_group, ∃g: ∈ G, {G.e (G.*g)^z}[∀z: ∈ h.Z] = G,
-		∀{a, b}: ⊆ G, ∃{m, n}: ∈ Z,
-		a = G.e (G.*g)^m, b = G.e (G.*g)^n,
-		(
-			a G.* b = G.e (*g)^m G.* G.e (G.*g)^n = G.e (*g)^(m + n),
-			b G.* a = G.e (*g)^n G.* G.e (G.*g)^m = G.e (*g)^(n + m)
-		)
-		⇒ a G.* b = b G.* a ⇒ G ∈ abelian_group
-	``` ]
-
-	s"cyclic group is the minimal subgroup contains the generator":
-	(
-
-	),
-
-	s"the subgroup of cyclic group is still cyclic":
-	(
-		∀G: ∈ cyclic_group, subgroup(G) ∈ cyclic_group
-	), ; +
-	[ proof```
-		e: = G.e, *: = &G.*&, g: ∈ generator(G),
-		∀H: ∈ subgroup(G),
-		H = {e} ⇒ H ∈ cyclic_group,
-		
-			∀(G.e (G.* g)^n): ∈ H,
-			∃{m, q, r}: ∈ h.Z, n = m × q + r, 0 ≤ r < m,
-	``` ]
-
-	s"the cardinal of the cyclic (sub)group is the order of generator":
-	(
-		∀G: ∈ cyclic_group, *: = &G.*&, e: = G.e,
-		∃g: ∈ G, {e (* g)^n}[∀n: ∈ h.Z] = G,
-		|G| = order[G](g)
-	),
-	[ proof```
-		!(|G| ∈ h.N) ⇒ |G| = order[G](g) ; the cardinal of Z
-		|G| ∈ h.N ⇒
-		(
-			S: = {n|0 ≤ n < order[G](g)},
-			|G| = |{e (* g)^n}[∀n: ∈ h.Z]| = |{e (* g)^n}[∀n: ∈ S]| = |S| = order[G](g)
-		),
-	``` ]
-
-	s"direct product of finite cyclic group":
-	(
-		∀m: (∈ h.N, > 1), ∀n: (∈ h.N, > 1),
-		Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1
-	),
-
-	s"about the orders in a cyclic group":
-	(
-		∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
-		∃g: ∈ G, H = gp[&*&](g), ; !
-		order[G](g) = |H|,
-		|H| ∈ h.N ⇒ ( ; finite
-			n: = |H|,
-			S: = {m|0 ≤ m < n}[∀m: ∈ h.Z], ; |S| = n
-			∀(
-				e (* g)^n = e,
-				|{e (* g)^n}[∀m: ∈ S]| = n, ; 1, g, g * g, … e (* g)^(n-1), distinct
-			)
-		),
-		|H| = |h.N| ⇒ ∀( ; infinite
-			(∀n: ∈ h.Z, e (* g)^n = e ⇒ n = 0),
-			; equivalently
-			(∀n: ∈ h.Z, ∀m: ∈ h.Z, e (* g)^n = e (* g)^m ⇒ n = m)
-		)
-	),
-; end
-
 ; about permutation group
 	s"computations in permutation group": ; + I don't complete the "c" up to now
 	(
 		∀n: ∈ h.N,
-		∀σ: ∈ S[n], ∀c(i, …, j): ∈ circle, ; !
-		σ ∘ c(i, …, j) ∘ inv[S[n]](σ) = c(σ(i), …, σ(j))
+		∀σ: ∈ ex.S[n], ∀c(i, …, j): ∈ circle, ; !
+		σ ∘ c(i, …, j) ∘ inv[ex.S[n]](σ) = c(σ(i), …, σ(j))
 	),
 	s"the parity of any element of S[n] is an invariant": ; + define the permutaion matrix before
 	(
@@ -326,31 +263,15 @@
 	s"cardinal and generators of permutation group": ; ? about the circle
 	(
 		∀n: ∈ h.N, S: = {∀m: 1 ≤ m ≤ n},
-		|S[n]| = ×[∀j: (∈ h.N, 1 ≤ j ≤ n)](j),
-		; S[n] = gp({c(a, b)|∀(a, b): ∈ h.N^2, a ≤ n, b ≤ n}),
-		n ≥ 3 ⇒ A[n] = generate_by[S[n]]({c(i, j, k)}[∀{i, j, k}: ⊆ S])
+		|ex.S[n]| = ×[∀j: (∈ h.N, 1 ≤ j ≤ n)](j),
+		; ex.S[n] = gp({c(a, b)|∀(a, b): ∈ h.N^2, a ≤ n, b ≤ n}),
+		n ≥ 3 ⇒ ex.A[n] = generate_by[ex.S[n]]({c(i, j, k)}[∀{i, j, k}: ⊆ S])
 	),
 	[ proof (not very serious), 
 	 ]
 ; end
 
 ; + about normal
-	s"inner product is commutative": ; !
-	(
-		"the prelude of normal",
-		∀G: ∈ group, *: = &G.*&,
-		∀H: ∈ subgroup(G), ∀K: ∈ subgroup(G),
-		{h * k}[∀h: ∈ H, ∀k: ∈ K] = {k * h}[∀h: ∈ H, ∀k: ∈ K]
-		⇔ {h * k}[∀h: ∈ H, ∀k: ∈ K] ∈ subgroup(G)
-		⇔ {k * h}[∀h: ∈ H, ∀k: ∈ K] ∈ subgroup(G),
-	),
-	[ proof```
-		s"1 ⇒ 2":
-		(
-			S: = generate_by[G]({h, k}), S = (H * K) ; +
-		)
-	``` ]
-
 	s"criterions of normal": ; +
 	(
 
@@ -366,24 +287,13 @@
 		)
 	),
 
-	s"all the subgroup of Quaternion group are normal":
-	(
-		{1, -1, i, -i, j, -j, k, -k}: = ex.Qu,
-		𝒮: = {
-			{1}, ex.Qu,
-			{1, -1}, {1, i}, {1, -i}, {1, j}, {1, -j}, {1, k}, {1, -k}
-		},
-		∀S: ∈ 𝒮, S ∈ normal(G)
-	),
-	[ prove it one by one ]
-
 	s"all abelian groups are Dedekind group":
 	(
 		abelian_group ⊆ Dedekind_group
 	),
 	[ prove ```
 		∀G: ∈ abelian_group, *: = &G.*&,
-		∀H: ∈ subgroup(G),
+		∀H: ∈ sub(G),
 		(∀a: ∈ G, ∀h: ∈ H, a * h * inv[G](a) = h ∈ H) ⇒ H ∈ normal(G)
 	```]
 
@@ -397,18 +307,6 @@
 		Z(G) = {z|z * g = g * z}[∀g: ∈ G],
 		∀g: ∈ G, ∀z: ∈ Z(G), g * z * inv[G](g) = z * g * inv[G](g) = z ∈ Z(G)
 	``` ]
-
-	s"commutator group is the smallest normal group quotient to an abelian group": ; +
-	(
-		∀G: ∈ group, ∀H: ∈ normal(G),
-		G/H ∈ abelian_group ⇔ derived_sub(G) ∈ noraml(H)
-	),
-	[ proof```
-		(G/H ∈ abelian_group ⇒ derived_sub(G) ∈ noraml(H)) ⇐
-		(
-
-		)
-	``` ]
 ; end
 
 ; + about conjugate
@@ -416,21 +314,41 @@
 	(
 		∀G: ∈ group,
 		∀x: ∈ Z(G),
-		conjugate[G](x) = {x}
+		conj[G](x) = {x}
 	),
 
 	s"conjugate sets consist of a partition": ; +
 	(
-
+		∀G: ∈ group, ∀H: ∈ sub(G),
 	),
 
 	s"all the normal group are the (disjoint) union of conjugate sets":
 	(
-		"disjoint as the above theorem",
+		"they are disjoint as the above theorem",
 		∀G: ∈ group,
 		∀N: ∈ noraml(G),
-		∃T: ⊆ G, N = ∪[∀t: ∈ T](conjugate[G](t))
+		∃T: ⊆ G, N = ∪[∀t: ∈ T](conj[G](t))
 	),
+; end
+
+; ? about commutator group
+	s"commutator group is normal and the quotient group of it is abelian":
+	(
+		∀G: ∈ group,
+		commutator_sub(G) ∈ normal(G),
+		G / commutator_sub(G) ∈ abelian_group ; ! /
+	),
+	s"commutator group is the smallest normal group quotient to an abelian group": ; +
+	(
+		∀G: ∈ group, ∀H: ∈ normal(G),
+		G/H ∈ abelian_group ⇔ commutator_sub(G) ∈ sub(H) ; ! /
+	),
+	[ proof```
+		(G/H ∈ abelian_group ⇒ commutator_sub(G) ∈ noraml(H)) ⇐
+		(
+
+		)
+	``` ]
 ; end
 
 ; about morphism
@@ -452,7 +370,7 @@
 	s"range of a homomorphism is a subgroup of the codomain, with reserve the property of domain": ; this one is very general
 	(
 		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
-		R ∈ subgroup(φ.C),
+		R ∈ sub(φ.C),
 
 		G ∈ abelian_group ⇒ R ∈ abelian_group,
 		G ∈ cyclic_group ⇒ R ∈ cyclic_group
@@ -470,76 +388,59 @@
 	),
 	[ proof is the similar to the above ones, with two directions ]
 
-	s"two cyclic group with the same cardinal is isomorphic":
-	(
-		∀G: ∈ cyclic_group, ∀H: ∈ cyclic_group,
-		|G| = |H| ⇒ (∃f: ∈ isomorphism, ∀(f.D = G, f.C = H))
-	),
-	[ proof```
-		∃g: ∈ generator(G), ∃h: ∈ generator(H),
-		∀n: ∈ h.Z, ∃φ(∀x: ∈ G): ∈ 
-	``` ]
-	; and equvalently
-	s"all the cyclic groups are isomorphic to Z[n] or Z":
-	(
-		∀G: ∈ cyclic_group, n: = |G|,
-		n ∈ h.N ⇒ G ≌ Z[|G|],
-		n = |h.Z| ⇒ G ≌ Z
-	),
+	; + about first isomorphism theorem
+		s"kernel of a homomorphism is a normal subgroup of domain": ; this theorem is not very general, but it is very powerful
+		(
+			∀f: ∈ homomorphism, ker(f) ∈ normal(f.D)
+		),
+		[ proof```
 
-	s"G is homomorphic to a permutations group under its action"
-	(
-		∀ω: ∈ action,
-		∀G: = ω.D,
-		H: = {ω$x}[∀x: ∈ G],
-		H ∈ group, &H.*& = &∘&,
-		∃f(∀x: ∈ G): = ω$x,
-		f ∈ homomorphism, f.D = G, f.C = H 
-	),
-	[ proof```
-		; first, prove the H is a group
-		&∘& ∈ associative_operator,
-		∀{x, y}: ⊆ G, {ω$x, ω$y} ⊆ H, *: = &G.*&,
-		∀a: ∈ ω.S,
-		(ω$x ∘ ω$y)(a) = ω(x, ω(y, a)) = ω(x * y, a) = ω$(x * y)(a), ω$(x * y) ∈ H,
-		i = H.e, i ∈ H,
-		(ω$x ∘ ω$inv(x))(a) = ω(x * inv(x), a) = a, inv(ω$x) = ω$inv(x)
-		; Then the homomorphism
-		f(x * y) = ω$(x * y) = ω$x ∘ ω$y = f(x) ∘ f(y)
-	``` ]
+		```]
 
-	s"Cayley's Theorem":
-	(
-		∀G: ∈ group, ∃T: ∈ subgroup(sym(G)), G ≌ T
-	),
-	[ similarly ```
-		∀G: ∈ group, ∃T: ∈ subgroup(S[|G|]), G ≌ T
-	 ```
-	 proof with regular action```
+		s"First Isomorphism Theorem": ; ?
+		(
+			∀f: ∈ homomorphism, f.D / ker(f) ≌ range(f) ; ! /
+		),
+		[ proof```
+			∃F: ∈ isomorphism, *: = &f.D.*&,
+			F.D = f.D / ker(f), F.C = range(f),
+			F(a * )
+		``` ]
+	; end
 
-	``` ]
+	; about second isomorphism theorem
+		s"inner product within a normal subgroup is a subgroup": ; ! the name
+		(
+			∀G: ∈ group, ∀H: ∈ sub(G), ∀N: ∈ normal(G),
+			{h G.* n}[∀h: ∈ H, ∀n: ∈ N] ∈ sub(G) ⇐ {h G.* n}[∀h: ∈ H, ∀n: ∈ N] = ∪[∀h: ∈ H]({h G.* n}[∀n: ∈ N]) = ∪[∀h: ∈ H]({n G.* h}[∀n: ∈ N]) = {n G.* h}[∀h: ∈ H, ∀n: ∈ N]
+		),
 
-	s"kernel of a homomorphism is a normal subgroup of domain": ; this theorem is not very general, but it is very powerful
-	(
-		∀f: ∈ homomorphism,
-		ker(f) ∈ normal(f.D)
-	),
+		s"induced normal subgroup":
+		(
+			∀G: ∈ group, ∀H: ∈ sub(G), ∀N: ∈ normal(G),
+			H ∩ N ∈ normal(H)
+		),
+		[ proof```
+			K: = H ∩ N, *: = &G.*&,
+			K ∈ sub(H) ⇐ ∀(K ∈ sub(G), K ⊆ H),
+			(
+				∀h: ∈ H, ∀k: ∈ K,
+				(
+					h * k * inv(h) ∈ N ⇐ ∀(h ∈ G, k ∈ N, N ∈ normal(G)),
+					h * k * inv(h) ∈ H ⇐ ∀(h ∈ H, k ∈ H)
+				)
+				⇒ h * k * inv(h) ∈ H ∩ N = K
+			)
+			⇒ K ∈ normal(H)
+		``` ]
 
-	s"First Isomorphism Theorem": ; ?
-	(
-		∀f: ∈ homomorphism, f.D / ker(f) ≌ range(f) ; !
-	),
-	[ proof```
-		∃F: ∈ isomorphism, *: = &f.D.*&,
-		F.D = f.D / ker(f), F.C = range(f),
-		F(a * )
-	``` ]
-
-	s"Second Isomorphism Theorem":
-	(
-		∀G: ∈ group, ∀H: ∈ subgroup(G), ∀No: ∈ normal(G),
-		(H ∩ No) ∈ normal(G), H / (H ∩ No) ≌ (H G.* No) / No, (H G.* No) / No ⊆ G / No
-	),
+		s"Second Isomorphism Theorem":
+		(
+			∀G: ∈ group, ∀H: ∈ sub(G), ∀N: ∈ normal(G),
+			K: = {h G.* n}[∀h: ∈ H, ∀n: ∈ N],
+			H / (H ∩ N) ≌ K / N ; ! /
+		),
+	; end
 ; end
 
 ; about abelian group
@@ -563,7 +464,7 @@
 ; + about coset
 	s"the elements in the same coset":
 	(
-		∀G: ∈ group, ∀H: ∈ subgroup(G),
+		∀G: ∈ group, ∀H: ∈ sub(G),
 		∀{a, b}: ⊆ G,
 		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H
 	),
@@ -572,21 +473,23 @@
 	(
 
 	),
+
+	; about double coset
 ; end
 
 ; ? about Lagrange's Theorem
 	s"Lagrange's Theorem":
 	(
-		G: ∈ group, H: ∈ subgroup(G),
+		G: ∈ group, H: ∈ sub(G),
 		|G| ∈ h.N ⇒ |G|/|H| ∈ h.N 
 	),
 	[ proof, ``` ; +
 		; Lemma: start
-			G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
+			G: ∈ group, H: ∈ sub(G), *: = &G.*&
 			∀x: ∈ G, |H| = |x * H| 
 		; Lemma: end
 		[ proof, ```
-			G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
+			G: ∈ group, H: ∈ sub(G), *: = &G.*&
 			∀x: ∈ G,
 			∃φ[x]:
 			(
@@ -610,7 +513,7 @@
 			⇒ |φ[x].C| = |φ[x]|
 			⇒ |H| = |x * H| 
 		``` ]
-		G: ∈ group, H: ∈ subgroup(G), *: = &G.*&
+		G: ∈ group, H: ∈ sub(G), *: = &G.*&
 		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
 		|G| ∈ h.N ⇒
 		(
@@ -625,7 +528,7 @@
 	s`The converse of "Lagrange" when G is cyclic`:
 	(
 		G: ∈ group, 
-		|G| ∈ h.N ⇒ (∀d: ∈ h.N, m/d ∈ h.Z ⇒ (∃H: ∈ subgroup(G), |H| = d))
+		|G| ∈ h.N ⇒ (∀d: ∈ h.N, m/d ∈ h.Z ⇒ (∃H: ∈ sub(G), |H| = d))
 	),
 
 	s"the group with size prime is cyclic"
@@ -639,7 +542,7 @@ s"Sylow's First Theorem":
 		∀p: ∈ prime_number, ∀n: ∈ h.N, m: = |G|/(p^n),
 		∀(m ∈ h.N, gcd(m, p) = 1) ⇒
 		(
-			∃H: ∈ subgroup(G), |H| = p^n
+			∃H: ∈ sub(G), |H| = p^n
 		)
 	)
 ),
@@ -649,11 +552,9 @@ s"Sylow's First Theorem":
 	|G| = p^n ⇒ !(center(G) = {G.e})
 ; Theorem: end
 
-; Theorem: end
-
 ; Theorem: start
 	∀G: ∈ group, ∀No: ∈ normal(G),
-	∀H: ∈ subgroup(G), No ⊆ H ⇒ No ∈ normal(H)
+	∀H: ∈ sub(G), No ⊆ H ⇒ No ∈ normal(H)
 ; Theorem: end
 
 [ 
@@ -667,16 +568,16 @@ s"Sylow's First Theorem":
  ]
 s"Third Isomorphism Theorem":
 (
-	∀No: ∈ normal(G), D: = {H|∀H: ∈ subgroup(G), No ⊆ H}, C: = {∀J: ∈ subgroup(G)/No},
+	∀No: ∈ normal(G), D: = {H|∀H: ∈ sub(G), No ⊆ H}, C: = {∀J: ∈ sub(G)/No}, ; ! /
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
-	∀H: ∈ D, φ(H) = H / No
+	∀H: ∈ D, φ(H) = H / No ; ! /
 
-	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: ∈ subgroup(G),
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: ∈ sub(G),
 	No ⊆ H ⇒
-	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G))
+	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G)) ; ! /
 
-	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ subgroup(G), No ⊆ H),
-	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ sub(G), No ⊆ H),
+	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H ; ! /
 ),
 
 ; Theorem: start
@@ -740,19 +641,19 @@ s"Third Isomorphism Theorem":
 
 ; Theorem: start
 	∀G: ∈ group,
-	∀S: ∈ conjugate(G), {G.e} ∈ S
+	∀S: ∈ conj(G), {G.e} ∈ S ; !
 ; Theorem: end
 
 ; Theorem: start
 	∀G: ∈ group,
 	∀H: ∈ normal(G),
-	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪[](τ)
+	∃τ: ⊆ {∀S: ∈ conj(G)}, H = ∪[](τ) ; !
 ; Theorem: end
 
 ; Theorem: start
 	∀G: ∈ group,
 	∀H: ∈ normal(G),
-	∃τ: ⊆ {∀S: ∈ conjugate(G)}, H = ∪[](τ)
+	∃τ: ⊆ {∀S: ∈ conj(G)}, H = ∪[](τ) ; !
 ; Theorem: end
 
 p"Jordon-Holder Theorem":
@@ -765,9 +666,9 @@ p"Jordon-Holder Theorem":
 )
 
 ; Theorem: start
-	A[5] ∈ solvable_group,
-	S[∀n: ∈ {3, 4}] ∈ solvable_group,
-	∀n: (∈ h.N, n ≥ 5), !(S[n] ∈ solvable_group),
+	ex.A[5] ∈ solvable_group,
+	ex.S[∀n: ∈ {3, 4}] ∈ solvable_group,
+	∀n: (∈ h.N, n ≥ 5), !(ex.S[n] ∈ solvable_group),
 	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group
 ; Theorem: end
 ■

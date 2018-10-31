@@ -1,24 +1,15 @@
 ; about alias
 	continuous_function: = topological_space.homomorphism,
 	linear_space: = vector_space,
-	linear_mappging: = vector_space.homomorphim,
-	linear_transformation: = vector_space.homomorphim,
+	linear_mappging: = vector_space.homomorphism,
+	linear_transformation: = vector_space.homomorphism,
 
 	trivial_group: = group.trivial,
-	trivial_field: = field.trivial,
+	trivial_rng: = rng.trivial,
 	trivial_topological_space: = topological_space.trivial,
 
+	subgroup: = group.sub,
+	subrng: = rng.sub,
+	subring: = ring.sub,
+	subfield: = field.sub,
 ; end
-
-/: ; !
-(
-	∈ operator,
-
-	∀G: ∈ group, ∀H: ∈ normal(G), *: = &G.*&
-	G / H = {{x * h}[∀h: ∈ H]}[∀x: ∈ G], ; as noraml, the two cosets are the same
-
-	∀R: ∈ ring,
-	×: ∈ &R.×&,
-	∀a: ∈ R, ∀b: ∈ R,
-	(∃c: ∈ R, a = b × c) ⇒ a / b = c
-),

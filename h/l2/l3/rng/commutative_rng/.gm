@@ -1,0 +1,6 @@
+: ; commutative_rng
+(
+	⊆ rng,
+	∀{a, b}: ⊆ R,
+	a R.× b = b R.× a ; commutativity
+),

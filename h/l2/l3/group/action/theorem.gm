@@ -2,7 +2,7 @@ s"stabilizers and kernel of action are subgroup":
 (
 	@gm.h.Group,
 	∀μ: ∈ action,
-	stabilizer[μ](∀s: ∈ μ.S) ∈ subgroup(μ.G),
+	stabilizer[μ](∀s: ∈ μ.S) ∈ sub(μ.G),
 	f(∀x: ∈ G): = μ$x,
 	ker(f) = ∩[]({stabilizer[μ](s)}[∀s: ∈ μ.S]) = {g|∀s: ∈ μ.S, μ(g, s) = s}[∀g: ∈ G]■
 ),
@@ -10,7 +10,39 @@ s"stabilizers and kernel of action are subgroup":
 s"Orbit-Stabilizer Theorem":
 (
 	∀μ: ∈ action, ∀s: ∈ μ.S,
-	|orbit[μ](s)| ∈ h.N ⇒ |G / stab[μ](s)| = |orbit[μ](x)|
+	|orbit[μ](s)| ∈ h.N ⇒ |G / stab[μ](s)| = |orbit[μ](x)| ; ! /
 	; with the help of "Lagrange Theorem", we get
 	∀(|orbit[μ](s)| ∈ h.N, |μ.G| ∈ h.N) ⇒ |G| = |stab[μ](s)| × |orbit[μ](x)|
 ),
+
+s"G is homomorphic to a permutations group under its action"
+(
+	∀ω: ∈ action,
+	∀G: = ω.D,
+	H: = {ω$x}[∀x: ∈ G],
+	H ∈ group, &H.*& = &∘&,
+	∃f(∀x: ∈ G): = ω$x,
+	f ∈ homomorphism, f.D = G, f.C = H 
+),
+[ proof```
+	; first, prove the H is a group
+	&∘& ∈ associative_operator,
+	∀{x, y}: ⊆ G, {ω$x, ω$y} ⊆ H, *: = &G.*&,
+	∀a: ∈ ω.S,
+	(ω$x ∘ ω$y)(a) = ω(x, ω(y, a)) = ω(x * y, a) = ω$(x * y)(a), ω$(x * y) ∈ H,
+	i = H.e, i ∈ H,
+	(ω$x ∘ ω$inv(x))(a) = ω(x * inv(x), a) = a, inv(ω$x) = ω$inv(x)
+	; Then the homomorphism
+	f(x * y) = ω$(x * y) = ω$x ∘ ω$y = f(x) ∘ f(y)
+``` ]
+
+s"Cayley's Theorem":
+(
+	∀G: ∈ group, ∃T: ∈ sub(sym(G)), G ≌ T
+),
+[ similarly ```
+	∀G: ∈ group, ∃T: ∈ sub(ex.S[|G|]), G ≌ T
+	```
+	proof with left regular action```
+
+``` ]

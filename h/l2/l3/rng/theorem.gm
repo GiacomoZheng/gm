@@ -1,0 +1,16 @@
+@gm.h.Rng,
+; * all the theorem about group has corresponding version for rng, which has been omited
+; about the basis
+	s"the multiple of zero is always 0":
+	(
+		∀R: ∈ rng, ∀a: ∈ R,
+		R.0 R.× a = 0 = a R.× R.0 
+	),
+	[ proof```
+		R.0 = R.0 + R.0,
+		; left
+		R.0 = R.0 R.× a + neg(R.0 R.× a) = (R.0 + R.0) R.× a + neg(R.0 R.× a) = R.0 R.× a + R.0 R.× a + neg(R.0 R.× a) = R.0 R.× a
+		; the right part
+	```]
+; end
+■

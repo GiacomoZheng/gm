@@ -22,7 +22,6 @@ gm
 					├─faithful_action
 					└─_transitive_action
 				├─automorphism
-				├─circle
 				├─cyclic_group
 				├─Dedekind_group
 				├─finite_group
@@ -34,27 +33,31 @@ gm
 				├─solvable_group
 				├─torsion_free_group
 				├─torsion_group
-				├─transposition
 				├─trivial
+				├─_circle
 				├─_even_func
-				└─_finitely_generated_group
+				├─_finitely_generated_group
+				└─_transposition
 			├─magma
 			├─module
 			├─monoid
 			├─ordered_set
 			├─poset
+			├─ring
+				├─homomorphism
+				└─isomorphism
+			├─rng
+				├─homomorphism
+				└─isomorphism
 			├─semigroup
 			├─topological_space
 				├─compact_set
 				├─discrete_set
 				├─homomorphism
 				├─isomorphism
-				├─metric_space
+				├─trivial
+				└─_metric_space
 					└─_complete_space
-				└─trivial
-			├─ring
-				├─homomorphism
-				└─isomorphism
 			├─vector_space
 				├─homomorphism
 				└─isomorphism
@@ -65,9 +68,7 @@ gm
 			└─_ring_theroy
 				├─integral_ring
 				├─Noetherian_ring
-				├─nontrivial_ring
 				├─principle_ideal_ring
-				├─trivial_ring
 				├─_polynomial_ring
 				└─_unique_factorization_ring
 		├─operator

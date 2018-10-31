@@ -3,6 +3,6 @@
 	⊆ magma, ; closure on *
 
 	∀S: ∈ semigroup,
-	S.* ∈ associative_operator, S ⊆ &S.*&.D ; association
+	&S.*& ∈ associative_operator, S ⊆ &S.*&.D ; association
 ),
 [ chaim: semigroup ⊆ magma ]
