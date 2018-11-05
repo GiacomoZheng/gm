@@ -32,7 +32,7 @@
 				S.F = V.F
 			),
 
-			generate_by[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ subspace(G), S ⊆ H](H)
+			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ subspace(G), S ⊆ H](H),
 		; end
 
 		independent(∀V: ∈ vector_space):

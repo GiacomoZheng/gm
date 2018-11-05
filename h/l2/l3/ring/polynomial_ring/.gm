@@ -1,0 +1,36 @@
+: ; polynomial_ring, with generating function P[]()
+(
+	⊆ commutative_ring,
+
+	(
+		∀Poly: ∈ polynomial_ring,
+		Poly.R: ∈ commutative_ring,
+
+		∃R': ∈ commutative_ring, Poly.R ∈ sub(R'),
+		Poly.x: ∈ R',
+
+		∀f(Poly.x): ∈ Poly,
+		∃n: ∈ h.N,
+		S: = {m}[∀m: ∈ h.Z, 0 ≤ m < n],
+		a[∀n: ∈ S]: ∈ Poly.R,
+		f(Poly.x) = Poly.R.+[∀n: ∈ S](a[n] Poly.R.× (Poly.x Poly.R.^ n))
+	),
+
+	; location
+		P[∀R: ∈ commutative_ring]: ; !
+		(
+			"a polynomial ring over R"
+			S[∀n: ∈ s.N]: = {m|0 ≤ m < n}[∀m: ∈ h.N], ; pre definition
+
+			∈ function,
+			∀R': (∈ rng, R ∈ sub(R')),
+			∀x: ∈ R',
+			P[R](x): = {+[∀n: ∈ S[m]](c[n] R.× (x R.^ n))}[∀m: ∈ h.N, ∀n: ∈ S[m], ∀c[∀n: ∈ S[m]]: ∈ R]
+			; we can prove it is unique under the consistent definitions
+		),
+
+		deg(∀f: ∈ polynomial_ring): ; +
+		(
+
+		),
+),

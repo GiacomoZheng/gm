@@ -13,7 +13,7 @@ s"conditions for a subspace":
 s"the span of a subset is just the minimum subspace contains it":
 (
 	∀V: ∈ vector_space, ∀S: ⊆ V,
-	span[V](S) = generate_by[V](S)
+	span[V](S) = min_sub[V](S)
 ),
 [ ```
 	s"span is a subspace":

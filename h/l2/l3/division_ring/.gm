@@ -1,0 +1,8 @@
+: ; division_ring, or skew_field
+(
+	⊆ ring, ; non zero ring
+	∀F: ∈ division_ring,
+	; ? !(F = {F.0}), ; I'll write it in ring
+	∀x: ∈ F \ {F.0}, x ∈ ring.unit(F)
+),
+[ chaim: division_ring ⊇ field ]

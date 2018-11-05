@@ -1,4 +1,5 @@
-[…]: …, ; annotation
+::, ; define
+[…]: …, ; commit and subscript
 [ 
 	the definition of these
 	' symbols '
@@ -51,3 +52,7 @@
 	(A = B) ⇔ ∀(A ⊆ B, B ⊆ A)
 ),
 
+⇒:
+(
+
+),

@@ -1,12 +1,9 @@
 : ; field
 (
 	⊆ commutative_ring,
+	⊆ division_ring,
 
-	(
-		∀F: ∈ field,
-		!(F = {F.0}),
-		∀x: ∈ F \ {F.0}, x ∈ unit(F)
-	),
+	[ chaim: field ⊆ integral_domain ⊆ commutative_ring ]
 
 	[ attributes ]
 		; about alias

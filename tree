@@ -11,6 +11,7 @@ gm
 		├─l3
 			├─abelian_group
 			├─commutative_ring
+			├─division_ring
 			├─field
 				├─algebraic_extension
 				├─extension
@@ -44,9 +45,13 @@ gm
 			├─ordered_set
 			├─poset
 			├─ring
+				├─domain
 				├─homomorphism
-				└─isomorphism
+				├─integral_domain
+				├─isomorphism
+				└─polynomial_ring
 			├─rng
+				├─commutative_rng
 				├─homomorphism
 				└─isomorphism
 			├─semigroup
@@ -66,10 +71,8 @@ gm
 					└─_random_space
 			├─_preordered_set
 			└─_ring_theroy
-				├─integral_ring
 				├─Noetherian_ring
 				├─principle_ideal_ring
-				├─_polynomial_ring
 				└─_unique_factorization_ring
 		├─operator
 		├─order_relator
@@ -88,5 +91,4 @@ gm
 		├─homomorphism
 		├─isomorphism
 		└─monomorphism
-├─_string
-└─_symbol
+└─_string

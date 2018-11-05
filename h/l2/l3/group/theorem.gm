@@ -5,6 +5,14 @@
 		∀G: ∈ trivial,
 		G = {G.e}
 	),
+
+	s"the range of a homomorphism is a subgroup of the codomain": ; this one is very general
+	(
+		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
+		R ∈ sub(φ.C)
+	),
+	[ proof```
+	``` ]
 ; end
 
 ; about basis
@@ -13,9 +21,7 @@
 		∀G: ∈ group, *: = &G.*&, e: = G.e
 		∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
 		∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
-		
 			∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
-		
 	),
 	[ proof```
 		"indentity:", ∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ (i = i * e = e * i = e) ⇒ i = e,
@@ -217,7 +223,7 @@
 	[ proof```
 		s"1 ⇒ 2":
 		(
-			S: = generate_by[G]({h, k}), S = (H * K) ; +
+			S: = min_sub[G]({h, k}), S = (H * K) ; +
 		)
 	``` ]
 ; end
@@ -265,7 +271,7 @@
 		∀n: ∈ h.N, S: = {∀m: 1 ≤ m ≤ n},
 		|ex.S[n]| = ×[∀j: (∈ h.N, 1 ≤ j ≤ n)](j),
 		; ex.S[n] = gp({c(a, b)|∀(a, b): ∈ h.N^2, a ≤ n, b ≤ n}),
-		n ≥ 3 ⇒ ex.A[n] = generate_by[ex.S[n]]({c(i, j, k)}[∀{i, j, k}: ⊆ S])
+		n ≥ 3 ⇒ ex.A[n] = min_sub[ex.S[n]]({c(i, j, k)}[∀{i, j, k}: ⊆ S])
 	),
 	[ proof (not very serious), 
 	 ]
@@ -277,7 +283,7 @@
 
 	),
 	
-	s"the quotient space of normal subgroup is still a group":
+	s"the quotient space of normal subgroup is still a group": ; +
 	(
 		∀G: ∈ group, ∀No: ∈ normal(G),
 		∃H: ∈ group, H = G / No, ; ?
@@ -367,17 +373,6 @@
 	),
 	[ proof ]
 
-	s"range of a homomorphism is a subgroup of the codomain, with reserve the property of domain": ; this one is very general
-	(
-		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
-		R ∈ sub(φ.C),
-
-		G ∈ abelian_group ⇒ R ∈ abelian_group,
-		G ∈ cyclic_group ⇒ R ∈ cyclic_group
-	),
-	[ proof```
-	``` ]
-
 	s"relation between isomorphic groups": ; +
 	(
 		∀φ: ∈ isomorphism, G: = φ.D, H: = φ.C,
@@ -387,6 +382,15 @@
 		∀x: ∈ G, order[G](x) = order[H](φ(x))
 	),
 	[ proof is the similar to the above ones, with two directions ]
+
+	s"kernel is trival means homomorphism is injective":
+	(
+		∀G: ∈ group, ∀H: ∈ group, ∀f: ∈ homomorphism,
+		∀(f.D = G, f.C = H) ⇒
+		(
+			ker(f) = {G.e} ⇒ f ∈ injection ; monmorphism
+		)
+	),
 
 	; + about first isomorphism theorem
 		s"kernel of a homomorphism is a normal subgroup of domain": ; this theorem is not very general, but it is very powerful
@@ -441,24 +445,6 @@
 			H / (H ∩ N) ≌ K / N ; ! /
 		),
 	; end
-; end
-
-; about abelian group
-	s"classification of finite abelian group":
-	(
-		∀T: ∈ abelian_group, n: = |T|,
-		T ∈ finite_group ⇒ 
-	),
-
-	s"Fundamental Theorem of Finite generated abelian group":
-	(
-		∀G: ∈ finitely_generated_group,
-		G ∈ abelian_group ⇒
-		(
-			∃m: ∈ h.N,(∃T: ∈ abelian_group, |T| ∈ h.N), G ≌ Z^m × T
-		)
-	),
-	; Proof
 ; end
 
 ; + about coset
@@ -581,16 +567,10 @@ s"Third Isomorphism Theorem":
 ),
 
 ; Theorem: start
-	∀G: ∈ group, ∀H: ∈ group, ∀f: ∈ homomorphism,
-	∀(f.D = G, f.C = H) ⇒
-	(
-		ker(f) = {G.e} ⇒ f ∈ injection
-	)
-; Theorem: end
-
-; Theorem: start
 	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
-	∀(H ∩ K = {e}, H * K = G) ⇒ H × K ≌ G
+	∀(
+		H ∩ K = {e}, (h * k)[∀(h, k): ∈ H × K] = G
+	) ⇒ H × K ≌ G
 ; Theorem: end
 [ proof, ```
 	; Lemma: start
@@ -637,23 +617,6 @@ s"Third Isomorphism Theorem":
 	(
 		∃f: ∈ homomorphism, f.D = H × K, f.C = G, f ∈ injection
 	)
-; Theorem: end
-
-; Theorem: start
-	∀G: ∈ group,
-	∀S: ∈ conj(G), {G.e} ∈ S ; !
-; Theorem: end
-
-; Theorem: start
-	∀G: ∈ group,
-	∀H: ∈ normal(G),
-	∃τ: ⊆ {∀S: ∈ conj(G)}, H = ∪[](τ) ; !
-; Theorem: end
-
-; Theorem: start
-	∀G: ∈ group,
-	∀H: ∈ normal(G),
-	∃τ: ⊆ {∀S: ∈ conj(G)}, H = ∪[](τ) ; !
 ; Theorem: end
 
 p"Jordon-Holder Theorem":

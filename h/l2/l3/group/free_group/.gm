@@ -1,4 +1,6 @@
 : ; + free_group
 (
+	∈ group,
+	∀F: ∈ group,
 	
-)
+),

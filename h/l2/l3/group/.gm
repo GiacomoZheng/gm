@@ -7,7 +7,7 @@
 		∀G: ∈ group,
 		∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse
 		[ method ]
-		; + G.^:
+		G.^:
 	),
 	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ magma ]
 
@@ -27,11 +27,7 @@
 				&H.*& = &G.*&
 			),
 
-			generate_by[∀G: ∈ group](∀S: ⊆ G): ; G here is the domain
-			(
-				"indeed, get the minimum subgroup contains S",
-				= ∩[∀H: ∈ sub(G), S ⊆ H](H)
-			),
+			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
 		; end
 
 		inv[∀G: ∈ group](∀g: ∈ G):
@@ -77,7 +73,7 @@
 
 		conj[∀G: ∈ group](∀a: ∈ G): = {g G.* a G.* inv[G](g)}[∀g: ∈ G], ; if b ∈ conj(a), we can say that a and b is conjugate
 
-		commutator_sub(∀G: ∈ group): = generate_by[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G]), ; ? Commutator subgroup, or derived subgroup
+		commutator_sub(∀G: ∈ group): = min_sub[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G]), ; ? Commutator subgroup, or derived subgroup
 		[ commutator_sub(G) ∈ normal(G) ]
 
 		l'coset[∀G: ∈ group](∀H: ∈ sub(G)):

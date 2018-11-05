@@ -1,0 +1,15 @@
+s"classification of finite abelian group": ; +
+(
+	∀T: ∈ abelian_group, n: = |T|,
+	T ∈ finite_group ⇒ 
+),
+
+s"Fundamental Theorem of Finite generated abelian group":
+(
+	∀G: ∈ finitely_generated_group,
+	G ∈ abelian_group ⇒
+	(
+		∃m: ∈ h.N,(∃T: ∈ abelian_group, |T| ∈ h.N), G ≌ Z^m × T
+	)
+),
+; Proof

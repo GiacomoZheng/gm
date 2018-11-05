@@ -3,11 +3,15 @@
 	⊆ rng,
 
 	∀R: ∈ ring,
-	R.1: ∈ R,
-	∀a: ∈ R,
-	R.1 R.× a = a = a R.× R.1, ; multiply identity
+	R.1: ∈ R, ; ? I may request it as nonzero later
+	∀a: ∈ R, R.1 R.× a = a = a R.× R.1, ; multiply identity
 	
 	; location
+		; about alias
+			commutative_domain: = integral_domain,
+			integral_ring: = integral_domain, ; ? I may delete it later
+		; end
+
 		; + generalize
 			sub(∀R: ∈ ring):
 			(
@@ -18,17 +22,21 @@
 				H.1 = G.1
 			),
 		; end
-	
-	unit(∀R: ∈ ring):
-	(
-		⊆ ◉,
-		∀x: ∈ unit(R),
-		x ∈ R,
-		∃x': ∈ R, x' R.× x'' = R.1 = x'' R.× x' 
-	),
 
-	inv[∀R: ∈ ring](∀x: ∈ unit(R)):
-	(
-		"valid because of the inverse is unique",
-	)
+		neg[∀R: ∈ ring]: = rng.neg[R],
+		
+		unit(∀R: ∈ ring):
+		(
+			⊆ ◉,
+			∀x: ∈ unit(R),
+			x ∈ R,
+			∃x': ∈ R, x' R.× x = R.1 = x R.× x'
+		),
+
+		inv[∀R: ∈ ring](∀x: ∈ unit(R)):
+		(
+			"valid because of the inverse is unique",
+			∃x': ∈ R, x' R.× x = R.1 = x R.× x',
+			= x'
+		),
 ),

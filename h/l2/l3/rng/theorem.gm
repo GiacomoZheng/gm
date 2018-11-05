@@ -1,5 +1,19 @@
 @gm.h.Rng,
 ; * all the theorem about group has corresponding version for rng, which has been omited
+; about generalizing
+	s"criterion of trivial rng"
+	(
+		∀R: ∈ trivial,
+		R = {R.0}
+	),
+
+	s"the range of rng homomorphism is subrng of codomain":
+	(
+		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
+		R ∈ sub(φ.C)
+	),
+; end
+
 ; about the basis
 	s"the multiple of zero is always 0":
 	(

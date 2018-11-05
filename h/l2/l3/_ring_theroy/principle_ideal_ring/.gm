@@ -1,6 +1,6 @@
 : ; principle_ideal_ring, or principle ideal domain in other books
 (
-	⊆ integral_ring,
+	⊆ integral_domain,
 
 	∀P: ∈ principle_ideal_ring,
 	∀Id: ∈ ideal(P),

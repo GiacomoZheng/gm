@@ -7,15 +7,24 @@
 	R.+: = &R.*&,
 	R.0: = R.e,
 
-	R.×: ∈ operator,
-	∀{a, b, c}: ⊆ R,
-	(a R.× b) R.× c = a R.× (b R.× c), ; association
+	R.×: ∈ associative_operator, R ⊆ &R.×&.D,
 
 	[ distribution ] ; ? I think here can be simpler
 	(a R.+ b) R.× c = a R.× c R.+ b R.× c,
 	a R.× (b R.+ c) = a R.× b R.+ a R.× c,
 
+	R.-: ; ?
+		(
+			∈ operator,
+			∀{a, b}: ⊆ R,
+			a R.- b = a R.+ group.inv[R](b)
+		)
+
 	; location
+		; about alias
+
+		; end
+
 		; + generalize
 			sub(∀R: ∈ rng):
 			(
@@ -26,18 +35,8 @@
 				&H.×& = &G.×&,
 			),
 
-		; to ring
-			neg[∀R: ∈ rng](∀a: ∈ R): = group.inv[R](a),
-
-			P[∀R: ∈ rng]:
-			(
-				∈ function, ; ?
-				∀R': (∈ rng, R ∈ sub(R')),
-				∀x: ∈ R',
-				S[∀n: ∈ s.N]: = {}
-				P[R](x): = {y|∀n: ∈ s.N, ∃c[∀n: ∈ s.N]: ⊆ R, a }[∀y: ∈ R']
-				; we can prove it is unique with the consistent definition
-			),
+			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
 		; end
-	
+
+		neg[∀R: ∈ rng](∀a: ∈ R): = group.inv[R](a),
 ),

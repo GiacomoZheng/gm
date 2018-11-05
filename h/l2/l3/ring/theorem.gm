@@ -1,5 +1,13 @@
 @gm.h.Ring,
 ; * all the theorem for the rng are also true for ring
+; about generalizing
+	s"the range of rng homomorphism is subrng of codomain":
+	(
+		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
+		R ∈ sub(φ.C)
+	),
+; end
+
 ; about basis
 	s"the identity is unique":
 	(
@@ -28,7 +36,36 @@
 		; the right neg is the same
 	```]
 
-	s""
+	s"other properties has implied the abelian property":
+	(
+		n'abe'ring:
+		(
+			⊆ group, ; *
+			∀R: ∈ n'abe'ring,
+
+			R.+: = &R.*&,
+			R.0: = R.e,
+
+			R.×: ∈ associative_operator, R ⊆ &R.×&.D,
+
+			[ distribution ]
+			(a R.+ b) R.× c = a R.× c R.+ b R.× c,
+			a R.× (b R.+ c) = a R.× b R.+ a R.× c,
+
+			R.1: ∈ R, ; ? I may request it as nonzero later
+			∀a: ∈ R, R.1 R.× a = a = a R.× R.1 ; multiply identity
+		),
+
+		n'abe'ring = ring
+	),
+	[ proof, indeed, I want to prove it is abelian```
+		∀R: ∈ n'abe'ring,
+		@R,
+		∀{a, b}: ⊆ R,
+		a + b + a + b = (a + b) × 1 + (a + b) × 1 = (a + b) × (1 + 1) = a × (1 + 1) + b × (1 + 1) = a + a + b + b
+		⇒ b + a = a + b ⇒ R ∈ abelian_group
+		■
+	```]
 ; end
 
 ■

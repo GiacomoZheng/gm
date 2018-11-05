@@ -1,4 +1,7 @@
 ; about alias
+	commutative_group: = abelian_group,
+	skew_field: = division_ring,
+	
 	continuous_function: = topological_space.homomorphism,
 	linear_space: = vector_space,
 	linear_mappging: = vector_space.homomorphism,

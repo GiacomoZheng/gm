@@ -1,21 +1,4 @@
 ; ! a little bit change will be done when I complete the definition of polynomial ring
-s"trivial_ring has only one identity, vice versa":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring,
-	R ∈ trivial_ring ⇔ R.0 = R.1■
-),
-[ proof ```
-	∀r: ∈ R,
-	R ∈ trivial_ring ⇒ R.0 R.× r = R.0 = r = R.1 R.× r ⇒ R.0 = R.1,
-	R.0 = R.1 ⇒ r = R.1 R.× r = R.0 R.× r = R.0
-``` ]
-
-s"the range of ring homomorphism is a subring":
-(
-
-),
-
 s"kernel of ring homomorphism is seldom a subring":
 (
 	@gm.h.Ring,
@@ -73,7 +56,7 @@ s"fields are integral ring (domain)":
 s"finite integral ring are fields":
 (
 	@gm.h.Ring,
-	∀R: ∈ integral_ring, |R| ∈ h.N ⇒ R ∈ field■
+	∀R: ∈ integral_domain, |R| ∈ h.N ⇒ R ∈ field■
 ),
 [ proof ```
 	×: = &R.×&,
@@ -84,7 +67,7 @@ s"finite integral ring are fields":
 			φ ∈ injection ⇐
 			(
 				∀{a, b}: ⊆ R, φ(a) = φ(b) ⇒ x × a = x × b
-				⇒ a = b ; integral_ring
+				⇒ a = b ; integral_domain
 			),
 			φ ∈ surjection ⇐ ∀(|R| ∈ h.N, φ.D = φ.C)
 		)
@@ -96,7 +79,7 @@ s"finite integral ring are fields":
 s"cancel theorem of integral ring about multiplication":
 (
 	@gm.h.Ring,
-	∀R: ∈ integral_ring,
+	∀R: ∈ integral_domain,
 	∀{a, b, c}: ⊆ R, ×: = &R.×&,
 	∀(a × c = b × c, !(c = R.0)) ⇒ a = c■
 ),
@@ -124,7 +107,7 @@ s"relationship between a ring and its polynomial ring":
 	@gm.h.Ring,
 	∀R: ∈ ring, ∀x: ∈ ◉, ; !
 	R ∈ commutative_ring ⇒ P[R](x) ∈ commutative_ring,
-	R ∈ integral_ring ⇒ P[R](x) ∈ integral_ring,
+	R ∈ integral_domain ⇒ P[R](x) ∈ integral_domain,
 	R ∈ unique_factorization_ring ⇒ P[R](x) ∈ unique_factorization_ring,
 	h.Z ∈ principle_ideal_ring, !(P[h.Z](x) ∈ principle_ideal_ring)
 	■
@@ -314,13 +297,13 @@ s"nature of quotient ring":
 	; "indeed it is a part of third isomorphism theorems",
 	@gm.h.Ring,
 	∀R: ∈ commutative_ring, ∀Id: ∈ ideal(R),
-	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_ring,
+	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_domain,
 	Id ∈ maximal_ideal(R) ⇔ R/Id ∈ field■
 ),
 [ ```
 	Id ∈ prime_ideal ⇒
 	(
-		!(R/Id ∈ integral_ring) ⇒
+		!(R/Id ∈ integral_domain) ⇒
 		(
 			∃{a + Id, b + Id}: ⊆ R/Id, !(a ∈ Id), !(b ∈ Id),
 			(a + Id) (R/Id).× (b + Id) = R.0 + Id
@@ -329,7 +312,7 @@ s"nature of quotient ring":
 		)
 		⇒ !(Id ∈ prime_ring)
 	)
-	⇒ R/Id ∈ integral_ring,
+	⇒ R/Id ∈ integral_domain,
 
 	R/Id ∈ field
 	⇒ {∀x: ∈ ideal(R/Id)} = {R/Id, (R/Id).0}
@@ -339,6 +322,6 @@ s"nature of quotient ring":
 s"chaim of rings and feild": ; + wait for addition
 (
 	@gm.h.Ring,
-	ring ⊇ commutative_ring ⊇ integral_ring ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
+	ring ⊇ commutative_ring ⊇ integral_domain ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
 	■
 ),
