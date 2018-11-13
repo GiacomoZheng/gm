@@ -1,0 +1,5 @@
+: ; integral_domain
+(
+	⊆ commutative_rng, ; can be zero
+	⊆ domain,
+),

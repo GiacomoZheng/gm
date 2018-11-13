@@ -1,4 +1,3 @@
-@gm.h.Ring,
 ; * all the theorem for the rng are also true for ring
 ; about generalizing
 	s"the range of rng homomorphism is subrng of codomain":
@@ -6,6 +5,16 @@
 		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
 		R ∈ sub(φ.C)
 	),
+
+	s"criterions of subring":
+	(
+		∀R: ∈ ring, ∀H: ⊆ R,
+		H ∈ sub(R) ⇔
+		∀(
+			H ∈ group.sub(R),
+			∀{x, y}: ⊆ H, a R.× b ∈ H
+		)
+	)
 ; end
 
 ; about basis
@@ -28,18 +37,19 @@
 
 	s"multiplying the negation of identity can get the negation":
 	(
-		∀R: ∈ ring, 1: = R.1, ∀a: ∈ R,
-		neg[R](R.1) R.× a = neg[R](a)
+		"the special situation of 'product of negation' in rng"
+		∀R: ∈ ring, ∀a: ∈ R,
+		neg[R](R.1) R.× a = neg[R](a) = a R.× neg[R](R.1)
 	),
 	[ proof```
-		neg[R](R.1) R.× a + a = (neg[R](R.1) + R.1) R.× a = R.0,
-		; the right neg is the same
+		neg[R](R.1) R.× a = R.1 R.× neg[R](a) = neg[R](a)
 	```]
 
-	s"other properties has implied the abelian property":
+	s"other properties have implied the abelian property":
 	(
 		n'abe'ring:
 		(
+			"we won't use this version as if so we need to redefine the +",
 			⊆ group, ; *
 			∀R: ∈ n'abe'ring,
 
@@ -68,4 +78,52 @@
 	```]
 ; end
 
-■
+; about unit and zero divisors
+	s"the set of all the units of a ring is a group under '×'": ; +
+	(
+		∀R: ∈ ring,
+		G: = {∀x: ∈ unit(R)},
+
+	),
+
+	s"zreo divisors cannot be unit": ; !
+	; it doesn't matter to consider 0 in it or whether the ring is commutative
+	(
+		∀R: ∈ ring,
+		∀a: ∈ R, ; can be zero
+		(
+			∃x: ∈ R \ {R.0}, ∃(a R.× x = R.0, x R.× a = R.0)
+		) ⇒ (!y: ∈ R, a R.× y = y R.× a = R.1)
+	),
+	[ proof, assume there exist``` ; +
+		(
+			∃b: (∈ R, !(b = R.0)), a R.× b = R.0
+		)
+		⇒ b = inv[R](a) R.× a R.× b = R.0
+	```]
+; end
+
+; about morphism
+	s"ring homomorphism preserve the inverse":
+	(
+		∀R: ∈ ring,
+		∀φ: (∈ homomorphism, φ.D = R),
+		∀x: ∈ unit(R),
+		φ(inv[R](x)) = inv[φ.C](φ(x))
+	),
+	[ proof, similar to the group```
+		φ(R.1) = φ(x R.× inv[R](x)) = φ(x) φ.C.× (inv[R](x))
+		; the right part is similar
+	```]
+
+	s"if the range of a rng homomorphism on two rings includes 1, it is ring a homomorphism":
+	(
+		∀R: ∈ ring, ∀H: ∈ ring,
+		∀φ: (∈ rng.homomorphism, φ.D = R, φ.C = H),
+		H.1 ∈ range(φ) ⇒ φ ∈ homomorphism
+	),
+	[ proof```
+		∃r: ∈ R, φ(r) = H.1,
+		H.1 = φ(r) = φ(r R.× R.1) = φ(r) H.× φ(R.1) = H.1 H.× φ(R.1) = φ(R.1)
+	```]
+; end

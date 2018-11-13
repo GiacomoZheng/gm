@@ -1,5 +1,5 @@
 : ; isomorphism
 (
 	⊆ homomorphism,
-	⊆ bijection
+	⊆ set.isomorphism
 ),

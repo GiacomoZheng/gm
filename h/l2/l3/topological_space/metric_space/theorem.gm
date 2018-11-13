@@ -1,0 +1,33 @@
+; about generalizing
+; end
+
+; about basis
+	s"all open balls are open": ; +
+	(
+		"within the approach to version",
+		
+	),
+; end
+
+; about equivalent
+	s"strongly_equivalent implies topologically_equivalent":
+	(
+		∀d[0]: ∈ metric,
+		strongly_equivalent(d[0]) ⊆ topologically_equivalent(d[0]) 
+	),
+	[ proof, a half```
+		(d(x, y) ↔ 0 ⇒ d[0](x, y) ↔ 0)
+		⇐ d[0](x, y) ≤ 1/α × d(x, y) ↔ 0,
+	```]
+
+	s"strongly_equivalent reserve the uniformly continuous": ; !
+	(
+		; ∀d[0]: ∈ metric,
+		; M: ⊆ d[0].D,
+		; ∀ε: (∈ R, > 0),
+		; (
+		; 	∃δ: (∈ R, > 0),
+		; 	∀x: d[]()
+		; )
+	),
+; end

@@ -1,11 +1,9 @@
 : ; vector_space
 (
-	⊆ abelian_group,
-
+	⊆ abelian_group, ; "+" defined there
 	(
+		; +
 		∀V: ∈ vector_space,
-		V.+: = &V.*&,
-		V.0: = V.e,
 		V.×: ∈ symbol, ; !
 		V.F: ∈ field,
 
@@ -15,32 +13,38 @@
 		∀b: ∈ V.F, (a V.F.× b) V.× v = a V.× (b V.× v), ; compatibility
 
 		∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
-		(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v),
-	) ; + to deal with the temporary
+		(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v)
+	), ; to deal with the temporaries
 	[ property: ... ]
 		; about alias
 		; end
 
 		; + generalize
-			subspace(∀V: ∈ vector_space):
+			sub(∀V: ∈ vector_space):
 			(
 				⊆ vector_space,
-				∀S: ∈ subspace(V),
+				⊆ group.sub(V),
+				∀S: ∈ sub(V),
 				&S.+& = &V.+&,
 				S.0 = V.0,
 				&S.×& = &V.×&,
 				S.F = V.F
 			),
 
-			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ subspace(G), S ⊆ H](H),
+			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H),
+
+			ker(∀f: ∈ homomorphism): = group.ker(f)
 		; end
+
+		neg[∀V: ∈ vector_space]: = group.inv[V],
 
 		independent(∀V: ∈ vector_space):
 		(
-			⊆ set,
+			"independent subset of this vector space",
+			⊆ set.sub(V),
 			∀I: ∈ independent(V),
 			∀c[∀α: ∈ I]: ∈ V.F,
-			V.+[∀α: ∈ I](c[α] V.× α) = V.0 ⇒ c[∀α: ∈ I] = V.F.0 ; ? as an abelian group, order of addition is unimportant
+			V.+[∀α: ∈ I](c[α] V.× α) = V.0 ⇒ (∀α: ∈ I, c[α] = V.F.0) ; ? as an abelian group, order of addition is unimportant
 		),
 
 		combination[∀V: ∈ vector_space](∀S: ∈ V):
@@ -48,9 +52,8 @@
 			⊆ ◉,
 			∀x: ∈ combination[V](S),
 			∃c[∀α: ∈ S]: ∈ V.F,
-			x = V.+[∀α: ∈ I](c[α] V.× α) ; ?
+			x = V.+[∀α: ∈ I](c[α] V.× α) ; means it is the elements of V
 		),
 
 		span[∀V: ∈ vector_space](S): = {∀x: ∈ combination[V](S)}
-
 ),

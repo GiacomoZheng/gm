@@ -1,8 +1,0 @@
-: ; domain
-(
-	⊆ ring,
-
-	∀R: ∈ domain,
-	; ? !(R = {R.0}), ; I may write it into ring
-	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)
-),

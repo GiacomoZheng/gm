@@ -2,17 +2,24 @@
 	commutative_group: = abelian_group,
 	skew_field: = division_ring,
 	
+	; ? topset: = topological_space, ; I may use it to simpily
 	continuous_function: = topological_space.homomorphism,
+
 	linear_space: = vector_space,
-	linear_mappging: = vector_space.homomorphism,
+	linear_map: = vector_space.homomorphism,
 	linear_transformation: = vector_space.homomorphism,
+	linear_operator: = vector_space.endomorphism. ; * I do not like this name
 
-	trivial_group: = group.trivial,
-	trivial_rng: = rng.trivial,
-	trivial_topological_space: = topological_space.trivial,
+	; about trivial
+		trivial_group: = group.trivial,
+		trivial_rng: = rng.trivial,
+		trivial_topological_space: = topological_space.trivial,
+	; end
 
-	subgroup: = group.sub,
-	subrng: = rng.sub,
-	subring: = ring.sub,
-	subfield: = field.sub,
+	; about sub
+		subgroup: = group.sub,
+		subrng: = rng.sub,
+		subring: = ring.sub,
+		subfield: = field.sub,
+	; end
 ; end

@@ -31,41 +31,47 @@ gm
 				├─isomorphism
 				├─perfect_group
 				├─simple_group
-				├─solvable_group
 				├─torsion_free_group
 				├─torsion_group
 				├─trivial
 				├─_circle
 				├─_even_func
 				├─_finitely_generated_group
+				├─_solvable_group
 				└─_transposition
+			├─l4
+				└─normed_abelian_group
 			├─magma
 			├─module
 			├─monoid
 			├─ordered_set
 			├─poset
 			├─ring
-				├─domain
 				├─homomorphism
-				├─integral_domain
 				├─isomorphism
 				└─polynomial_ring
 			├─rng
 				├─commutative_rng
+				├─domain
 				├─homomorphism
-				└─isomorphism
+				├─integral_domain
+				├─isomorphism
+				└─trivial
 			├─semigroup
 			├─topological_space
 				├─compact_set
 				├─discrete_set
 				├─homomorphism
 				├─isomorphism
-				├─trivial
-				└─_metric_space
+				├─metric_space
 					└─_complete_space
+				└─trivial
 			├─vector_space
+				├─endomorphism
 				├─homomorphism
-				└─isomorphism
+				├─isomorphism
+				├─norm
+				└─trivial
 			├─_measure_theory
 				└─probability_theory
 					└─_random_space
@@ -73,7 +79,7 @@ gm
 			└─_ring_theroy
 				├─Noetherian_ring
 				├─principle_ideal_ring
-				└─_unique_factorization_ring
+				└─_unique_factorization_domain
 		├─operator
 		├─order_relator
 		├─preorder_relator

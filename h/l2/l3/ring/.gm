@@ -1,15 +1,15 @@
 : ; ring, with multiplication identity
 (
 	⊆ rng,
-
-	∀R: ∈ ring,
-	R.1: ∈ R, ; ? I may request it as nonzero later
-	∀a: ∈ R, R.1 R.× a = a = a R.× R.1, ; multiply identity
-	
+	(
+		∀R: ∈ ring,
+		R.1: ∈ R, ; ? I may request it as nonzero later
+		∀a: ∈ R, R.1 R.× a = a = a R.× R.1 ; multiply identity
+	),
+	[ chain: ring ⊆ rng ⊆ abelian_group ]
 	; location
 		; about alias
 			commutative_domain: = integral_domain,
-			integral_ring: = integral_domain, ; ? I may delete it later
 		; end
 
 		; + generalize
@@ -21,17 +21,16 @@
 				∀H: ∈ sub(R),
 				H.1 = G.1
 			),
+
+			min_sub[∀G: ∈ ring](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
+
+			ker(∀f: ∈ homomorphism): = rng.ker(f),
 		; end
 
 		neg[∀R: ∈ ring]: = rng.neg[R],
 		
-		unit(∀R: ∈ ring):
-		(
-			⊆ ◉,
-			∀x: ∈ unit(R),
-			x ∈ R,
-			∃x': ∈ R, x' R.× x = R.1 = x R.× x'
-		),
+		unit(∀R: ∈ ring): = {x|∃x': ∈ R, x' R.× x = R.1 = x R.× x'}[∀x: ∈ R],
+		; it is the group of all the units in a ring
 
 		inv[∀R: ∈ ring](∀x: ∈ unit(R)):
 		(
@@ -39,4 +38,7 @@
 			∃x': ∈ R, x' R.× x = R.1 = x R.× x',
 			= x'
 		),
+
+		char(∀R: ∈ ring): = rng.char(R),
+
 ),

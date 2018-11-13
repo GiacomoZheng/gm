@@ -1,4 +1,3 @@
-@gm.h.Group,
 ; about generalizing
 	s"criterion of trivial group"
 	(
@@ -6,10 +5,20 @@
 		G = {G.e}
 	),
 
+	s"criterions of subgroup":
+	(
+		∀G: ∈ group, ∀H: ⊆ G,
+		H ∈ sub(G) ⇔
+		∀(
+			!(H = ∅),
+			(∀{x, y}: ⊆ H, x G.* inv[G](y) ∈ H)
+		)
+	),
+
 	s"the range of a homomorphism is a subgroup of the codomain": ; this one is very general
 	(
-		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
-		R ∈ sub(φ.C)
+		∀φ: ∈ homomorphism, ; ? range, I may write it as method later
+		range(φ) ∈ sub(φ.C)
 	),
 	[ proof```
 	``` ]
@@ -120,6 +129,13 @@
 		ex.SL[n](V) ∈ sub(ex.GL[n](V))
 	),
 
+	s"the sub of Z is always nZ":
+	(
+		∀G: ∈ sub(h.Z), ; "+" as operator
+		∃n: ∈ h.Z, Z': = {n × z}[∀z: ∈ h.Z], G = Z'
+	),
+	[  ] ; + after the Euclidean algorithm
+
 	s"all the subgroup of Quaternion group are normal":
 	(
 		{1, -1, i, -i, j, -j, k, -k}: = ex.Qu,
@@ -133,16 +149,6 @@
 ; end
 
 ; about subgroup
-	s"criterions of subgroup":
-	(
-		∀G: ∈ group, ∀H: ⊆ G,
-		H ∈ sub(G) ⇔
-		∀(
-			!(H = ∅),
-			(∀{x, y}: ⊆ H, x G.* inv[G](y) ∈ H)
-		)
-	),
-
 	s"relation of subgroup (of) is transitive":
 	(
 		∀G: ∈ group,
@@ -163,13 +169,6 @@
 		∀{a, b}: ∈ K,
 		(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
 	``` ]
-
-	s"the sub of Z is always nZ":
-	(
-		∀G: ∈ sub(h.Z), ; "+" as operator
-		∃n: ∈ h.Z, Z': = {n × z}[∀z: ∈ h.Z], G = Z'
-	),
-	[  ] ; + after the Euclidean algorithm
 
 	s"centralizers, centers and normalizers are all subgroup":
 	(
@@ -295,6 +294,7 @@
 
 	s"all abelian groups are Dedekind group":
 	(
+		"all the subgroup of an abelian group is noraml",
 		abelian_group ⊆ Dedekind_group
 	),
 	[ prove ```
@@ -312,6 +312,64 @@
 		*: = &G.*&,
 		Z(G) = {z|z * g = g * z}[∀g: ∈ G],
 		∀g: ∈ G, ∀z: ∈ Z(G), g * z * inv[G](g) = z * g * inv[G](g) = z ∈ Z(G)
+	``` ]
+
+	s"the elements from two normal subgroups are commuative is they are independent":
+	(
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
+		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)
+	),
+	[ proof, ```
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&,
+		H ∩ K = {e} ⇒
+		(
+			∀h: ∈ H, ∀k: ∈ K,
+			(
+				; * use commutator
+				∃h': ∈ H, k * h * inv[G](k) * inv[G](h) = (k * h * inv[G](k)) * inv[G](h) = h' * inv[G](h) ∈ H,
+				∃k': ∈ K, k * h * inv[G](k) * inv[G](h) = k * (h * inv[G](k) * inv[G](h)) = k * k' ∈ K
+			)
+			⇒ k * h * inv[G](k) * inv[G](h) ∈ H ∩ K = {e} ⇒ h * k = k * h
+		)
+	``` ]
+
+	s"the direct product of two independent normal subgroup is endomorphic to original group":
+	(
+		; ! old
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
+		*: = &G.*&, e: = G.e,
+		H ∩ K = {e} ⇒
+		(
+			∃f: ∈ homomorphism, f.D = H × K, f.C = G, f ∈ injection
+		)
+	),
+
+	; ! Theorem: start
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
+		∀(
+			H ∩ K = {e}, (h * k)[∀(h, k): ∈ H × K] = G
+		) ⇒ H × K ≌ G
+	; Theorem: end
+	[ proof, ```
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
+		*: = &G.*&, e: = G.e,
+		∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
+		(
+			φ ∈ homomorphism ⇐
+			(
+				∀(h1, h2): ∈ H^2, ∀(k1, k2): ∈ K^2,
+				φ(h1 * h2, k1 * k2) = h1 * h2 * k1 * k2 = h1 * k1 * h2 * k2
+			),
+			φ ∈ injection ⇐
+			(
+				∀(h, k): ∈ H × K, φ(h, k) = e ⇒ h * k = e ⇒ h = k^-1 ⇒ ∀(h ∈ K, k ∈ H) ⇒ ∀(h ∈ {e}, k ∈ {e}) ⇒ (h, k) = (e, e) ⇒ ker(φ) = {(H × K).e}
+			),
+			φ ∈ surjection ⇐
+			(
+				φ(H × K) = {h * k|∀(h, k): ∈ H × K} = H * K = G
+			)
+		)
+		⇒ φ ∈ isomorphism ⇒ H × K ≌ G
 	``` ]
 ; end
 
@@ -337,7 +395,7 @@
 	),
 ; end
 
-; ? about commutator group
+; + about commutator subgroup
 	s"commutator group is normal and the quotient group of it is abelian":
 	(
 		∀G: ∈ group,
@@ -357,21 +415,21 @@
 	``` ]
 ; end
 
-; about morphism
-	s"the inverse of an isomorphism (as a bijection) is still a homomorphism (isomorphism too)":
-	(
-
-	),
-
+; + about morphism
 	s"properties of a homomorphism":
 	(
 		∀φ: ∈ homomorphism,
 		G: = φ.D, H: = φ.C,
-		φ(G.e) = H.e,
-		∀g: ∈ G, φ(inv[G](g)) = inv[H](φ(g)),
+		φ(G.e) = H.e, ; identity
+		∀g: ∈ G, φ(inv[G](g)) = inv[H](φ(g)), ; inverse
 		∀n: ∈ h.Z, φ(G.e (G.* g)^n) = H.e (H.* φ(g))^n
 	),
 	[ proof ]
+
+	s"the inverse of an isomorphism (as a bijection) is still a homomorphism (isomorphism too)":
+	(
+
+	),
 
 	s"relation between isomorphic groups": ; +
 	(
@@ -383,14 +441,18 @@
 	),
 	[ proof is the similar to the above ones, with two directions ]
 
-	s"kernel is trival means homomorphism is injective":
+	s"kernel is trival if and only if homomorphism is injective":
 	(
 		∀G: ∈ group, ∀H: ∈ group, ∀f: ∈ homomorphism,
 		∀(f.D = G, f.C = H) ⇒
 		(
-			ker(f) = {G.e} ⇒ f ∈ injection ; monmorphism
+			ker(f) = {G.e} ⇔ f ∈ injection ; monmorphism
 		)
 	),
+	[ proof```
+		; ⇒)
+		φ(a) = φ(b) ⇒ H.e = φ(a) H.* inv[H](φ(b)) = φ(a G.* inv[G](b)) ⇒ a = b
+	```]
 
 	; + about first isomorphism theorem
 		s"kernel of a homomorphism is a normal subgroup of domain": ; this theorem is not very general, but it is very powerful
@@ -566,59 +628,6 @@ s"Third Isomorphism Theorem":
 	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H ; ! /
 ),
 
-; Theorem: start
-	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
-	∀(
-		H ∩ K = {e}, (h * k)[∀(h, k): ∈ H × K] = G
-	) ⇒ H × K ≌ G
-; Theorem: end
-[ proof, ```
-	; Lemma: start
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
-		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)
-	; Lemma: end
-	[ proof, ```
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&,
-		H ∩ K = {e} ⇒
-		(
-			∀h: ∈ H, ∀k: ∈ K,
-			(
-				∃h': ∈ H, k * h * k^-1 * h^-1 = (k * h * k^-1) * h^-1 = h' * h^-1 ∈ H,
-				∃k': ∈ K, k * h * k^-1 * h^-1 = k * (h * k^-1 * h^-1) = k * k' ∈ K
-			)
-			⇒ k * h * k^-1 * h^-1 ∈ H ∩ K = {e} ⇒ h * k = k * h
-		)
-	``` ]
-	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
-	*: = &G.*&, e: = G.e,
-	∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
-	(
-		φ ∈ homomorphism ⇐
-		(
-			∀(h1, h2): ∈ H^2, ∀(k1, k2): ∈ K^2,
-			φ(h1 * h2, k1 * k2) = h1 * h2 * k1 * k2 = h1 * k1 * h2 * k2
-		),
-		φ ∈ injection ⇐
-		(
-			∀(h, k): ∈ H × K, φ(h, k) = e ⇒ h * k = e ⇒ h = k^-1 ⇒ ∀(h ∈ K, k ∈ H) ⇒ ∀(h ∈ {e}, k ∈ {e}) ⇒ (h, k) = (e, e) ⇒ ker(φ) = {(H × K).e}
-		),
-		φ ∈ surjection ⇐
-		(
-			φ(H × K) = {h * k|∀(h, k): ∈ H × K} = H * K = G
-		)
-	)
-	⇒ φ ∈ isomorphism ⇒ H × K ≌ G
-``` ]
-
-; Theorem: start
-	∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
-	*: = &G.*&, e: = G.e,
-	H ∩ K = {e} ⇒
-	(
-		∃f: ∈ homomorphism, f.D = H × K, f.C = G, f ∈ injection
-	)
-; Theorem: end
-
 p"Jordon-Holder Theorem":
 (
 	∀G: ∈ finite_group,
@@ -634,4 +643,3 @@ p"Jordon-Holder Theorem":
 	∀n: (∈ h.N, n ≥ 5), !(ex.S[n] ∈ solvable_group),
 	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group
 ; Theorem: end
-■

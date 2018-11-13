@@ -88,3 +88,10 @@ s"all the cyclic groups are isomorphic to Z[n] or Z":
 	n ∈ h.N ⇒ G ≌ Z[|G|],
 	n = |h.Z| ⇒ G ≌ Z
 ),
+
+s"the subgroup of Z is always nZ": ; !
+(
+	∀G: ∈ sub(h.Z), ; "+" as operator
+	∃n: ∈ h.Z, Z': = {n × z}[∀z: ∈ h.Z], G = Z'
+),
+[  ] ; + after the Euclidean algorithm

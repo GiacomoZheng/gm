@@ -1,0 +1,27 @@
+s"cancellation of the multiplication in a domain":
+(
+	∀R: ∈ domain,
+	∀{a, b, c}: ⊆ R, ×: = &R.×&,
+	!(c = R.0) ⇒ (a × c = b × c ⇒ a = b)
+),
+[ proof```
+	a × c = b × c
+	⇒ R.0 = a × c + neg(b × c) = a × c + neg(b) × c = (a + neg(b)) × c
+	⇒ a + neg(b) = R.0 ; as c ≠ 0
+	⇒ a = b
+```]
+
+s"Every finite domain has an identity": ; !
+(
+	∀R: ∈ domain,
+	|R| ∈ h.N ⇒ ∃(R ∈ ring, R = {R.e}) ; ? if a ring nonzero
+),
+[ proof``` ; +
+	
+```]
+
+s"nonzero finite domain is a division ring":
+(
+	∀R: ∈ domain,
+	∀(|R| ∈ h.N, !(R = {R.e})) ⇒ R ∈ division_ring
+),

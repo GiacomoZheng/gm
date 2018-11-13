@@ -1,0 +1,5 @@
+: ; endomorphism
+(
+	⊆ homomorphism,
+	⊆ set.endomorphism
+),

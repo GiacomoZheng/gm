@@ -3,17 +3,32 @@
 	⊆ set,
 
 	; ? I may choose my "→" version instead
-	∀X: ∈ topological_space,
-	X.τ: ⊆ Ps(X),
-	∅ ∈ X.τ, X ∈ X.τ,
-	∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
-	∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ, ; ?
-	[ attibutes ]
-	X.→:
 	(
-		∈ preorder_relator, ; reflective and transitive
-		∀{a, b}: ⊆ X,
-		a X.→ b ⇔ (∀S: ∈ X.τ, b ∈ S ⇒ a ∈ S)
+		∀X: ∈ topological_space,
+		X.τ: ⊆ Ps(X),
+		∅ ∈ X.τ, X ∈ X.τ,
+		∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
+		∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ, ; ?
+		[ attibutes ]
+		; about arrow
+		X.→:
+		(
+			∈ preorder_relator, ; reflective and transitive
+			∀{a, b}: ⊆ X,
+			a X.→ b ⇔ (∀S: ∈ X.τ, b ∈ S ⇒ a ∈ S)
+		),
+
+		X.←:
+		(
+			∈ relator,
+			∀{a, b}: ⊆ X, a X.← b ⇔ b X.→ a
+		),
+
+		X.↔:
+		(
+			∈ relator,
+			∀{a, b}: ⊆ X, a X.↔ b ⇔ ∀(a X.→ b, b X.→ a)
+		),
 	),
 
 	[ for location ]
@@ -26,16 +41,24 @@
 		; end
 
 		; + generalize
-			sub(∀S: ∈ set):
+			sub(∀S: ∈ topological_space):
 			(
-				"subset",
-				⊆ set,
+				"sub topological space",
+				⊆ set.sub(S),
+				⊆ topological_space,
 				∀A: ∈ sub(S),
-				A ⊆ S ; ?
+				&A.→& = &S.→& ; ?
 			),
 			
 			closure[∀X: ∈ topological_space](∀A: ⊆ X): = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; directly A ⊆ its closure
 		; end
+
+		basis(topology(∀X: ∈ topological_space)): ; package definition, 打包定义
+		(
+			; +
+			"unique: the smallest subsets whose sub-union consist all the open sets(except ∅)",
+			=
+		)
 
 		Nbh[∀X: ∈ topological_space](∀x: ∈ X):
 		(

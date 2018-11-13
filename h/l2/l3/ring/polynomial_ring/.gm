@@ -4,7 +4,7 @@
 
 	(
 		∀Poly: ∈ polynomial_ring,
-		Poly.R: ∈ commutative_ring,
+		Poly.R: ∈ commutative_ring, ; if not, P[R](x) is not a closure
 
 		∃R': ∈ commutative_ring, Poly.R ∈ sub(R'),
 		Poly.x: ∈ R',

@@ -1,7 +1,9 @@
 : ; homomorphism
 (
-	⊆ mapping,
+	⊆ group.homomorphism,
 	∀f: ∈ homomorphism,
-	f.D ∈ vector_space,
-	f.C ∈ vector_space,
+	f.D ∈ vector_space, f.C ∈ vector_space,
+	f.D.F = f.C.F, ; the vector space homomorphism needs the same homomorphism
+	; * but the group homomorphism needn't
+	∀α: ∈ f.D.F, ∀x: ∈ f.D, f(α f.D.× x) = α f.C.× f(x) ; the addition part has been written in the group  homomorphism
 ),

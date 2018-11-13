@@ -2,10 +2,13 @@
 
 my source gmfile
 
+Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki)
+
 **the folder names** are the true name of the `.gm` file in it, like `group/.gm` is the definition of group.
 
-The names start with `_` is the ones uncompleted up to now.
-The file `h` is the entry of the whole file
+The names start with `_` is the ones may be deleted or renamed later.
+
+The folder `h` is the entry of the whole file
 
 The file `tree` is the menu of the whole file
 

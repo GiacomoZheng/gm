@@ -1,24 +1,16 @@
 : ; rng, the ring without multiplication identity
 (
 	"an abelian group on +, and a semigroup on ×",
-	⊆ abelian_group,
-	∀R: ∈ rng,
+	⊆ abelian_group, ; "+,-" is defined here
+	(
+		∀R: ∈ rng,
+		R.×: ∈ associative_operator, R ⊆ &R.×&.D, ; associativity
 
-	R.+: = &R.*&,
-	R.0: = R.e,
-
-	R.×: ∈ associative_operator, R ⊆ &R.×&.D,
-
-	[ distribution ] ; ? I think here can be simpler
-	(a R.+ b) R.× c = a R.× c R.+ b R.× c,
-	a R.× (b R.+ c) = a R.× b R.+ a R.× c,
-
-	R.-: ; ?
-		(
-			∈ operator,
-			∀{a, b}: ⊆ R,
-			a R.- b = a R.+ group.inv[R](b)
-		)
+		[ distribution ] ; ? I think here can be simpler
+		(a R.+ b) R.× c = a R.× c R.+ b R.× c,
+		a R.× (b R.+ c) = a R.× b R.+ a R.× c
+	),
+	[ chain: rng ⊆ abelian_group ]
 
 	; location
 		; about alias
@@ -36,7 +28,11 @@
 			),
 
 			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
+
+			ker(∀f: ∈ homomorphism): = {x|f(x) = f.C.0}[∀x: ∈ f.D],
 		; end
 
 		neg[∀R: ∈ rng](∀a: ∈ R): = group.inv[R](a),
+
+		char(∀R: ∈ rng): = |{C|C ∈ group.cyclic_group}[∀C: ∈ group.sub(R)]|, ; characteristic of a ring
 ),

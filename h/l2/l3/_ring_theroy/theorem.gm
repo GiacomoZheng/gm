@@ -41,12 +41,6 @@ s"Euclidean Algorithm":
 
 s"the unit of Z[n] are the ones coprime to the n":, ; !
 
-s"prime size group can be a field":
-(
-	@gm.h.Ring,
-	∀p: ∈ prime_number, Z[p] ∈ field■
-),
-
 s"fields are integral ring (domain)":
 (
 	@gm.h.Ring,
@@ -76,27 +70,9 @@ s"finite integral ring are fields":
 	⇒ (∀x: R \{R.0}, x ∈ unit(R)) ⇒ R ∈ field
 ``` ]
 
-s"cancel theorem of integral ring about multiplication":
-(
-	@gm.h.Ring,
-	∀R: ∈ integral_domain,
-	∀{a, b, c}: ⊆ R, ×: = &R.×&,
-	∀(a × c = b × c, !(c = R.0)) ⇒ a = c■
-),
-	s"lemma: zreo divisors have no multipication inverse": ; !
-	; it doesn't matter to consider 0 in it or whether the ring is commutative
-	(
-		@gm.h.Ring,
-		∀R: ∈ nontrivial_ring,
-		∀a: ∈ R, ∀x: ∈ R \ {R.0},
-		∃(
-			a R.× x = R.0, x R.× a = R.0
-		) ⇒ (!y: ∈ R, a R.× y = y R.× a = R.1)■
-	),
-	[ i don't know ]
-
 s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
 (
+	; ! these two multiplications are different
 	∀x: ∈ ◉, ∀f(x): ∈ P[h.Z](x),
 	∀R: ∈ ring, ∀a: ∈ R,
 	f(a) ∈ R
@@ -133,7 +109,8 @@ s"division algorithm of polynomial ring":
 		(
 			∃{q(x), r(x)}: ⊆ P[K](x), f(x) = g(x)*q(x) + r(x),
 			∃(r(x) = R.0, R.0 ≤ deg(r(x)) ≤ deg(g(x)))
-		)■
+		)
+		■
 	),
 	s"Euclid's algorithm":,
 ),

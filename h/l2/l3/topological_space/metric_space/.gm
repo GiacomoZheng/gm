@@ -1,0 +1,57 @@
+: ; metric_space
+(
+	⊆ topological_space,
+	(
+		∀M: ∈ metric_space,
+		M.d: ∈ metric, ; defined below
+		M ⊆ M.d.D,
+
+		M.d(x, y) ↔ 0 ⇔ x M.↔ y, ; ? to make it be a topological_space
+		; ! the ↔ is under the real number
+
+		Rp: = {x|x > 0}[∀x: ∈ h.R],
+		M.B[∀ε: ∈ Rp](∀x: ∈ M): = {y|M.d(x, y) < ε}[∀y: ∈ M] ; open ball
+	),
+	[ location ]
+		; about alias
+			distance_function: = metric, ; ?
+		; end
+
+		; about generalize
+		; end
+
+		metric:
+		(
+			⊆ function,
+			∀d: ∈ metric,
+			d.D: ∈ set, ; ? maybe I'll create a space class later
+			@h.R, ; the 0, R, ≥ are all in the real number
+				∀{x, y}: ∈ d.D,
+				d(x, y) ∈ R,
+				d(x, y) ≥ 0, ; non-negativity
+				d(x, y) = d(y, x), ; symmetry, or commutative
+				∀z: ∈ d.D, d(x, y) ≤ d(x, z) + d(z, y), ; subadditivity
+
+				d(x, y) = 0 ⇔ x = y ; discernible
+			■
+		),
+
+		topologically_equivalent(∀d[0]: ∈ metric): ; !
+		(
+			⊆ metric,
+			∀d: ∈ topologically_equivalent(d[0]),
+			d.D = d[0].M,
+			∀{x, y}: ⊆ M, d(x, y) ↔ h.R.0 ⇔ d[0](x, y) ↔ h.R.0 ; !
+		),
+
+		strongly_equivalent(∀d[0]: ∈ metric):
+		(
+			∈ metric,
+			∀d: ∈ strongly_equivalent(d[0]),
+			d.D = d[0].M,
+			@h.R,
+				∃{α, β}: ⊆ R, 0 ≤ α ≤ β,
+				∀{x, y}: ⊆ M, α × d[0](x, y) ≤ d(x, y) ≤ β × d[0](x, y)
+			■
+		),
+),

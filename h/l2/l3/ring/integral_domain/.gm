@@ -1,8 +1,0 @@
-: ; integral_domain
-(
-	⊆ commutative_ring,
-
-	∀R: ∈ integral_domain,
-	!(R = {R.0}),
-	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)
-),

@@ -1,9 +1,0 @@
-: ; unique_factorization_ring, or unique factorization domain
-; !
-(
-	"the integal ring in which every non-zero element not a unit can be written as the product of finite unique irreducible polynomial"
-	⊆ integral_domain,
-	...
-	∀U: ∈ unique_factorization_ring,
-	
-)
