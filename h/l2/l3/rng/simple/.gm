@@ -1,0 +1,9 @@
+: ; simple
+(
+	; + generalize
+	"the rngs which has no new group in its quetient rngs"
+	⊆ rng,
+
+	∀R: ∈ simple,
+	∀I: ∈ ideal(R), I ∈ {{R.0}, R}
+),

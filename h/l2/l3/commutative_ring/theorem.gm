@@ -1,0 +1,30 @@
+s"simple commutative ring is the same as field": ; !
+(
+	∀R: ∈ commutative_ring,
+	R ∈ ring.simple ⇔ R ∈ field ; !
+),
+[ proof```
+	; ⇐ part is trivial
+	; for the ⇒ part
+	@R,
+	∀a: ∈ R,
+	(
+		!(a = 0) ⇒ I[R](a) = R ⇒ 1 ∈ I[R](a)
+		⇒ ∃a': ∈ R, a' × a = 1 ⇒ a ∈ unit(R),
+		R ∈ commutative_ring
+	) ⇒ R ∈ field
+	■
+```]
+
+s"every maximal ideal of a commutative ring is prime ideal":
+(
+
+),
+[ counterexample if it is a rng with no identity at all```
+	R = 2×Z, P = 4×Z,
+	@R/P,
+	R/P = {0, 2}, ; where 2 × 2 = 0
+	P ∈ maximal(R), ; but
+	
+	■
+``` ]

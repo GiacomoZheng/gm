@@ -4,6 +4,5 @@
 	⊆ rng, ; * may not have identity
 
 	∀R: ∈ domain,
-	; ? !(R = {R.0}), ; I'll write it into ring
 	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)
 ),

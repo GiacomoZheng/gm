@@ -161,10 +161,10 @@
 	(
 		∀G: ∈ group,
 		∀ℋ: ∈ {∀H: ∈ sub(G)},
-		∩[](ℋ) ∈ sub(G)
+		∩[](ℋ) ∈ sub(G) ; !
 	),
 	[ prove```
-		e: = G.e, K: = ∩[](ℋ), *: = &G.*&,
+		e: = G.e, K: = ∩[](ℋ), *: = &G.*&, ; !
 		(∀H: ∈ ℋ, e ∈ H) ⇒ !(K = ∅),
 		∀{a, b}: ∈ K,
 		(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
@@ -294,7 +294,7 @@
 
 	s"all abelian groups are Dedekind group":
 	(
-		"all the subgroup of an abelian group is noraml",
+		"all the subgroup of an abelian group is normal",
 		abelian_group ⊆ Dedekind_group
 	),
 	[ prove ```
@@ -390,7 +390,7 @@
 	(
 		"they are disjoint as the above theorem",
 		∀G: ∈ group,
-		∀N: ∈ noraml(G),
+		∀N: ∈ normal(G),
 		∃T: ⊆ G, N = ∪[∀t: ∈ T](conj[G](t))
 	),
 ; end
@@ -408,7 +408,7 @@
 		G/H ∈ abelian_group ⇔ commutator_sub(G) ∈ sub(H) ; ! /
 	),
 	[ proof```
-		(G/H ∈ abelian_group ⇒ commutator_sub(G) ∈ noraml(H)) ⇐
+		(G/H ∈ abelian_group ⇒ commutator_sub(G) ∈ normal(H)) ⇐
 		(
 
 		)
@@ -505,6 +505,17 @@
 			∀G: ∈ group, ∀H: ∈ sub(G), ∀N: ∈ normal(G),
 			K: = {h G.* n}[∀h: ∈ H, ∀n: ∈ N],
 			H / (H ∩ N) ≌ K / N ; ! /
+		),
+	; end
+	
+	; about Correspondence Theorem
+		s"Correspondence Theorem":
+		(
+			∀G: ∈ group, ∀N: ∈ normal(G), H: = G / N, ; !
+			𝒦: = {K|N ∈ sub(K)}[∀K: ∈ sub(G)],
+			ℒ: = {L}[∀L: ∈ sub(H)],
+			∃φ(∀K: ∈ 𝒦): = K / N,
+			∀(φ.C = ℒ, φ ∈ bijection)
 		),
 	; end
 ; end

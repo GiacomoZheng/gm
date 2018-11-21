@@ -11,6 +11,12 @@
 		∀φ: ∈ homomorphism, G: = φ.D, R: = range(φ),
 		R ∈ sub(φ.C)
 	),
+
+	s"kernel of rng homomorphism is an ideal":
+	(
+		∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
+		ker(f) ∈ ideal(R)
+	),
 ; end
 
 ; about the basis
@@ -45,4 +51,25 @@
 	(
 
 	),
+; end
+
+; about ideal
+	s"criterions of ideal": ; I think I do not say anything about it
+	(
+		∀R: ∈ rng, ∀I: ⊆ R,
+		I ∈ ideal(R) ⇔
+		(
+			I ∈ group.sub(R), ; in fact a normal subgroup
+			∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I,
+		)
+	),
+; end
+
+; about morphism
+	; about Correspondence Theorem
+		s"Correspondence Theorem":
+		(
+			∀G: ∈ 
+		),
+	; end
 ; end

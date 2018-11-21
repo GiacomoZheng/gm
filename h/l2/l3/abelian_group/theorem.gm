@@ -1,3 +1,9 @@
+s"all the subgroups are normal":
+(
+	∀G: ∈ abelian_group,
+	normal(G) = sub(G)
+),
+
 s"classification of finite abelian group": ; +
 (
 	∀T: ∈ abelian_group, n: = |T|,

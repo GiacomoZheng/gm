@@ -127,3 +127,12 @@
 		H.1 = φ(r) = φ(r R.× R.1) = φ(r) H.× φ(R.1) = H.1 H.× φ(R.1) = φ(R.1)
 	```]
 ; end
+
+; about ideal
+	s"the ideal with a unit in it is the whole ring itself":
+	(
+		∀R: ∈ ring,
+		∀I: ∈ ideal(R),
+		(∃i: ∈ I, i ∈ unit(R)) ⇒ I = R
+	),
+; end

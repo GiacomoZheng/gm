@@ -31,7 +31,7 @@
 				S.F = V.F
 			),
 
-			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H),
+			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; !
 
 			ker(∀f: ∈ homomorphism): = group.ker(f)
 		; end
@@ -55,5 +55,6 @@
 			x = V.+[∀α: ∈ I](c[α] V.× α) ; means it is the elements of V
 		),
 
-		span[∀V: ∈ vector_space](S): = {∀x: ∈ combination[V](S)}
+		span[∀V: ∈ vector_space](S): = {∀x: ∈ combination[V](S)},
+
 ),

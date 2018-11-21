@@ -1,21 +1,4 @@
 ; ! a little bit change will be done when I complete the definition of polynomial ring
-s"kernel of ring homomorphism is seldom a subring":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
-	f.D = R ⇒
-	(
-		ker(f) ∈ subring(R) ⇔ f.C ∈ trivial_ring ⇔ ker(f) = R
-	)■
-),
-
-s"kernel of ring homomorphism is an ideal":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
-	ker(f) ∈ ideal(R)■
-),
-
 s"the quotient group under the ideal is ring":
 (
 	@gm.h.Ring,
@@ -41,13 +24,7 @@ s"Euclidean Algorithm":
 
 s"the unit of Z[n] are the ones coprime to the n":, ; !
 
-s"fields are integral ring (domain)":
-(
-	@gm.h.Ring,
-	field ⊆ integral_ring■
-),
-
-s"finite integral ring are fields":
+s"finite integral ring are fields": ; *
 (
 	@gm.h.Ring,
 	∀R: ∈ integral_domain, |R| ∈ h.N ⇒ R ∈ field■
@@ -115,7 +92,7 @@ s"division algorithm of polynomial ring":
 	s"Euclid's algorithm":,
 ),
 
-s"division algorithm"
+s"division algorithm":
 (
 	@gm.h.Ring,
 	∀R: ∈ ring, ×: = &R.×&,

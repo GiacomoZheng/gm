@@ -1,0 +1,5 @@
+: ; epimorphism
+(
+	⊆ homomorphism,
+	⊆ surjection
+),

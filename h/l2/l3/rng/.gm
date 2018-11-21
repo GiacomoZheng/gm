@@ -21,18 +21,55 @@
 			sub(∀R: ∈ rng):
 			(
 				⊆ rng,
-				⊆ group.sub(R),
+				⊆ group.sub(R), ; just the abelian_group.sub
 
 				∀H: ∈ sub(R),
 				&H.×& = &G.×&,
 			),
 
-			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
+			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 
 			ker(∀f: ∈ homomorphism): = {x|f(x) = f.C.0}[∀x: ∈ f.D],
 		; end
 
-		neg[∀R: ∈ rng](∀a: ∈ R): = group.inv[R](a),
+		neg[∀R: ∈ rng](∀a: ∈ R): = abelian_group.neg[R](a),
 
-		char(∀R: ∈ rng): = |{C|C ∈ group.cyclic_group}[∀C: ∈ group.sub(R)]|, ; characteristic of a ring
+		char(∀R: ∈ rng): = max[∀r: ∈ R](group.order(r)), ; ? max
+		; characteristic of a ring is the maximal order of all the elements in R
+
+		ideal(∀R: ∈ rng): ; be consistent with the semigroup
+		(
+			"ideal subrng, two-side"
+			⊆ sub(R), ; ? too strong
+			∀I: ∈ ideal(R),
+			∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I ; ?
+		),
+
+		I[∀R: ∈ ring](∀τ: ⊆ R): = ∩[∀D: ∈ ideal(R)]()
+		(
+			"idealizer",
+			∈ ideal(R),
+			
+			τ ⊆ I[R](τ) ; generators
+		),
+
+		maximal(∀R: ∈ rng):
+		(
+			⊆ ideal(R),
+			∀M: ∈ maximal(R),
+			!(M = R),
+			∀I: ∈ ideal(R),
+			M ⊆ I ⇒ ∃(I = R, I = M)
+		),
+
+		prime(∀R: ∈ rng):
+		(
+			⊆ ideal(R),
+			∀P: ∈ prime_ideal,
+			∀{a, b}: ⊆ R,
+			a R.× b ∈ P ⇒ ∃(a ∈ P, b ∈ P)
+		),
+
+		nil(∀R: ∈ rng): = {a|∃n: ∈ h.N, a R.^ n = R.0}[∀a: ∈ R]
+		; nil it is interesting that it may not be an ideal
 ),

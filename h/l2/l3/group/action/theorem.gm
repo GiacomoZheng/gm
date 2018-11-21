@@ -3,7 +3,8 @@ s"stabilizers and kernel of action are subgroup":
 	∀μ: ∈ action,
 	stabilizer[μ](∀s: ∈ μ.S) ∈ sub(μ.G),
 	f(∀x: ∈ G): = μ$x,
-	ker(f) = ∩[]({stabilizer[μ](s)}[∀s: ∈ μ.S]) = {g|∀s: ∈ μ.S, μ(g, s) = s}[∀g: ∈ G]
+	ker(f) = ∩[]({stabilizer[μ](s)}[∀s: ∈ μ.S]) ; !
+	= {g|∀s: ∈ μ.S, μ(g, s) = s}[∀g: ∈ G]
 ),
 
 s"Orbit-Stabilizer Theorem":

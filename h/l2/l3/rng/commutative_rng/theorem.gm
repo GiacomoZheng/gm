@@ -1,0 +1,11 @@
+; about ideal
+	s"an ideal P of a commutative rng is a prime if and only if R/P is integral domain":
+	(
+		∀R: ∈ commutative_rng, 
+	),
+
+	s"nil ideal is the intersection of all the prime ideal":
+	(
+		∀R: ∈ commutative_rng, 
+	),
+; end

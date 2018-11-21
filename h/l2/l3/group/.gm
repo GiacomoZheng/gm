@@ -27,7 +27,7 @@
 				&H.*& = &G.*&
 			),
 
-			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
+			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 		; end
 
 		inv[∀G: ∈ group](∀g: ∈ G):

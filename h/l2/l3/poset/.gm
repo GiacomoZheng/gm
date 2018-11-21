@@ -1,7 +1,6 @@
-: ; poset
+: ; poset, or partial ordered set
 (
 	⊆ preordered_set,
-
 	(
 		∀S: ∈ poset,
 		∀a: ∈ S, ∀b: ∈ S,
@@ -9,17 +8,24 @@
 		∀(a S.≤ b, b S.≤ a) ⇒ a = b ; antisymmetric
 	),
 
-	[  ]
+	; location
 		maximal(∀P: ∈ poset): ; diiferent from the biggest one
 		(
 			⊆ ◉,
 
 			∀x: ∈ maximal(G),
+			x ∈ P,
 			!y: ∈ G, !(x = y) ⇒ x G.≤ y
 			[ equivalence to
 			```
 			∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
 			```
 			]
+		),
+
+		chain(∀P: ∈ poset):
+		(
+			⊆ set.sub(P),
+			⊆ ordered_set ; ? total_ordered set
 		)
 ),

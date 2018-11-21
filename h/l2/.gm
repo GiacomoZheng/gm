@@ -13,7 +13,7 @@
 	A × B = {(x, y)}[∀x: ∈ A, ∀y: ∈ B]
 ),
 
-∪:
+∪: ; +
 (
 	∈ symbunc, ; ! I've delete this class
 
@@ -24,15 +24,15 @@
 	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪[]({A, B})
 ),
 
-∩:
+∩: ; +
 (
 	∈ symbunc, ; !
 
 	∀τ: ∈ set, ; set of set
-	∩[](τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C],
+	∩[](τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C], ; !
 
 	∀A: ∈ ◉, ∀B: ∈ ◉,
-	∀(A ∈ set, B ∈ set) ⇒ A ∩ B = ∩[]({A, B})
+	∀(A ∈ set, B ∈ set) ⇒ A ∩ B = ∩[]({A, B}) ; !
 ),
 
 cover(∀S: ∈ set):

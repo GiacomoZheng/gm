@@ -1,0 +1,9 @@
+: ; simple
+(
+	; + generalize
+	"the rings which has no new group in its quetient rings"
+	⊆ ring,
+
+	∀R: ∈ simple,
+	∀I: ∈ ideal(R), I ∈ {{R.0}, R}
+),

@@ -1,0 +1,8 @@
+: ; inner_product
+(
+	⊆ function,
+	∀i: ∈ inner_product,
+	i.D: ∈ vector_space,
+	∀{x, y}: ⊆ i.D,
+	i(x, y) ; !
+)

@@ -1,9 +1,9 @@
-: ; simple_group
+: ; simple
 (
 	; + generalize
 	"the groups which has no new group in its quetient groups"
 	⊆ group,
 
-	∀G: ∈ simple_group,
-	∀x: ∈ normal(G), x ∈ {{G.e}, G}
+	∀G: ∈ simple,
+	∀N: ∈ normal(G), N ∈ {{G.e}, G}
 ),

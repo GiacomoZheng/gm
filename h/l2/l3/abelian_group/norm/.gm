@@ -1,0 +1,17 @@
+: ; norm
+(
+	⊆ function,
+	∀p: ∈ norm,
+	p.D: ∈ abelian_group,
+	; @h.R, ; the R, ≥ are all in the real number
+	@p.D,
+		∀x: ∈ D,
+		p(x) ∈ h.R,
+		!(x = 0) ⇒ p(x) h.R.> h.R.0, ; !
+		p(x + x) = p(x) + p(x),
+		p(neg[D](x)) = neg[h.R](p(x))
+		∀{u, v}: ⊆ D, p(u + v) ≥ p(u) + p(v),
+
+	■
+	; ■
+)

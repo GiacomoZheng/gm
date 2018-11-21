@@ -11,17 +11,22 @@ s"cancellation of the multiplication in a domain":
 	⇒ a = b
 ```]
 
-s"Every finite domain has an identity": ; !
+s"Every finite domain has an identity":
 (
 	∀R: ∈ domain,
-	|R| ∈ h.N ⇒ ∃(R ∈ ring, R = {R.e}) ; ? if a ring nonzero
+	|R| ∈ h.N ⇒ ∃(R ∈ ring, R = {R.0}) ; ?
 ),
-[ proof``` ; +
-	
+[ proof is similar to the group``` ; +
+	; if n = 1, then R = {R.0}
+	; for the case n ≠ 1
+	n: = |R|,
+	∀a: (∈ R, !(a = R.0)),
+	{a R.^ i}[∀i: ∈ h.N] ⊆ R ⇒ (∃m: ∈ h.N, ∃r: ∈ h.N, a R.^ m = a R.)
+	; I have found ∀a, ∃i, now I want to prove ∃i, ∀a
 ```]
 
 s"nonzero finite domain is a division ring":
 (
 	∀R: ∈ domain,
-	∀(|R| ∈ h.N, !(R = {R.e})) ⇒ R ∈ division_ring
+	∀(|R| ∈ h.N, !(R = {R.0})) ⇒ R ∈ division_ring
 ),

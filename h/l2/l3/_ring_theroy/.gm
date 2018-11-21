@@ -1,32 +1,3 @@
-ideal(∀R: ∈ ring): ; + after the semigroup
-(
-	"two-side ideal",
-	⊆ abelian_group, ; ? rng
-
-	∀I: ∈ ideal(R),
-	I ∈ group.sub(R), ; in fact, as abelian, I ∈ normal(R),
-	∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I,
-
-	×: = &R.×&
-),
-; idealizer
-I[∀R: ∈ ring](∀τ: ⊆ R):
-(
-	∈ ideal(R),
-	
-	τ ⊆ I[R](τ) ; generators
-),
-
-unit(∀R: ∈ ring): ; in wiki, there is no requirement to be commutative
-(
-	⊆ ◉,
-
-	∀x: ∈ unit(R),
-	×: = &R.×&,
-	∃y: ∈ R, x × y = y × x = R.1 ; commutative here
-),
-; this can be a set, at least when R is finite
-
 P[∀R: ∈ ring](∀x: ∈ ◉): ; !
 (
 	∈ polynomial_ring,
@@ -64,24 +35,3 @@ principle_ideal(∀R: ∈ ring):
 	∀P: ∈ principle_ideal(R),
 	∃g: ∈ P, P = I[P]({g})
 ),
-
-maximal_ideal(∀R: ∈ ring):
-(
-	⊆ ideal(R),
-
-	∀M: ∈ maximal_ideal(R),
-	!(M = R),
-	∀Id: ∈ ideal(R),
-	M ⊆ Id ⇒ ∃(Id = R, Id = M)
-),
-
-prime_ideal(∀R: ∈ ring):
-(
-	⊆ ideal(R),
-
-	∀P: ∈ prime_ideal,
-	∀{a, b}: ⊆ R,
-	a R.× b ∈ P ⇒ ∃(a ∈ P, b ∈ P)
-),
-
-

@@ -22,7 +22,7 @@
 				H.1 = G.1
 			),
 
-			min_sub[∀G: ∈ ring](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; it is just the generating
+			min_sub[∀G: ∈ ring](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 
 			ker(∀f: ∈ homomorphism): = rng.ker(f),
 		; end
@@ -40,5 +40,7 @@
 		),
 
 		char(∀R: ∈ ring): = rng.char(R),
+
+		ideal(∀R: ∈ ring): = rng.ideal(R),
 
 ),

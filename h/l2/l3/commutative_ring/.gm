@@ -1,8 +1,5 @@
 : ; commutative_ring
 (
 	⊆ ring,
-
-	∀R: ∈ commutative_ring,
-	×: = R.×,
-	∀x: ∈ R, ∀y: ∈ R, x × y = y × x
+	⊆ rng.commutative_rng ; ?
 ),
