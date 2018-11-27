@@ -23,7 +23,7 @@
 		∀R: ∈ ring, ×: = &R.×&,
 		∀i: ∈ R, (∀a: ∈ R, a R.× i = a = i R.× a) ⇒ R.1 = i
 	),
-	[ proof```i = i * 1 = i```]
+	[ proof```i = i * 1 = i``` ]
 	
 	s"the multiplication inverse in a ring is unique if it exist":
 	(
@@ -33,7 +33,7 @@
 	),
 	[ proof, the same as in the group```
 		r' = r' × r × r'' = r''
-	```]
+	``` ]
 
 	s"multiplying the negation of identity can get the negation":
 	(
@@ -43,7 +43,7 @@
 	),
 	[ proof```
 		neg[R](R.1) R.× a = R.1 R.× neg[R](a) = neg[R](a)
-	```]
+	``` ]
 
 	s"other properties have implied the abelian property":
 	(
@@ -75,7 +75,7 @@
 		a + b + a + b = (a + b) × 1 + (a + b) × 1 = (a + b) × (1 + 1) = a × (1 + 1) + b × (1 + 1) = a + a + b + b
 		⇒ b + a = a + b ⇒ R ∈ abelian_group
 		■
-	```]
+	``` ]
 ; end
 
 ; about unit and zero divisors
@@ -100,7 +100,7 @@
 			∃b: (∈ R, !(b = R.0)), a R.× b = R.0
 		)
 		⇒ b = inv[R](a) R.× a R.× b = R.0
-	```]
+	``` ]
 ; end
 
 ; about morphism
@@ -114,7 +114,7 @@
 	[ proof, similar to the group```
 		φ(R.1) = φ(x R.× inv[R](x)) = φ(x) φ.C.× (inv[R](x))
 		; the right part is similar
-	```]
+	``` ]
 
 	s"if the range of a rng homomorphism on two rings includes 1, it is ring a homomorphism":
 	(
@@ -125,7 +125,7 @@
 	[ proof```
 		∃r: ∈ R, φ(r) = H.1,
 		H.1 = φ(r) = φ(r R.× R.1) = φ(r) H.× φ(R.1) = H.1 H.× φ(R.1) = φ(R.1)
-	```]
+	``` ]
 ; end
 
 ; about ideal
@@ -135,4 +135,12 @@
 		∀I: ∈ ideal(R),
 		(∃i: ∈ I, i ∈ unit(R)) ⇒ I = R
 	),
+; end
+
+; about characteristics
+	s"every ring with characteristics n has a subring isomorphic to Z[n] (or Z)":
+	(
+		∀R: ∈ ring, n: = char(R),
+		φ(∀m: ∈ h.Z): = m ∘ R.1,
+	)
 ; end

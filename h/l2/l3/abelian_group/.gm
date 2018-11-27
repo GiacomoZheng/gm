@@ -8,11 +8,12 @@
 		G.+: = &G.*&, ; for convince
 		G.0: = G.e, ; for convince
 
-		G.-: ; ?
+		G.-:
 		(
 			∈ operator,
 			∀{a, b}: ⊆ G,
-			a G.- b = a G.+ group.inv[G](b)
+			a G.- b = a G.+ group.inv[G](b) ; = group.inv[G](b) G.+ a
+			; that is why the - can be defined here
 		)
 	),
 

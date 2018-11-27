@@ -30,7 +30,7 @@
 		; left
 		R.0 = R.0 R.× a + neg(R.0 R.× a) = (R.0 + R.0) R.× a + neg(R.0 R.× a) = R.0 R.× a + R.0 R.× a + neg(R.0 R.× a) = R.0 R.× a
 		; the right part is similar
-	```]
+	``` ]
 
 	s"product of two negations": ; +
 	(
@@ -43,7 +43,7 @@
 
 		0 = (neg[R](a) + a) × b = neg[R](a) × b + a × b ⇒ neg[R](a) × b = neg[R](a × b)
 		■
-	```]
+	``` ]
 ; end
 
 ; about characteristic

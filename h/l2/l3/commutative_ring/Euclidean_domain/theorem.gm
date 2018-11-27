@@ -1,0 +1,12 @@
+s"all the great common divisors are associtive"
+
+s"Bézout's identity":
+(
+	∀R: ∈ ED,
+	@R,
+	∀{a, b}: ⊆ R\{0},
+	(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)),
+	(∀{u, v}: ⊆ S, a × u + b × u / gcd(a, b) ∈ S)
+	■
+),
+

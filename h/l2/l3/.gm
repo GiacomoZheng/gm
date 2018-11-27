@@ -1,8 +1,8 @@
 ; about alias
 	commutative_group: = abelian_group,
-	skew_field: = division_ring,
+	division_ring: = skew_field,
 	
-	; ? topset: = topological_space, ; I may use it to simpily
+	; ? topset: = topological_space, ; I may use it to simplify it
 	continuous_function: = topological_space.homomorphism,
 
 	linear_space: = vector_space,

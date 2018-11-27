@@ -40,7 +40,7 @@
 	),
 
 	; location
-		; + generalize
+		; + about generalizing
 			sub(∀S: ∈ set):
 			(
 				"subset",

@@ -1,0 +1,7 @@
+: ; prime_field
+(
+	"the field who has no proper subfield",
+	⊆ field,
+	∀F: ∈ prime_field,
+	∀S: ∈ sub(F), S = F ; I wiped the trivial field in definition of ring
+),

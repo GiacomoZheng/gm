@@ -1,0 +1,52 @@
+; about orthogonal
+	s"the relationship of orthogonal is symmetric":
+	(
+		C = orthogonal[V](S)
+		⇔ (∀x: ∈ C, ∀y: ∈ S, V.in(x, y) = V.F.0)
+		⇔ (∀y: ∈ S, ∀x: ∈ C, V.in(x, y) = V.F.0)
+		⇔ S = orthogonal[V](C),
+	),
+
+	s"orthogonal complement is the biggest orthogonal spaces":
+	(
+		∀V: ∈ inner_product_space, ∀S: ∈ sub(V),
+		orthogonal_complement[V](S) ∈ orthogonal[V](S),
+		; what's more
+		∀S': ∈ orthogonal[V](S), S' ⊆ orthogonal_complement[V](S)
+	),
+	[ proof```
+		@V,
+		C: = orthogonal_complement[V](S),
+		(
+			; C is a subspace
+			(
+				; nonempty
+				F.0 ∈ C ⇐ (∀y: ∈ S, in(F.0, y) = 0),
+				; - closure, abelian group
+				∀{a, b}: ⊆ C, (a - b) ∈ C ⇐ (∀y: ∈ S, in(a - b, y) = in(a, y) - in(b, y) = F.0),
+				; scalar multiplication clousre
+				∀α: ∈ F, ∀x: ∈ C, α × x ∈ C ⇐ (∀y: ∈ S, in(α × x, y) = α × in(x, y) = F.0),
+			),
+			; C is orthogonal
+			∀x: ∈ C, ∀y: ∈ S, in(x, y) = F.0
+		)
+		⇒ C ∈ orthogonal[V](S),
+
+		∀S': ∈ orthogonal[V](S), (∀x: ∈ S', (∀y: ∈ S, in(x, y) = F.0) ⇒ x ∈ C) ⇒ S' ⊆ C
+		■
+	``` ]
+
+	s"the complement of complement is the space itself": ; ? for different difinition
+	(
+		∀V: ∈ inner_product_space, ∀S: ∈ sub(V),
+		C: = orthogonal_complement[V](S),
+		S = orthogonal_complement[V](C)
+	),
+	[ proof```; +
+		@V,
+		C': = orthogonal_complement[V](C),
+		C ∈ orthogonal[V](S) ⇒ S ∈ orthogonal[V](C) ⇒ S ⊆ C',
+		; ! ∀x: ∈ V, x ∈ C' ⇒ (∀y: ∈ C, in(x, y) = F.0) x ∈ S
+		■
+	``` ]
+; end

@@ -301,7 +301,7 @@
 		∀G: ∈ abelian_group, *: = &G.*&,
 		∀H: ∈ sub(G),
 		(∀a: ∈ G, ∀h: ∈ H, a * h * inv[G](a) = h ∈ H) ⇒ H ∈ normal(G)
-	```]
+	``` ]
 
 	s"center of a group is always a normal subgroup":
 	(
@@ -452,7 +452,7 @@
 	[ proof```
 		; ⇒)
 		φ(a) = φ(b) ⇒ H.e = φ(a) H.* inv[H](φ(b)) = φ(a G.* inv[G](b)) ⇒ a = b
-	```]
+	``` ]
 
 	; + about first isomorphism theorem
 		s"kernel of a homomorphism is a normal subgroup of domain": ; this theorem is not very general, but it is very powerful
@@ -461,7 +461,7 @@
 		),
 		[ proof```
 
-		```]
+		``` ]
 
 		s"First Isomorphism Theorem": ; ?
 		(

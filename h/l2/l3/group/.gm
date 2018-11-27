@@ -7,7 +7,7 @@
 		∀G: ∈ group,
 		∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse
 		[ method ]
-		G.^:
+		; ! I won't define G.^ as it will be confused with ring
 	),
 	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ magma ]
 
@@ -16,7 +16,7 @@
 			periodic_group: = torsion_group,
 		; end
 		
-		; + generalize
+		; + about generalizing
 			sub(∀G: ∈ group): ; different from other books
 			(
 				⊆ group,
@@ -28,6 +28,8 @@
 			),
 
 			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
+
+			ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D],
 		; end
 
 		inv[∀G: ∈ group](∀g: ∈ G):
@@ -53,8 +55,6 @@
 			g ∈ G,
 			G = {G.e (G.* g)^n}[∀n: ∈ h.Z]
 		),
-
-		ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D], ; ? it can be generated to the subclass of group, but not set up to now.
 
 		$:
 		(

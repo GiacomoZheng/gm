@@ -1,8 +1,18 @@
 ; about ideal
-	s"an ideal P of a commutative rng is a prime if and only if R/P is integral domain":
+	s"an ideal P of a commutative rng is a prime ideal if and only if R/P is integral domain":
 	(
-		∀R: ∈ commutative_rng, 
+		∀R: ∈ commutative_rng, ∀I: ∈ ideal(R),
+		I ∈ prime_ideal(R) ⇔ R/I ∈ integral_domain ; rng
 	),
+	[ proof```
+		∀{(x + I), (y + I)}: ⊆ R/I,
+		; ⇒
+		0 = (x + I) × (y + I) ⇒ 0 = (x × y) + I ⇒ x × y ∈ I
+		⇒ ∃(x ∈ I, y ∈ I) ⇔ ∃(x + I = 0 + I, y + I = 0 + I),
+		; ⇐
+		x × y ∈ I ⇒ 0 = (x × y) + I ⇒ 0 = (x + I) × (y + I)
+		⇒ ∃(x + I = 0 + I, y + I = 0 + I) ⇔ ∃(x ∈ I, y ∈ I),
+	``` ]
 
 	s"nil ideal is the intersection of all the prime ideal":
 	(

@@ -1,0 +1,42 @@
+: ; inner_product_space
+(
+	⊆ normed_vector_space,
+	(
+		∀V: ∈ inner_product_space,
+		V.in: ∈ inner_product,
+
+	),
+
+	; on location
+		orthogonal[∀V: ∈ inner_product_space](∀S: ∈ sub(V)): ; * the name of these functions are "orthogonal[V]"
+		(
+			"orthogonal spaces of space S",
+			⊆ sub(V),
+			∀S': ∈ orthogonal[V](S),
+			∀x: ∈ S', ∀y: ∈ S, V.in(x, y) = V.F.0 ; ?
+		),
+
+		orthogonal_complement[∀V: ∈ inner_product_space](∀S: ∈ sub(V)): ; ? has the different definition
+		(
+			"the biggest orthogonal spaces of S",
+			= {x|∀y: ∈ S, V.in(x, y) = V.F.0}[∀x: ∈ V],
+		),
+	
+		orthogonal(∀V: ∈ inner_product_space): ; * the name of this function is "orthogonal"
+		(
+			"a orthogonal set",
+			⊆ independent(V),
+			∀O: ∈ orthogonal(V),
+			∀{x, y}: ∈ O,
+			!(x = y) ⇒ V.in(x, y) = V.F.0 ; ?
+		),
+
+		orthonormal(∀V: ∈ inner_product_space):
+		(
+			⊆ orthogonal(V),
+			∀O: ∈ orthonormal(V),
+			∀x: ∈ O, V.in(x, x) = V.F.1 ; ?
+			; ! or equivalently, norm(x) = V.F.1 ???
+		),
+
+),

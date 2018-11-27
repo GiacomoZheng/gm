@@ -1,0 +1,77 @@
+
+; about 
+	s"":
+	(
+		∀R: ∈ commutative_ring,
+		∀x: ∈ ◉, unit(R) ⊆ unit(P[R](x))
+		; the unit of the polynomial ring is just the unit of the ring
+	)
+; end
+
+; about field polynomial
+	s"division theorem":
+	(
+		∀K: ∈ field, ; in fact we just need the first term of g be a unit
+		∀x: ∈ ◉, ; !
+		E: = P[K](x),
+
+		∀f(x): ∈ E, ∀g(x): ∈ E,
+		∃p(x): ∈ E, ∃r(x): ∈ E,
+		∀(
+			deg(r) < deg(g), ; ? <
+			f(x) = g(x) K.× q(x) K.+ r(x)
+		)
+	),
+	[ proof``` ; !
+		N[∀n: ∈ h.N]: = {m|0 ≤ m < n}[∀m: ∈ h.N],
+		@P,
+		deg(f) < deg(g) ⇒ ∀(p(x) = 0, r = f),
+		deg(f) ≥ deg(g) ⇒
+		(
+			∃a[∀m: ∈ N[deg(f)]]: +[∀m: ∈ N[deg(f)]](a[m] × x ^ m) = f(x),
+			∃b[∀n: ∈ N[deg(f)]]: +[∀m: ∈ N[deg(g)]](b[n] × x ^ n) = g(x),
+			f'(x): = f(x) - inv(b[deg(g)]) × a[deg(f)] × g(x), ; repeat it
+		),
+		■
+	``` ]
+
+	s"field polynomials are all Euclidean domain":
+	(
+
+	),
+
+	s"Remainder Theorem for field polynomials":
+	(
+		∀x: ∈ ◉, ; !
+		∀K: ∈ field,
+		∀f(x): ∈ P[K](x), ∃g(x): ∈ P[K](x),
+		∀α: ∈ K,
+		@K,
+		f(x) = (x - α) × g(x) + f(α)
+		■
+	),
+	[ proof```
+		P[K](x) ∈ ED,
+		∃r: ∈ P[K](x), f(x) = (x - α) × g(x) + r,
+		x = α ⇒ f(α) = (α - α) × g(α) + r ⇒ r = f(α)
+	``` ]
+
+	s"Factor Theorem for field polynomials":
+	(
+		∀x: ∈ ◉, ; !
+		∀K: ∈ field, ∀f(x): ∈ P[K](x),
+		∀α: ∈ K,
+		α ∈ root[P[K](x)](f) ⇒
+		@K, f(x) = (x - α) × g(x)■
+	),
+	[ r = f(α) = K.0 ]
+
+	s"number of roots and the degree of polynomial": ; +
+	(
+		∀K: ∈ field, ∀x: ∈ ◉, ; !
+		∀f(x): ∈ P[K](x),
+		A: = {∀a: ∈ root[P[K](x)](f)},
+		+[∀a: ∈ A]()
+	),
+	[  ]
+; end

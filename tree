@@ -10,14 +10,21 @@ gm
 		├─irreflective_relator
 		├─l3
 			├─abelian_group
+				└─norm
 			├─commutative_ring
-			├─division_ring
+				├─Euclidean_domain
+				├─integral_domain
+				├─PID
+				├─polynomial
+					└─monic
+				└─UFD
 			├─field
 				├─algebraic_extension
 				├─extension
 				├─finite_extension
 				├─homomorphism
-				└─isomorphism
+				├─isomorphism
+				└─prime_field
 			├─group
 				├─action
 					├─faithful_action
@@ -25,12 +32,13 @@ gm
 				├─automorphism
 				├─cyclic_group
 				├─Dedekind_group
+				├─epimorphism
 				├─finite_group
 				├─free_group
 				├─homomorphism
 				├─isomorphism
 				├─perfect_group
-				├─simple_group
+				├─simple
 				├─torsion_free_group
 				├─torsion_group
 				├─trivial
@@ -44,20 +52,22 @@ gm
 			├─magma
 			├─module
 			├─monoid
-			├─ordered_set
 			├─poset
 			├─ring
 				├─homomorphism
 				├─isomorphism
-				└─polynomial_ring
+				└─simple
 			├─rng
 				├─commutative_rng
 				├─domain
 				├─homomorphism
 				├─integral_domain
 				├─isomorphism
+				├─Noetherian
+				├─simple
 				└─trivial
 			├─semigroup
+			├─skew_field
 			├─topological_space
 				├─compact_set
 				├─discrete_set
@@ -69,17 +79,17 @@ gm
 			├─vector_space
 				├─endomorphism
 				├─homomorphism
+				├─inner_product
+				├─inner_product_space
 				├─isomorphism
 				├─norm
 				└─trivial
 			├─_measure_theory
 				└─probability_theory
 					└─_random_space
+			├─_ordered_set
 			├─_preordered_set
 			└─_ring_theroy
-				├─Noetherian_ring
-				├─principle_ideal_ring
-				└─_unique_factorization_domain
 		├─operator
 		├─order_relator
 		├─preorder_relator

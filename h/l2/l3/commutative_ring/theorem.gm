@@ -14,17 +14,37 @@ s"simple commutative ring is the same as field": ; !
 		R ∈ commutative_ring
 	) ⇒ R ∈ field
 	■
-```]
+``` ]
 
 s"every maximal ideal of a commutative ring is prime ideal":
 (
-
+	∀R: ∈ commutative_ring,
+	maximal(R) ⊆ prime_ideal(R)
 ),
 [ counterexample if it is a rng with no identity at all```
 	R = 2×Z, P = 4×Z,
 	@R/P,
 	R/P = {0, 2}, ; where 2 × 2 = 0
 	P ∈ maximal(R), ; but
-	
+	!(P ∈ prime_ideal(R)) ⇐ ∀(2 × 2 ∈ 4×Z, !(2 ∈ 4×Z))
 	■
+	```
+	proof```
+	
 ``` ]
+
+s"irreducible elements are always prime": ; +
+(
+
+),
+
+s"prime elements in PID is always irreducible": ; +
+(
+
+),
+
+s"any PID is UFD": ; +
+(
+
+),
+

@@ -1,0 +1,10 @@
+s"nonzero finite integral domain are fields":
+(
+	∀R: ∈ integral_domain,
+	|R| ∈ h.N ⇒ R ∈ field
+),
+[ proof,
+	first, every finite domain has an identity
+	second, nonzero finite domain is a skew field
+	finally, integral domain is commutative
+ ]

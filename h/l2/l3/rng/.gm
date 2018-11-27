@@ -17,7 +17,7 @@
 
 		; end
 
-		; + generalize
+		; + about generalizing
 			sub(∀R: ∈ rng):
 			(
 				⊆ rng,
@@ -28,11 +28,13 @@
 			),
 
 			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
-
-			ker(∀f: ∈ homomorphism): = {x|f(x) = f.C.0}[∀x: ∈ f.D],
 		; end
 
-		neg[∀R: ∈ rng](∀a: ∈ R): = abelian_group.neg[R](a),
+		; about inheritance
+			ker(∀f: ∈ homomorphism): = {x|f(x) = f.C.0}[∀x: ∈ f.D],
+
+			neg[∀R: ∈ rng](∀a: ∈ R): = abelian_group.neg[R](a),
+		; end
 
 		char(∀R: ∈ rng): = max[∀r: ∈ R](group.order(r)), ; ? max
 		; characteristic of a ring is the maximal order of all the elements in R
@@ -45,9 +47,9 @@
 			∀x: ∈ I, ∀r: ∈ R, x R.× r ∈ I, r R.× x ∈ I ; ?
 		),
 
-		I[∀R: ∈ ring](∀τ: ⊆ R): = ∩[∀D: ∈ ideal(R)]()
+		I[∀R: ∈ ring](∀τ: ⊆ R): = ∩[∀D: ∈ ideal(R)]() ; !
 		(
-			"idealizer",
+			"idealizer, the mimimal ideal contains τ",
 			∈ ideal(R),
 			
 			τ ⊆ I[R](τ) ; generators
@@ -62,14 +64,14 @@
 			M ⊆ I ⇒ ∃(I = R, I = M)
 		),
 
-		prime(∀R: ∈ rng):
+		prime_ideal(∀R: ∈ rng):
 		(
 			⊆ ideal(R),
-			∀P: ∈ prime_ideal,
+			∀P: ∈ prime_ideal(R),
 			∀{a, b}: ⊆ R,
 			a R.× b ∈ P ⇒ ∃(a ∈ P, b ∈ P)
 		),
 
-		nil(∀R: ∈ rng): = {a|∃n: ∈ h.N, a R.^ n = R.0}[∀a: ∈ R]
+		nil(∀R: ∈ rng): = {a|∃n: ∈ h.N, a R.^ n = R.0}[∀a: ∈ R],
 		; nil it is interesting that it may not be an ideal
 ),

@@ -3,7 +3,7 @@
 	⊆ rng,
 	(
 		∀R: ∈ ring,
-		R.1: ∈ R, ; ? I may request it as nonzero later
+		R.1: ∈ R \ {R.0}, ; ? I prefer this version
 		∀a: ∈ R, R.1 R.× a = a = a R.× R.1 ; multiply identity
 	),
 	[ chain: ring ⊆ rng ⊆ abelian_group ]
@@ -12,7 +12,7 @@
 			commutative_domain: = integral_domain,
 		; end
 
-		; + generalize
+		; + about generalizing
 			sub(∀R: ∈ ring):
 			(
 				⊆ ring,
@@ -28,6 +28,8 @@
 		; end
 
 		neg[∀R: ∈ ring]: = rng.neg[R],
+
+		; rep[∀R: ∈ ring]: = 
 		
 		unit(∀R: ∈ ring): = {x|∃x': ∈ R, x' R.× x = R.1 = x R.× x'}[∀x: ∈ R],
 		; it is the group of all the units in a ring
@@ -43,4 +45,9 @@
 
 		ideal(∀R: ∈ ring): = rng.ideal(R),
 
+		maximal(∀R: ∈ ring): = rng.maximal(R),
+
+		prime_ideal(∀R: ∈ ring): = rng.prime(R),
+
+		nil(∀R: ∈ ring): = rng.nil(R)
 ),

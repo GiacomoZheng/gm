@@ -18,7 +18,7 @@
 	[ proof, a half```
 		(d(x, y) ↔ 0 ⇒ d[0](x, y) ↔ 0)
 		⇐ d[0](x, y) ≤ 1/α × d(x, y) ↔ 0,
-	```]
+	``` ]
 
 	s"strongly_equivalent reserve the uniformly continuous": ; !
 	(

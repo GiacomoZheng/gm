@@ -13,39 +13,7 @@ s"the quotient group under the ideal is ring":
 	&(R/I).×& = &×& ■
 ),
 
-s"Euclidean Algorithm":
-(
-	@gm.h.Ring,
-	S: = {∀x: ∈ h.Z} \ {0},
-	∀{a, b}: ⊆ S,
-	(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)),
-	(∀{u, v}: ⊆ S, a × u + b × u / gcd(a, b) ∈ S)■
-),
-
 s"the unit of Z[n] are the ones coprime to the n":, ; !
-
-s"finite integral ring are fields": ; *
-(
-	@gm.h.Ring,
-	∀R: ∈ integral_domain, |R| ∈ h.N ⇒ R ∈ field■
-),
-[ proof ```
-	×: = &R.×&,
-	(
-		∀x: ∈ R \{R.0}, ∃φ: ∈ mapping,
-		φ.D = R, φ.C = R, ∀y: ∈ R, φ(y) = x × y,
-		(
-			φ ∈ injection ⇐
-			(
-				∀{a, b}: ⊆ R, φ(a) = φ(b) ⇒ x × a = x × b
-				⇒ a = b ; integral_domain
-			),
-			φ ∈ surjection ⇐ ∀(|R| ∈ h.N, φ.D = φ.C)
-		)
-		⇒ φ ∈ bijection ⇒ (∃z: ∈ R, x × z = R.1)
-	)
-	⇒ (∀x: R \{R.0}, x ∈ unit(R)) ⇒ R ∈ field
-``` ]
 
 s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
 (
@@ -75,63 +43,6 @@ s"P[R](x) / I[R]({x}) ≌ R":,
 ``` ]
 
 s"P[set of real_number](x) / I[real_number](x) ≌ complex_number":, ; !
-
-s"division algorithm of polynomial ring":
-(
-	(
-		@gm.h.Ring, ; the first
-		∀K: ∈ field, ∀x: ∈ ◉, ; !
-		∀f(x): ∈ P[K](x), ∀g(x): ∈ P[J](x),
-		!(g(x) = R.0) ⇒
-		(
-			∃{q(x), r(x)}: ⊆ P[K](x), f(x) = g(x)*q(x) + r(x),
-			∃(r(x) = R.0, R.0 ≤ deg(r(x)) ≤ deg(g(x)))
-		)
-		■
-	),
-	s"Euclid's algorithm":,
-),
-
-s"division algorithm":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ×: = &R.×&,
-	∀p: ∈ irreducible(R),
-	∀a: ∈ P[R](x), ∀b: ∈ P[J](x),
-	(a × b) / p ∈ P[R](x) ⇒ ∃(a / p ∈ P[R](x), b / p ∈ P[R](x))■
-),
-
-s"degree, multiplication and addition":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉, ; !
-	×: &R.×&,
-	∀{a, b}: ⊆ P[R](x),
-	!((a, b) = (R.0, R.0)) ⇒ deg(a × b) = deg(a) + deg(b)■
-),
-
-s"root and linear factor":
-(
-	@gm.h.Ring,
-	∀P[R](x): ∈ polynomial_ring,
-	∀f(x): ∈ P[R](x),
-	∀a: ∈ R,
-	a ∈ root[R](f) ⇒
-	(
-		∃g(x): ∈ P[R](x),
-		f(x) / g(x) ∈ P[R](x),
-		g(x) ∈ linear_poly(P[R](x))
-	)■
-),
-
-s"number of roots and the degree of polynomial":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉, ; !
-	×: &R.×&,
-	∀f(x): ∈ P[R](x),
-	|{∀a: ∈ root[R](f)}| ≤ deg(f(x))■
-),
 
 s"enough intersection points make two polynomial the same":
 (
@@ -272,10 +183,3 @@ s"nature of quotient ring":
 	⇒ {∀x: ∈ ideal(R/Id)} = {R/Id, (R/Id).0}
 	⇒ {∀x: (∈ ideal(R), Id ⊆ x)} = {R, Id}
 ``` ]
-
-s"chaim of rings and feild": ; + wait for addition
-(
-	@gm.h.Ring,
-	ring ⊇ commutative_ring ⊇ integral_domain ⊇ unique_factorization_ring ⊇ principle_ideal_ring ⊇ field,
-	■
-),

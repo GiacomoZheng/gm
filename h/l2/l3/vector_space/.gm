@@ -19,7 +19,7 @@
 		; about alias
 		; end
 
-		; + generalize
+		; + about generalizing
 			sub(∀V: ∈ vector_space):
 			(
 				⊆ vector_space,
@@ -34,9 +34,9 @@
 			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; !
 
 			ker(∀f: ∈ homomorphism): = group.ker(f)
-		; end
 
-		neg[∀V: ∈ vector_space]: = group.inv[V],
+			neg[∀V: ∈ vector_space]: = group.inv[V],
+		; end
 
 		independent(∀V: ∈ vector_space):
 		(

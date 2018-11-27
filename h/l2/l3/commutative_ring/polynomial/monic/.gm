@@ -1,0 +1,10 @@
+: ; monic
+(
+	"the polynomial whose leadding coefficient is 1",
+	⊆ polynomial,
+	∀f: ∈ monic,
+	@f.R,
+	f'(∀x: ∈ ◉): = f(x) - x ^ deg(f), ; ?
+	deg(f') < deg(f),
+	■
+),

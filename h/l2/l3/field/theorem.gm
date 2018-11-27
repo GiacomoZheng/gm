@@ -1,8 +1,8 @@
 ; about generalizing
 	s"there is no such a thing as trivial field",
-	s"the unity ring homomorphism of fields are always injective":
+	s"the homomorphism of fields are always injective":
 	(
-		homomorphism = extnesion
+		homomorphism = extension
 	),
 	[ ker(f) contains no unit, as a * a^-1 = 1 ≠ 0 ]
 
@@ -12,12 +12,10 @@
 	)
 ; end
 
-s"the unity ring homomorphism of fields are always injective":
-(
-	homomorphism = extnesion
-),
-[ ker(f) contains no unit, as a * a^-1 = 1 ≠ 0 ]
+; about 
+; end
 
+; todo rewrite
 s"extension field with irreducible polynomial":
 (
 	K: ∈ field,

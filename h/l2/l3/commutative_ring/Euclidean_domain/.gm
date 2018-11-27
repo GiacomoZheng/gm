@@ -1,0 +1,34 @@
+: ; Euclidean_domain, or ED
+(
+	"a integral domain (ring) satisfies the Euclidean algorithm",
+	; + add the ED as a alias
+	⊆ integral_domain, ; here it needn't be unital, and we can prove it is.
+	(
+		∀R: ∈ Euclidean_domain,
+		R.σ
+
+	),
+
+	; location
+		Euclidean_function:
+		(
+			⊆ function,
+		),
+
+		common_divisor[∀E: ∈ ED](∀x: ∈ E\{E.0}, ∀y: ∈ E\{E.0}):
+		(
+			⊆ set.sub(E),
+			∀c: ∈ common_divisor[E](x, y),
+			@E,
+			(∃a: ∈ E, a × c = x),
+			(∃b: ∈ E, b × c = y)
+			■
+		)
+
+		gcd[∀E: ∈ ED](∀x: ∈ E\{E.0}, ∀y: ∈ E\{E.0}):
+		(
+			"greatest common divisor",
+			= 
+		)
+),
+[ chaim: ED ⊆ PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

@@ -1,15 +1,16 @@
 : ; field
 (
 	⊆ commutative_ring,
-	⊆ division_ring,
+	⊆ skew_field,
 
 	[ chaim: field ⊆ integral_domain ⊆ commutative_ring ]
 
 	[ attributes ]
 		; about alias
+			monomorphism: = extension,
 		; end
 		
-		; about generalize
+		; about generalizing
 			sub(∀L: ∈ field):
 			(
 				⊆ field,
@@ -23,6 +24,11 @@
 			),
 		; end
 
+		; about inheritance
+			ker(∀f: ∈ homomorphism): = ring.ker(f),
+		; end
+
+	; waitting for rewriting
 		Q[∀K: ∈ field](∀x: ∈ ◉): = {p(x)/q(x)}[∀{p(x), q(x)}: ⊆ P[K](x), !(q(x) = 0)], ; !
 		[ a field indeed ]
 

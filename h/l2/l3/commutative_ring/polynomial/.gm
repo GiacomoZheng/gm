@@ -1,0 +1,43 @@
+: ; polynomial
+(
+	⊆ function,
+
+	(
+		∀f: ∈ polynomial,
+		f.R: ∈ commutative_ring,
+		∀R': (∈ commutative_ring, R ∈ commutative_ring.sub(R')),
+		∀x: ∈ R',
+		∃n: ∈ h.N, S: = {m|h.N.0 ≤ m < n}[∀m: ∈ h.N],
+		∃a[∀m: ∈ S]: ∈ R,
+		@R,
+			f(x) = +[∀m: ∈ S](a[m] × x ^ m)
+		■
+	),
+
+	; location
+		P[∀R: ∈ commutative_ring]: ; !
+		(
+			"a polynomial ring over R"
+			S[∀n: ∈ h.N]: = {m|h.N.0 ≤ m < n}[∀m: ∈ h.N], ; pre definition
+
+			∈ function,
+			∀R': (∈ commutative_ring, R ∈ sub(R')),
+			∀x: ∈ R',
+			P[R](x): = {+[∀n: ∈ S[m]](c[n] R.× (x R.^ n))}[∀m: ∈ h.N, ∀n: ∈ S[m], ∀c[∀n: ∈ S[m]]: ∈ R]
+			; we can prove it is unique under the consistent definitions
+		),
+
+		deg(∀f: ∈ polynomial): ; +
+		(
+			"the power of maximal nonzero item",
+			
+		),
+		
+		root(∀f: ∈ polynomial):
+		(
+			⊆ ◉,
+			∀α: ∈ root(f),
+			α ∈ f.R,
+			f(α) = R.0
+		),
+),
