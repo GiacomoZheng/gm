@@ -16,8 +16,12 @@ gm
 				├─integral_domain
 				├─PID
 				├─polynomial
-					└─monic
+					├─monic
+					├─trivial
+					└─UFD_polynomial
+						└─primitive
 				└─UFD
+			├─commutative_rng
 			├─field
 				├─algebraic_extension
 				├─extension
@@ -58,7 +62,6 @@ gm
 				├─isomorphism
 				└─simple
 			├─rng
-				├─commutative_rng
 				├─domain
 				├─homomorphism
 				├─integral_domain

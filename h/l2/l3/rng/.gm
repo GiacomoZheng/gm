@@ -17,7 +17,7 @@
 
 		; end
 
-		; + about generalizing
+		; + about inheritance
 			sub(∀R: ∈ rng):
 			(
 				⊆ rng,
@@ -28,9 +28,7 @@
 			),
 
 			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
-		; end
 
-		; about inheritance
 			ker(∀f: ∈ homomorphism): = {x|f(x) = f.C.0}[∀x: ∈ f.D],
 
 			neg[∀R: ∈ rng](∀a: ∈ R): = abelian_group.neg[R](a),

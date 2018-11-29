@@ -40,7 +40,7 @@
 			close_set: = closed_set, ; someone others may use it
 		; end
 
-		; + about generalizing
+		; + about inheritance
 			sub(∀S: ∈ topological_space):
 			(
 				"sub topological space",

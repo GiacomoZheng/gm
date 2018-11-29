@@ -1,0 +1,36 @@
+: ; commutative_rng
+(
+	⊆ rng,
+	
+	∀R: ∈ commutative_rng
+	∀{a, b}: ⊆ R,
+	a R.× b = b R.× a ; commutativity
+
+	; location
+		; about inheritance
+			nil(∀R: ∈ commutative_rng): = rng.nil(R),
+			; nilradical ideal, the intersection of all prime ideals
+
+			divisor[∀R: ∈ commutative_rng](∀a: ∈ R):
+			(
+				⊆ ◉,
+				∀b: ∈ divisor[R](a), b ∈ R,
+				∃c: ∈ R, c R.× b = a
+			),
+
+			multiple[∀R: ∈ commutative_rng](∀a: ∈ R):
+			(
+				⊆ ◉,
+				∀b: ∈ multiple[R](a), b ∈ R,
+				∃c: ∈ R, b = c R.× a
+				[ here, 0 is a multiple of every elements ]
+			),
+			
+			; to commutative_ring
+			zero_divisor(∀R: ∈ commutative_ring): ; ? includes 0
+			(
+				"divisor of 0, someone else may restrict it not 0",
+				= divisor[R](R.0)
+			),
+		; end
+),

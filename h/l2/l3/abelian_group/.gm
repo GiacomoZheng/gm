@@ -17,7 +17,7 @@
 		)
 	),
 
-	; abut generalizing
+	; abut inheritance
 		sub(∀G: ∈ abelian_group): = group.sub(G),
 	; end
 

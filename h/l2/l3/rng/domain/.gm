@@ -1,4 +1,4 @@
-: ; domain
+: ; ? domain, I want to rename it as doman
 (
 	"the rng with cancellation",
 	⊆ rng, ; * may not have identity

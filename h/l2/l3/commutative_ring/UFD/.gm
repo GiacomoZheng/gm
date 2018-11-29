@@ -6,5 +6,35 @@
 	...
 	∀U: ∈ unique_factorization_ring,
 	
+
+	; 
+		; about inheritance
+			divisor[∀R: ∈ UFD]: = integral_domain.divisor[R],
+
+			multiple[∀R: ∈ UFD]: = integral_domain.multiple[R],
+
+			associated[∀R: ∈ UFD]: = integral_domain.associated[R],
+
+			common_divisor[∀R: ∈ UFD](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}):
+			(
+				⊆ set.sub(R),
+				∀c: ∈ common_divisor[R](x, y),
+				@R,
+				(∃a: ∈ R, a × c = x),
+				(∃b: ∈ R, b × c = y)
+				■
+			),
+
+			greatest_common_divisor[∀R: ∈ UFD](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}):
+			(
+				"greatest common divisor",
+				= 
+			),
+
+			gcd[∀R: ∈ UFD](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}): ; ?
+			(
+				"choosen greatest common divisor"
+			)
+		; end
 ),
 [ chaim: UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

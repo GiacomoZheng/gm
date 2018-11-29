@@ -10,7 +10,7 @@
 			monomorphism: = extension,
 		; end
 		
-		; about generalizing
+		; about inheritance
 			sub(∀L: ∈ field):
 			(
 				⊆ field,
@@ -22,9 +22,6 @@
 				&K.+& = &L.+&,
 				&K.×& = &L.×&
 			),
-		; end
-
-		; about inheritance
 			ker(∀f: ∈ homomorphism): = ring.ker(f),
 		; end
 

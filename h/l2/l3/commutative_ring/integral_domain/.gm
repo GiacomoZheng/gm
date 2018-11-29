@@ -1,9 +1,46 @@
 : ;
 (
-
+	⊆ domain, ; !
+	⊆ commutative_ring,
 
 
 
 	; location
+		; about inheritance
+			divisor[∀R: ∈ integral_domain]: = commutative_ring.divisor[R],
+
+			multiple[∀R: ∈ integral_domain]: = commutative_ring.multiple[R],
+
+			associated[∀R: ∈ integral_domain](∀a: ∈ R):
+			(
+				⊆ divisor[R](a),
+				⊆ multiple[R](a)
+			),
+
+			irreducible(∀R: ∈ integral_domain):
+			(
+				⊆ ◉,
+				∀ir: ∈ irreducible(R),
+				ir ∈ R,
+				!(ir = R.0),
+				!(ir ∈ unit(R)),
+				×: = &R.×&
+				∀(d1, d2): ∈ R, d1 × d2 = ir ⇒ ∃(d1 ∈ unit(R), d2 ∈ unit(R))
+			),
+
+			prime(∀R: ∈ rng): ; the prime elements
+			(
+				"p | ab then p | a or p |b",
+				⊆ ◉,
+				∀p: ∈ prime(R),
+				p ∈ R,
+				!(p = R.0),
+				!(p ∈ unit(R)),
+				@R,
+				∀{a, b}: ∈ R,
+				p ∈ divisor[R](a × b) ⇒ ∀(p ∈ divisor[R](a), p ∈ divisor[R](b))
+				■
+			)
+		; end
 
 )

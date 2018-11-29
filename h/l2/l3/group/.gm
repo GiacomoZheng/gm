@@ -16,7 +16,7 @@
 			periodic_group: = torsion_group,
 		; end
 		
-		; + about generalizing
+		; + about inheritance
 			sub(∀G: ∈ group): ; different from other books
 			(
 				⊆ group,

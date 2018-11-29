@@ -2,7 +2,7 @@
 ; about 
 	s"":
 	(
-		∀R: ∈ commutative_ring,
+		∀R: ∈ integral_domain, ; ring
 		∀x: ∈ ◉, unit(R) ⊆ unit(P[R](x))
 		; the unit of the polynomial ring is just the unit of the ring
 	)

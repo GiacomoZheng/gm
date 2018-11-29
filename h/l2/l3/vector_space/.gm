@@ -19,7 +19,7 @@
 		; about alias
 		; end
 
-		; + about generalizing
+		; + about inheritance
 			sub(∀V: ∈ vector_space):
 			(
 				⊆ vector_space,

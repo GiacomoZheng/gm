@@ -1,0 +1,6 @@
+: ; ? trivial
+(
+	⊆ polynomial,
+	∀f: ∈ trivial,
+	∀x: ∈ ◉, f(x) = R.0
+),

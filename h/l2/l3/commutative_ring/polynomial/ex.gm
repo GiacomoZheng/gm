@@ -1,0 +1,22 @@
+Z: = h.Z,
+Q: = h.Q,
+C: = h.C,
+
+s"rational root test":
+(
+	∀x: ∈ ◉,
+	∀f(x): ∈ P[Q](x), ∀α: ∈ root(f), ; rational
+	f(x) ∈ P[Z](x) ⇒
+	(
+
+	)
+),
+
+algebraic_integer:
+(
+	⊆ ◉, ; element of C
+	∀x: ∈ algebraic_integer,
+	; x ∈ C,
+	∃f(x): ∈ P[C](x), f ∈ monic, x ∈ root(f) ; in C
+),
+

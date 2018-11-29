@@ -1,6 +1,6 @@
 : ; set
 (
-	; ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
+	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
 		⊆ ◉, ; it means it is a class
 
 		(
@@ -40,13 +40,13 @@
 	),
 
 	; location
-		; + about generalizing
+		; + about inheritance
 			sub(∀S: ∈ set):
 			(
 				"subset",
 				⊆ set,
 				∀A: ∈ sub(S),
-				A ⊆ S ; ?
+				∀a: ∈ A, a ∈ S 
 			),
 		; end
 ),

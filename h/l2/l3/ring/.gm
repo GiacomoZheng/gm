@@ -12,7 +12,7 @@
 			commutative_domain: = integral_domain,
 		; end
 
-		; + about generalizing
+		; + about inheritance
 			sub(∀R: ∈ ring):
 			(
 				⊆ ring,

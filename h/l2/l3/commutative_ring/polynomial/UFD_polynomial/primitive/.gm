@@ -1,0 +1,7 @@
+: ; primitive
+(
+	⊆ UFD_polynomial,
+	∀f: ∈ primitive,
+	!(f ∈ trivial), ; ?
+	content(f) = f.R.1 ; ?
+)
