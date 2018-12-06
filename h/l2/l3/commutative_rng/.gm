@@ -11,26 +11,56 @@
 			nil(∀R: ∈ commutative_rng): = rng.nil(R),
 			; nilradical ideal, the intersection of all prime ideals
 
-			divisor[∀R: ∈ commutative_rng](∀a: ∈ R):
+			principle_ideal(∀R: ∈ commutative_rng): = rng.l'principle_ideal(R),
+		; end
+		
+		prime(∀R: ∈ commutative_rng):
+		(
+			"prime elements: p | ab then p | a or p |b",
+			[ 0 can nver be a divisor ]
+			⊆ ◉,
+			∀p: ∈ prime(R),
+			p ∈ R,
+			!(p ∈ unit(R)), ; ?
+			@R,
+			∀{a, b}: ∈ R,
+			p ∈ divisor[R](a × b) ⇒ ∀(p ∈ divisor[R](a), p ∈ divisor[R](b))
+			■
+		),
+
+		divisor[∀R: ∈ commutative_rng](∀a: ∈ R):
+		(
+			⊆ ◉,
+			[ 0 can nver be a divisor ]
+			∀b: ∈ divisor[R](a), b ∈ R,
+			∃c: ∈ R, c R.× b = a
+		),
+
+		common_divisor[∀R: ∈ commutative_rng](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}):
 			(
-				⊆ ◉,
-				∀b: ∈ divisor[R](a), b ∈ R,
-				∃c: ∈ R, c R.× b = a
+				⊆ set.sub(R),
+				∀c: ∈ common_divisor[R](x, y),
+				@R,
+				(∃a: ∈ R, a × c = x),
+				(∃b: ∈ R, b × c = y)
+				■
 			),
 
-			multiple[∀R: ∈ commutative_rng](∀a: ∈ R):
-			(
-				⊆ ◉,
-				∀b: ∈ multiple[R](a), b ∈ R,
-				∃c: ∈ R, b = c R.× a
-				[ here, 0 is a multiple of every elements ]
-			),
-			
-			; to commutative_ring
-			zero_divisor(∀R: ∈ commutative_ring): ; ? includes 0
-			(
-				"divisor of 0, someone else may restrict it not 0",
-				= divisor[R](R.0)
-			),
-		; end
+		multiple[∀R: ∈ commutative_rng](∀a: ∈ R):
+		(
+			⊆ ◉,
+			∀b: ∈ multiple[R](a), b ∈ R,
+			∃c: ∈ R, b = c R.× a
+			[ here, 0 is a multiple of every elements ]
+		),
+
+		; to commutative_ring
+		zero_divisor(∀R: ∈ commutative_ring): ; ? includes 0
+		(
+			; ? may move it to rng
+			"divisor of 0, someone else may restrict it not 0",
+			= divisor[R](R.0)
+		),
+
+		; as the l' and r' principle ideal is the same in a commutative rng
 ),

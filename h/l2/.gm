@@ -1,4 +1,4 @@
-∘: ; ? 
+∘: ; + move to function
 (
 	∈ operator,
 	
@@ -6,14 +6,14 @@
 	∀x: ∈ ◉, (f ∘ g)(x) = f(g(x))
 ),
 
-×: ; ?
+×: ; + move to set
 (
 	∈ operator,
 	∀A: ∈ set, ∀B: ∈ set,
 	A × B = {(x, y)}[∀x: ∈ A, ∀y: ∈ B]
 ),
 
-∪: ; +
+∪: ; + move to set
 (
 	∈ symbunc, ; ! I've delete this class
 
@@ -24,7 +24,7 @@
 	∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪[]({A, B})
 ),
 
-∩: ; +
+∩: ; + move to set
 (
 	∈ symbunc, ; !
 
@@ -55,7 +55,7 @@ partition(∀S: ∈ set):
 	!(A = B) ⇒ A ∩ B = ∅
 ),
 
-^: ; !
+^: ; ? move to bijiecton
 (
 	∈ symbol,
 	∀n: ∈ h.Z,
@@ -70,14 +70,7 @@ partition(∀S: ∈ set):
 ),
 
 
-gcd(∀m: ∈ h.Z, ∀n: ∈ h.Z): = sup({m / k, n / k}[∀k: ∈ h.Z] ∩ h.Z), ; !
-lcm(∀m: ∈ h.Z, ∀n: ∈ h.Z): = inf({m × k, n × k}[∀k: ∈ h.Z]), ; !
-
-prime_number: = {n|gcd(n, 1) = n}[∀n: ∈ h.Z], ; !
-
 sym(∀S: ∈ set): = {f|f.D = S}[∀f: ∈ permutation], ; symmetric group
-
-conj(∀x: ∈ s.C): = ... ; +
 
 [ ```
 	infinity0:

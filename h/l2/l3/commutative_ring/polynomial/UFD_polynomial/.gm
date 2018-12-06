@@ -6,13 +6,14 @@
 		P.R ∈ UFD
 	),
 
-	content(∀f: ∈ UFD):
-	(
-		@f.R,
-		S: = {m|0 ≤ m ≤ deg(f)},
-		∃a[∀m: ∈ S]: ∈ f.R,
-		∀x: ∈ ◉, f(x) = +[∀m: ∈ S](a[m] × x^m),
-		■
-		= UFD.gcd({a[m]}[∀m: ∈ S]) ; 
-	)
+	; location
+		content(∀f: ∈ UFD):
+		(
+			@f.R,
+			S: = {m|0 ≤ m ≤ deg(f)},
+			∃a[∀m: ∈ S]: ∈ f.R,
+			∀x: ∈ ◉, f(x) = +[∀m: ∈ S](a[m] × x^m),
+			■
+			= UFD.gcd({a[m]}[∀m: ∈ S]) ; * a class
+		)
 ),

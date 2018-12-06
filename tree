@@ -13,6 +13,7 @@ gm
 				└─norm
 			├─commutative_ring
 				├─Euclidean_domain
+				├─GCD_domain
 				├─integral_domain
 				├─PID
 				├─polynomial
@@ -28,7 +29,8 @@ gm
 				├─finite_extension
 				├─homomorphism
 				├─isomorphism
-				└─prime_field
+				├─prime_field
+				└─_valuation
 			├─group
 				├─action
 					├─faithful_action

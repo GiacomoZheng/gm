@@ -1,40 +1,25 @@
 : ; UFD, unique_factorization_domain
 ; !
 (
-	"the integal domain in which every non-zero element not a unit can be written as the product of finite unique irreducible polynomial"
-	⊆ integral_domain, ; here is 
-	...
+	"the integal domain in which every non-zero element not a unit can be written as the product of finite unique irreducible factorization",
+	⊆ integral_domain,
+	... ; +
 	∀U: ∈ unique_factorization_ring,
-	
-
-	; 
+	[ chaim: integral_domain ⊇ GCD_domain ⊇ UFD ]
+	; location
 		; about inheritance
-			divisor[∀R: ∈ UFD]: = integral_domain.divisor[R],
+			divisor[∀R: ∈ UFD]: = commutative_rng.divisor[R],
 
-			multiple[∀R: ∈ UFD]: = integral_domain.multiple[R],
+			multiple[∀R: ∈ UFD]: = commutative_rng.multiple[R],
 
 			associated[∀R: ∈ UFD]: = integral_domain.associated[R],
 
-			common_divisor[∀R: ∈ UFD](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}):
-			(
-				⊆ set.sub(R),
-				∀c: ∈ common_divisor[R](x, y),
-				@R,
-				(∃a: ∈ R, a × c = x),
-				(∃b: ∈ R, b × c = y)
-				■
-			),
+			common_divisor[∀R: ∈ UFD]: = commutative_rng.common_divisor[R],
 
-			greatest_common_divisor[∀R: ∈ UFD](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}):
-			(
-				"greatest common divisor",
-				= 
-			),
+			gcd[∀R: ∈ UFD]: = GCD_domain.gcd[R], ; here it is unique under associated
 
-			gcd[∀R: ∈ UFD](∀x: ∈ R\{R.0}, ∀y: ∈ R\{R.0}): ; ?
-			(
-				"choosen greatest common divisor"
-			)
+			irreducible(∀R: ∈ UFD): = integral_domain.irreducible(R), ; element
+
 		; end
 ),
 [ chaim: UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

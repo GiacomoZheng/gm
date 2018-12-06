@@ -9,11 +9,11 @@
 	),
 
 	; location
-		maximal(∀P: ∈ poset): ; diiferent from the biggest one
+		maximal_ideal(∀P: ∈ poset): ; diiferent from the biggest one
 		(
 			⊆ ◉,
 
-			∀x: ∈ maximal(G),
+			∀x: ∈ maximal_ideal(G),
 			x ∈ P,
 			!y: ∈ G, !(x = y) ⇒ x G.≤ y
 			[ equivalence to

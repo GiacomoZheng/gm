@@ -8,6 +8,9 @@
 	),
 
 	; on location
+		; about alias
+			complement[∀V: ∈ inner_product_space]: = orthogonal_complement[V]
+		; end
 		orthogonal[∀V: ∈ inner_product_space](∀S: ∈ sub(V)): ; * the name of these functions are "orthogonal[V]"
 		(
 			"orthogonal spaces of space S",

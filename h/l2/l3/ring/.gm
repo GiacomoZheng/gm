@@ -45,7 +45,7 @@
 
 		ideal(∀R: ∈ ring): = rng.ideal(R),
 
-		maximal(∀R: ∈ ring): = rng.maximal(R),
+		maximal_ideal(∀R: ∈ ring): = rng.maximal_ideal(R),
 
 		prime_ideal(∀R: ∈ ring): = rng.prime(R),
 

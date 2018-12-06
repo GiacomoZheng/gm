@@ -1,18 +1,4 @@
 ; ! a little bit change will be done when I complete the definition of polynomial ring
-s"the quotient group under the ideal is ring":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ∀I: ∈ ideal(R),
-	I ∈ normal(R), ; abelian
-	R/I ∈ ring,
-	×: ; x here is a variable as the I below is.
-	(
-		∀{a + I, b + I}: ⊆ R/I,
-		(a + I) × (b + I) = (a R.× b) + I
-	)
-	&(R/I).×& = &×& ■
-),
-
 s"the unit of Z[n] are the ones coprime to the n":, ; !
 
 s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
@@ -23,16 +9,6 @@ s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
 	f(a) ∈ R
 ),
 
-s"relationship between a ring and its polynomial ring":
-(
-	@gm.h.Ring,
-	∀R: ∈ ring, ∀x: ∈ ◉, ; !
-	R ∈ commutative_ring ⇒ P[R](x) ∈ commutative_ring,
-	R ∈ integral_domain ⇒ P[R](x) ∈ integral_domain,
-	R ∈ unique_factorization_ring ⇒ P[R](x) ∈ unique_factorization_ring,
-	h.Z ∈ principle_ideal_ring, !(P[h.Z](x) ∈ principle_ideal_ring)
-	■
-),
 
 s"P[R](x) / I[R]({x}) ≌ R":,
 [ proof ```
@@ -146,7 +122,7 @@ s"Eisenstein's criterion": ; + add it to cheeting paper,
 s"the ideal over a prime number in Z is maximal":
 (
 	@gm.h.Ring,
-	∀p: ∈ prime_number, I[h.Z]({p}) ∈ maximal_ideal(Z)■
+	∀p: ∈ prime_number, I[h.Z]({p}) ∈ maximal_ideal_ideal(Z)■
 ),
 
 s"ideals of R contains I bijects to ideals of R/I":
@@ -163,7 +139,7 @@ s"nature of quotient ring":
 	@gm.h.Ring,
 	∀R: ∈ commutative_ring, ∀Id: ∈ ideal(R),
 	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_domain,
-	Id ∈ maximal_ideal(R) ⇔ R/Id ∈ field■
+	Id ∈ maximal_ideal_ideal(R) ⇔ R/Id ∈ field■
 ),
 [ ```
 	Id ∈ prime_ideal ⇒

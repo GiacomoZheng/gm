@@ -1,4 +1,8 @@
-: ; module
+: ; module, regular module here, or named as left module
 (
-
+	⊆ abelian_group,
+	(
+		∀R: ∈ module,
+		
+	)
 ),

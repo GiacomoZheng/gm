@@ -29,7 +29,7 @@ s"extension field with irreducible polynomial":
 ),
 [ ```
 	∀f(x): ∈ irreducible(P[K](x)),
-	I[P[K](x)]({f(x)}) ∈ maximal(P[K](x)),
+	I[P[K](x)]({f(x)}) ∈ maximal_ideal(P[K](x)),
 	∃i: ∈ extension, i.D = K, i.C = K',
 	∀c: ∈ K, i(c) = c + I[P[K](x)]({f(x)}),
 ``` ]

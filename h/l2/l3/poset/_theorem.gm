@@ -2,12 +2,12 @@
 "power set", "poset", "maximal",
 ; Theorem: start
 	∀X: ∈ set, Ps(X) ∈ poset, &PS(X).≤& = &⊆&,
-	X ∈ maximal(G) ; in fact, it is the only one
+	X ∈ maximal_ideal(G) ; in fact, it is the only one
 ; Theorem: end
 
 "finite set", "posoet", "maximal",
 ; Theorem: start
 	∀P: ∈ poset,
-	|P| ∈ h.N ⇒ (∃x: ∈ P, x ∈ maximal(G)),
+	|P| ∈ h.N ⇒ (∃x: ∈ P, x ∈ maximal_ideal(G)),
 ; Theorem: end
 

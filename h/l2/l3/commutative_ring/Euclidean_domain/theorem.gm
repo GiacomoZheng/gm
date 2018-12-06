@@ -1,5 +1,4 @@
-s"all the great common divisors are associtive"
-
+[ chaim: commutative_ring ⊆ inetral_domain ⊆ GCD_domain ⊆ UFD ⊆ PID ⊆ ED ]
 s"Bézout's identity":
 (
 	∀R: ∈ ED,

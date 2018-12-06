@@ -1,7 +1,8 @@
 : ; primitive
 (
+	"the polynomial on a UFD whose coefficients are coprime",
 	⊆ UFD_polynomial,
 	∀f: ∈ primitive,
 	!(f ∈ trivial), ; ?
-	content(f) = f.R.1 ; ?
+	f.R.1 ∈ content(f)
 )

@@ -14,8 +14,19 @@
 
 	s"kernel of rng homomorphism is an ideal":
 	(
-		∀R: ∈ ring, ∀f: ∈ ring_homomorphism,
+		∀R: ∈ rng, ∀f: ∈ homomorphism,
 		ker(f) ∈ ideal(R)
+	),
+
+	s"the quotient group under the ideal is rng":
+	(
+		∀R: ∈ rng, ∀I: ∈ ideal(R),
+		; I ∈ normal(R), ; abelian
+		R / I ∈ rng, ; ?
+		@R,
+			∀{a + I, b + I}: ⊆ R/I, ; ?
+			(a + I) (R/I).× (b + I) = (a R.× b) + I
+		■
 	),
 ; end
 
@@ -65,8 +76,8 @@
 	),
 ; end
 
-; about morphism
-	; about Correspondence Theorem
+; + about morphism
+	; + about Correspondence Theorem
 		s"Correspondence Theorem":
 		(
 			∀G: ∈ 

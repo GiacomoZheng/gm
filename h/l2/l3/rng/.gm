@@ -46,17 +46,37 @@
 		),
 
 		I[∀R: ∈ ring](∀τ: ⊆ R): = ∩[∀D: ∈ ideal(R)]() ; !
-		(
-			"idealizer, the mimimal ideal contains τ",
-			∈ ideal(R),
+		; (
+		; 	"idealizer, the mimimal ideal contains τ",
+		; 	∈ ideal(R),
 			
-			τ ⊆ I[R](τ) ; generators
-		),
+		; 	τ ⊆ I[R](τ) ; generators
+		; ),
 
-		maximal(∀R: ∈ rng):
+		l'principle_ideal(∀R: ∈ rng):
+		(
+			"left principle ideal",
+			⊆ ideal(R),
+			∀P: ∈ l'principle_ideal(R),
+			∃x: ∈ R, ; may not in P
+			P = {r R.× x}[∀r: ∈ R]
+		),
+		left_principle_ideal: = l'principle_ideal,
+		
+		r'principle_ideal(∀R: ∈ rng):
+		(
+			"right principle ideal",
+			⊆ ideal(R),
+			∀P: ∈ r'principle_ideal(R),
+			∃x: ∈ R, ; may not in P
+			P = {r R.× x}[∀r: ∈ R]
+		),
+		right_principle_ideal: = r'principle_ideal,
+
+		maximal_ideal(∀R: ∈ rng):
 		(
 			⊆ ideal(R),
-			∀M: ∈ maximal(R),
+			∀M: ∈ maximal_ideal(R),
 			!(M = R),
 			∀I: ∈ ideal(R),
 			M ⊆ I ⇒ ∃(I = R, I = M)

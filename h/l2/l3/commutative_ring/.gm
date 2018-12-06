@@ -9,6 +9,24 @@
 		; end
 
 		; about inheritance
+			principle_ideal(∀R: ∈ commutative_ring): = commutative_rng.principle_ideal(R),
+		
+			P[∀R: ∈ commutative_ring]: ; !
+			(
+				"a polynomial ring over R"
+				S[∀n: ∈ h.N]: = {m|h.N.0 ≤ m < n}[∀m: ∈ h.N], ; pre definition
+
+				∈ function,
+				∀R': (∈ commutative_ring, R ∈ sub(R')),
+				∀x: ∈ R', ; ? I don't know whether I need to write ∀x: ∈ ◉,
+				P[R](x) = {+[∀n: ∈ S[m]](c[n] R.× (x R.^ n))}[∀m: ∈ h.N, ∀n: ∈ S[m], ∀c[∀n: ∈ S[m]]: ∈ R]
+				; we can prove it is unique under the consistent definitions
+			),
+
+			common_divisor[∀R: ∈ commutative_ring]: = commutative_rng.common_divisor[R],
+
+			gcd[∀R: ∈ commutative_ring]: = commutative_rng.gcd[R],
+			
 			unit(∀R: ∈ commutative_ring): = ring.unit(R),
 
 			divisor[∀R: ∈ commutative_ring]: = commutative_rng.divisor[R],
@@ -19,8 +37,4 @@
 			multiple[∀R: ∈ commutative_ring]: = commutative_rng.multiple[R],
 		; end
 
-		
-		
-
-		
 ),

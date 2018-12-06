@@ -282,14 +282,12 @@
 
 	),
 	
-	s"the quotient space of normal subgroup is still a group": ; +
-	(
+	s"the quotient space of normal subgroup is still a group":
+	(N
 		∀G: ∈ group, ∀No: ∈ normal(G),
-		∃H: ∈ group, H = G / No, ; ?
-		H.*
-		(
-			(x G.* No) * (y G.* No) = (x G.* y) G.* No ; !
-		)
+		H: = G / N, ; ?
+		H ∈ group,
+		(x G.* N) H.* (y G.* N) = (x G.* y) G.* N
 	),
 
 	s"all abelian groups are Dedekind group":
@@ -303,10 +301,9 @@
 		(∀a: ∈ G, ∀h: ∈ H, a * h * inv[G](a) = h ∈ H) ⇒ H ∈ normal(G)
 	``` ]
 
-	s"center of a group is always a normal subgroup":
+	s"center of a group is a normal subgroup, and it is the intersection of all the normal subgroups": ; +
 	(
-		∀G: ∈ group,
-		Z(G) ∈ normal(G)
+		∀G: ∈ group, Z(G) ∈ normal(G)
 	),
 	[ proof```
 		*: = &G.*&,
@@ -316,11 +313,12 @@
 
 	s"the elements from two normal subgroups are commuative is they are independent":
 	(
+		"Lemma for the next theorem",
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
 		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)
 	),
-	[ proof, ```
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&,
+	[ proof```
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
 		H ∩ K = {e} ⇒
 		(
 			∀h: ∈ H, ∀k: ∈ K,
@@ -333,43 +331,29 @@
 		)
 	``` ]
 
-	s"the direct product of two independent normal subgroup is endomorphic to original group":
+	s"the direct product of two independent normal subgroup is monomorphic to original group":
 	(
-		; ! old
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
 		*: = &G.*&, e: = G.e,
 		H ∩ K = {e} ⇒
 		(
-			∃f: ∈ homomorphism, f.D = H × K, f.C = G, f ∈ injection
+			∃f: ∈ momomorphism, f.D = H × K, f.C = G
 		)
 	),
-
-	; ! Theorem: start
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
-		∀(
-			H ∩ K = {e}, (h * k)[∀(h, k): ∈ H × K] = G
-		) ⇒ H × K ≌ G
-	; Theorem: end
-	[ proof, ```
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
-		*: = &G.*&, e: = G.e,
+	[ proof, with the help of the above one```
 		∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,
 		(
 			φ ∈ homomorphism ⇐
 			(
-				∀(h1, h2): ∈ H^2, ∀(k1, k2): ∈ K^2,
-				φ(h1 * h2, k1 * k2) = h1 * h2 * k1 * k2 = h1 * k1 * h2 * k2
+				∀{h1, h2}: ⊆ H, ∀{k1, k2}: ⊆ K,
+				φ(h1 * h2, k1 * k2) = h1 * h2 * k1 * k2 = h1 * k1 * h2 * k2 ; from the above lemma
 			),
 			φ ∈ injection ⇐
 			(
 				∀(h, k): ∈ H × K, φ(h, k) = e ⇒ h * k = e ⇒ h = k^-1 ⇒ ∀(h ∈ K, k ∈ H) ⇒ ∀(h ∈ {e}, k ∈ {e}) ⇒ (h, k) = (e, e) ⇒ ker(φ) = {(H × K).e}
-			),
-			φ ∈ surjection ⇐
-			(
-				φ(H × K) = {h * k|∀(h, k): ∈ H × K} = H * K = G
 			)
 		)
-		⇒ φ ∈ isomorphism ⇒ H × K ≌ G
+		⇒ φ ∈ monomorphism
 	``` ]
 ; end
 
@@ -402,6 +386,7 @@
 		commutator_sub(G) ∈ normal(G),
 		G / commutator_sub(G) ∈ abelian_group ; ! /
 	),
+
 	s"commutator group is the smallest normal group quotient to an abelian group": ; +
 	(
 		∀G: ∈ group, ∀H: ∈ normal(G),
@@ -508,7 +493,7 @@
 		),
 	; end
 	
-	; about Correspondence Theorem
+	; about Correspondence Theorem, or named fourth theorem
 		s"Correspondence Theorem":
 		(
 			∀G: ∈ group, ∀N: ∈ normal(G), H: = G / N, ; !
@@ -521,63 +506,62 @@
 ; end
 
 ; + about coset
-	s"the elements in the same coset":
-	(
-		∀G: ∈ group, ∀H: ∈ sub(G),
-		∀{a, b}: ⊆ G,
-		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H
-	),
-
-	s"set of cosets consist of a partition":
-	(
-
-	),
 
 	; about double coset
 ; end
 
-; ? about Lagrange's Theorem
+; ? about coset and Lagrange's Theorem
+	s"the elements in the same coset": ; ?
+	(
+		∀G: ∈ group, ∀H: ∈ sub(G),
+		∀{a, b}: ⊆ G,
+		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H,
+		(∃C: ∈ r'coset[G](H), {a, b} ⊆ C) ⇒ a * inv[G](b) ∈ H
+	),
+
+	s"set of cosets consist of a partition": ; +
+	(
+
+	),
+
+	s"the cardinal number of cosets of the same subgroup are the same":
+	(
+		; lemma for Lagrange theorem
+		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		∀x: ∈ G, |H| = |{x * h}[∀h: ∈ H]| 
+	),
+	[ proof```
+		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		∀x: ∈ G,
+		∃φ[x](∀h: ∈ H): = x * h,
+		(
+			(
+				∀h: ∈ H, ∀h': ∈ H,
+				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
+			)
+			⇒ φ[x] ∈ injection,
+			(
+				∀y: ∈ φ[x].C,
+				∃h: ∈ H, y = x * h, φ[x](h) = y
+			)
+			⇒ φ[x] ∈ surjection
+		)
+		⇒ φ[x] ∈ bijection ⇒ |φ[x].D| = |φ[x].C|
+		⇒ |H| = |x * H| 
+	``` ]
+
 	s"Lagrange's Theorem":
 	(
 		G: ∈ group, H: ∈ sub(G),
-		|G| ∈ h.N ⇒ |G|/|H| ∈ h.N 
+		|G| ∈ h.N ⇒ |G|/|H| ∈ h.N
 	),
-	[ proof, ``` ; +
-		; Lemma: start
-			G: ∈ group, H: ∈ sub(G), *: = &G.*&
-			∀x: ∈ G, |H| = |x * H| 
-		; Lemma: end
-		[ proof, ```
-			G: ∈ group, H: ∈ sub(G), *: = &G.*&
-			∀x: ∈ G,
-			∃φ[x]:
-			(
-				∈ mapping,
-				D: = H, C: = x × H,
-				φ[x](∀h: ∈ H) = x * h
-			),
-			(
-				(
-					∀h: ∈ H, ∀h': ∈ H,
-					φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
-				)
-				⇒ φ[x] ∈ injection,
-				(
-					∀y: ∈ φ[x].C,
-					∃h: ∈ H, y = x * h, φ[x](h) = y
-				)
-				⇒ φ[x] ∈ surjection
-			)
-			⇒ φ[x] ∈ bijection
-			⇒ |φ[x].C| = |φ[x]|
-			⇒ |H| = |x * H| 
-		``` ]
+	[ proof, with the help of the lemma``` ; +
 		G: ∈ group, H: ∈ sub(G), *: = &G.*&
 		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
 		|G| ∈ h.N ⇒
 		(
 			∃m: (∈ h.N, ≤ |G|),
-			|G| = |∪[]({x * H|∀x: ∈ G})|
+			|G| = |∪({x * H|∀x: ∈ G})|
 			= |∪[]({x[n] * H|∀x[∀n: (∈ h.N, ≤ m)]: ∈ G})|
 			= +[∀n: (∈ h.N, ≤ m)](|x[n] * H|)
 			= |H| × m
@@ -611,11 +595,6 @@ s"Sylow's First Theorem":
 	|G| = p^n ⇒ !(center(G) = {G.e})
 ; Theorem: end
 
-; Theorem: start
-	∀G: ∈ group, ∀No: ∈ normal(G),
-	∀H: ∈ sub(G), No ⊆ H ⇒ No ∈ normal(H)
-; Theorem: end
-
 [ 
  	Let G be a group, and h.N a normal subgroup of G. Then
 
@@ -627,15 +606,15 @@ s"Sylow's First Theorem":
  ]
 s"Third Isomorphism Theorem":
 (
-	∀No: ∈ normal(G), D: = {H|∀H: ∈ sub(G), No ⊆ H}, C: = {∀J: ∈ sub(G)/No}, ; ! /
+	∀No: ∈ normal(G), D: = {H|∀H: ∈ sub(G), N ⊆ H}, C: = {∀J: ∈ sub(G)/N}, ; ! /
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
-	∀H: ∈ D, φ(H) = H / No ; ! /
+	∀H: ∈ D, φ(H) = H / N ; ! /
 
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: ∈ sub(G),
-	No ⊆ H ⇒
-	(H / No ∈ normal(G/No) ⇔ H ∈ normal(G)) ; ! /
+	N ⊆ H ⇒
+	(H / N ∈ normal(G/N) ⇔ H ∈ normal(G)) ; ! /
 
-	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ sub(G), No ⊆ H),
+	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ sub(G), N ⊆ H),
 	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H ; ! /
 ),
 

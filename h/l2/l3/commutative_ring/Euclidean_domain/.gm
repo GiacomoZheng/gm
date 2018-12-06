@@ -1,4 +1,4 @@
-: ; + Euclidean_domain, or ED
+: ; + Euclidean_domain, or ED, I'll define it after I learn something about lattice
 (
 	"a integral domain (ring) satisfies the Euclidean algorithm",
 	⊆ integral_domain, ; here it needn't be unital, and we can prove it is.
@@ -18,12 +18,10 @@
 
 			common_divisor[∀E: ∈ ED]: = UFD.common_divisor[E],
 
-			greatest_common_divisor[∀E: ∈ ED]: = UFD.common_divisor[E],
-
-			gcd[∀E: ∈ ED]: = UFD.gcd[E], ; ?
+			gcd[∀E: ∈ ED]: = UFD.common_divisor[E],
 		; end
 
-		Euclidean_function:
+		Euclidean_function: ; +
 		(
 			⊆ function,
 		),
