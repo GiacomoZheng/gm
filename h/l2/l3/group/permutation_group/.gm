@@ -1,0 +1,10 @@
+: ; permutation_group
+(
+	; "the group of all the set.automorphism over a set",
+	⊆ group,
+	(
+		∀G: ∈ permutation_group,
+		G.S: ∈ set,
+		∀f: ∈ G, f ∈ set.automorphism, f.D = G.S
+	)
+),

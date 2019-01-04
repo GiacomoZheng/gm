@@ -25,7 +25,7 @@ A[∀n: ∈ N]: = {f}[∀f: ∈ S[n], f ∈ even_func],
 ; Dihedral group ; !
 D[∀n: ∈ Np]:
 (
-	∈ subgrooup(S[n]),
+	∈ sub(S[n]),
 	A: = {m|1 ≤ m ≤ n}[∀m: ∈ N],
 	a[∀m: ∈ A\{n}]: = m + 1, a[n]: = 1,
 	b[∀m: ∈ A]: = n + 1 - m,

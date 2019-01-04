@@ -14,7 +14,11 @@
 
 	; location
 		; about alias
-
+			regular_module: = module,
+			l'module: = module,
+			left_module: = l'module,
+			; + r'module: = anti_module,
+			; + right_module: = r'module,
 		; end
 
 		; + about inheritance

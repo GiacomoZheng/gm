@@ -1,25 +1,44 @@
 ; about alias
-	commutative_group: = abelian_group,
-	division_ring: = skew_field,
-	
-	; ? topset: = topological_space, ; I may use it to simplify it
-	continuous_function: = topological_space.homomorphism,
-
-	linear_space: = vector_space,
-	linear_map: = vector_space.homomorphism,
-	linear_transformation: = vector_space.homomorphism,
-	linear_operator: = vector_space.endomorphism. ; * I do not like this name
-
-	; about trivial
-		trivial_group: = group.trivial,
-		trivial_rng: = rng.trivial,
-		trivial_topological_space: = topological_space.trivial,
+	; about name of structure
+		commutative_group: = abelian_group,
+		division_ring: = skew_field,
+		unital_module: = ring.module, ; left module
+		; I'll do not define the singel module in this level
 	; end
 
-	; about sub
-		subgroup: = group.sub,
-		subrng: = rng.sub,
-		subring: = ring.sub,
-		subfield: = field.sub,
+	; about topology	
+		; ? topset: = topological_space, ; I may use it to simplify it
+		continuous_function: = topological_space.homomorphism,
+		homeomorphism: = topological_space.isomorphism, ; * I do not like this name
+	; end
+
+	; about linear (vector) space
+		linear_space: = vector_space, ; * In fact, I prefer this name
+		linear_map: = vector_space.homomorphism,
+		linear_transformation: = vector_space.homomorphism,
+		linear_operator: = vector_space.endomorphism. ; * I do not like this name
+	; end
+
+	; about poset
+		increasing_function: = poset.homomorphism,
+		decreasing_function: = poset.anti_homomorphism,
+		strictly_increasing_function: = poset.monomorphism,
+		decreasing_function: = poset.anti_monomorphism,
+		; ? monotonic
+	; end
+
+	; about full name of inheritance
+		; about trivial
+			trivial_group: = group.trivial,
+			trivial_rng: = rng.trivial,
+			trivial_topological_space: = topological_space.trivial,
+		; end
+
+		; about sub
+			subgroup: = group.sub,
+			subrng: = rng.sub,
+			subring: = ring.sub,
+			subfield: = field.sub,
+		; end
 	; end
 ; end

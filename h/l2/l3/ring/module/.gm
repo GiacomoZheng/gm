@@ -1,0 +1,11 @@
+: ; module, regular module here, or named as left module
+(
+	"ring module",
+	⊆ rng.module,
+	(
+		"the μ here means the multiplication",
+		∀M: ∈ module,
+		M.R ∈ ring,
+		M.μ ∈ action ; here it is the ring (left) action
+	),
+), 

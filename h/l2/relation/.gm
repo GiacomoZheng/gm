@@ -1,0 +1,10 @@
+: ; relation
+(
+	"a function on a set return a subset of it",
+	⊆ function,
+	(
+		∀P: ∈ relation,
+		P.D: ∈ set,
+		∀x: ∈ P.D, x ∈ set.sub(P.D)
+	)
+),

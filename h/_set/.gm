@@ -48,5 +48,12 @@
 				∀A: ∈ sub(S),
 				∀a: ∈ A, a ∈ S 
 			),
+
+			element(∀S: ∈ set):
+			(
+				⊆ ◉,
+				∀x: ∈ element(S),
+				x ∈ S
+			),
 		; end
 ),

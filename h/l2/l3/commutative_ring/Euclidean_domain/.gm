@@ -21,9 +21,9 @@
 			gcd[∀E: ∈ ED]: = UFD.common_divisor[E],
 		; end
 
-		Euclidean_function: ; +
+		Euclidean_function: ; + 
 		(
-			⊆ function,
+			⊆ mapping,
 		),
 
 

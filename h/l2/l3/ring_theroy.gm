@@ -1,19 +1,10 @@
 ; ! a little bit change will be done when I complete the definition of polynomial ring
 s"the unit of Z[n] are the ones coprime to the n":, ; !
 
-s"the functions of Z[x] is closure on any ring": ; Z[x] is the nonation
-(
-	; ! these two multiplications are different
-	∀x: ∈ ◉, ∀f(x): ∈ P[h.Z](x),
-	∀R: ∈ ring, ∀a: ∈ R,
-	f(a) ∈ R
-),
-
-
 s"P[R](x) / I[R]({x}) ≌ R":,
 [ proof ```
 	∀f(x) R.+ Id: ∈ P[R](x) / Id, Id = I[R](x),
-	f(x)  = a[0] R.+ a[1] R.× x R.+ ... R.+ Id
+	f(x) = a[0] R.+ a[1] R.× x R.+ ... R.+ Id
 	= a[0] R.+ (a[1] + a[2] R.× x + ...) R.× x R.+ Id
 	= a[0] R.+ Id
 ``` ]
@@ -26,7 +17,8 @@ s"enough intersection points make two polynomial the same":
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
 	∃m: ∈ h.Z, m > deg(f(x)), m > deg(g(x)),
-	(∃A: ⊆ R, |A| = m, (∀a: ∈ A, f(a) = g(a))) ⇒ f = g■ ; as function's "equal"
+	(∃A: ⊆ R, |A| = m, (∀a: ∈ A, f(a) = g(a))) ⇒ f = g
+	■
 ),
 
 s"intersection at the infinite domain make two polynomial the same":
@@ -37,7 +29,8 @@ s"intersection at the infinite domain make two polynomial the same":
 	∀(
 		!(|R| ∈ h.N),
 		(∀a: ∈ R, f(a) = g(a))
-	) ⇒ f = g■ ; as function's "equal"
+	) ⇒ f = g
+	■
 ),
 
 s"PID and UFD":
@@ -123,14 +116,6 @@ s"the ideal over a prime number in Z is maximal":
 (
 	@gm.h.Ring,
 	∀p: ∈ prime_number, I[h.Z]({p}) ∈ maximal_ideal_ideal(Z)■
-),
-
-s"ideals of R contains I bijects to ideals of R/I":
-(
-	@gm.h.Ring,
-	∃f: ∈ bijection,
-	f.D = {∀x: ∈ ideal(R/Id)},
-	f.C = {∀x: (∈ ideal(R), Id ⊆ x)}■
 ),
 
 s"nature of quotient ring":

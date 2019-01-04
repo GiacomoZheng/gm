@@ -1,11 +1,29 @@
+s"chaim of domains":
+(
+	integral_domain ⊇ GCD_domain ⊇ UFD ⊇ PID ⊇ ED ⊇ field,
+
+	PID ⊇ Bezout_domain
+),
+
+; about Gauss theorem
+	s"":
+
+	s"Gauss theorem: polynomial rings of UFD are also UFD":
+	(
+		∀R: ∈ UFD, ∀x: ∈ ◉,
+		P[R](x) ∈ UFD
+	),
+; end
+
+
 s"simple commutative ring is the same as field": ; !
 (
-	∀R: ∈ commutative_ring,
-	R ∈ ring.simple ⇔ R ∈ field ; !
+	commutative_ring.simple = field
 ),
 [ proof```
 	; ⇐ part is trivial
 	; for the ⇒ part
+	∀R: ∈ commutative_ring,
 	@R,
 	∀a: ∈ R,
 	(
@@ -15,6 +33,13 @@ s"simple commutative ring is the same as field": ; !
 	) ⇒ R ∈ field
 	■
 ``` ]
+
+s"an ideal P of a commutative ring is a maximal ideal if and only if R/P is field":
+(
+	∀R: ∈ commutative_rng, ∀I: ∈ ideal(R),
+	I ∈ maximal_ideal(R) ⇔ R/I ∈ field ; rng ; ! /
+),
+[ proof: max ⇔ simple ⇔ field ]
 
 s"every maximal ideal of a commutative ring is prime ideal":
 (
@@ -30,25 +55,17 @@ s"every maximal ideal of a commutative ring is prime ideal":
 	■
 	```
 	proof```
-	
+	∀R: ∈ commutative_rng, ∀I: ∈ ideal(R),
+	I ∈ maximal_ideal(R) ⇔ R/I ∈ field ⇒ R/I ∈ integral_domain ⇔ I ∈ prime_ideal(R)
 ``` ]
 
 s"prime element are irreducible elements": ; +
 (
-	∀R: ∈ commutative_ring
-),
-
-s"irreducible elements in GCD_domain is always prime": ; +
-(
-
+	∀R: ∈ commutative_ring,
+	prime(R) ⊆ irreducible(R)
 ),
 
 s"any PID is UFD": ; +
 (
 
 ),
-
-s"polynomial rings of UFD are also UFD":
-(
-	∀R: ∈ UFD, ∀x: ∈ ◉, P[R](x) ∈ UFD
-)

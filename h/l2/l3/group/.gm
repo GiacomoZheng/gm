@@ -14,6 +14,12 @@
 	; the "group" above is just a location for the ones below
 		; about alias
 			periodic_group: = torsion_group,
+			
+			regular_action: = action,
+			l'action: = action,
+			left_action: = l'action,
+			r'action: = anti_action,
+			right_action: = r'action,
 		; end
 		
 		; + about inheritance
@@ -50,9 +56,8 @@
 
 		generator(∀G: ∈ cyclic_group):
 		(
-			⊆ ◉,
+			⊆ set.element(G),
 			∀g: ∈ generator(G),
-			g ∈ G,
 			G = {G.e (G.* g)^n}[∀n: ∈ h.Z]
 		),
 
@@ -94,11 +99,9 @@
 
 		normal(∀G: ∈ group):
 		(
-			⊆ ◉,
-
+			⊆ sub(G),
 			*: = &G.*&,
 			∀Nor: ∈ normal(G),
-			Nor ∈ sub(G),
 			∀h: ∈ Nor, ∀g: ∈ G, g*h*inv[G](g) ∈ Nor
 		),
 

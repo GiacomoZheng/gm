@@ -1,5 +1,11 @@
 : ; function
 (
+	"for every input, a function would give an unique output",
 	⊆ ◉,
-	(' the name of can only ')
+	
+	[  ]
+		; about inheritance
+		; end
+		i(∀x: ∈ ◉): = x,
+		id: = i,
 ),

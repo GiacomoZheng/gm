@@ -10,6 +10,12 @@
 	; location
 		; about alias
 			commutative_domain: = integral_domain,
+			
+			regular_module: = module,
+			l'module: = module,
+			left_module: = l'module,
+			; + r'module: = anti_module,
+			; + right_module: = r'module,
 		; end
 
 		; + about inheritance

@@ -6,6 +6,7 @@
 	; 
 		; about alias
 			ED: = Euclidean_domain,
+			Bezout_domain: = Bézout_domain, ; for convenience
 		; end
 
 		; about inheritance

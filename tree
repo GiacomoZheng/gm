@@ -35,6 +35,7 @@ gm
 				├─action
 					├─faithful_action
 					└─_transitive_action
+				├─anti_action
 				├─automorphism
 				├─cyclic_group
 				├─Dedekind_group
@@ -54,20 +55,28 @@ gm
 				├─_solvable_group
 				└─_transposition
 			├─l4
-				└─normed_abelian_group
+				├─normed_abelian_group
+				└─_random_space
 			├─magma
-			├─module
 			├─monoid
 			├─poset
+				├─anti_homomorphism
+				├─anti_monomorphism
+				├─homomorphism
+				└─monomorphism
 			├─ring
+				├─action
 				├─homomorphism
 				├─isomorphism
+				├─module
 				└─simple
 			├─rng
+				├─action
 				├─domain
 				├─homomorphism
 				├─integral_domain
 				├─isomorphism
+				├─module
 				├─Noetherian
 				├─simple
 				└─trivial
@@ -89,9 +98,6 @@ gm
 				├─isomorphism
 				├─norm
 				└─trivial
-			├─_measure_theory
-				└─probability_theory
-					└─_random_space
 			├─_ordered_set
 			├─_preordered_set
 			└─_ring_theroy

@@ -18,3 +18,5 @@ The file `tree` is the menu of the whole file
 * `; ?` is equal to `; WAIT`, meaning I haven't determined about whether I'll keep on use it.
 * `; !` is equal to `; WARN`, meaning it is something wrong here, and I'll fix it later
 
+# TODO
+* rewrite the relators into classes.

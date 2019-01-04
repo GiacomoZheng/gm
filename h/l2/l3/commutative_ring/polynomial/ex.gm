@@ -11,12 +11,3 @@ s"rational root test":
 
 	)
 ),
-
-algebraic_integer:
-(
-	⊆ ◉, ; element of C
-	∀x: ∈ algebraic_integer,
-	; x ∈ C,
-	∃f(x): ∈ P[C](x), f ∈ monic, x ∈ root(f) ; in C
-),
-

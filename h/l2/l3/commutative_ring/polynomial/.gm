@@ -21,9 +21,8 @@
 		
 		root(∀f: ∈ polynomial):
 		(
-			⊆ ◉,
+			⊆ set.element(f.R),
 			∀α: ∈ root(f),
-			α ∈ f.R,
 			f(α) = R.0
 		),
 ),

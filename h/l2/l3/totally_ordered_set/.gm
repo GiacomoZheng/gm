@@ -1,8 +1,8 @@
-: ; ordered_set, or totally_ordered_set
+: ; totally_ordered_set
 (
 	⊆ poset,
 
-	∀S: ∈ ordered_set,
+	∀S: ∈ totally_ordered_set,
 	∀a: ∈ S, ∀b: ∈ S,
 	[ all the elements are comparable ]
 	!(a S.≤ b) ⇔ b S.≤ a ; closure

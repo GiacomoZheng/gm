@@ -8,6 +8,7 @@
 	[ attributes ]
 		; about alias
 			monomorphism: = extension,
+			module: = vector_space, ; in fact, vector_space = field.module
 		; end
 		
 		; about inheritance
@@ -25,16 +26,14 @@
 			ker(∀f: ∈ homomorphism): = ring.ker(f),
 		; end
 
-	; waitting for rewriting
+	; + waitting for rewriting
 		Q[∀K: ∈ field](∀x: ∈ ◉): = {p(x)/q(x)}[∀{p(x), q(x)}: ⊆ P[K](x), !(q(x) = 0)], ; !
-		[ a field indeed ]
+		; fraction field of P[K](x)
 
 		algebraic[∀L: ∈ field](∀K: ∈ sub(L)): ; extension from the root
 		(
-			⊆ ◉,
-
+			⊆ set.element(L),
 			∀α: ∈ algebraic[L](K),
-			α ∈ L,
 			∀x: ∈ ◉, ∃f(x): ∈ P[K](x) \ {P[K](x).0}, f(α) = 0
 		),
 

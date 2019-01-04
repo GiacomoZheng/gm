@@ -8,13 +8,13 @@
 	[ chaim: integral_domain ⊇ GCD_domain ⊇ UFD ]
 	; location
 		; about inheritance
-			divisor[∀R: ∈ UFD]: = commutative_rng.divisor[R],
+			divisor[∀R: ∈ UFD]: = integral_domain.divisor[R],
 
-			multiple[∀R: ∈ UFD]: = commutative_rng.multiple[R],
+			multiple[∀R: ∈ UFD]: = integral_domain.multiple[R],
 
 			associated[∀R: ∈ UFD]: = integral_domain.associated[R],
 
-			common_divisor[∀R: ∈ UFD]: = commutative_rng.common_divisor[R],
+			common_divisor[∀R: ∈ UFD]: = integral_domain.common_divisor[R],
 
 			gcd[∀R: ∈ UFD]: = GCD_domain.gcd[R], ; here it is unique under associated
 

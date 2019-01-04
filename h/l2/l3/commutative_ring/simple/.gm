@@ -1,7 +1,7 @@
 : ; simple
 (
-	"the rings which has no new ring in its quetient rings"
-	⊆ ring,
+	"the rings which has no new in its quetients"
+	⊆ commutative_ring,
 
 	∀R: ∈ simple,
 	∀I: ∈ ideal(R), I ∈ {{R.0}, R}

@@ -1,20 +1,13 @@
 : ; vector_space
 (
-	⊆ abelian_group, ; "+" defined there
+	"field module",
+	⊆ ring.module, ; "+" defined there
 	(
-		; +
 		∀V: ∈ vector_space,
-		V.×: ∈ symbol, ; !
-		V.F: ∈ field,
-
-		∀v: ∈ V,
-		∀a: ∈ V.F, a V.× v = v V.× a ∈ V, ; closure, with the closure in abelian group
-		V.F.1 V.× v = v, ; identity
-		∀b: ∈ V.F, (a V.F.× b) V.× v = a V.× (b V.× v), ; compatibility
-
-		∀u: ∈ V, a V.× (u V.+ v) = (a V.× u) V.+ (a V.× v), ; distribution
-		(a V.+ b) V.× v = (a V.× v) V.+ (c V.× v)
-	), ; to deal with the temporaries
+		V.F: = V.R,
+		V.F ∈ field,
+		V.μ ∈ field.action ; here it is the field (left) action
+	),
 	[ property: ... ]
 		; about alias
 		; end
@@ -23,12 +16,10 @@
 			sub(∀V: ∈ vector_space):
 			(
 				⊆ vector_space,
-				⊆ group.sub(V),
+				⊆ ring.module.sub(V), ; +
 				∀S: ∈ sub(V),
-				&S.+& = &V.+&,
-				S.0 = V.0,
-				&S.×& = &V.×&,
-				S.F = V.F
+				V.F = S.F,
+				&V.μ& = &S.μ&
 			),
 
 			min_sub[∀G: ∈ vector_space](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; !
@@ -49,15 +40,15 @@
 
 		combination[∀V: ∈ vector_space](∀S: ∈ V):
 		(
-			⊆ ◉,
+			⊆ ◉, ; ?
 			∀x: ∈ combination[V](S),
 			∃c[∀α: ∈ S]: ∈ V.F,
 			x = V.+[∀α: ∈ I](c[α] V.× α) ; means it is the elements of V
 		),
 
-		span[∀V: ∈ vector_space](S): = {∀x: ∈ combination[V](S)},
+		span[∀V: ∈ vector_space](∀S: ⊆ set.sub(V)): = {∀x: ∈ combination[V](S)},
 
-		eigen(∀f: ∈ endomorphism):
+		eigen(∀f: ∈ endomorphism): ; +
 		(
 			"eigen value of "
 		)

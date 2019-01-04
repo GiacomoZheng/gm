@@ -1,0 +1,11 @@
+: ; action
+(
+	⊆ rng.action,
+	(
+		∀μ: ∈ action,
+		@μ,
+		D ∈ ring,
+		∀s: ∈ S, μ(R.1)(s) = s
+		■
+	)
+),

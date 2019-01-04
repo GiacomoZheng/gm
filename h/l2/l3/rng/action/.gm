@@ -1,0 +1,19 @@
+: ; action, or regular action, or l'action
+(
+	"a homomorphism from a rng into the rng of automorphism on an abelian group",
+	⊆ mapping, ; * it is not a group action
+	(
+		∀μ: ∈ action,
+		μ.D ∈ rng,
+		μ.S: ∈ abelian_group, ; * important
+		μ.C = {f|f.D = μ.S}[∀f: ∈ group.endomorphism], ; *
+		; ∀z: ∈ D, ∀{r, t}: ∈ S, μ(z)(r S.+ t) = μ(z)(r) S.+ μ(z)(t),
+		; μ(z)(S.0) = S.0,
+
+		@μ,
+		∀{x, y}: ∈ D,
+		∀s: ∈ S, μ(x D.+ y)(s) = μ(x)(s) S.+ μ(y)(s), ; group homomorphism
+		μ(x D.× y) = μ(x) ∘ μ(y) ; rng homomorphism
+		■
+	),
+),

@@ -1,0 +1,10 @@
+: ; homomorphism, or increasing_function
+(
+	⊆ set.homomorphism, ; ? may change to preorder later
+	∀f: ∈ homomorphism,
+	f.D = poset, f.C = poset,
+	@f,
+	∀{x, y}: ⊆ D,
+	x D.≤ y ⇒ f(x) C.≤ f(y)
+	■
+),

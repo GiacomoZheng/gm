@@ -18,9 +18,8 @@
 		(
 			"prime elements: p | ab then p | a or p |b",
 			[ 0 can nver be a divisor ]
-			⊆ ◉,
+			⊆ set.element(R),
 			∀p: ∈ prime(R),
-			p ∈ R,
 			!(p ∈ unit(R)), ; ?
 			@R,
 			∀{a, b}: ∈ R,
@@ -30,9 +29,9 @@
 
 		divisor[∀R: ∈ commutative_rng](∀a: ∈ R):
 		(
-			⊆ ◉,
+			⊆ set.element(R),
 			[ 0 can nver be a divisor ]
-			∀b: ∈ divisor[R](a), b ∈ R,
+			∀b: ∈ divisor[R](a),
 			∃c: ∈ R, c R.× b = a
 		),
 
@@ -48,8 +47,8 @@
 
 		multiple[∀R: ∈ commutative_rng](∀a: ∈ R):
 		(
-			⊆ ◉,
-			∀b: ∈ multiple[R](a), b ∈ R,
+			⊆ set.element(R),
+			∀b: ∈ multiple[R](a),
 			∃c: ∈ R, b = c R.× a
 			[ here, 0 is a multiple of every elements ]
 		),

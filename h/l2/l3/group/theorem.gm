@@ -103,7 +103,7 @@
 ; end
 
 ; ? about examples
-	s"symmetric group":
+	s"symmetric group": ; *■■■■■■■■■■■■■■
 	(
 		∀S: ∈ set, i(∀x: ∈ S): = x,
 		sym(S) ∈ group, &sym(S).*& = &∘&, sym(S).e = i
@@ -251,29 +251,6 @@
 		∃{q, r}: ⊆ h.Z, n = m × q + r, 0 ≤ r < m, ; the division theorem on Z ; assume it here
 		e = e (* x)^n = e (* x)^(m × q + r) = e (* x)^(m × q) (* x)^r = e ((* x)^m)^q (* x)^r = e (* x)^r ⇒ r = 0
 	``` ]
-; end
-
-; about permutation group
-	s"computations in permutation group": ; + I don't complete the "c" up to now
-	(
-		∀n: ∈ h.N,
-		∀σ: ∈ ex.S[n], ∀c(i, …, j): ∈ circle, ; !
-		σ ∘ c(i, …, j) ∘ inv[ex.S[n]](σ) = c(σ(i), …, σ(j))
-	),
-	s"the parity of any element of S[n] is an invariant": ; + define the permutaion matrix before
-	(
-		s"any element of S[n] can be written as a permutation matrix, whose determinant is +1 or -1":,
-	),
-
-	s"cardinal and generators of permutation group": ; ? about the circle
-	(
-		∀n: ∈ h.N, S: = {∀m: 1 ≤ m ≤ n},
-		|ex.S[n]| = ×[∀j: (∈ h.N, 1 ≤ j ≤ n)](j),
-		; ex.S[n] = gp({c(a, b)|∀(a, b): ∈ h.N^2, a ≤ n, b ≤ n}),
-		n ≥ 3 ⇒ ex.A[n] = min_sub[ex.S[n]]({c(i, j, k)}[∀{i, j, k}: ⊆ S])
-	),
-	[ proof (not very serious), 
-	 ]
 ; end
 
 ; + about normal
@@ -493,6 +470,10 @@
 		),
 	; end
 	
+	; about third isomorphism theorem
+		s"Third Isomorphism Theorem":,
+	; end
+
 	; about Correspondence Theorem, or named fourth theorem
 		s"Correspondence Theorem":
 		(
@@ -503,11 +484,6 @@
 			∀(φ.C = ℒ, φ ∈ bijection)
 		),
 	; end
-; end
-
-; + about coset
-
-	; about double coset
 ; end
 
 ; ? about coset and Lagrange's Theorem
@@ -576,24 +552,6 @@
 
 	s"the group with size prime is cyclic"
 ; end
-
-s"Sylow's First Theorem":
-(
-	∀G: ∈ group,
-	|G| ∈ h.N ⇒
-	(
-		∀p: ∈ prime_number, ∀n: ∈ h.N, m: = |G|/(p^n),
-		∀(m ∈ h.N, gcd(m, p) = 1) ⇒
-		(
-			∃H: ∈ sub(G), |H| = p^n
-		)
-	)
-),
-
-; Theorem: start
-	∀G: ∈ group, ∀p: ∈ prime_number, ∀n: ∈ h.N,
-	|G| = p^n ⇒ !(center(G) = {G.e})
-; Theorem: end
 
 [ 
  	Let G be a group, and h.N a normal subgroup of G. Then

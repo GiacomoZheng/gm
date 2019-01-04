@@ -11,21 +11,18 @@
 	; location
 		maximal_ideal(∀P: ∈ poset): ; diiferent from the biggest one
 		(
-			⊆ ◉,
+			⊆ set.element(P),
 
 			∀x: ∈ maximal_ideal(G),
-			x ∈ P,
 			!y: ∈ G, !(x = y) ⇒ x G.≤ y
-			[ equivalence to
-			```
-			∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
-			```
-			]
+			[ equivalently```
+				∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
+			``` ]
 		),
 
 		chain(∀P: ∈ poset):
 		(
 			⊆ set.sub(P),
 			⊆ ordered_set ; ? total_ordered set
-		)
+		),
 ),

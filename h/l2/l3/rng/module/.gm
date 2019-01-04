@@ -1,0 +1,13 @@
+: ; module, regular module here, or named as left module
+(
+	"rng module",
+	⊆ abelian_group,
+	(
+		"the μ here means the multiplication",
+		∀M: ∈ module,
+		M.R: ∈ rng,
+		M.μ: ∈ action, ; here it is the rng (left) action
+		M ⊆ M.μ.S,
+		M.R = M.μ.R
+	),
+), 

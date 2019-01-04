@@ -1,0 +1,10 @@
+: ; anti_homomorphism, or decreasing_function
+(
+	⊆ set.homomorphism, ; ?
+	∀f: ∈ anti_homomorphism,
+	f.D = poset, f.C = poset,
+	@f,
+	∀{x, y}: ⊆ D,
+	x D.≤ y ⇒ f(y) C.≤ f(x) ; the order is different from the homomorphism
+	■
+)
