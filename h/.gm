@@ -1,34 +1,71 @@
-; about location
+; about locations
 	s: = , ; standard, 
 ; end
 
-; about alias, set
-	mapping: = set.homomorphism,
-	injection: = set.monomorphism,
-	surjection: = set.epimorphism,
-	bijection: = set.isomorphism,
+; ; about abbreviation
+; 	×: = &set.×&,
+; 	∪: = &set.∪&,
+; 	∩: = &set.∩&,
+	Ps: = set.Ps, ; ?
 
-	permutation: = set.automorphism,
+; 	∘: = &function.∘&,
+; ; end
+
+; about alias
+	; about set
+		; about morphism
+			mapping: = set.homomorphism,
+			injection: = set.monomorphism,
+			surjection: = set.epimorphism,
+			bijection: = set.isomorphism,
+
+			permutation: = set.automorphism,
+		; end
+	; end
 ; end
 
-{…}:
-(
-	∈ bracket,
-),
+; about relator
+	reflexive_relator: (⊆ relation, ∀𝓅: ∈ reflexive_relator, &𝓅&.r ∈ relation.reflexive),
+	transitive_relator: (⊆ relation, ∀𝓅: ∈ transitive_relator, &𝓅&.r ∈ relation.transitive),
+	symmetric_relator: (⊆ relation, ∀𝓅: ∈ symmetric_relator, &𝓅&.r ∈ relation.symmetric),
 
-{…|…}:
-(
-	∈ bracket,
-),
+	irreflexive_relator: (⊆ relation, ∀𝓅: ∈ irreflexive_relator, &𝓅&.r ∈ relation.irreflexive),
+	antitransitive_relator: (⊆ relation, ∀𝓅: ∈ antitransitive_relator, &𝓅&.r ∈ relation.antitransitive),
+	antisymmetric_relator: (⊆ relation, ∀𝓅: ∈ antisymmetric_relator, &𝓅&.r ∈ relation.antisymmetric),
+
+	preorder_relator: (⊆ relation, ∀𝓅: ∈ preorder_relator, &𝓅&.r ∈ relation.preorder),
+
+	equivalent_relator: (⊆ relation, ∀𝓅: ∈ equivalent_relator, &𝓅&.r ∈ relation.equivalent),
+	order_relator: (⊆ relation, ∀𝓅: ∈ order_relator, &𝓅&.r ∈ relation.order),
+; end
 
 ∅: = {},
 
-Ps(∀A: ∈ set) = {S}[∀S: ⊆ A],
+^: ; ? move to bijiecton
+(
+	∈ symbol,
+	∀n: ∈ h.Z,
 
-Range(∀f: ∈ mapping) = {f(x)}[∀x: ∈ f.D],
+	∀f: ∈ bijection,
+	i: = f.i, ; the identity permutation with the domain of f 
+	∃f': ∈ bijection, f' ∘ f = f ∘ f' = i,
+	f ^ 0 = i,
+	f ^ -1 = f',
+	n > 0 ⇒ f ^ n = f ^ (n - 1) ∘ f,
+	n < 0 ⇒ f ^ n = f ^ (n + 1) ∘ f ^ -1
+),
 
+{…}: ; +
+(
+	∈ bracket,
+),
 
-; ? I don't how to deal with them now
+{…|…}: ; +
+(
+	∈ bracket,
+),
+
+; ? I don't how to deal with them now ; ! I may move them away later
 ; * but I suggest you to write h.* than just use NZQR 
 N: = {}, ; 0, 1, 2, …
 Z: = {},

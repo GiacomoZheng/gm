@@ -1,6 +1,0 @@
-: ; reflective_relator
-(
-	⊆ relator,
-	∀𝓅: ∈ reflective_relator,
-	∀a: ∈ &𝓅&.D, a 𝓅 a
-),

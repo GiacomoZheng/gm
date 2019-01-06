@@ -19,4 +19,4 @@ The file `tree` is the menu of the whole file
 * `; !` is equal to `; WARN`, meaning it is something wrong here, and I'll fix it later
 
 # TODO
-* rewrite the relators into classes.
+* delete all the `|…|`

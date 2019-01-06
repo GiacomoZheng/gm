@@ -1,0 +1,6 @@
+: ; irreflexive
+(
+	⊆ relation,
+	∀P: ∈ irreflexive,
+	∀a: ∈ P.D, !(a ∈ P(a))
+),

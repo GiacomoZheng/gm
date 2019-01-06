@@ -1,0 +1,103 @@
+: ; topological_space
+(
+	"topological space via approach to"
+	⊆ set, ; *** I choose my "→" version
+	(
+		∀X: ∈ topological_space,
+		X.→: ∈ preorder_relator,
+		X ⊆ &X.→&.D,
+		
+		[ attibutes ]
+		; via open set
+			X.τ:
+			(
+				⊆ Ps(X),
+				∅ ∈ X.τ, X ∈ X.τ,
+				∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
+				∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ, ; !
+
+				∀x: ∈ X, {y│y X.→ x}[∀y: ∈ T] ∈ X.τ ; * to be consistent with →
+			),
+		; end
+
+		; about arrow
+			X.←:
+			(
+				∈ relator,
+				∀{a, b}: ⊆ X, a X.← b ⇔ b X.→ a
+			),
+
+			X.↔:
+			(
+				∈ relator,
+				∀{a, b}: ⊆ X, a X.↔ b ⇔ ∀(a X.→ b, b X.→ a)
+			),
+		; end
+	),
+
+	[ for location ]
+		; about alias
+			topology(∀X: ∈ topological_space): = X.τ,
+
+			homeomorphism: = isomorphism, ; I don't like it name
+			bicontinuous_function: = isomorphism,
+			close_set: = closed, ; ? someone others may use it
+		; end
+
+		; + about inheritance
+			sub(∀S: ∈ topological_space):
+			(
+				"sub topological space",
+				⊆ set.sub(S),
+				⊆ topological_space,
+				∀A: ∈ sub(S),
+				&A.→& = &S.→& ; ?
+			),
+			
+		; end
+		closure[∀X: ∈ topological_space](∀A: ⊆ X): = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; directly A ⊆ its closure
+
+		basis(topology(∀X: ∈ topological_space)): ; package definition, 打包定义
+		(
+			; +
+			"the smallest subsets whose sub-union consist all the open sets(except ∅)",
+			=
+		),
+		[ equivalently```
+			basis(∀S: ∈ `setofsets`):,
+		``` ]
+
+		Nbh[∀X: ∈ topological_space](∀x: ∈ X):
+		(
+			"neighborhood of x in X",
+			⊆ set.sub(X),
+			∀A: ∈ Nbh[X](x),
+			∃O: ∈ X.τ,
+			x ∈ O, O ⊆ A
+		),
+
+		open(∀X: ∈ topological_space): = set.element(X.τ),
+		; ? it is just the coresponding class of τ
+
+		open_cover(∀C: ∈ topological_space):
+		(
+			⊆ set.cover(C),
+			∀𝒞: ∈ open_cover(C),
+			𝒞 ⊆ C.τ
+		),
+
+		closed(∀X: ∈ topological_space): ; ?
+		(
+			⊆ set.sub(X),
+			∀F: ∈ closed(X),
+			∀x: ∈ X, (∃y: ∈ F, y X.→ x) ⇒ x ∈ F
+		),
+
+		dense_sub(∀X: ∈ topological_space):
+		(
+			⊆ set.sub(X),
+			∀D: ∈ dense_sub(X),
+			closure[X](D) = X
+		),
+		[ I may write down some equivalent version of it ]
+),

@@ -1,0 +1,8 @@
+: ; reflexive
+(
+	⊆ relation,
+	(	
+		∀P: ∈ reflexive,
+		∀a: ∈ P.D, a ∈ P(a)
+	)
+),

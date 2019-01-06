@@ -1,0 +1,10 @@
+: ; antisymmetric
+(
+	⊆ relation,
+	(
+		∀P: ∈ antisymmetric,
+
+		∀a: ∈ P.D, ∀b: ∈ P.D,
+		!(a = b) ⇒ !(∀(a ∈ P(b), b ∈ P(a))) ; ?
+	)
+),

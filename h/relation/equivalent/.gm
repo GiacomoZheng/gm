@@ -1,0 +1,6 @@
+: ; equivalent
+(
+	⊆ preorder,
+	⊆ symmetric
+),
+[ every equivalent relation cause a partition ]

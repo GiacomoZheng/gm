@@ -1,6 +1,0 @@
-: ; equivalence_relator
-(
-	⊆ preorder_relator,
-	⊆ symmetric_relator
-),
-[ every equivalence_relator cause a partition ]

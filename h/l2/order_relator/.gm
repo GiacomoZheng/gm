@@ -1,5 +1,0 @@
-: ; order_relator
-(
-	⊆ preorder_relator,
-	⊆ antisymmetric_relator
-),

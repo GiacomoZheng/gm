@@ -2,10 +2,13 @@
 (
 	"for every input, a function would give an unique output",
 	⊆ ◉,
+	(
+
+	),
 	
-	[  ]
-		; about inheritance
-		; end
+	; locations
 		i(∀x: ∈ ◉): = x,
 		id: = i,
+
+		∘: ,; +
 ),

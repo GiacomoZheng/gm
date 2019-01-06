@@ -1,5 +1,0 @@
-: ; preorder_relator
-(
-	⊆ reflective_relator,
-	⊆ transitive_relator
-),

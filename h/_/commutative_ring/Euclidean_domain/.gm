@@ -23,6 +23,7 @@
 
 		Euclidean_function: ; + 
 		(
+			"from an integral domain to a well ordered set",
 			⊆ mapping,
 		),
 

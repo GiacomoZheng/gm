@@ -1,0 +1,9 @@
+: ; symmetric
+(
+	⊆ relation,
+	(
+		∀P: ∈ symmetric,
+		∀a: ∈ P.D, ∀b: ∈ P.D,
+		(a ∈ P(b)) ⇒ (b ∈ P(a))
+	)
+),

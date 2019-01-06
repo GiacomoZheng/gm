@@ -34,26 +34,76 @@
 
 		)
 	; end
+	
 	⊆ ◉,
 	(
 
 	),
 
 	; location
-		; + about inheritance
-			sub(∀S: ∈ set):
-			(
-				"subset",
-				⊆ set,
-				∀A: ∈ sub(S),
-				∀a: ∈ A, a ∈ S 
-			),
+		sub(∀S: ∈ set):
+		(
+			"subset",
+			⊆ set,
+			∀A: ∈ sub(S),
+			∀a: ∈ A, a ∈ S 
+		),
 
-			element(∀S: ∈ set):
-			(
-				⊆ ◉,
-				∀x: ∈ element(S),
-				x ∈ S
-			),
-		; end
+		element(∀S: ∈ set):
+		(
+			⊆ ◉,
+			∀x: ∈ element(S),
+			x ∈ S
+		),
+
+		Ps(∀S: ∈ set): = {},
+		; + return a set ; I'll create another function return a class",
+
+		cover(∀S: ∈ set):
+		(
+			"cover of S, set of subsets",
+			⊆ sub(Ps(S)), ;  every element of the cover should be a subset of the S of it
+			∀𝒞: ∈ cover,
+			; !({} ∈ 𝒞), ; ? others may not require the sets in covers nonempty
+			S = ∪(𝒞) ; ! the union of all the sets in the cover should be the S
+		),
+		[ the only cover of ∅ is {} ]
+
+		partition(∀S: ∈ set):
+		(
+			⊆ cover(S),
+
+			∀𝒫: ∈ partition(S), ; ? sets in 𝒫 is nonempty as I define cover as so
+			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
+			!(A = B) ⇒ A ∩ B = ∅
+		),
+	
+		×: ; !
+		(
+			∈ operator,
+			∀A: ∈ set, ∀B: ∈ set,
+			A × B = {(x, y)}[∀x: ∈ A, ∀y: ∈ B]
+		),
+
+		∪: ; !
+		(
+			∈ symbunc, ; ! I've delete this class
+
+			∀τ: ∈ set, ; set of set
+			∪[](τ) = {x}[∀x: ∈ ◉, ∃C: ∈ τ, x ∈ C],
+
+			∀A: ∈ ◉, ∀B: ∈ ◉,
+			∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪[]({A, B})
+		),
+
+		∩: ; !
+		(
+			∈ symbunc, ; !
+
+			∀τ: ∈ set, ; set of set
+			∩[](τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C], ; !
+
+			∀A: ∈ ◉, ∀B: ∈ ◉,
+			∀(A ∈ set, B ∈ set) ⇒ A ∩ B = ∩[]({A, B}) ; !
+		),
 ),

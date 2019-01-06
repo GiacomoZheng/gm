@@ -1,0 +1,25 @@
+; about generalizing
+	s"every subset of a topological space is subspace":
+	(
+		∀X: ∈ topological_space, sub(X) = set.sub(X)
+	),
+
+	s"criterion of trivial topological space"
+	(
+		∀T: ∈ trivial,
+		∀{a, b}: ⊆ T, ∀(!(a T.→ b), !(b T.→ a)) ; my version
+	),
+	[ equivalently```
+		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
+	``` ]
+
+	s"the complement of open set is closed and vice versa":
+	(
+		∀X: ∈ topological_space,
+		∀S: ⊆ X
+		S ∈ open(X) ⇔ X \ S ∈ closed(X)
+	),
+	[ proof``` ; +
+		
+	``` ]
+; end
