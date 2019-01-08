@@ -1,47 +1,81 @@
 : ; topological_space
 (
-	"topological space via approach to"
+	"topological space via approach to",
+	; ! I cannot deal with some problems like Hausdorff and compact now
 	⊆ set, ; *** I choose my "→" version
 	(
 		∀X: ∈ topological_space,
 		X.→: ∈ preorder_relator,
 		X ⊆ &X.→&.D,
 		
-		[ attibutes ]
-		; via open set
-			X.τ:
-			(
-				⊆ Ps(X),
-				∅ ∈ X.τ, X ∈ X.τ,
-				∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
-				∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ, ; !
+		[ attibutions ]
+			; via open set
+				X.basis: = 
 
-				∀x: ∈ X, {y│y X.→ x}[∀y: ∈ T] ∈ X.τ ; * to be consistent with →
-			),
-		; end
+				X.τ: ; + from basis
+				(
+					⊆ Ps(X), ; it is a set
+					∅ ∈ X.τ, X ∈ X.τ,
+					; ∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
+					; ∀𝒞: ⊆ X.τ, ∩[](𝒞) ∈ X.τ, ; !
 
-		; about arrow
-			X.←:
-			(
-				∈ relator,
-				∀{a, b}: ⊆ X, a X.← b ⇔ b X.→ a
-			),
+					∀x: ∈ X, {y│y X.→ x}[∀y: ∈ T] ∈ X.τ ; * to be consistent with →
+				),
+				; about alias
+					X.base: = X.basis,
+					X.𝒯: = X.τ,
+					X.topology: = X.τ,
+					X.open: = set.element(X.τ), ; directly trans it to a class
+				; end
+			; end
 
-			X.↔:
-			(
-				∈ relator,
-				∀{a, b}: ⊆ X, a X.↔ b ⇔ ∀(a X.→ b, b X.→ a)
-			),
-		; end
+			; via neighborhood
+				X.nbh(∀x: ∈ X):
+				(
+					⊆ set.sub(X),
+					∀Y: ∈ X.nbh(x),
+					∃O: ∈ X.τ, x ∈ O,
+					O ⊆ Y
+				),
+				; about alias
+					X.Nbh: = X.nbh,
+					X.neighborhood: = X.nbh,
+				; end
+			; end
+
+			; via closed set
+				X.closed:
+				(
+					⊆ set.sub(X),
+					∀F: ∈ closed(X),
+					∀x: ∈ X, (∃y: ∈ F, y X.→ x) ⇒ x ∈ F
+				),
+			; end
+
+			; about arrow
+				X.←:
+				(
+					∈ relator,
+					∀{a, b}: ⊆ X, a X.← b ⇔ b X.→ a
+				),
+
+				X.↔: ; * Topological indistinguishability
+				(
+					∈ relator,
+					∀{a, b}: ⊆ X, a X.↔ b ⇔ ∀(a X.→ b, b X.→ a)
+				),
+			; end
 	),
 
 	[ for location ]
 		; about alias
-			topology(∀X: ∈ topological_space): = X.τ,
+			topology(∀X: ∈ topological_space): = X.τ, ; a set
+			open(∀X: ∈ topological_space): = X.open, ; a class
+			closed(∀X: ∈ topological_space): = X.closed,
 
+			close_set: = closed, ; ? someone others may use it
 			homeomorphism: = isomorphism, ; I don't like it name
 			bicontinuous_function: = isomorphism,
-			close_set: = closed, ; ? someone others may use it
 		; end
 
 		; + about inheritance
@@ -55,9 +89,15 @@
 			),
 			
 		; end
+		limit_point[∀X: ∈ topological_space](∀A: ⊆ X):
+		(
+			= {x|∀N: ∈ X.nbh(x), !(A ∩ N\{x} = ∅)}[ ; + bug ... 
+				∀x: ∈ X]
+		),
+
 		closure[∀X: ∈ topological_space](∀A: ⊆ X): = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; directly A ⊆ its closure
 
-		basis(topology(∀X: ∈ topological_space)): ; package definition, 打包定义
+		basis(topology(∀X: ∈ topological_space)): ; ? package definition, 打包定义
 		(
 			; +
 			"the smallest subsets whose sub-union consist all the open sets(except ∅)",
@@ -67,30 +107,11 @@
 			basis(∀S: ∈ `setofsets`):,
 		``` ]
 
-		Nbh[∀X: ∈ topological_space](∀x: ∈ X):
-		(
-			"neighborhood of x in X",
-			⊆ set.sub(X),
-			∀A: ∈ Nbh[X](x),
-			∃O: ∈ X.τ,
-			x ∈ O, O ⊆ A
-		),
-
-		open(∀X: ∈ topological_space): = set.element(X.τ),
-		; ? it is just the coresponding class of τ
-
 		open_cover(∀C: ∈ topological_space):
 		(
 			⊆ set.cover(C),
 			∀𝒞: ∈ open_cover(C),
 			𝒞 ⊆ C.τ
-		),
-
-		closed(∀X: ∈ topological_space): ; ?
-		(
-			⊆ set.sub(X),
-			∀F: ∈ closed(X),
-			∀x: ∈ X, (∃y: ∈ F, y X.→ x) ⇒ x ∈ F
 		),
 
 		dense_sub(∀X: ∈ topological_space):

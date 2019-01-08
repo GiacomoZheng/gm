@@ -1,0 +1,10 @@
+s"irreduciblity from polynomials of R to its field polynomial":
+(
+	∀f: ∈ UFD_polynomial, R: = f.R,
+	F: = Frac(R), ; !
+	deg(f) > 0 ⇒ ; ? nonconstant
+	(
+		∀x: ∈ ◉,
+		f(x) ∈ irreducible(P[R](x)) ⇒ f ∈ irreducible(P[F](x))
+	)
+),

@@ -1,4 +1,4 @@
-: ; function
+: ; + function
 (
 	"for every input, a function would give an unique output",
 	⊆ ◉,

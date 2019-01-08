@@ -1,0 +1,19 @@
+: ; polynomial
+(
+	⊆ commutative_ring.polynomial, ; * UFD.polynomial
+	(
+		∀P: ∈ polynomial,
+		P.R ∈ UFD
+	),
+
+	; location
+		content(∀f: ∈ polynomial):
+		(
+			@f.R,
+			S: = {m|0 ≤ m ≤ deg(f)},
+			∃a[∀m: ∈ S]: ∈ f.R,
+			∀x: ∈ ◉, f(x) = +[∀m: ∈ S](a[m] × (x^m))
+			■
+			= UFD.gcd({a[m]}[∀m: ∈ S]) ; * a class
+		)
+),

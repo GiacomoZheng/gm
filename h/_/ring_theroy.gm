@@ -21,7 +21,7 @@ s"enough intersection points make two polynomial the same":
 	■
 ),
 
-s"intersection at the infinite domain make two polynomial the same":
+s"intersection over the infinite ring make two polynomials the same":
 (
 	@gm.h.Ring,
 	∀P[R](x): ∈ polynomial_ring,

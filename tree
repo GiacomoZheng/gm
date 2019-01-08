@@ -3,6 +3,7 @@ gm
 ├─h
 	├─associative_operator
 	├─commutative_operator
+	├─function
 	├─operator
 	├─relation
 		├─antisymmetric
@@ -15,6 +16,13 @@ gm
 		├─symmetric
 		└─transitive
 	├─relator
+	├─set
+		├─automorphism
+		├─endomorphism
+		├─epimorphism
+		├─homomorphism
+		├─isomorphism
+		└─monomorphism
 	├─_
 		├─abelian_group
 			└─norm
@@ -93,10 +101,12 @@ gm
 		├─topological_space
 			├─compact_set
 			├─discrete_set
+			├─Hausdorff_space
 			├─homomorphism
 			├─isomorphism
 			├─metric_space
 				└─_complete_space
+			├─preregular_space
 			└─trivial
 		├─totally_ordered_set
 		├─vector_space
@@ -112,13 +122,5 @@ gm
 			└─_random_space
 		└─_preordered_set
 	├─_bracket
-	├─_function
-	├─_quantifier
-	└─_set
-		├─automorphism
-		├─endomorphism
-		├─epimorphism
-		├─homomorphism
-		├─isomorphism
-		└─monomorphism
+	└─_quantifier
 └─_string

@@ -1,17 +1,18 @@
-s"chaim of domains":
-(
-	integral_domain ⊇ GCD_domain ⊇ UFD ⊇ PID ⊇ ED ⊇ field,
-
-	PID ⊇ Bezout_domain
-),
-
-; about Gauss theorem
-	s"":
-
-	s"Gauss theorem: polynomial rings of UFD are also UFD":
+; about chaim
+	s"any PID is UFD": ; +
 	(
-		∀R: ∈ UFD, ∀x: ∈ ◉,
-		P[R](x) ∈ UFD
+
+	),
+
+	s"any PID is Bézout domain": ; +
+	(
+		
+	),
+
+	s"chaim of domains":
+	(
+		integral_domain ⊇ GCD_domain ⊇ UFD ⊇ PID ⊇ ED ⊇ field,
+		PID ⊇ Bezout_domain
 	),
 ; end
 
@@ -65,7 +66,3 @@ s"prime element are irreducible elements": ; +
 	prime(R) ⊆ irreducible(R)
 ),
 
-s"any PID is UFD": ; +
-(
-
-),

@@ -7,9 +7,9 @@
 		∀R': (∈ commutative_ring, R ∈ commutative_ring.sub(R')),
 		∀x: ∈ R',
 		∃n: ∈ h.N, S: = {m|h.N.0 ≤ m < n}[∀m: ∈ h.N],
-		∃a[∀m: ∈ S]: ∈ R,
+		∃c[∀m: ∈ S]: ∈ R, ; I may change it to a attribution
 		@R,
-			f(x) = +[∀m: ∈ S](a[m] × x ^ m)
+			f(x) = +[∀m: ∈ S](c[m] × x ^ m)
 		■
 	),
 	; location

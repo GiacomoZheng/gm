@@ -1,5 +1,7 @@
 ::, ; define
-[…]: …, ; commit and subscript
+[…]: , ; commit and subscript
+=: , ; equal
+⇒: , ; if … then
 [ 
 	the definition of these
 	' symbols '
@@ -19,7 +21,6 @@
 
 [ 
 	priority:
-	locator terminator
 	none bracket function
 	quantifier relator
 	operator

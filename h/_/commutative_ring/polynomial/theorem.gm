@@ -1,13 +1,30 @@
-; about 
-	s"":
+; about basis
+	s"the unit of the polynomial ring of integral domain is just the unit of the ring":
 	(
 		∀R: ∈ integral_domain, ; ring
-		∀x: ∈ ◉, unit(R) ⊆ unit(P[R](x))
-		; the unit of the polynomial ring is just the unit of the ring
-	)
+		∀x: ∈ ◉, ; !
+		unit(P[R](x)) = unit(R)
+	),
+	[ proof```
+		unit(R) ⊆ unit(P[R](x)) ⇐
+		(
+			∀u: ∈ unit(R), inv[P[R](x)](x) = inv[R](x) ∈ R ⊆ P[R](x) ⇒ u ∈ unit(P[R](x))
+		),
+		unit(R) ⊇ unit(P[R](x)) ⇐
+		(
+			∀u: ∈ unit(P[R](x)),
+			@h.R,
+				1 = deg(inv[P[R](x)](u) * u) = deg(inv[P[R](x)](u)) * deg(u) ⇒
+				∀(
+					deg(inv[P[R](x)](u)) = 1 ⇒ inv[P[R](x)](u) ∈ R,
+					deg(u) = 1 ⇒ u ∈ R
+				)
+			■
+		)
+	``` ]
 ; end
 
-; about field polynomial
+; about field polynomial ; + may should be move to the field.polynomial
 	s"division theorem":
 	(
 		∀K: ∈ field, ; in fact we just need the first term of g be a unit

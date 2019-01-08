@@ -1,8 +1,8 @@
-: ; ? domain, I want to rename it as doman
+: ; ? doman, I name it like rng
 (
 	"the rng with cancellation",
 	⊆ rng, ; * may not have identity
 
-	∀R: ∈ domain,
+	∀R: ∈ doman,
 	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)
 ),

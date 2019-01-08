@@ -1,0 +1,22 @@
+; about Gauss theorem
+	s"Gauss's Lemma":
+	(
+		∀R: ∈ UFD,
+		∀f: (∈ primitive, f.R = R),
+		∀g: (∈ primitive, g.R = R),
+		h(∀x: ∈ ◉): = f(x) R.× g(x),
+		h ∈ primitive
+	),
+	[ proof, in pdf-12```
+		
+	``` ]
+
+	s"Gauss theorem: polynomial rings of UFD are also UFD":
+	(
+		∀R: ∈ UFD,
+		∀x: ∈ ◉, P[R](x) ∈ UFD
+	),
+	[ proof```
+		
+	``` ]
+; end

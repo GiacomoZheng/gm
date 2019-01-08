@@ -1,25 +1,76 @@
-; about generalizing
+; about basic
 	s"every subset of a topological space is subspace":
 	(
 		∀X: ∈ topological_space, sub(X) = set.sub(X)
 	),
+	[ proof, it is trivial```
+		∀T: ∈ set.sub(X),
+		T ∈ topological_space ⇐ T ⊆ X ⊆ &X.→&.D = &T.→&.D
+	``` ]
 
 	s"criterion of trivial topological space"
 	(
 		∀T: ∈ trivial,
-		∀{a, b}: ⊆ T, ∀(!(a T.→ b), !(b T.→ a)) ; my version
+		∀{a, b}: ⊆ T, ∀(a T.→ b, b T.→ a) ; my version
 	),
 	[ equivalently```
 		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
 	``` ]
 
+	s"all the elements of a open set are interior points, vise verse":
+	(
+		"someone else may choose this as the definition of open set in a metric space, replace the nbh into ball",
+		∀X: ∈ topological_space,
+		∀S: ⊆ X,
+		S ∈ open(X) ⇔
+		(
+			∀x: ∈ S, ∃N: ∈ X.nhb(x), N ⊆ S
+		)
+	),
+	[ proof```
+		; ⇒, it is easily
+		∃N: = S, N: ∈ X.nhb(x), N ⊆ S,
+		; then, ⇐
+		(
+			∀x: ∈ S, ∃N: ∈ X.nhb(x), N ⊆ S
+		)
+		⇒
+		(
+			∀x: ∈ S, ∃O(x): ∈ X.nhb(x), O(x) ⊆ S, O(x) ∈ open(X)
+			; it is possible as the exist of inside neighborhood
+		)
+		⇒ S = ∪[∀x: ∈ S](O(x)) ∈ open(X)
+	``` ]
+
+	s"any closure is closed":
+	(
+		∀X: ∈ topological_space,
+		∀S: ⊆ X, closure[X](S) ∈ closed(X)
+	),
+	[ proof``` ; +
+		; ∀x: ∈ X, (∃a: ∈ S, a S.→ x) ⇒ x ∈ closure[X](S),  
+	``` ]
+
+	s"a subset is closed iff it is equal to its closure":
+	(
+		∀X: ∈ topological_space,
+		∀S: ⊆ X,
+		S ∈ closed(X) ⇔ S = closure[X](S)
+	),
+	[ proof```
+		
+	``` ]
+
 	s"the complement of open set is closed and vice versa":
 	(
 		∀X: ∈ topological_space,
-		∀S: ⊆ X
+		∀S: ⊆ X,
 		S ∈ open(X) ⇔ X \ S ∈ closed(X)
 	),
 	[ proof``` ; +
-		
+		S ∈ open(X) ⇒
+		(
+			∀x: ∈ X\S, 
+		)
 	``` ]
 ; end

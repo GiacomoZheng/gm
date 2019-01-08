@@ -10,11 +10,11 @@
 
 	; location
 		; about inheritance
-			divisor[∀I: ∈ ED]: = UFD.divisor[I],
+			divisor[∀E: ∈ ED]: = UFD.divisor[E],
 
-			multiple[∀I: ∈ ED]: = UFD.multiple[I],
+			multiple[∀E: ∈ ED]: = UFD.multiple[E],
 
-			associated[∀I: ∈ ED]: = UFD.associated[I],
+			associated[∀E: ∈ ED]: = UFD.associated[E],
 
 			common_divisor[∀E: ∈ ED]: = UFD.common_divisor[E],
 
@@ -25,6 +25,14 @@
 		(
 			"from an integral domain to a well ordered set",
 			⊆ mapping,
+			(
+				∀f: ∈ Euclidean_function,
+				f.D ∈ integral_domain,
+				f.C ∈ well_ordered_set, ; + define it later
+				@f, ; ?
+				f(D.0) = minimal(D) ; ! I don't know now, I'll try to prove it
+				■
+			)
 		),
 
 

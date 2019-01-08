@@ -3,6 +3,11 @@
 	"the integral domain who satisfies the Bézout identity",
 	⊆ integral_domain
 	(
-		
-	)
-)
+		∀R: ∈ Bézout_domain,
+		@R,
+		∀{a, b}: ⊆ R\{0},
+		(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)) ; commutative_ring.gcd
+		■
+	),
+	[ chaim: Bézout_domain ⊇ PID ]
+),

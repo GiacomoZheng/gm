@@ -1,4 +1,4 @@
-: ; set
+: ; + set
 (
 	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
 		⊆ ◉, ; it means it is a class

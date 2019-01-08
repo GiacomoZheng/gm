@@ -1,6 +1,6 @@
-: ; integral domain
+: ; integral_domain
 (
-	⊆ domain, ; !
+	⊆ domain,
 	⊆ commutative_ring,
 	; location
 		; about inheritance

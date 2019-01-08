@@ -1,0 +1,17 @@
+: ; Hausdorff_space, or separated_space
+(
+	⊆ topological_space,
+	(
+		∀H: ∈ Hausdorff_space,
+		; ∀x
+
+		; the open set version
+		∀{x, y}: ∈ H,
+		!(x = y) ⇒
+		(
+			∃X: ∈ Nbh[H](x), ∃Y: ∈ Nbh[H](y),
+			X ∩ Y = ∅
+		)
+	)
+),
+[ chaim: discrete_space ⊆ Hausdorff_space ]

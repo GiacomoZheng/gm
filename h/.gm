@@ -25,18 +25,18 @@
 ; end
 
 ; about relator
-	reflexive_relator: (⊆ relation, ∀𝓅: ∈ reflexive_relator, &𝓅&.r ∈ relation.reflexive),
-	transitive_relator: (⊆ relation, ∀𝓅: ∈ transitive_relator, &𝓅&.r ∈ relation.transitive),
-	symmetric_relator: (⊆ relation, ∀𝓅: ∈ symmetric_relator, &𝓅&.r ∈ relation.symmetric),
+	reflexive_relator: (⊆ relator, ∀𝓅: ∈ reflexive_relator, &𝓅&.r ∈ relation.reflexive),
+	transitive_relator: (⊆ relator, ∀𝓅: ∈ transitive_relator, &𝓅&.r ∈ relation.transitive),
+	symmetric_relator: (⊆ relator, ∀𝓅: ∈ symmetric_relator, &𝓅&.r ∈ relation.symmetric),
 
-	irreflexive_relator: (⊆ relation, ∀𝓅: ∈ irreflexive_relator, &𝓅&.r ∈ relation.irreflexive),
-	antitransitive_relator: (⊆ relation, ∀𝓅: ∈ antitransitive_relator, &𝓅&.r ∈ relation.antitransitive),
-	antisymmetric_relator: (⊆ relation, ∀𝓅: ∈ antisymmetric_relator, &𝓅&.r ∈ relation.antisymmetric),
+	irreflexive_relator: (⊆ relator, ∀𝓅: ∈ irreflexive_relator, &𝓅&.r ∈ relation.irreflexive),
+	antitransitive_relator: (⊆ relator, ∀𝓅: ∈ antitransitive_relator, &𝓅&.r ∈ relation.antitransitive),
+	antisymmetric_relator: (⊆ relator, ∀𝓅: ∈ antisymmetric_relator, &𝓅&.r ∈ relation.antisymmetric),
 
-	preorder_relator: (⊆ relation, ∀𝓅: ∈ preorder_relator, &𝓅&.r ∈ relation.preorder),
+	preorder_relator: (⊆ relator, ∀𝓅: ∈ preorder_relator, &𝓅&.r ∈ relation.preorder),
 
-	equivalent_relator: (⊆ relation, ∀𝓅: ∈ equivalent_relator, &𝓅&.r ∈ relation.equivalent),
-	order_relator: (⊆ relation, ∀𝓅: ∈ order_relator, &𝓅&.r ∈ relation.order),
+	equivalent_relator: (⊆ relator, ∀𝓅: ∈ equivalent_relator, &𝓅&.r ∈ relation.equivalent),
+	order_relator: (⊆ relator, ∀𝓅: ∈ order_relator, &𝓅&.r ∈ relation.order),
 ; end
 
 ∅: = {},
