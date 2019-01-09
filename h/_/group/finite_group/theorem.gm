@@ -5,7 +5,7 @@
 		|G| = p^n ⇒ !(center(G) = {G.e})
 	),
 
-	s"Sylow's First Theorem":
+	s"Sylow's First Theorem": ; ! ex
 	(
 		; + after the writting of natural numbers
 		∀G: ∈ finite_group,

@@ -1,0 +1,30 @@
+: ; + Euclidean_domain, or ED, I'll define it after I learn something about lattice
+(
+	"a integral domain satisfies the Euclidean algorithm",
+	⊆ integral_domain, ; + in fact, here it needn't be unital, and we can prove it is.
+	(
+		∀R: ∈ Euclidean_domain,
+		R.σ: ∈ norm, R ∈ sub(R.σ.D), ; integral_domain.sub
+		@R.σ,
+			∀a: ∈ R, ∀b: (∈ R, !(b = D.0)),
+			∃p: ∈ R, ∃r: (∈ R, σ(r) C.< σ(b)),
+			@D,
+				a = b × p + r
+			■
+		■
+	),
+
+	; location
+		; about inheritance
+			divisor[∀E: ∈ ED]: = integral_domain.divisor[E],
+
+			multiple[∀E: ∈ ED]: = integral_domain.multiple[E],
+
+			associated[∀E: ∈ ED]: = integral_domain.associated[E],
+
+			common_divisor[∀E: ∈ ED]: = integral_domain.common_divisor[E],
+
+			gcd[∀E: ∈ ED]: = integral_domain.gcd[E], ; ?
+		; end
+),
+[ chaim: ED ⊆ PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

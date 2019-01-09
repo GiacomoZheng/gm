@@ -1,0 +1,9 @@
+: ; monotonic_function
+(
+	"homomorphism or antihomophism",
+	⊆ mapping,
+	(
+		∀f: ∈ monotonic_function,
+		∃(f ∈ homomorphism, f ∈ antihomophism)
+	)
+),

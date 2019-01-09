@@ -27,19 +27,13 @@ gm
 		├─abelian_group
 			└─norm
 		├─commutative_ring
-			├─Bézout_domain
-			├─Euclidean_domain
-			├─GCD_domain
-			├─integral_domain
-			├─PID
 			├─polynomial
 				├─monic
-				├─trivial
-				└─UFD_polynomial
-					└─primitive
-			├─simple
-			└─UFD
+				└─trivial
+			└─simple
 		├─commutative_rng
+		├─domain
+		├─doman
 		├─field
 			├─action
 			├─algebraic_extension
@@ -47,8 +41,9 @@ gm
 			├─finite_extension
 			├─homomorphism
 			├─isomorphism
+			├─norm
 			├─prime_field
-			└─_valuation
+			└─valuation
 		├─group
 			├─action
 				├─faithful_action
@@ -73,13 +68,24 @@ gm
 			├─_finitely_generated_group
 			├─_solvable_group
 			└─_transposition
+		├─integral_domain
+			├─Bézout_domain
+			├─Euclidean_domain
+			├─GCD_domain
+			├─norm
+			├─PID
+			└─UFD
+				└─polynomial
+					└─primitive
 		├─magma
 		├─monoid
 		├─poset
 			├─anti_homomorphism
 			├─anti_monomorphism
 			├─homomorphism
-			└─monomorphism
+			├─monomorphism
+			├─monotonic_function
+			└─strictly_monotonic_function
 		├─ring
 			├─action
 			├─homomorphism
@@ -88,7 +94,6 @@ gm
 			└─simple
 		├─rng
 			├─action
-			├─domain
 			├─homomorphism
 			├─integral_domain
 			├─isomorphism
@@ -117,10 +122,13 @@ gm
 			├─isomorphism
 			├─norm
 			└─trivial
+		├─well_ordered_set
 		├─_
 			├─normed_abelian_group
+			├─valued_field
 			└─_random_space
 		└─_preordered_set
 	├─_bracket
 	└─_quantifier
+├─_keyword
 └─_string

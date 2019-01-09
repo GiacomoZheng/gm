@@ -1,22 +1,3 @@
-; about chaim
-	s"any PID is UFD": ; +
-	(
-
-	),
-
-	s"any PID is Bézout domain": ; +
-	(
-		
-	),
-
-	s"chaim of domains":
-	(
-		integral_domain ⊇ GCD_domain ⊇ UFD ⊇ PID ⊇ ED ⊇ field,
-		PID ⊇ Bezout_domain
-	),
-; end
-
-
 s"simple commutative ring is the same as field": ; !
 (
 	commutative_ring.simple = field
@@ -59,10 +40,4 @@ s"every maximal ideal of a commutative ring is prime ideal":
 	∀R: ∈ commutative_rng, ∀I: ∈ ideal(R),
 	I ∈ maximal_ideal(R) ⇔ R/I ∈ field ⇒ R/I ∈ integral_domain ⇔ I ∈ prime_ideal(R)
 ``` ]
-
-s"prime element are irreducible elements": ; +
-(
-	∀R: ∈ commutative_ring,
-	prime(R) ⊆ irreducible(R)
-),
 

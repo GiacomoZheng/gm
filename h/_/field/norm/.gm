@@ -1,0 +1,9 @@
+: ; + norm
+; it looks like there is some different meanings about it
+(
+	⊆ integral_domain.norm, ; ! 2 part: location of integral domain and the superclass of field is commutative ring
+	(
+		∀f: ∈ norm,
+		f.D ∈ field
+	)
+)

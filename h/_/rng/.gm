@@ -94,6 +94,13 @@
 			a R.× b ∈ P ⇒ ∃(a ∈ P, b ∈ P)
 		),
 
+		proper_ideal(∀R: ∈ rng):
+		(
+			⊆ ideal(R),
+			∀P: ∈ proper_ideal(R),
+			!(P = R)
+		),
+
 		nil(∀R: ∈ rng): = {a|∃n: ∈ h.N, a R.^ n = R.0}[∀a: ∈ R],
 		; nil it is interesting that it may not be an ideal
 ),

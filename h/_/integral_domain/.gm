@@ -1,0 +1,37 @@
+: ; integral_domain
+(
+	⊆ domain,
+	⊆ commutative_ring,
+	; location
+		; about alias
+			ED: = Euclidean_domain,
+			Bezout_domain: = Bézout_domain, ; for convenience
+		; end
+
+		; about inheritance
+			ideal(∀R: ∈ integral_domain): = ring.ideal(R),
+
+			principle_ideal(∀R: ∈ integral_domain): = commutative_ring.principle_ideal(R),
+
+			proper_ideal(∀R: ∈ integral_domain): = commutative_ring.proper_ideal(R),
+
+			prime_ideal(∀R: ∈ integral_domain): = commutative_ring.ideal(R),
+
+			divisor[∀R: ∈ integral_domain]: = commutative_ring.divisor[R],
+
+			common_divisor[∀R: ∈ integral_domain]: = commutative_ring.common_divisor[R],
+			
+			multiple[∀R: ∈ integral_domain]: = commutative_ring.multiple[R],
+
+			associated[∀R: ∈ integral_domain]: = commutative_ring.associated[R]
+
+			gcd[∀R: ∈ integral_domain]: = commutative_ring.gcd[R],
+
+			prime(∀R: ∈ integral_domain): = commutative_ring.prime(R),
+
+			irreducible(∀R: ∈ integral_domain): = commutative_ring.irreducible(R),
+		; end
+
+		
+
+)

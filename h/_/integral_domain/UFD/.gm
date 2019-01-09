@@ -16,7 +16,7 @@
 
 			common_divisor[∀R: ∈ UFD]: = integral_domain.common_divisor[R],
 
-			gcd[∀R: ∈ UFD]: = GCD_domain.gcd[R], ; here it is unique under associated
+			gcd[∀R: ∈ UFD]: = integral_domain.gcd[R], ; here it is unique under associated
 
 			irreducible(∀R: ∈ UFD): = integral_domain.irreducible(R), ; element
 

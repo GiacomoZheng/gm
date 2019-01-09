@@ -129,7 +129,7 @@
 		ex.SL[n](V) ∈ sub(ex.GL[n](V))
 	),
 
-	s"the sub of Z is always nZ":
+	s"the sub of Z is always nZ": ; ! ex
 	(
 		∀G: ∈ sub(h.Z), ; "+" as operator
 		∃n: ∈ h.Z, Z': = {n × z}[∀z: ∈ h.Z], G = Z'
@@ -234,7 +234,7 @@
 		∀x: ∈ G, ∀m: (∈ h.Z, !(m = 0)),
 		n: = order[G](x),
 		!(n ∈ h.N) ⇒ !(order[G](e (* x)^m) ∈ h.N),
-		n ∈ h.N ⇒ order[G](e (* x)^m) = n / gcd(n, m)
+		n ∈ h.N ⇒ order[G](e (* x)^m) = n / gcd(n, m) ; ! ex
 	),
 	[ proof```
 		d: = gcd(n, m),

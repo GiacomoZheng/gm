@@ -4,6 +4,8 @@
 		division_ring: = skew_field,
 		unital_module: = ring.module, ; left module
 		; I'll do not define the singel module in this level
+
+		least_well_ordered_set: = well_ordered_set,
 	; end
 
 	; about topology	
@@ -24,7 +26,6 @@
 		decreasing_function: = poset.anti_homomorphism,
 		strictly_increasing_function: = poset.monomorphism,
 		decreasing_function: = poset.anti_monomorphism,
-		; ? monotonic
 	; end
 
 	; about full name of inheritance

@@ -6,7 +6,7 @@
 		∀R: ∈ Bézout_domain,
 		@R,
 		∀{a, b}: ⊆ R\{0},
-		(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)) ; commutative_ring.gcd
+		(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)) ; integral_domain.gcd
 		■
 	),
 	[ chaim: Bézout_domain ⊇ PID ]

@@ -1,0 +1,15 @@
+: ; relator
+(
+	⊆ keyword, ; ?
+	; + tag: delimiter
+	(
+		∀𝓅: ∈ relator,
+		&𝓅&.r: ∈ relation,
+		&𝓅&.D: = &𝓅&.r.D,
+
+		@&p&,
+		∀{a, b}: ∈ D,
+		a ∈ r(b) ⇔ a 𝓅 b
+		■
+	)
+),

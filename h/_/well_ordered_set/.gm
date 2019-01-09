@@ -1,0 +1,17 @@
+: ; + well_ordered_set, or least_well_ordered_set
+(
+	⊆ totally_ordered_set,
+	"every subset of it has its least",
+	(
+		∀S: ∈ well_ordered_set,
+		∀R: ⊆ S, ; +
+
+		; x ∈ poset.least(R) ; existence
+	),
+
+	; location
+		; about inheritance	
+			sub(∀R: ∈ well_ordered_set): = set.sub(R),
+			; * every subset of a well_ordered_set is still a well_ordered_set
+		; end
+),

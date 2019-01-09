@@ -1,0 +1,32 @@
+; about chaim
+	s"any ED is PID":
+	(
+
+	),
+
+	s"any PID is UFD": ; +
+	(
+
+	),
+
+	s"any PID is Bézout domain": ; +
+	(
+		
+	),
+
+	s"chaim of domains":
+	(
+		integral_domain ⊇ GCD_domain ⊇ UFD ⊇ PID ⊇ ED ⊇ field,
+		PID ⊇ Bezout_domain
+	),
+; end
+
+s"prime element are irreducible elements in a integral domain": ; +
+(
+	∀R: ∈ integral_domain,
+	prime(R) ⊆ irreducible(R)
+),
+[ counterexample in commutative ring```
+	P[Q](x) / I[Q](x^2 + x) ; Q[x]/(x^2 + x)
+	; prime but not irreducible
+``` ]

@@ -3,6 +3,6 @@
 	⊆ integral_domain, ; unitial here
 
 	∀P: ∈ PID,
-	ideal(P) ⊆ principle_ideal(P) ; in fact they are equal
+	ideal(P) = principle_ideal(P) ; in fact they are equal
 ),
 [ chaim: PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

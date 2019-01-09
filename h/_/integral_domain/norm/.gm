@@ -1,0 +1,16 @@
+: ; norm
+; not a degree function as I'll definie later with v(ab) = v(a) + v(b)
+(
+	"a mapping from an integral domain to a well ordered set",
+	⊆ mapping,
+	(
+		∀f: ∈ norm,
+		f.D ∈ integral_domain,
+		f.C ∈ well_ordered_set, ; * least
+		@f,
+			∀x: ∈ D, x = D.0 ⇔ f(x) = well_ordered_set.least(C), ; distinguishable
+
+			∀{a, b}: ⊆ D, f(a) C.≤ f(a D.× b) ; it is useless for definition of Euclidean_domain
+		■
+	)
+),

@@ -1,5 +1,6 @@
 : ; preregular_space
 (
+	"", ; +
 	⊆ topological_space,
 
 ),

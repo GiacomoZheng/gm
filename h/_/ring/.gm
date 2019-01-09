@@ -31,6 +31,8 @@
 			min_sub[∀G: ∈ ring](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 
 			ker(∀f: ∈ homomorphism): = rng.ker(f),
+
+			proper_ideal(∀R: ∈ ring): = rng.proper_ideal(R),
 		; end
 
 		neg[∀R: ∈ ring]: = rng.neg[R],

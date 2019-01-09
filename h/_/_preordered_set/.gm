@@ -3,6 +3,6 @@
 	⊆ set,
 
 	∀S: ∈ preordered_set,
-	S.≤: ∈ preorder_relator, ; ?
-	S ⊆ &s.≤&.D
+	S.~: ∈ preorder_relator,
+	S ⊆ &s.~&.D
 ),

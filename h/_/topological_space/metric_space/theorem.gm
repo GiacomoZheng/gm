@@ -1,11 +1,16 @@
 ; about generalizing
 ; end
 
-; about basis
+; about ball
 	s"all open balls are open": ; +
 	(
 		"within the approach to version",
 		
+	),
+
+	s"every open set can be written as the union of some open balls":
+	(
+		""
 	),
 ; end
 
@@ -22,12 +27,6 @@
 
 	s"strongly_equivalent reserve the uniformly continuous": ; !
 	(
-		; ∀d': ∈ metric,
-		; M: ⊆ d'.D,
-		; ∀ε: (∈ R, > 0),
-		; (
-		; 	∃δ: (∈ R, > 0),
-		; 	∀x: d[]()
-		; )
+		
 	),
 ; end

@@ -16,7 +16,9 @@
 	[ equivalently```
 		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
 	``` ]
+; end
 
+; about open and closed
 	s"all the elements of a open set are interior points, vise verse":
 	(
 		"someone else may choose this as the definition of open set in a metric space, replace the nbh into ball",
@@ -47,12 +49,13 @@
 		∀X: ∈ topological_space,
 		∀S: ⊆ X, closure[X](S) ∈ closed(X)
 	),
-	[ proof``` ; +
-		; ∀x: ∈ X, (∃a: ∈ S, a S.→ x) ⇒ x ∈ closure[X](S),  
+	[ proof```
+		(∀x: ∈ X, (∃a: ∈ S, a S.→ x) ⇒ x ∈ closure[X](S)) ⇒ closure[X](S) ∈ closed(X)
 	``` ]
 
 	s"a subset is closed iff it is equal to its closure":
 	(
+		"The closure is the minimal closed set contains the subset"
 		∀X: ∈ topological_space,
 		∀S: ⊆ X,
 		S ∈ closed(X) ⇔ S = closure[X](S)

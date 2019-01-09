@@ -1,28 +1,51 @@
 : ; poset, or partial ordered set
 (
-	⊆ preordered_set,
+	⊆ preordered_set, ; ?
 	(
-		∀S: ∈ poset,
-		∀a: ∈ S, ∀b: ∈ S,
 		[ not all the elements are comparable ]
-		∀(a S.≤ b, b S.≤ a) ⇒ a = b ; antisymmetric
+		∀S: ∈ poset,
+		S.≤: = &S.~&,
+		&S.≤& ∈ antisymmetric_relator,
+		; attributions
+			S.≥:
+			(
+				∈ relator,
+				∀{x, y}: ⊆ S, x S.≥ y ⇔ y S.≤ x
+			),
+
+			S.<:
+			(
+				∈ relator,
+				∀{x, y}: ⊆ S, x S.< y ⇔ ∀(x S.≤ y, !(x = y))
+			),
+
+			S.>:
+			(
+				∈ relator,
+				∀{x, y}: ⊆ S, x S.> y ⇔ y S.< x
+			),
 	),
 
 	; location
-		maximal_ideal(∀P: ∈ poset): ; diiferent from the biggest one
+		maximal(∀P: ∈ poset): ; may be more than one or even empty
 		(
 			⊆ set.element(P),
 
-			∀x: ∈ maximal_ideal(G),
+			∀x: ∈ maximal(G),
 			!y: ∈ G, !(x = y) ⇒ x G.≤ y
-			[ equivalently```
-				∀y: ∈ G, !(x = y) ⇒ !(x G.≤ y)
-			``` ]
+		),
+
+		minimal(∀P: ∈ poset): ; may be more than one or even empty
+		(
+			⊆ set.element(P),
+
+			∀x: ∈ minimal(G),
+			!y: ∈ G, !(x = y) ⇒ y G.≤ x
 		),
 
 		chain(∀P: ∈ poset):
 		(
 			⊆ set.sub(P),
-			⊆ ordered_set ; ? total_ordered set
+			⊆ total_ordered_set
 		),
 ),
