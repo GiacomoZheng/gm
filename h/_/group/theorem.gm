@@ -124,7 +124,7 @@
 
 	s"linear group":
 	(
-		∀n: ∈ Np, ∀V: ∈ vector_space,
+		∀n: ∈ Np, ∀V: ∈ linear_space,
 		ex.GL[n](V) ∈ group, &GL[n](V).*& = &∘&, ; here the matrices are regraded functions
 		ex.SL[n](V) ∈ sub(ex.GL[n](V))
 	),

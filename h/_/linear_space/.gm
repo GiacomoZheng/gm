@@ -1,0 +1,62 @@
+: ; linear_space, or vector space
+(
+	"field module",
+	⊆ ring.module, ; "+" defined there
+	(
+		∀V: ∈ linear_space,
+		V.F: = V.R,
+		V.F ∈ field,
+		V.π ∈ field.action ; here it is the field (left) action
+	),
+	[ property: ... ]
+		; about alias
+		; end
+
+		; + about inheritance
+			sub(∀V: ∈ linear_space):
+			(
+				⊆ linear_space,
+				⊆ ring.module.sub(V), ; +
+				∀S: ∈ sub(V),
+				V.F = S.F,
+				&V.π& = &S.π&
+			),
+
+			min_sub[∀G: ∈ linear_space](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure 
+
+			ker(∀f: ∈ homomorphism): = group.ker(f)
+
+			neg[∀V: ∈ linear_space]: = group.inv[V],
+		; end
+
+		independent(∀V: ∈ linear_space):
+		(
+			"independent subset of this linear space",
+			⊆ set.sub(V),
+			∀I: ∈ independent(V),
+			∀c[∀α: ∈ I]: ∈ V.F,
+			V.+[∀α: ∈ I](V.π(c[α])(α)) = V.0 ⇒ (∀α: ∈ I, c[α] = V.F.0) ; ? as an abelian group, order of addition is unimportant
+		),
+
+		combination[∀V: ∈ linear_space](∀S: ∈ V):
+		(
+			⊆ ◉, ; ?
+			∀x: ∈ combination[V](S),
+			∃c[∀α: ∈ S]: ∈ V.F,
+			x = V.+[∀α: ∈ I](V.π(c[α])(α)) ; means it is the elements of V
+		),
+
+		span[∀V: ∈ linear_space](∀S: ⊆ set.sub(V)): = {∀x: ∈ combination[V](S)},
+
+		dim[∀V: ∈ linear_space](∀S: ∈ sub(V)):
+		(
+			"dimension of S in V",
+		),
+
+		dim(∀V: ∈ linear_space): = dim[V](V),
+
+		eigen(∀f: ∈ endomorphism): ; +
+		(
+			"eigen value of "
+		)
+),

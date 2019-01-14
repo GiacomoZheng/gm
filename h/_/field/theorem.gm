@@ -36,7 +36,7 @@ s"extension field with irreducible polynomial":
 
 s"rational field is the smallest subfield contain the aim":, ; +
 
-s"degree of extension equal to dimension of vector space":, ; +
+s"degree of extension equal to dimension of linear space":, ; +
 
 s"finite extension includes algebraic extension": ; +
 (

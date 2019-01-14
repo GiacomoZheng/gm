@@ -1,6 +1,6 @@
-s"the group homomorphism on two vector space": ; +
+s"the group homomorphism on two linear space": ; +
 (
-	∀A: ∈ vector_space, ∀B: ∈ vector_space,
+	∀A: ∈ linear_space, ∀B: ∈ linear_space,
 	∀f: (∈ group.homomorphism, f.D = A, f.C = B),
 	; we can see that the corresponding field of A and B may be different
 	[ we can have a try```

@@ -3,17 +3,17 @@
 	"a homomorphism from a rng into the rng of automorphism on an abelian group",
 	⊆ mapping, ; * it is not a group action
 	(
-		∀μ: ∈ action,
-		μ.D ∈ rng,
-		μ.S: ∈ abelian_group, ; * important
-		μ.C = {f|f.D = μ.S}[∀f: ∈ group.endomorphism], ; *
-		; ∀z: ∈ D, ∀{r, t}: ∈ S, μ(z)(r S.+ t) = μ(z)(r) S.+ μ(z)(t),
-		; μ(z)(S.0) = S.0,
+		∀π: ∈ action,
+		π.D ∈ rng,
+		π.S: ∈ abelian_group, ; * important
+		π.C = {f|f.D = π.S}[∀f: ∈ group.endomorphism], ; *
+		; ∀z: ∈ D, ∀{r, t}: ∈ S, π(z)(r S.+ t) = π(z)(r) S.+ π(z)(t),
+		; π(z)(S.0) = S.0,
 
-		@μ,
+		@π,
 		∀{x, y}: ∈ D,
-		∀s: ∈ S, μ(x D.+ y)(s) = μ(x)(s) S.+ μ(y)(s), ; group homomorphism
-		μ(x D.× y) = μ(x) ∘ μ(y) ; rng homomorphism
+		∀s: ∈ S, π(x D.+ y)(s) = π(x)(s) S.+ π(y)(s), ; group homomorphism
+		π(x D.× y) = π(x) ∘ π(y) ; rng homomorphism
 		■
 	),
 ),

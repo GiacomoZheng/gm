@@ -1,7 +1,0 @@
-: ; trivial
-(
-	⊆ vector_space,
-
-	∀G: ∈ trivial,
-	∀f: (∈ mapping, f.D ∈ vector_space, f.C = G), f ∈ homomorphism 
-),

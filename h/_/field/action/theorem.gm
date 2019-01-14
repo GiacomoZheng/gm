@@ -5,8 +5,8 @@ s"a rng action is a homomorphism":
 
 s"a rng action map 0 to a constant 0 function":
 (
-	∀μ: ∈ action,
-	@μ, μ(D.0)(∀s: ∈ D.s) = S.0■
+	∀π: ∈ action,
+	@π, π(D.0)(∀s: ∈ D.s) = S.0■
 ),
-[ μ(D.0)(s) = μ(D.0 D.× y)(s) = μ(D.0)(μ(y)(s)) ⇒ constant ]
+[ π(D.0)(s) = π(D.0 D.× y)(s) = π(D.0)(π(y)(s)) ⇒ constant ]
 

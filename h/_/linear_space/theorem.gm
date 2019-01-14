@@ -1,0 +1,90 @@
+; about generalizing
+	s"criterion of trivial linear space":
+	(
+		∀V: ∈ trivial,
+		V = {V.0}
+	),
+
+	s"conditions for a subspace":
+	(
+		∀V: ∈ linear_space,
+		∀U: ⊆ V,
+		U ∈ sub(V) ⇔
+		∀(
+			!(U = ∅),
+			∀{u, w}: ⊆ U, u V.+ w ∈ U, ; closuse over addition
+			∀a: ∈ V.F, ∀s: ∈ U, V.μ(a)(u) ∈ U ; clouse over scalar multiplication
+		),
+	),
+
+	s"the range of homomorphism is a subspace":
+	(
+		∀φ: ∈ homomorphism, range(φ) ∈ sub(φ.C)
+	),
+
+	s"criterions of linear space homomorphism":
+	(
+		∀f: ∈ homomorphism,
+		@f,
+		∀{α, β}: ⊆ D.F = C.F, ∀{x, y}: ⊆ D,
+		f(D.μ(α)(x) D.+ D.μ(β)(y)) = C.μ(α)(f(α)) C.+ C.μ(β)(f(β))
+		■
+	),
+
+	s"kernel of linear space homomorphism is subspace":
+	(
+		∀f: ∈ homomorphism,
+		ker(f) ∈ sub(f.D)
+	),
+	[ proof```
+		
+	``` ]
+; end
+
+; about the basis of a linear space
+	s"the span of a subset is just the minimum subspace contains it":
+	(
+		∀V: ∈ linear_space, ∀S: ⊆ V,
+		span[V](S) = min_sub[V](S)
+	),
+	[ proof```
+		s"span is a subspace":
+		(
+			(
+				∀{x, y}: ⊆ span[V](S),
+				∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.μ(c[α])(α)),
+				∃d[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.μ(d[α])(α)),
+				x V.+ y = V.+[∀α: ∈ I](V.μ(c[α] + d[α])(α)) ∈ span[V](S)
+			),
+			(
+				∀z: ∈ span[V](S), ∀a: ∈ V.F,
+				∃e[∀α: ∈ S]: ∈ V.F, z = V.+[∀α: ∈ I](V.μ(e[α])(α)),
+				V.μ(a)(z) = V.+[∀α: ∈ I](V.μ(a V.F.× e[α])(α)) ∈ span[V](S)
+			),
+		),
+		s"all the subspace contains S contains span[V](S)":
+		(
+			∀W: ∈ sub(V),
+			S ⊆ W ⇒
+			(
+				∀x: ∈ span[V](S),
+				∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.μ(c[α])(α)) ∈ W
+			)
+			⇒ span[V](S) ⊆ W
+		)
+	``` ]
+
+	s"":
+	(
+		w ∈ span({})
+	)
+
+; end
+
+; about dimension
+	s"any two bases of a finite definition linear space, the cardinal number of them are the same":
+	(
+
+	)
+
+; end

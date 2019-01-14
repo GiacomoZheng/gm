@@ -1,0 +1,7 @@
+: ; trivial
+(
+	⊆ linear_space,
+
+	∀G: ∈ trivial,
+	∀f: (∈ mapping, f.D ∈ linear_space, f.C = G), f ∈ homomorphism 
+),

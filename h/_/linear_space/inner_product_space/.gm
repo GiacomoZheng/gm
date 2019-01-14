@@ -1,6 +1,6 @@
 : ; inner_product_space
 (
-	⊆ normed_vector_space,
+	⊆ normed_linear_space,
 	(
 		∀V: ∈ inner_product_space,
 		V.in: ∈ inner_product,

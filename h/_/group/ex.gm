@@ -6,11 +6,11 @@ U[∀n: ∈ Np]: = {ξ^m}[∀m: (∈ h.Z, 0 ≤ m < n), ζ: (∈ s.C, ζ^n = 1)]
 T: = {z||z| = 1}[∀z: ∈ s.C],
 
 ; Group in linear algebra ; !
-M[∀n: ∈ Np](∀V: ∈ vector_space): = {[all the n × n matrices over V]},
+M[∀n: ∈ Np](∀V: ∈ linear_space): = {[all the n × n matrices over V]},
 ; General Linear group ; !
-GL[∀n: ∈ Np](∀V: ∈ vector_space): = M[n](V) \ {A|matrix.det(A) = 0}[∀A: ∈ M[n](V)], ; ! otherwise, the error of "∀(), ... :" would happen
+GL[∀n: ∈ Np](∀V: ∈ linear_space): = M[n](V) \ {A|matrix.det(A) = 0}[∀A: ∈ M[n](V)], ; ! otherwise, the error of "∀(), ... :" would happen
 ; Special Linear group
-SL[∀n: ∈ Np](∀V: ∈ vector_space): = {A|det(A) = 1}[∀A: ∈ M[n](V)],
+SL[∀n: ∈ Np](∀V: ∈ linear_space): = {A|det(A) = 1}[∀A: ∈ M[n](V)],
 
 Z[∀n: ∈ Np]: ; ring of integers modulo n ; ! I don't know how to define it up to now
 (

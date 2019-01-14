@@ -8,7 +8,7 @@
 	[ attributes ]
 		; about alias
 			monomorphism: = extension,
-			module: = vector_space, ; in fact, vector_space = field.module
+			module: = linear_space, ; in fact, linear_space = field.module
 		; end
 		
 		; about inheritance

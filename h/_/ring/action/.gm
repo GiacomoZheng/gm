@@ -2,10 +2,10 @@
 (
 	⊆ rng.action,
 	(
-		∀μ: ∈ action,
-		@μ,
+		∀π: ∈ action,
+		@π,
 		D ∈ ring,
-		∀s: ∈ S, μ(R.1)(s) = s
+		∀s: ∈ S, π(R.1)(s) = s
 		■
 	)
 ),

@@ -4,6 +4,7 @@
 		division_ring: = skew_field,
 		unital_module: = ring.module, ; left module
 		; I'll do not define the singel module in this level
+		vector_space: = linear_space,
 
 		least_well_ordered_set: = well_ordered_set,
 	; end
@@ -15,17 +16,19 @@
 	; end
 
 	; about linear (vector) space
-		linear_space: = vector_space, ; * In fact, I prefer this name
-		linear_map: = vector_space.homomorphism,
-		linear_transformation: = vector_space.homomorphism,
-		linear_operator: = vector_space.endomorphism. ; * I do not like this name
+		linear_map: = linear_space.homomorphism,
+		linear_transformation: = linear_space.homomorphism,
+		linear_operator: = linear_space.endomorphism. ; * I do not like this name
+
+		finite_generated_linear_space: = linear_space.finite_generated_space,
+		finite_generated_vector_space: = finite_generated_linear_space,
 	; end
 
 	; about poset
 		increasing_function: = poset.homomorphism,
 		decreasing_function: = poset.anti_homomorphism,
 		strictly_increasing_function: = poset.monomorphism,
-		decreasing_function: = poset.anti_monomorphism,
+		strictly_decreasing_function: = poset.anti_monomorphism,
 	; end
 
 	; about full name of inheritance

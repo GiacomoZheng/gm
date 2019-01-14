@@ -3,7 +3,7 @@
 	"a homomorphism from a field into the field of automorphism on an abelian group",
 	⊆ ring.action, ; * it is not a group action
 	(
-		∀μ: ∈ action,
-		μ.D ∈ field
+		∀π: ∈ action,
+		π.D ∈ field
 	),
 ),

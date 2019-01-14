@@ -17,12 +17,14 @@ gm
 		└─transitive
 	├─relator
 	├─set
+		├─algebra
 		├─automorphism
 		├─endomorphism
 		├─epimorphism
 		├─homomorphism
 		├─isomorphism
-		└─monomorphism
+		├─monomorphism
+		└─σ_algebra
 	├─_
 		├─abelian_group
 			└─norm
@@ -77,6 +79,15 @@ gm
 			└─UFD
 				└─polynomial
 					└─primitive
+		├─linear_space
+			├─endomorphism
+			├─finite_generated_linear_space
+			├─homomorphism
+			├─inner_product
+			├─inner_product_space
+			├─isomorphism
+			├─norm
+			└─trivial
 		├─magma
 		├─monoid
 		├─poset
@@ -114,14 +125,6 @@ gm
 			├─preregular_space
 			└─trivial
 		├─totally_ordered_set
-		├─vector_space
-			├─endomorphism
-			├─homomorphism
-			├─inner_product
-			├─inner_product_space
-			├─isomorphism
-			├─norm
-			└─trivial
 		├─well_ordered_set
 		├─_
 			├─normed_abelian_group

@@ -1,0 +1,23 @@
+: ; algebra
+(
+	"algebra of set, abelian monoid on ∪ ∩ and magma on \\",
+	⊆ set,
+	(
+		; @set, ; we are under the set location
+		∀𝒜: ∈ algebra,
+		𝒜.D: ∈ set,
+		𝒜 ⊆ Ps(𝒜.D), ; ? power set
+		∀{A, B}: ⊆ 𝒜,
+		A ∪ B ∈ 𝒜, ; closure
+		; ∀C: ∈ 𝒜, (A ∪ B) ∪ C = A ∪ (B ∪ C), ; associative
+		; A ∪ ∅ = A, ; identity
+		; A ∪ B = B ∪ A, ; commutative
+
+		A ∩ B ∈ 𝒜, ; closure
+		; ∀C: ∈ 𝒜, (A ∩ B) ∩ C = A ∩ (B ∩ C), ; associative
+		; A ∩ 𝒜.D = A, ; identity
+		; A ∩ B = B ∩ A, ; commutative
+
+		A \ B ∈ 𝒜,
+	)
+),
