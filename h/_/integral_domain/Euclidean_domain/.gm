@@ -16,15 +16,6 @@
 
 	; location
 		; about inheritance
-			divisor[∀E: ∈ ED]: = integral_domain.divisor[E],
-
-			multiple[∀E: ∈ ED]: = integral_domain.multiple[E],
-
-			associated[∀E: ∈ ED]: = integral_domain.associated[E],
-
-			common_divisor[∀E: ∈ ED]: = integral_domain.common_divisor[E],
-
-			gcd[∀E: ∈ ED]: = integral_domain.gcd[E], ; ?
 		; end
 ),
 [ chaim: ED ⊆ PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

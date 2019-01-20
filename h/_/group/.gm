@@ -35,15 +35,18 @@
 
 			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 
-			ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D],
 		; end
+		ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D],
+
+		Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f.D = G, f.C = H}[∀f: ∈ homomorphism], ; ?
 
 		inv[∀G: ∈ group](∀g: ∈ G):
 		(
 			[ valid because the unqeness of the inverse in the group  ]
-			*: = &G.*&, e: = G.e,
+			@G,
 			∃g': ∈ G, g' * g = g * g' = e,
 			= g'
+			■
 		),
 
 		order[∀G: ∈ group](∀x: ∈ G):
@@ -59,15 +62,6 @@
 			⊆ set.element(G),
 			∀g: ∈ generator(G),
 			G = {G.e (G.* g)^n}[∀n: ∈ h.Z]
-		),
-
-		$:
-		(
-			"to get a permutation corresponding to the element in the group",
-			∈ symbol,
-			∀σ: ∈ action, ∀x: ∈ σ.G,
-			∃f(∀a: ∈ σ.S): = σ(x, a),
-			σ$x = f
 		),
 
 		C[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G], ; centralizer
@@ -100,38 +94,23 @@
 		normal(∀G: ∈ group):
 		(
 			⊆ sub(G),
-			*: = &G.*&,
 			∀Nor: ∈ normal(G),
-			∀h: ∈ Nor, ∀g: ∈ G, g*h*inv[G](g) ∈ Nor
+			∀h: ∈ Nor, ∀g: ∈ G,
+			@G,
+			g*h*inv[G](g) ∈ Nor
+			■
+		),
+
+		isomorphic(∀G: ∈ group):
+		(
+			⊆ group,
+			∀H: ∈ isomorphic(G),
+			∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
 		),
 
 		≌:
 		(
-			∈ relator,
-
-			∀A: ∈ group, ∀B: ∈ group,
-			(A ≌ B) ⇔ (∃f: ∈ isomorphism, ∀(f.D = A, f.C = B))
+			∈ relator, &≌&.r = isomorphic
 		),
-		[ ≌ is an equivalent ]
-
-		c(∀a: ∈ tuple): ; ! here means a tuple with finite length
-		(
-			∈ circle,
-			c(a).Length = a.cardinal ; !
-		),
-
-		composition_series(∀G: ∈ finite_group): ; !
-		(
-			⊆ set,
-
-			∀C: ∈ composition_series(G),
-
-			C.Length: ∈ N,
-			H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]: ⊆ G,
-			H[0] = {G.e}, H[C.Length] = G,
-			∀n: ∈ {m|∀m: ∈ N, 0 ≤ m < C.Length},
-			H[n] ∈ normal(H[n + 1]),
-			H[n + 1] / H[n] ∈ simple_group,
-			C = {H[∀n: ∈ {m|∀m: ∈ N, m ≥ 0, m ≤ C.Length}]}
-		),
+		[ ≌ is an equivalent relator ]
 ),

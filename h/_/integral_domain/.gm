@@ -1,6 +1,6 @@
 : ; integral_domain
 (
-	⊆ domain,
+	⊆ domain, ; doman is ok
 	⊆ commutative_ring,
 	; location
 		; about alias

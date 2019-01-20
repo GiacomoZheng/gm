@@ -2,12 +2,10 @@
 (
 	"topological space via approach to",
 	; ! I cannot deal with some problems like Hausdorff and compact now
-	⊆ set, ; *** I choose my "→" version
+	⊆ set, ; * I give up my "→" version
 	(
-		∀X: ∈ topological_space,
-		X.→: ∈ preorder_relator,
-		X ⊆ &X.→&.D,
-		[ equivalently```
+		(
+			∀X: ∈ topological_space,
 			X.τ:
 			(
 				"a set of subsets of X",
@@ -15,35 +13,27 @@
 				∅ ∈ X.τ, X ∈ X.τ,
 				∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
 				∀𝒞: ⊆ X.τ, ∩(𝒞) ∈ X.τ, ; !
-			),
-
-			X.nbh: , ; the same
-
-			X.→:
-			(
-				⊆ relator,
-				∀{x, y}: ⊆ X,
-				x X.→ y ⇔ X.nbh(x) ⊇ X.nhb(y)
 			)
-		``` ]
+			; [ equivalently```
+			; 	X.→: ∈ preorder_relator,
+			; 	X ⊆ &X.→&.D,
+			; ``` ]
+		),
 		
 		[ attibutions ]
 			; via open set
-				X.basis: , ; +
-
-				X.τ: ; + from basis
+				X.basis:
 				(
-					⊆ Ps(X), ; it is a set
-					∅ ∈ X.τ, X ∈ X.τ,
-					; ∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
-					; ∀𝒞: ⊆ X.τ, ∩(𝒞) ∈ X.τ, ; !
-
-					∀x: ∈ X, {y│y X.→ x}[∀y: ∈ T] ∈ X.τ ; * to be consistent with →
+					⊆ sub(X.τ), ; a class
+					∀ℬ: ∈ X.basis,
+					∀U: ∈ τ, ∃ℬ': ⊆ ℬ, U = ∪(ℬ')
+					; for U = ∅, just pick ℬ' empty
 				),
+
 				; about alias
 					X.base: = X.basis,
-					X.𝒯: = X.τ, ; I won't this one later
-					X.topology: = X.τ,
+					X.𝒯: = X.τ, ; I won't use this one later
+					; X.topology: = X.τ, ; !
 					X.open: = set.element(X.τ), ; directly trans it to a class
 				; end
 			; end
@@ -63,7 +53,7 @@
 			; end
 
 			; via closed set
-				X.closed:
+				X.closed: ; ?
 				(
 					⊆ set.sub(X),
 					∀F: ∈ closed(X),
@@ -71,7 +61,13 @@
 				),
 			; end
 
-			; about arrow
+			; ? about arrow
+				X.→:
+				(
+					⊆ relator,
+					∀{x, y}: ⊆ X, x X.→ y ⇔ X.nbh(x) ⊇ X.nhb(y)
+				),
+
 				X.←:
 				(
 					∈ relator,
@@ -84,6 +80,19 @@
 					∀{a, b}: ⊆ X, a X.↔ b ⇔ ∀(a X.→ b, b X.→ a)
 				),
 			; end
+
+			; about closure interor and boundary
+				X.accumulation_point(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N\{x} = ∅)}[ ; + bug ... 
+					∀x: ∈ X],
+				X.closure(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N = ∅)}[ ; + bug ... 
+					∀x: ∈ X], ; the minimal closed set in X containing the A
+					; = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; ?
+				X.interior(∀A: ⊆ X): = {x|A ∈ X.nbh(x)}[∀x: ∈ X], ; the maximal open set in X contained in the A,
+
+				X.exterior(∀A: ⊆ X): = X.interior(X \ A),
+
+				X.boundary(∀A: ⊆ X): = X.closure(A) \ X.interior(A),
+			; end
 	),
 
 	[ for location ]
@@ -91,10 +100,16 @@
 			topology(∀X: ∈ topological_space): = X.τ, ; a set
 			open(∀X: ∈ topological_space): = X.open, ; a class
 			closed(∀X: ∈ topological_space): = X.closed,
+			
+			accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
+				limit_point[∀X: ∈ topological_space]: = accumulation_point[X], ; I don't like this name
+			closure[∀X: ∈ topological_space]: = X.closure,
+			interior[∀X: ∈ topological_space]: = X.interior,
+			exterior[∀X: ∈ topological_space]: = X.exterior,
+			boundary[∀X: ∈ topological_space]: = X.boundary,
 
-			close_set: = closed, ; ? someone others may use it
-			homeomorphism: = isomorphism, ; I don't like it name
-			bicontinuous_function: = isomorphism,
+			; ! homeomorphism: = isomorphism, ; I don't like it name
+			; ! bicontinuous_function: = isomorphism,
 		; end
 
 		; + about inheritance
@@ -104,27 +119,10 @@
 				⊆ set.sub(S),
 				⊆ topological_space,
 				∀A: ∈ sub(S),
-				&A.→& = &S.→& ; ?
+				A.τ: = {U ∩ A}[∀U: ∈ X.τ] ; ?
 			),
+			; any subset of X is a sub of it
 		; end
-
-		limit_point[∀X: ∈ topological_space](∀A: ⊆ X):
-		(
-			= {x|∀N: ∈ X.nbh(x), !(A ∩ N\{x} = ∅)}[ ; + bug ... 
-				∀x: ∈ X]
-		),
-
-		closure[∀X: ∈ topological_space](∀A: ⊆ X): = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; directly A ⊆ its closure
-
-		basis(topology(∀X: ∈ topological_space)): ; ? package definition, 打包定义
-		(
-			; +
-			"the smallest subsets whose sub-union consist all the open sets(except ∅)",
-			=
-		),
-		[ equivalently```
-			basis(∀S: ∈ `setofsets`):,
-		``` ]
 
 		open_cover(∀C: ∈ topological_space):
 		(

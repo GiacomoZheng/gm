@@ -1,4 +1,4 @@
-: ; algebra
+: ; + algebra
 (
 	"algebra of set, abelian monoid on ∪ ∩ and magma on \\",
 	⊆ set,

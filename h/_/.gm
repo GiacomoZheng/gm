@@ -1,7 +1,9 @@
 ; about alias
 	; about name of structure
 		commutative_group: = abelian_group,
-		division_ring: = skew_field,
+		commutative_domain: = integral_domain,
+
+		division_ring: = skew_field, ; I mat not use this name as division_ring don't define the division indeed
 		unital_module: = ring.module, ; left module
 		; I'll do not define the singel module in this level
 		vector_space: = linear_space,
@@ -11,8 +13,8 @@
 
 	; about topology	
 		; ? topset: = topological_space, ; I may use it to simplify it
-		continuous_function: = topological_space.homomorphism,
-		homeomorphism: = topological_space.isomorphism, ; * I do not like this name
+		; ! continuous_function: = topological_space.homomorphism,
+		; ! homeomorphism: = topological_space.isomorphism, ; * I do not like this name
 	; end
 
 	; about linear (vector) space
@@ -35,7 +37,7 @@
 		; about trivial
 			trivial_group: = group.trivial,
 			trivial_rng: = rng.trivial,
-			trivial_topological_space: = topological_space.trivial,
+			topological_trivial_space: = topological_space.trivial,
 		; end
 
 		; about sub
@@ -43,6 +45,7 @@
 			subrng: = rng.sub,
 			subring: = ring.sub,
 			subfield: = field.sub,
+			topological_subspace: = topological_space.sub,
 		; end
 	; end
 ; end

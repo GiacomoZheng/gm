@@ -1,9 +1,7 @@
 : ; homomorphism
 (
-	⊆ group.homomorphism,
+	⊆ ring.module.homomorphism,
+
 	∀f: ∈ homomorphism,
-	f.D ∈ linear_space, f.C ∈ linear_space,
-	f.D.F = f.C.F, ; the linear space homomorphism needs the same homomorphism
-	; * but the group homomorphism needn't
-	∀α: ∈ f.D.F, ∀x: ∈ f.D, f(α f.D.× x) = α f.C.× f(x) ; the addition part has been written in the group  homomorphism
+	f.D ∈ linear_space, f.C ∈ linear_space
 ),

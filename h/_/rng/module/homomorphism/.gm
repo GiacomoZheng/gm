@@ -1,0 +1,11 @@
+: ; homomorphism
+(
+	⊆ abelian_group.homomorphism,
+	∀f: ∈ homomorphism,
+	f.D ∈ module, f.C ∈ module,
+
+	@f,
+	D.R = C.R,
+	∀α: ∈ D.R, ∀x: ∈ D, f(D.π[α](x)) = C.π[α](f(x))
+	■
+),

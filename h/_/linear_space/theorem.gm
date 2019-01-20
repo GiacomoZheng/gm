@@ -9,15 +9,16 @@
 	(
 		∀V: ∈ linear_space,
 		∀U: ⊆ V,
+		@V,
 		U ∈ sub(V) ⇔
 		∀(
 			!(U = ∅),
-			∀{u, w}: ⊆ U, u V.+ w ∈ U, ; closuse over addition
-			∀a: ∈ V.F, ∀s: ∈ U, V.μ(a)(u) ∈ U ; clouse over scalar multiplication
+			∀{u, w}: ⊆ U, ∀{a, b}: ⊆ F, π(a)(u) + π(b)(w) ∈ U
 		),
+		■
 	),
 
-	s"the range of homomorphism is a subspace":
+	s"the range of homomorphism is a subspace of codomain":
 	(
 		∀φ: ∈ homomorphism, range(φ) ∈ sub(φ.C)
 	),
@@ -27,17 +28,18 @@
 		∀f: ∈ homomorphism,
 		@f,
 		∀{α, β}: ⊆ D.F = C.F, ∀{x, y}: ⊆ D,
-		f(D.μ(α)(x) D.+ D.μ(β)(y)) = C.μ(α)(f(α)) C.+ C.μ(β)(f(β))
+		f(D.π(α)(x) D.+ D.π(β)(y)) = C.π(α)(f(α)) C.+ C.π(β)(f(β))
 		■
 	),
 
-	s"kernel of linear space homomorphism is subspace":
+	s"kernel of linear space homomorphism is a subspace of Domain":
 	(
 		∀f: ∈ homomorphism,
 		ker(f) ∈ sub(f.D)
 	),
 	[ proof```
-		
+		F: = ker(f),
+
 	``` ]
 ; end
 
@@ -52,14 +54,14 @@
 		(
 			(
 				∀{x, y}: ⊆ span[V](S),
-				∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.μ(c[α])(α)),
-				∃d[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.μ(d[α])(α)),
-				x V.+ y = V.+[∀α: ∈ I](V.μ(c[α] + d[α])(α)) ∈ span[V](S)
+				∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.π(c[α])(α)),
+				∃d[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.π(d[α])(α)),
+				x V.+ y = V.+[∀α: ∈ I](V.π(c[α] + d[α])(α)) ∈ span[V](S)
 			),
 			(
 				∀z: ∈ span[V](S), ∀a: ∈ V.F,
-				∃e[∀α: ∈ S]: ∈ V.F, z = V.+[∀α: ∈ I](V.μ(e[α])(α)),
-				V.μ(a)(z) = V.+[∀α: ∈ I](V.μ(a V.F.× e[α])(α)) ∈ span[V](S)
+				∃e[∀α: ∈ S]: ∈ V.F, z = V.+[∀α: ∈ I](V.π(e[α])(α)),
+				V.π(a)(z) = V.+[∀α: ∈ I](V.π(a V.F.× e[α])(α)) ∈ span[V](S)
 			),
 		),
 		s"all the subspace contains S contains span[V](S)":
@@ -68,7 +70,7 @@
 			S ⊆ W ⇒
 			(
 				∀x: ∈ span[V](S),
-				∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.μ(c[α])(α)) ∈ W
+				∃c[∀α: ∈ S]: ∈ V.F, x = V.+[∀α: ∈ I](V.π(c[α])(α)) ∈ W
 			)
 			⇒ span[V](S) ⊆ W
 		)
@@ -82,9 +84,37 @@
 ; end
 
 ; about dimension
-	s"any two bases of a finite definition linear space, the cardinal number of them are the same":
+	s"any two bases of a finite generated linear space, the cardinal number of them are the same":
 	(
 
-	)
+	),
 
+	s"Rank-Nullity theorem":
+	(
+		∀T: ∈ homomorphism,
+		@h.N,
+		rank(T) + nullity(T) = dim(T.D)
+		■
+	),
+	[ proof```
+		@T,
+		V: = D,
+		∃W: (∈ sub(V), ker(T) ∩ W = {D.0}, V = {k + w}[∀k: ∈ ker(T), ∀w: ∈ W]),
+		T'(∀w: ∈ W): = T(w),
+		T' ∈ homomorphism, T'.C: = range(T),
+		(
+			T' ∈ monomorphism ⇐ (∀x: ∈ ker(T'), x ∈ ker(T) ∩ W = {0}),
+			T' ∈ epimorphism ⇐ range(T) ⊆ range(T') ⇐ (∀v: ∈ V, ∃(k+w): (= v, k ∈ ker(T), w ∈ W), f(v) = f(k+w) = f(k) + f(w) = f(w))
+		)
+		⇒ T' ∈ isomorphism ⇒ dim(T'.D) = dim(T'.C) ⇒ dim(D) - dim(ker(T)) = dim(range(T)) ⇒ rank(T) + nullity(T) = dim(T.D)
+		■
+	``` ]
+; end
+
+; about space of homomorphisms
+	s"space of homomorphisms is also a linear space":
+	(
+		∀V: ∈ linear_space, ∀W: ∈ linear_space,
+		Hom(V, W) ∈ linear_space ; + define the Hom
+	),
 ; end

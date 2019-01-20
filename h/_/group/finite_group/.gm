@@ -1,6 +1,12 @@
 : ; finite_group
 (
 	⊆ group,
-	∀G: ∈ finite_group,
-	|G| ∈ h.N
+	(
+		∀G: ∈ finite_group,
+		|G| ∈ h.N
+	),
+
+	[ attributes ]
+		composition_series(∀G: ∈ finite_group): ; +
+
 ),

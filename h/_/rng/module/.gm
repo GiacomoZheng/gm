@@ -3,7 +3,7 @@
 	"rng module",
 	⊆ abelian_group,
 	(
-		"the π here means πολλαπλασιασμός meaning multiplication in Greek",
+		"the π here means 'πολλαπλασιασμός' meaning multiplication in Greek",
 		∀M: ∈ module,
 		M.R: ∈ rng,
 		M.π: ∈ action, ; here it is the rng (left) action

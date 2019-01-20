@@ -6,7 +6,12 @@
 		∀V: ∈ linear_space,
 		V.F: = V.R,
 		V.F ∈ field,
-		V.π ∈ field.action ; here it is the field (left) action
+		V.π ∈ field.action, ; here it is the field (left) action
+		[ attributes ]
+			V.dimension: ; ?
+			(
+
+			)
 	),
 	[ property: ... ]
 		; about alias
@@ -27,7 +32,10 @@
 			ker(∀f: ∈ homomorphism): = group.ker(f)
 
 			neg[∀V: ∈ linear_space]: = group.inv[V],
+			
+			Hom(∀V: ∈ linear_space, ∀W: ∈ linear_space): = {f|f.D = V, f.C = W}[∀f: ∈ homomorphism], ; it is also a vector space
 		; end
+
 
 		independent(∀V: ∈ linear_space):
 		(
@@ -48,12 +56,17 @@
 
 		span[∀V: ∈ linear_space](∀S: ⊆ set.sub(V)): = {∀x: ∈ combination[V](S)},
 
-		dim[∀V: ∈ linear_space](∀S: ∈ sub(V)):
+		dim[∀V: ∈ linear_space](∀S: ∈ sub(V)): ; +
 		(
 			"dimension of S in V",
 		),
-
 		dim(∀V: ∈ linear_space): = dim[V](V),
+
+		rank(∀T: ∈ homomorphism): = dim[T.C](range(T)),
+		[ we can prove it is always equal to the dim of row space ]
+
+		nullity(∀T: ∈ homomorphism): = dim[T.D](ker(T)),
+
 
 		eigen(∀f: ∈ endomorphism): ; +
 		(

@@ -1,6 +1,6 @@
 : ; metric_space
 (
-	⊆ topological_space,
+	⊆ metrizable_space, ; ?
 	(
 		∀M: ∈ metric_space,
 		M.d: ∈ metric, ; defined below

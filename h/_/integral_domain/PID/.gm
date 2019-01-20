@@ -1,8 +1,7 @@
-: ; PID, principle_ideal_domain
+: ; PID, or principle_ideal_domain
 (
-	⊆ integral_domain, ; unitial here
-
+	⊆ integral_domain,
 	∀P: ∈ PID,
-	ideal(P) = principle_ideal(P) ; in fact they are equal
+	ideal(P) = principle_ideal(P)
 ),
 [ chaim: PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

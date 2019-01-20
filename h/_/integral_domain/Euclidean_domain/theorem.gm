@@ -1,4 +1,21 @@
 s"Euclidean 'doman' has its identity: ; +
 (
-
+	E'doman:
+	(
+		⊆ integral_doman,
+		∀R: ∈ E'doman,
+		R.σ: ∈ norm, R ∈ sub(R.σ.D), ; integral_domain.sub
+		@R.σ,
+			∀a: ∈ R, ∀b: (∈ R, !(b = D.0)),
+			∃p: ∈ R, ∃r: (∈ R, σ(r) C.< σ(b)),
+			@D,
+				a = b × p + r
+			■
+		■
+	),
+	E'doman = ED
 ),
+[ proof,
+	we can easily prove that E'doman is a PID as what we do when prove ED is a PID.
+	As PID is unital, so do the E'doman
+ ]

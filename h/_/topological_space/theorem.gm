@@ -16,9 +16,48 @@
 	[ equivalently```
 		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
 	``` ]
+
+	s"three equivalent the induced topology of the subspace":
+	(
+		∀X: ∈ topological_space, ∀A: ⊆ X,
+		i(∀x: ∈ A): = x, i.C: = X, ; ?
+		A ∈ sub(X)
+		⇔ A.τ ; A.τ is the coarsest topology to make the i continuous
+		⇔ A.t "is the topology makes" (
+			∀f: (∈ continuous_function, f.C = A),
+			f ∘ i ∈ continuous_function
+		)
+	),
+; end
+
+; about closure, interior and boundary
+	s"equations":
+	(
+		∀X: ∈ topological_space, ∀A: ⊆ X,
+		@X,
+		¯(X\A) = X\A°, (X\B)° = X\¯B,
+		∂A = ¯A ∩ ¯(X\A)
+		■
+	),
+
+	s"closure and interior in subspace":
+	(
+		∀X: ∈ topological_space, ∀A: ⊆ X, ∀B: ⊆ A,
+		closure[A](B) = closure[X](B) ∩ A,
+		interior[A](B) ⊇ interior[X](B)
+	),
+	[ proof```
+		∀(B ⊆ ¯B, B ⊆ A) ⇒ B ⊆ ¯B ∩ A ⇒ 
+		∃V: ∈ X.closed, V ∩ A = clous
+	``` ]
 ; end
 
 ; about open and closed
+	s"open and closed are both transitive relation":
+	(
+
+	),
+
 	s"all the elements of a open set are interior points, vise verse":
 	(
 		"someone else may choose this as the definition of open set in a metric space, replace the nbh into ball",

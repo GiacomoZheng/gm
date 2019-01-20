@@ -8,7 +8,7 @@
 		f.D ∈ integral_domain,
 		f.C ∈ well_ordered_set, ; * least
 		@f,
-			∀x: ∈ D, x = D.0 ⇔ f(x) = well_ordered_set.least(C), ; distinguishable
+			∀x: ∈ D, x = D.0 ⇔ f(x) = well_ordered_set.least(C), ; ? distinguishable
 
 			∀{a, b}: ⊆ D, f(a) C.≤ f(a D.× b) ; it is useless for definition of Euclidean_domain
 		■

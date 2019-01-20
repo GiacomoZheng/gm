@@ -9,7 +9,8 @@
 	(
 		; + after the writting of natural numbers
 		∀G: ∈ finite_group,
-		∀p: ∈ commutative_rng.prime(h.N), ∀n: ∈ h.N, m: = |G|/(p^n),
+		∀p: ∈ commutative_rng.prime(h.N), ; ?
+		∀n: ∈ h.N, m: = |G|/(p^n),
 		∀(m ∈ h.N, commutative_rng.gcd(m, p) = 1) ⇒
 		(
 			∃H: ∈ sub(G), |H| = p^n

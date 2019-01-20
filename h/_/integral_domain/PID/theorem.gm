@@ -1,3 +1,25 @@
+s"principle ideal 'doman' has its identity":
+(
+	PI'doman:
+	(
+		⊆ integral_doman,
+		∀P: ∈ PI'doman,
+		ideal(P) = principle_ideal(P)
+	),
+	PI'doman = PID
+),
+[ proof```
+	∀R: ∈ PI'doman, R ∈ ideal(R) = principle_ideal(P),
+	∃b: ∈ generator[R](P), ; ?
+	∃i: ∈ R,
+	@R,
+		b × i = b,
+		∀y: ∈ R, ∃p: ∈ R, p × b = y,
+		y × i = p × b × i = p × b = y
+	■
+	i = R.1
+``` ]
+
 s"all the PID (ring) is Noetherian_ring": ; +
 (
 

@@ -1,4 +1,4 @@
-: ; Bézout_domain
+: ; Bézout_domain, or Bezout_domain
 (
 	"the integral domain who satisfies the Bézout identity",
 	⊆ integral_domain

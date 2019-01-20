@@ -8,20 +8,23 @@
 		G.+: = &G.*&, ; for convince
 		G.0: = G.e, ; for convince
 
-		G.-:
-		(
-			∈ operator,
-			∀{a, b}: ⊆ G,
-			a G.- b = a G.+ group.inv[G](b) ; = group.inv[G](b) G.+ a
-			; that is why the - can be defined here
-		)
+		[ attributes ]
+			G.-:
+			(
+				∈ operator,
+				∀{a, b}: ⊆ G,
+				a G.- b = a G.+ group.inv[G](b) ; = group.inv[G](b) G.+ a
+				; that is why the - can be defined here
+			)
 	),
 
 	; abut inheritance
 		sub(∀G: ∈ abelian_group): = group.sub(G),
-	; end
 
-	inv[∀R: ∈ abelian](∀a: ∈ R): = group.inv[R](a),
-	neg[∀R: ∈ abelian](∀a: ∈ R): = group.inv[R](a)
+		inv[∀R: ∈ abelian_group](∀a: ∈ R): = group.inv[R](a),
+		neg[∀R: ∈ abelian_group](∀a: ∈ R): = group.inv[R](a)
+
+		
+	; end
 ),
 [ chaim: abelian group ⊆ group ]
