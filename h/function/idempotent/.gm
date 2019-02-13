@@ -1,0 +1,6 @@
+: ; idempotent
+(
+	⊆ function,
+	∀f: ∈ idempotent,
+	f ∘ f = f
+),

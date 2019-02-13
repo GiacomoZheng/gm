@@ -1,4 +1,15 @@
 ; about basic
+	s"criterion of trivial topological space"
+	(
+		∀T: ∈ trivial,
+		∀{a, b}: ⊆ T, ∀(a T.→ b, b T.→ a) ; my version
+	),
+	[ equivalently```
+		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
+	``` ]
+; end
+
+; about sub
 	s"every subset of a topological space is subspace":
 	(
 		∀X: ∈ topological_space, sub(X) = set.sub(X)
@@ -8,25 +19,16 @@
 		T ∈ topological_space ⇐ T ⊆ X ⊆ &X.→&.D = &T.→&.D
 	``` ]
 
-	s"criterion of trivial topological space"
-	(
-		∀T: ∈ trivial,
-		∀{a, b}: ⊆ T, ∀(a T.→ b, b T.→ a) ; my version
-	),
-	[ equivalently```
-		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
-	``` ]
+	s"sub topology is the coarsest topology to make the id function continuous":, ; +
 
-	s"three equivalent the induced topology of the subspace":
+	s"sub topology is the unique topology makes": ; ?
 	(
-		∀X: ∈ topological_space, ∀A: ⊆ X,
+		∀X: ∈ topological_space, ∀A: ∈ sub(X),
 		i(∀x: ∈ A): = x, i.C: = X, ; ?
-		A ∈ sub(X)
-		⇔ A.τ ; A.τ is the coarsest topology to make the i continuous
-		⇔ A.t "is the topology makes" (
+		(
 			∀f: (∈ continuous_function, f.C = A),
 			f ∘ i ∈ continuous_function
-		)
+		),
 	),
 ; end
 
@@ -43,11 +45,11 @@
 	s"closure and interior in subspace":
 	(
 		∀X: ∈ topological_space, ∀A: ⊆ X, ∀B: ⊆ A,
-		closure[A](B) = closure[X](B) ∩ A,
+		closure[A](B) = X.closure(B) ∩ A,
 		interior[A](B) ⊇ interior[X](B)
 	),
 	[ proof```
-		∀(B ⊆ ¯B, B ⊆ A) ⇒ B ⊆ ¯B ∩ A ⇒ 
+		∀(B ⊆ ¯B, B ⊆ A) ⇒ B ⊆ ¯B ∩ A ⇒
 		∃V: ∈ X.closed, V ∩ A = clous
 	``` ]
 ; end
@@ -55,8 +57,12 @@
 ; about open and closed
 	s"open and closed are both transitive relation":
 	(
-
+		X.open ∈ transitive_relation,
+		X.closed ∈ transitive_relation
 	),
+	[ proof```
+
+	``` ]
 
 	s"all the elements of a open set are interior points, vise verse":
 	(
@@ -86,10 +92,10 @@
 	s"any closure is closed":
 	(
 		∀X: ∈ topological_space,
-		∀S: ⊆ X, closure[X](S) ∈ closed(X)
+		∀S: ⊆ X, X.closure(S) ∈ closed(X)
 	),
 	[ proof```
-		(∀x: ∈ X, (∃a: ∈ S, a S.→ x) ⇒ x ∈ closure[X](S)) ⇒ closure[X](S) ∈ closed(X)
+		(∀x: ∈ X, (∃a: ∈ S, a S.→ x) ⇒ x ∈ X.closure(S)) ⇒ X.closure(S) ∈ closed(X)
 	``` ]
 
 	s"a subset is closed iff it is equal to its closure":
@@ -97,10 +103,10 @@
 		"The closure is the minimal closed set contains the subset"
 		∀X: ∈ topological_space,
 		∀S: ⊆ X,
-		S ∈ closed(X) ⇔ S = closure[X](S)
+		S ∈ closed(X) ⇔ S = X.closure(S)
 	),
 	[ proof```
-		
+
 	``` ]
 
 	s"the complement of open set is closed and vice versa":
@@ -112,7 +118,91 @@
 	[ proof``` ; +
 		S ∈ open(X) ⇒
 		(
-			∀x: ∈ X\S, 
+			∀x: ∈ X\S,
 		)
 	``` ]
+; end
+
+; about base / basis
+	s"generate a topology from basis":
+	(
+		∀X: ∈ set,
+		∀ℬ: ∈ basis(X),
+		{∪(𝒰)}[∀𝒰: ⊆ ℬ] ∈ topology(X)
+	),
+	[ proof```
+		𝒯: = {∪(𝒰)}[∀𝒰: ⊆ ℬ]
+		; ∅ and X
+		∅ = ∪(∅) ∈ 𝒯, X = ∪(ℬ) ∈ 𝒯,
+		; union, directly
+		; intersection
+		∀{T1, T2}: ⊆ 𝒯,
+		T: = T1 ∩ T2,
+		∃ℬ1: ⊆ ℬ, T1 = ∪(ℬ1),
+		∃ℬ2: ⊆ ℬ, T2 = ∪(ℬ2),
+		∀x: ∈ T, ∃B1: ∈ ℬ1, ∃B2: ∈ ℬ2, x ∈ B1 ∩ B2, ∃B[x]: (∋ x, ⊆ B1 ∩ B2),
+		T = ∪[∀x: ∈ T](B[x]) ∈ 𝒯,
+	``` ]
+
+	s"basis implies all the structure of topological space":
+	[ as the union of open sets are still open in a topological space ]
+
+	s"a bijection preserve a basis is a homeomorphism":
+	(
+		∀f: (∈ bijection, f.D ∈ topological_space, f.C ∈ topological_space),
+		@f,
+		∀ℬ[D]: ∈ D.basis,
+		{{f(∀x: ∈ B)}|∀B: ∈ ℬ[D]} ∈ C.basis ⇒ f ∈ homeomorphism
+		■
+	),
+	[ proof```
+		@f,
+			ℬ[C]: = {{f(∀x: ∈ B)}|∀B: ∈ ℬ[D]},
+			; f is continuous as
+			∀O: ∈ C.τ, ∃𝒪: ⊆ ℬ[C], O = ∪(𝒪),
+		■
+	``` ]
+; end
+
+; about product topology
+	s"product of two topological space gives a new topology":
+	(
+
+	),
+
+	s"projection mapping are continous":
+	(
+		∀X: ∈ topological_space, ∀Y: ∈ topological_space,
+		p[X](∀(x,y): ∈ X × Y): = x,
+		p[Y](∀(x,y): ∈ X × Y): = y,
+		p[X] ∈ continuous_function,
+		p[Y] ∈ continuous_function,
+	)
+
+	s"product topology is the coarsest topology makes the projection mappings continuous":
+	(
+		"the converse of the above one, indeed",
+		∀X: ∈ topological_space, ∀Y: ∈ topological_space,
+		S: = X set.× Y,
+		p[X](∀(x,y): ∈ S): = x, p[Y](∀(x,y): ∈ S): = y,
+		∀τ: ∈ topology(S),
+		∀(
+			S.τ: = τ,
+			p[X] ∈ continuous_function,
+			p[Y] ∈ continuous_function
+		)
+		⇒
+		(
+			P[X].
+		)
+		... ; +
+		⇒ (X × Y).τ ⊆ τ
+	),
+
+	s"τ is the unique topology makes": ; ?
+	(
+		∀f: (∈ continuous_function, f.C = X × Y),
+		p[X]∘f ∈ continuous_function,
+		p[Y]∘f ∈ continuous_function,
+	),
 ; end

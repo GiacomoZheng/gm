@@ -1,0 +1,110 @@
+: ; module, or linear_space, or vector_space
+(
+	"field module",
+	⊆ ring.module, ; "+" defined there
+	(
+		∀V: ∈ module,
+		V.F: = V.R,
+		V.F ∈ field,
+		V.π ∈ action, ; here it is the field (left) action
+		V.π[∀v: ∈ V]: = V.π(v), ; ? for convenience
+		[ attributes ]
+			V.combination(∀S: ⊆ V):
+			(
+				⊆ set.sub(V),
+				∀x: ∈ combination[V](S),
+				∃c[∀α: ∈ S]: ∈ V.F,
+				x = V.+[∀α: ∈ I](V.π(c[α])(α)) ; means it is the elements of V
+			),
+
+			V.span(∀S: ⊆ V): = {∀x: ∈ combination[V](S)},
+
+			V.independent: ; ?
+			(
+				"independent subset of this linear space",
+				⊆ set.sub(V),
+				∀I: ∈ V.independent,
+				∀c[∀α: ∈ I]: ∈ V.F,
+				V.+[∀α: ∈ I](V.π(c[α])(α)) = V.0 ⇒ (∀α: ∈ I, c[α] = V.F.0) ; ? as an abelian group, order of addition is unimportant
+			),
+
+			V.spanning_set:
+			(
+				⊆ set.sub(V),
+				∀S: ∈ V.spanning_set,
+				V.span(S) = V
+			),
+
+			V.basis:
+			(
+				⊆ V.independent,
+				⊆ V.spanning_set
+			),
+
+			V.dimension: ; ?
+			(
+
+			),
+
+			V.coordinate[∀ℬ: ∈ V.basis](∀x: ∈ V):
+			; be similar to the actions
+			(
+				; an isomorphism
+				∃f: ∈ V.F set.^ ℬ,
+				x = +[∀b: ∈ ℬ](V.π[f(b)](b)), ; + f is unique
+				= f
+			),
+	),
+	[ property: ... ]
+		; about alias
+			independent(∀V: ∈ module): = V.independent,
+			combination[∀V: ∈ module]: = V.combination,
+			span[∀V: ∈ module]: = V.span,
+			spanning_set(V): = V.spanning_set,
+		; end
+
+		; + about inheritance
+			sub(∀V: ∈ module):
+			(
+				⊆ module,
+				⊆ ring.module.sub(V), ; +
+				∀S: ∈ sub(V),
+				V.F = S.F,
+				&V.π& = &S.π&
+			),
+
+			min_sub[∀G: ∈ module](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure 
+
+			ker(∀f: ∈ homomorphism): = group.ker(f)
+
+			neg[∀V: ∈ module]: = group.inv[V],
+			
+			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f.D = V, f.C = W}[∀f: ∈ homomorphism], ; + it is also a vector space
+		; end
+
+		; basis(∀V)
+
+		dim[∀V: ∈ module](∀S: ∈ sub(V)): ; +
+		(
+			"dimension of S in V",
+		),
+		dim(∀V: ∈ module): = dim[V](V),
+
+		rank(∀T: ∈ homomorphism): = dim[T.C](range(T)),
+		[ we can prove it is always equal to the dim of row space ]
+
+		nullity(∀T: ∈ homomorphism): = dim[T.D](ker(T)),
+
+		isomorphic(∀V: ∈ module):
+		(
+			⊆ module,
+			∀H: ∈ isomorphic(G),
+			∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
+		),
+		≌: (∈ relator, &≌&.r = isomorphic),
+
+		eigen(∀f: ∈ endomorphism): ; +
+		(
+			"eigen value of "
+		)
+),

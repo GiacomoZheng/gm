@@ -4,6 +4,7 @@ gm
 	├─associative_operator
 	├─commutative_operator
 	├─function
+		└─idempotent
 	├─operator
 	├─relation
 		├─antisymmetric
@@ -25,6 +26,7 @@ gm
 		├─isomorphism
 		├─monomorphism
 		└─σ_algebra
+	├─variable
 	├─_
 		├─abelian_group
 			└─_norm
@@ -43,6 +45,15 @@ gm
 			├─finite_extension
 			├─homomorphism
 			├─isomorphism
+			├─module
+				├─endomorphism
+				├─finite_generated_vector_space
+				├─homomorphism
+				├─inner_product
+				├─inner_product_space
+				├─isomorphism
+				├─norm
+				└─trivial
 			├─norm
 			├─prime_field
 			└─valuation
@@ -79,15 +90,6 @@ gm
 			└─UFD
 				└─polynomial
 					└─primitive
-		├─linear_space
-			├─endomorphism
-			├─finite_generated_linear_space
-			├─homomorphism
-			├─inner_product
-			├─inner_product_space
-			├─isomorphism
-			├─norm
-			└─trivial
 		├─magma
 		├─monoid
 		├─poset
@@ -117,16 +119,17 @@ gm
 		├─semigroup
 		├─skew_field
 		├─topological_space
+			├─accessible_space
 			├─compact_set
 			├─continuous_function
 			├─discrete_set
 			├─Hausdorff_space
 			├─homeomorphism
+			├─isomorphism
 			├─metrizable_space
 			├─preregular_space
 			├─trivial
-			├─_homomorphism
-			└─_isomorphism
+			└─_homomorphism
 		├─totally_ordered_set
 		├─well_ordered_set
 		├─_

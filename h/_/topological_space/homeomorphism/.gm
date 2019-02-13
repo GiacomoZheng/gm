@@ -1,4 +1,4 @@
-: ; homeomorphism
+: ; ? homeomorphism
 (
 	⊆ set.isomorphism,
 	⊆ continuous_function,

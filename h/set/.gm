@@ -1,7 +1,7 @@
 : ; + set
 (
 	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
-		⊆ ◉, ; it means it is a class
+		gm.⊆ ◉, ; it means it is a class
 
 		(
 			∀A: ∈ set,
@@ -18,7 +18,7 @@
 
 		(
 			∀A: ∈ set,
-			∀cls: ⊆ ◉,
+			∀cls: gm.⊆ ◉,
 			∃B: ∈ set, ∀x: ∈ B, x ∈ cls
 		), ; 3. specification
 
@@ -35,7 +35,7 @@
 		)
 	; end
 	
-	⊆ ◉,
+	gm.⊆ ◉,
 	(
 
 	),
@@ -44,25 +44,24 @@
 		sub(∀S: ∈ set):
 		(
 			"subset",
-			⊆ set,
+			gm.⊆ set,
 			∀A: ∈ sub(S),
 			∀a: ∈ A, a ∈ S 
 		),
 
 		element(∀S: ∈ set):
 		(
-			⊆ ◉,
+			gm.⊆ ◉,
 			∀x: ∈ element(S),
 			x ∈ S
 		),
 
-		Ps(∀S: ∈ set): = {},
-		; + return a set ; I'll create another function return a class",
+		Ps(∀S: ∈ set): = {}, ; + return a set ; I'll create another function return a class",
 
 		cover(∀S: ∈ set):
 		(
 			"cover of S, set of subsets",
-			⊆ sub(Ps(S)), ;  every element of the cover should be a subset of the S of it
+			gm.⊆ sub(Ps(S)), ;  every element of the cover should be a subset of the S of it
 			∀𝒞: ∈ cover,
 			; !({} ∈ 𝒞), ; ? others may not require the sets in covers nonempty
 			S = ∪(𝒞) ; ! the union of all the sets in the cover should be the S
@@ -71,12 +70,19 @@
 
 		partition(∀S: ∈ set):
 		(
-			⊆ cover(S),
+			gm.⊆ cover(S),
 
 			∀𝒫: ∈ partition(S), ; ? sets in 𝒫 is nonempty as I define cover as so
 			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
 			!(A = B) ⇒ A ∩ B = ∅
 		),
+
+		equal(∀S: ∈ set): ; ?
+		(
+			gm.⊆ set,
+			
+		)
+		=: (∈ relator, &=&.r = equal),
 	
 		×: ; !
 		(
@@ -87,8 +93,7 @@
 
 		∪: ; !
 		(
-			∈ symbunc, ; ! I've delete this class
-
+			; ∈
 			∀τ: ∈ set, ; set of set
 			∪[](τ) = {x}[∀x: ∈ ◉, ∃C: ∈ τ, x ∈ C],
 
@@ -98,7 +103,7 @@
 
 		∩: ; !
 		(
-			∈ symbunc, ; !
+			; ∈ 
 
 			∀τ: ∈ set, ; set of set
 			∩[](τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C], ; !

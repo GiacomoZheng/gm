@@ -6,20 +6,13 @@
 	(
 		(
 			∀X: ∈ topological_space,
-			X.τ:
-			(
-				"a set of subsets of X",
-				⊆ Ps(X),
-				∅ ∈ X.τ, X ∈ X.τ,
-				∀{A, B}: ⊆ X.τ, A ∩ B ∈ X.τ,
-				∀𝒞: ⊆ X.τ, ∩(𝒞) ∈ X.τ, ; !
-			)
+			X.τ: ∈ topology(D), ; in the below
 			; [ equivalently```
 			; 	X.→: ∈ preorder_relator,
 			; 	X ⊆ &X.→&.D,
 			; ``` ]
 		),
-		
+
 		[ attibutions ]
 			; via open set
 				X.basis:
@@ -33,7 +26,7 @@
 				; about alias
 					X.base: = X.basis,
 					X.𝒯: = X.τ, ; I won't use this one later
-					; X.topology: = X.τ, ; !
+					; ! X.topology: ; it may cause me confused
 					X.open: = set.element(X.τ), ; directly trans it to a class
 				; end
 			; end
@@ -82,9 +75,9 @@
 			; end
 
 			; about closure interor and boundary
-				X.accumulation_point(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N\{x} = ∅)}[ ; + bug ... 
+				X.accumulation_point(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N\{x} = ∅)}[ ; + bug ...
 					∀x: ∈ X],
-				X.closure(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N = ∅)}[ ; + bug ... 
+				X.closure(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N = ∅)}[ ; + bug ...
 					∀x: ∈ X], ; the minimal closed set in X containing the A
 					; = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; ?
 				X.interior(∀A: ⊆ X): = {x|A ∈ X.nbh(x)}[∀x: ∈ X], ; the maximal open set in X contained in the A,
@@ -100,7 +93,7 @@
 			topology(∀X: ∈ topological_space): = X.τ, ; a set
 			open(∀X: ∈ topological_space): = X.open, ; a class
 			closed(∀X: ∈ topological_space): = X.closed,
-			
+
 			accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
 				limit_point[∀X: ∈ topological_space]: = accumulation_point[X], ; I don't like this name
 			closure[∀X: ∈ topological_space]: = X.closure,
@@ -113,6 +106,8 @@
 		; end
 
 		; + about inheritance
+			⊆: ; ? I don't know up to now
+
 			sub(∀S: ∈ topological_space):
 			(
 				"sub topological space",
@@ -122,6 +117,14 @@
 				A.τ: = {U ∩ A}[∀U: ∈ X.τ] ; ?
 			),
 			; any subset of X is a sub of it
+
+			×: ; + I may change the corresponding definition in group as well
+			(
+				∈ operator, ; ?
+				∀A: ∈ topological_space, ∀B: ∈ topological_space,
+				(A × B): set.= A set.× B, ; ?
+				{U ∩ A}[∀U: ∈ X.τ] ∈ (A × B).basis
+			),
 		; end
 
 		open_cover(∀C: ∈ topological_space):
@@ -138,4 +141,22 @@
 			closure[X](D) = X
 		),
 		[ I may write down some equivalent version of it ]
+
+		basis(∀D: ∈ set): ; ? space
+		(
+			"generated a topological space from a of basis",
+			⊆ set.cover(D),
+			∀{B1, B2}: ∈ ℬ, ∀x: ∈ B1 ∩ B2,
+			∃B: ∈ ℬ, x ∈ B ⊆  B1 ∩ B2
+		),
+
+		topology(∀D: ∈ set): ; +
+		(
+			"a topological structure on D",
+			⊆ set.cover(D), ; D ∈ τ
+			∀τ: ∈ topology(D),
+			∅ ∈ τ,
+			∀{A, B}: ⊆ τ, A ∩ B ∈ τ,
+			∀𝒞: ⊆ τ, ∩(𝒞) ∈ τ,
+		),
 ),

@@ -1,20 +1,19 @@
-: ; Hausdorff_space, or separated_space
+: ; Hausdorff_space, or separated_space, or T2_space
 (
+	"second separated space",
 	⊆ topological_space,
 	(
 		∀H: ∈ Hausdorff_space,
-		; ∀x
-
 		; the open set version
 		∀{x, y}: ∈ H,
 		!(x = y) ⇒
 		(
-			∃X: ∈ Nbh[H](x), ∃Y: ∈ Nbh[H](y),
+			∃X: ∈ H.nbh(x), ∃Y: ∈ H.nbh(y), ; open set is the same
 			X ∩ Y = ∅
 		)
 	)
 ),
-[ chaim: discrete_space ⊆ Hausdorff_space ]
+[ chaim: discrete_space ⊆  ⊆ Hausdorff_space ]
 [ property:
 	+ every converge sequence converge to a unique point
  ]

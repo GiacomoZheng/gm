@@ -3,5 +3,5 @@
 	⊆ ring.module.homomorphism,
 
 	∀f: ∈ homomorphism,
-	f.D ∈ linear_space, f.C ∈ linear_space
+	f.D ∈ module, f.C ∈ module
 ),

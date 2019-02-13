@@ -1,6 +1,6 @@
 : ; inner_product_space
 (
-	⊆ normed_linear_space,
+	⊆ normed_module,
 	(
 		∀V: ∈ inner_product_space,
 		V.in: ∈ inner_product,
@@ -24,7 +24,7 @@
 			"the biggest orthogonal spaces of S",
 			= {x|∀y: ∈ S, V.in(x, y) = V.F.0}[∀x: ∈ V],
 		),
-	
+
 		orthogonal(∀V: ∈ inner_product_space): ; * the name of this function is "orthogonal"
 		(
 			"a orthogonal set",

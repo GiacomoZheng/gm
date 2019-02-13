@@ -1,3 +1,5 @@
+; * vector space's theorems
+
 ; about generalizing
 	s"criterion of trivial linear space":
 	(
@@ -7,7 +9,7 @@
 
 	s"conditions for a subspace":
 	(
-		∀V: ∈ linear_space,
+		∀V: ∈ vector_space,
 		∀U: ⊆ V,
 		@V,
 		U ∈ sub(V) ⇔
@@ -46,7 +48,7 @@
 ; about the basis of a linear space
 	s"the span of a subset is just the minimum subspace contains it":
 	(
-		∀V: ∈ linear_space, ∀S: ⊆ V,
+		∀V: ∈ vector_space, ∀S: ⊆ V,
 		span[V](S) = min_sub[V](S)
 	),
 	[ proof```
@@ -109,12 +111,24 @@
 		⇒ T' ∈ isomorphism ⇒ dim(T'.D) = dim(T'.C) ⇒ dim(D) - dim(ker(T)) = dim(range(T)) ⇒ rank(T) + nullity(T) = dim(T.D)
 		■
 	``` ]
+
+	s"any finite generated linear space is isomorphic to F^n, where n is the dimenesion of it":
+	(
+		∀V: ∈ vector_space, F: = V.F,
+		∀ℬ: ∈ V.basis,
+		V.coordinate[ℬ].C: = V.F set.^ ℬ,
+		V.coordinate[ℬ] ∈ isomorphism
+	),
+	[ proof```
+		; well defined
+
+	``` ]
 ; end
 
 ; about space of homomorphisms
 	s"space of homomorphisms is also a linear space":
 	(
-		∀V: ∈ linear_space, ∀W: ∈ linear_space,
-		Hom(V, W) ∈ linear_space ; + define the Hom
+		∀V: ∈ vector_space, ∀W: ∈ vector_space,
+		Hom(V, W) ∈ vector_space ; + define the Hom
 	),
 ; end

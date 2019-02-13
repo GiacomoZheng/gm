@@ -1,12 +1,12 @@
 s"the group homomorphism on two linear space": ; +
 (
-	∀A: ∈ linear_space, ∀B: ∈ linear_space,
+	∀A: ∈ module, ∀B: ∈ module,
 	∀f: (∈ group.homomorphism, f.D = A, f.C = B),
 	; we can see that the corresponding field of A and B may be different
 	[ we can have a try```
 		@f,
 		f(a + a) = f(a) + f(a),
-		f(D.F.1 × a) = 
+		f(D.F.1 × a) =
 		■
 	``` ]
 	; ! .... I don't know

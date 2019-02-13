@@ -1,0 +1,20 @@
+: ; accessible_space, or a Tychonoff_space, or T1_space
+(
+	"first separated space",
+	⊆ topological_space,
+	(
+		∀H: ∈ space,
+		; the open set version
+		∀{x, y}: ∈ H,
+		!(x = y) ⇒
+		(
+			∃X: ∈ X.nbh(x), !(y ∈ X)
+		)
+	)
+),
+[ chaim: discrete_space ⊆ Hausdroff_space ]
+[ property:
+	+ every singleton are closed
+	+ example: infinite space with cofinite topology 
+ ]
+ 

@@ -6,24 +6,23 @@
 		division_ring: = skew_field, ; I mat not use this name as division_ring don't define the division indeed
 		unital_module: = ring.module, ; left module
 		; I'll do not define the singel module in this level
-		vector_space: = linear_space,
+		linear_space: = field.module,
+		vector_space: = field.module,
 
 		least_well_ordered_set: = well_ordered_set,
 	; end
 
-	; about topology	
-		; ? topset: = topological_space, ; I may use it to simplify it
+	; about topology
+		top'space: = topological_space, ; My (year 2) topology teacher use it
 		; ! continuous_function: = topological_space.homomorphism,
-		; ! homeomorphism: = topological_space.isomorphism, ; * I do not like this name
+		; ! homeomorphism: = topological_space.isomorphism,
+		; ? topological_isomorphism: = topological_space.isomorphism,
 	; end
 
 	; about linear (vector) space
-		linear_map: = linear_space.homomorphism,
-		linear_transformation: = linear_space.homomorphism,
-		linear_operator: = linear_space.endomorphism. ; * I do not like this name
-
-		finite_generated_linear_space: = linear_space.finite_generated_space,
-		finite_generated_vector_space: = finite_generated_linear_space,
+		linear_map: = field.module.homomorphism,
+		linear_transformation: = field.module.homomorphism,
+		linear_operator: = field.module.endomorphism. ; * I do not like this name
 	; end
 
 	; about poset
@@ -38,6 +37,8 @@
 			trivial_group: = group.trivial,
 			trivial_rng: = rng.trivial,
 			topological_trivial_space: = topological_space.trivial,
+			trivial_vector_space: = field.module.trivial,
+			trivial_linear_space: = field.module.trivial,
 		; end
 
 		; about sub
@@ -46,6 +47,8 @@
 			subring: = ring.sub,
 			subfield: = field.sub,
 			topological_subspace: = topological_space.sub,
+			linear_subspace: = field.module.sub,
+			vector_subspace: = field.module.sub,
 		; end
 	; end
 ; end

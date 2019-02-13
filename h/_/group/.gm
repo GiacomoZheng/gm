@@ -107,10 +107,6 @@
 			∀H: ∈ isomorphic(G),
 			∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
 		),
-
-		≌:
-		(
-			∈ relator, &≌&.r = isomorphic
-		),
+		≌: (∈ relator, &≌&.r = isomorphic),
 		[ ≌ is an equivalent relator ]
 ),

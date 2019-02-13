@@ -1,0 +1,7 @@
+: ; trivial
+(
+	⊆ module,
+
+	∀G: ∈ trivial,
+	∀f: (∈ mapping, f.D ∈ module, f.C = G), f ∈ homomorphism
+),

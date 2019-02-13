@@ -1,14 +1,17 @@
 : ; + function
 (
-	"for every input, a function would give an unique output",
 	⊆ ◉,
 	(
+		"for every input, a function would give an unique output",
 
 	),
-	
+
 	; locations
+		; about alias
+			id: = i,
+		; end
+
 		i(∀x: ∈ ◉): = x,
-		id: = i,
 
 		∘: ,; +
 ),

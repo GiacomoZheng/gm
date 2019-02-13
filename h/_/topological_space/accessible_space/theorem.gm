@@ -1,0 +1,25 @@
+s"in a the accessible_space, all the singletons are closed, verse vice":
+(
+	∀H: ∈ topological_space,
+	H ∈ accessible_space ⇔ (∀x: ∈ H, {x} ∈ H.closed) ; !
+),
+[ proof```
+	; ⇐
+	(∀x: ∈ H, {x} ∈ H.closed) ⇒
+	(
+		∀{x, y}: ⊆ H,
+		!(x = y) ⇒
+		(
+			∃N: = H \ {y}, ; open
+			∀(N ∈ H.nbh(x), !(y ∈ N))
+		)
+	),
+	; ⇒
+	H ∈ accessible_space ⇒
+	(
+		∀x: ∈ H,
+		∃N(∀y: ∈ H\{x}): (∈ H.nbh(y), !(x ∈ N)),
+		H\{x} = ∪[∀y: ∈ H\{x}]({y}) ⊆ ∪[∀y: ∈ H\{x}](N(y)) ⊆ H\{x}
+		⇒ H\{x} = ∪[∀y: ∈ H\{x}](N(y)) ∈ H.open ⇒ {x} ∈ H.closed
+	)
+``` ]

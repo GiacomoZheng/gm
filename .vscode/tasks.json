@@ -18,7 +18,7 @@
         {
             "label": "update-grammar",
             "type": "shell",
-            "command": "cd C:\\Users\\admin\\Documents\\GitHub\\vscode-gm; cp -r -Force out C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force snippets C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force syntaxes C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -r -Force themes C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force language-configuration.json C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force package.json C:\\Users\\admin\\.vscode\\extensions\\vscode-gm; cp -Force README.md C:\\Users\\admin\\.vscode\\extensions\\vscode-gm;",
+            "command": "vsce package --out gm.vsix; code-insiders --install-extension gm.vsix",
             "group": "build",
             "presentation": {
                 "reveal": "silent"
