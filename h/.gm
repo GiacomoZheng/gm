@@ -1,14 +1,5 @@
-; about locations
-	s: = , ; standard, 
-; end
-
-; ; about abbreviation
-; 	×: = &set.×&,
-; 	∪: = &set.∪&,
-; 	∩: = &set.∩&,
-	Ps: = set.Ps, ; ?
-
-; 	∘: = &function.∘&,
+; ; about locations
+; 	s: = , ; standard,
 ; ; end
 
 ; about alias
@@ -21,6 +12,25 @@
 
 			permutation: = set.automorphism,
 		; end
+	; end
+
+	; about function
+		∘: = &function.∘&,
+	; end
+
+	; about relation
+		reflexive_relation: = relation.reflexive,
+		transitive_relation: = relation.transitive,
+		symmetric_relation: = relation.symmetric,
+
+		irreflexive_relation: = relation.irreflexive,
+		antitransitive_relation: = relation.antitransitive,
+		antisymmetric_relation: = relation.antisymmetric,
+
+		preorder_relation: = relation.preorder,
+
+		equivalent_relation: = relation.equivalent,
+		order_relation: = relation.order,
 	; end
 ; end
 
@@ -41,13 +51,15 @@
 
 ∅: = {},
 
+; ? the items below are waitting for adjustment
+
 ^: ; ? move to bijiecton
 (
 	∈ symbol,
 	∀n: ∈ h.Z,
 
 	∀f: ∈ bijection,
-	i: = f.i, ; the identity permutation with the domain of f 
+	i: = f.i, ; the identity permutation with the domain of f
 	∃f': ∈ bijection, f' ∘ f = f ∘ f' = i,
 	f ^ 0 = i,
 	f ^ -1 = f',
@@ -66,7 +78,7 @@
 ),
 
 ; ? I don't how to deal with them now ; ! I may move them away later
-; * but I suggest you to write h.* than just use NZQR 
+; * but I suggest you to write h.* than just use NZQR
 N: = {}, ; 0, 1, 2, …
 Z: = {},
 Q: = {},

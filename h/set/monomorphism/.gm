@@ -1,4 +1,4 @@
-: ; monomorphism
+: ; monomorphism, or injection
 (
 	⊆ homomorphism,
 

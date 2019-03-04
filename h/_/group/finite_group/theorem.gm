@@ -1,7 +1,9 @@
-; about Sylow's theorems
+; + about Sylow's theorems
+	s"the groups with size prime are cyclic"
+
 	s"lemma: the center of p-group": ; +
 	(
-		∀G: ∈ group, ∀p: ∈ prime_number, ∀n: ∈ h.N,
+		∀G: ∈ group, ∀p: ∈ h.N.prime, ∀n: ∈ h.N,
 		|G| = p^n ⇒ !(center(G) = {G.e})
 	),
 
@@ -9,11 +11,13 @@
 	(
 		; + after the writting of natural numbers
 		∀G: ∈ finite_group,
-		∀p: ∈ commutative_rng.prime(h.N), ; ?
-		∀n: ∈ h.N, m: = |G|/(p^n),
-		∀(m ∈ h.N, commutative_rng.gcd(m, p) = 1) ⇒
-		(
-			∃H: ∈ sub(G), |H| = p^n
-		)
+		@h.N,
+		∀p: ∈ prime(h.N), ; ?
+			∀n: ∈ h.N, m: = |G|/(p^n),
+			∀(m ∈ h.N, gcd(m, p) = 1) ⇒
+			(
+				∃H: ∈ sub(G), |H| = p^n
+			)
+		■
 	),
 ; end

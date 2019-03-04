@@ -14,6 +14,6 @@
 	)
 ),
 [ chaim: discrete_space ⊆  ⊆ Hausdorff_space ]
-[ property:
-	+ every converge sequence converge to a unique point
+[ properties:
+	1. every converge sequence converge to a unique point
  ]

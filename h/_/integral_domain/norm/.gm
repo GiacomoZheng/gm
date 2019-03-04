@@ -2,7 +2,7 @@
 ; not a degree function as I'll definie later with v(ab) = v(a) + v(b)
 (
 	"a mapping from an integral domain to a well ordered set",
-	⊆ mapping,
+	⊆ set.homomorphism, ; mapping
 	(
 		∀f: ∈ norm,
 		f.D ∈ integral_domain,

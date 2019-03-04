@@ -12,7 +12,7 @@
 	)
 ; end
 
-; about 
+; about
 ; end
 
 ; todo rewrite
@@ -22,7 +22,7 @@ s"extension field with irreducible polynomial":
 	∀x: ∈ ◉, ; !
 	∀f(x): ∈ irreducible(P[K](x)),
 	K': = P[K](x) / I[P[K](x)]({f(x)}),
-	
+
 	∃f: ∈ extension, f.D = K, f.C = K',
 	∃α: ∈ K', f(α) = K.0,
 	|K' / K| = deg(f)
@@ -36,7 +36,7 @@ s"extension field with irreducible polynomial":
 
 s"rational field is the smallest subfield contain the aim":, ; +
 
-s"degree of extension equal to dimension of linear space":, ; +
+s"degree of extension equal to dimension of vector space":, ; +
 
 s"finite extension includes algebraic extension": ; +
 (

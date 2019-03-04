@@ -5,7 +5,7 @@
 	(
 		∀P: ∈ relation,
 		P.D: ∈ set,
-		∀x: ∈ P.D, x ∈ set.sub(P.D)
+		∀x: ∈ P.D, P(x) ⊆ set.sub(P.D)
 	),
 	; locations
 		; about alias

@@ -2,7 +2,7 @@
 (
 	"a homomorphism from a group into a permutation group on a set",
 	; * a little bit different with others' version
-	⊆ mapping,
+	⊆ set.homomorphism, ; mapping
 	(
 		∀μ: ∈ action,
 		μ.D ∈ group,
@@ -10,16 +10,16 @@
 		μ.C = {f|f.D = μ.S}[∀f: ∈ set.automorphism], ; permutation
 
 		@μ,
-		μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility
-		; * μ(D.e)(∀s: ∈ S) = s ; I think it useless
-		[ proof```
-			i = μ(a) ∘ inv(μ(a)) = μ(D.e D.* a) ∘ inv(μ(a)) = μ(D.e) ∘ μ(a) ∘ inv(μ(a)) = μ(D.e),
-		``` ]
+			μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility
+			; * μ(D.e)(∀s: ∈ S) = s ; I think it useless
+			[ proof```
+				i = μ(a) ∘ inv(μ(a)) = μ(D.e D.* a) ∘ inv(μ(a)) = μ(D.e) ∘ μ(a) ∘ inv(μ(a)) = μ(D.e),
+			``` ]
 		■
 	),
 
 	[ attributions ]
 		stabilizer[∀μ: ∈ action](∀s: ∈ μ.S): = {g|μ(g)(s) = s}[∀g: ∈ G],
 		orbit[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g)(s)}[∀g: ∈ G],
-	
+
 ),

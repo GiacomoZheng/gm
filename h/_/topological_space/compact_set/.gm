@@ -1,10 +1,16 @@
 : ; + compact_set
 (
 	⊆ topological_space,
-
-	∀C: ∈ compact_set,
-	∀𝒞: ∈ open_cover(C),
-	∃𝒮: ⊆ 𝒞, ; subset
-	𝒮 ∈ set.cover(C),
-	|𝒮| ∈ N ; !
+	∀𝒞: ∈ open_cover(X),
+	∃𝒞': (⊆ 𝒞, |𝒞'| ∈ N), ; ! | |
+	∪(𝒞') = X ; subset
 ),
+[ equivalently``` ; +
+	∀X: ∈ compact_set,
+	∀ℱ: ⊆ {∀x: ∈ X.closed},
+	; ∀S: ∈ finite(ℱ)
+	```
+	proof``` ; +
+	∀C: ∈ compact_set,
+	∀𝒞: ⊆ set.cover(C),
+``` ]

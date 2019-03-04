@@ -1,8 +1,6 @@
 : ; + set
 (
 	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
-		gm.⊆ ◉, ; it means it is a class
-
 		(
 			∀A: ∈ set,
 			∃B: ∈ set, ∀x: ∈ ◉, x ∈ A ⇔ x ∈ B
@@ -34,39 +32,42 @@
 
 		)
 	; end
-	
+
 	gm.⊆ ◉,
 	(
+		∀X: ∈ set,
 
+		; attributes
+			X.cover(∀S: ⊆ subset):
+			(
+				"cover of S, set of subsets",
+				gm.⊆ sub(Ps(S)), ; every element of the cover should be a subset of the S of it
+				∀𝒞: ∈ X.cover(S),
+				!({} ∈ 𝒞), ; at least the partition cannot caontains the empty element ; ? others may not require the sets in covers nonempty
+				S ⊆ ∪(𝒞)
+			),
 	),
 
 	; location
+		; about alias
+			cover(∀X: ∈ set): = X.cover(X),
+			[ the only cover of ∅ is {}, not {∅} ]
+		; end
+
 		sub(∀S: ∈ set):
 		(
 			"subset",
 			gm.⊆ set,
 			∀A: ∈ sub(S),
-			∀a: ∈ A, a ∈ S 
+			∀a: ∈ A, a ∈ S
 		),
+		⊆: (∈ relator, &⊆&.r = sub),
 
-		element(∀S: ∈ set):
+		element(∀S: ∈ set): ; +
 		(
-			gm.⊆ ◉,
-			∀x: ∈ element(S),
-			x ∈ S
 		),
 
-		Ps(∀S: ∈ set): = {}, ; + return a set ; I'll create another function return a class",
-
-		cover(∀S: ∈ set):
-		(
-			"cover of S, set of subsets",
-			gm.⊆ sub(Ps(S)), ;  every element of the cover should be a subset of the S of it
-			∀𝒞: ∈ cover,
-			; !({} ∈ 𝒞), ; ? others may not require the sets in covers nonempty
-			S = ∪(𝒞) ; ! the union of all the sets in the cover should be the S
-		),
-		[ the only cover of ∅ is {} ]
+		Ps(∀S: ∈ set): = {A}[∀A: ⊆ S], ; + return a set ; I'll create another function return a class
 
 		partition(∀S: ∈ set):
 		(
@@ -80,10 +81,9 @@
 		equal(∀S: ∈ set): ; ?
 		(
 			gm.⊆ set,
-			
 		)
 		=: (∈ relator, &=&.r = equal),
-	
+
 		×: ; !
 		(
 			∈ operator,
@@ -103,7 +103,7 @@
 
 		∩: ; !
 		(
-			; ∈ 
+			; ∈
 
 			∀τ: ∈ set, ; set of set
 			∩[](τ) = {x}[∀x: ∈ ◉, ∀C: ∈ τ, x ∈ C], ; !

@@ -1,6 +1,5 @@
-: ; isomorphism
+: ; isomorphism, or bijection
 (
-	; ⊆ homomorphism,
 	⊆ monomorphism,
 	⊆ epimorphism
 ),

@@ -1,5 +1,5 @@
-: ; automorphism
+: ; automorphism, or permutation
 (
-	⊆ isomorphism,
+	⊆ isomorphism, ; in fact the mono or epi is enough
 	⊆ endomorphism
 ),

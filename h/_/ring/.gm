@@ -10,12 +10,14 @@
 	; location
 		; about alias
 			commutative_domain: = integral_domain,
-			
+
 			regular_module: = module,
 			l'module: = module,
 			left_module: = l'module,
 			; + r'module: = anti_module,
 			; + right_module: = r'module,
+
+			ker(∀f: ∈ homomorphism): = f.kernel,
 		; end
 
 		; + about inheritance
@@ -30,15 +32,13 @@
 
 			min_sub[∀G: ∈ ring](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 
-			ker(∀f: ∈ homomorphism): = rng.ker(f),
-
 			proper_ideal(∀R: ∈ ring): = rng.proper_ideal(R),
 		; end
 
 		neg[∀R: ∈ ring]: = rng.neg[R],
 
-		; rep[∀R: ∈ ring]: = 
-		
+		; rep[∀R: ∈ ring]: =
+
 		unit(∀R: ∈ ring): = {x|∃x': ∈ R, x' R.× x = R.1 = x R.× x'}[∀x: ∈ R],
 		; it is the group of all the units in a ring
 

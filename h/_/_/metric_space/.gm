@@ -27,7 +27,7 @@
 
 		metric:
 		(
-			⊆ mapping,
+			⊆ set.homomorphism, ; mapping
 			∀d: ∈ metric,
 			d.D ∈ set, ; ? maybe I'll create a space class later
 			d.C ∈ h.R,

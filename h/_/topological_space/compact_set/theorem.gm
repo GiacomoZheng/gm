@@ -1,0 +1,47 @@
+; for compact space
+
+s"criterion of compact subset":
+(
+	∀X: ∈ topological_space,
+	∀A: ⊆ X,
+	(
+		∀𝒰: ⊆ X.open_cover(A), ∃𝒰': (⊆ 𝒰, |𝒰'| ∈ h.N), A ⊆ ∪(𝒰')
+	)
+	⇒ A ∈ compact_set
+),
+[ proof```
+
+``` ]
+
+s"finite space are always compact":
+(
+
+),
+
+s"compact subsets are all closed":
+(
+
+)
+
+s"continous function transitive compactness":
+(
+	∀f: ∈ continuous_function,
+	∀A: ⊆ f.D,
+	A ∈ compact_set ⇒ {f(a)}[∀a: ∈ A] ∈ compact_set
+),
+[ proof```
+	X: = f.D,
+	∃I: ∈ set, ∃U[∀i: ∈ I]: ∈ X.τ, f(A) ⊆ ∪[∀i: ∈ I](U[i]),
+	[ so that ] A ⊆ ∪[∀i: ∈ I](f.inv(U[i])), ; f.inv is f^-1
+``` ]
+
+s"product of two compact sets are still compact, verse vice":
+(
+
+),
+[ proof```
+	; ⇐ : X×Y compact ⇒ X, Y compact
+	p[X]: (x,y) ↦ x, ∀(p[X] ∈ continuous_function, X×Y ∈ compact_set) ⇒ X = p[X](X×Y) ∈ compact_set
+	; ⇒
+
+``` ]

@@ -7,27 +7,29 @@
 		∀G: ∈ group,
 		∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse
 		[ method ]
-		; ! I won't define G.^ as it will be confused with ring
+		; ! I won't define G.^ as it will be confused with it in ring
+		; ! I won't define G./ as it will be confused with it in commutative_ring
 	),
 	[ chaim: group ⊆ monoid ⊆ semigroup ⊆ magma ]
 
 	; the "group" above is just a location for the ones below
 		; about alias
+			ker(∀f: ∈ homomorphism): = f.kernel,
+
 			periodic_group: = torsion_group,
-			
 			regular_action: = action,
 			l'action: = action,
 			left_action: = l'action,
 			r'action: = anti_action,
 			right_action: = r'action,
 		; end
-		
+
 		; + about inheritance
 			sub(∀G: ∈ group): ; different from other books
 			(
-				⊆ group,
 				⊆ set.sub(G),
-				
+				⊆ group,
+
 				∀H: ∈ sub(G),
 				H.e = G.e,
 				&H.*& = &G.*&
@@ -36,8 +38,6 @@
 			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
 
 		; end
-		ker(∀f: ∈ homomorphism): = {g|f(g) = f.C.e}[∀g: ∈ f.D],
-
 		Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f.D = G, f.C = H}[∀f: ∈ homomorphism], ; ?
 
 		inv[∀G: ∈ group](∀g: ∈ G):
@@ -75,30 +75,48 @@
 		commutator_sub(∀G: ∈ group): = min_sub[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G]), ; ? Commutator subgroup, or derived subgroup
 		[ commutator_sub(G) ∈ normal(G) ]
 
-		l'coset[∀G: ∈ group](∀H: ∈ sub(G)):
+		l'coset[∀G: ∈ group](∀H: ∈ sub(G)): ; I don't write it as an attribute as it should not be inherited
 		(
 			⊆ set,
-			
+
 			∀C: ∈ l'coset[G](H),
 			∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; Order
+		),
+		/["l"]:
+		(
+			∈ operator,
+			∀G: ∈ group, ∀H: ∈ sub(G),
+			G /["l"] H = {∀x: ∈ l'coset[G](H)}
 		),
 
 		r'coset[∀G: ∈ group](∀H: ∈ sub(G)):
 		(
 			⊆ set,
-			
+
 			∀C: ∈ r'coset[G](H),
 			∃g: ∈ G, C = {h G.* g}[∀h: ∈ H] ; Order
+		),
+		/["r"]:
+		(
+			∈ operator,
+			∀G: ∈ group, ∀H: ∈ sub(G),
+			G /["r"] H = {∀x: ∈ r'coset[G](H)}
 		),
 
 		normal(∀G: ∈ group):
 		(
 			⊆ sub(G),
-			∀Nor: ∈ normal(G),
-			∀h: ∈ Nor, ∀g: ∈ G,
+			∀N: ∈ normal(G),
+			∀h: ∈ N, ∀g: ∈ G,
 			@G,
-			g*h*inv[G](g) ∈ Nor
+			g*h*inv[G](g) ∈ N
 			■
+		),
+		/:
+		(
+			∈ operator,
+			∀G: ∈ group, ∀H: ∈ normal(G),
+			G / H = G /["l"] H
 		),
 
 		isomorphic(∀G: ∈ group):

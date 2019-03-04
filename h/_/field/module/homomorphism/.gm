@@ -2,6 +2,10 @@
 (
 	⊆ ring.module.homomorphism,
 
-	∀f: ∈ homomorphism,
-	f.D ∈ module, f.C ∈ module
+	∀T: ∈ homomorphism,
+	T.D ∈ module, T.C ∈ module,
+
+	T.F: = T.R,
+
+	T.adjoint(∀f: ∈ dual(T.D)) = f ∘ T, ; they may use f* to represent it
 ),

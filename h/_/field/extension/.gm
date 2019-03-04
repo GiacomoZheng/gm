@@ -3,10 +3,10 @@
 	⊆ homomorphism,
 	⊆ injection,
 
-	f.degree: = |f.C / range(f)| ; ! /
+	f.degree: = |f.C / range(f)|
 	; ? I may delete it
 ),
-[ 
+[
 	it is true that a field.homomorphism is always an injection,
 	it means that the field.homomorphism = field.extension
  ]

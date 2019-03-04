@@ -1,4 +1,4 @@
-: ; epimorphism
+: ; epimorphism, or surjection
 (
 	⊆ homomorphism,
 

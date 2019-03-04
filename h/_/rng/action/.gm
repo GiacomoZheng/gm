@@ -1,7 +1,7 @@
 : ; action, or regular action, or l'action
 (
 	"a homomorphism from a rng into the rng of automorphism on an abelian group",
-	⊆ mapping, ; * it is not a group action
+	⊆ set.homomorphism, ; mapping ; * it is not a group action
 	(
 		∀π: ∈ action,
 		π.D ∈ rng,

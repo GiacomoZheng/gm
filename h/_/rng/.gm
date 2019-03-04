@@ -19,6 +19,8 @@
 			left_module: = l'module,
 			; + r'module: = anti_module,
 			; + right_module: = r'module,
+
+			ker(∀f: ∈ homomorphism): = f.kernel,
 		; end
 
 		; + about inheritance
@@ -32,8 +34,6 @@
 			),
 
 			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
-
-			ker(∀f: ∈ homomorphism): = {x|f(x) = f.C.0}[∀x: ∈ f.D],
 
 			neg[∀R: ∈ rng](∀a: ∈ R): = abelian_group.neg[R](a),
 		; end
@@ -53,7 +53,7 @@
 		; (
 		; 	"idealizer, the mimimal ideal contains τ",
 		; 	∈ ideal(R),
-			
+
 		; 	τ ⊆ I[R](τ) ; generators
 		; ),
 
@@ -66,7 +66,7 @@
 			P = {r R.× x}[∀r: ∈ R]
 		),
 		left_principle_ideal: = l'principle_ideal,
-		
+
 		r'principle_ideal(∀R: ∈ rng):
 		(
 			"right principle ideal",

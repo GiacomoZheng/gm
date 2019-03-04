@@ -1,26 +1,25 @@
 : ; topological_space
 (
 	"topological space via approach to",
-	; ! I cannot deal with some problems like Hausdorff and compact now
+	; ! I cannot deal with some problems like Hausdorff and compact with my version now
 	⊆ set, ; * I give up my "→" version
 	(
-		(
-			∀X: ∈ topological_space,
-			X.τ: ∈ topology(D), ; in the below
-			; [ equivalently```
-			; 	X.→: ∈ preorder_relator,
-			; 	X ⊆ &X.→&.D,
-			; ``` ]
-		),
-
+		∀X: ∈ topological_space,
+		X.τ: ∈ topology(D), ; in the tools
 		[ attibutions ]
 			; via open set
-				X.basis:
+				X.basis: ; do not be confuse with the basis in tools
 				(
 					⊆ sub(X.τ), ; a class
 					∀ℬ: ∈ X.basis,
 					∀U: ∈ τ, ∃ℬ': ⊆ ℬ, U = ∪(ℬ')
 					; for U = ∅, just pick ℬ' empty
+				),
+
+				X.open_cover(∀A: ∈ sub(X)):
+				(
+					⊆ X.cover(A),
+					⊆ set.sub(X.τ)
 				),
 
 				; about alias
@@ -57,7 +56,7 @@
 			; ? about arrow
 				X.→:
 				(
-					⊆ relator,
+					∈ relator,
 					∀{x, y}: ⊆ X, x X.→ y ⇔ X.nbh(x) ⊇ X.nhb(y)
 				),
 
@@ -86,13 +85,45 @@
 
 				X.boundary(∀A: ⊆ X): = X.closure(A) \ X.interior(A),
 			; end
+
+			; + about identification space or quotient space
+				X.identification_space:
+				(
+					⊆ set.partition(X),
+					∀Q: ∈ X.identification_space,
+					Q.τ = {U|∪(U) ∈ X.τ}[∀U: ⊆ Q]
+				),
+				X.quotient_space: = X.identification_space, ; I don't choose this name as I think in topology, it has nothing to do with the "quotient"
+			; end
 	),
 
 	[ for location ]
+		; about constructing topological space
+			topology(∀D: ∈ set): ; +
+			(
+				"a topological structure on D",
+				⊆ set.cover(D), ; D ∈ τ
+				∀τ: ∈ topology(D),
+				∅ ∈ τ,
+				∀{A, B}: ⊆ τ, A ∩ B ∈ τ,
+				∀𝒞: ⊆ τ, ∩(𝒞) ∈ τ,
+			),
+
+			basis(∀D: ∈ set): ; ? space
+			(
+				"generated a topological space from a of basis",
+				⊆ set.cover(D),
+				∀{B1, B2}: ∈ ℬ, ∀x: ∈ B1 ∩ B2,
+				∃B: ∈ ℬ, x ∈ B ⊆  B1 ∩ B2
+			),
+		; end
+
 		; about alias
 			topology(∀X: ∈ topological_space): = X.τ, ; a set
 			open(∀X: ∈ topological_space): = X.open, ; a class
 			closed(∀X: ∈ topological_space): = X.closed,
+
+			open_cover(∀X: ∈ topological_space): = X.open_cover(X),
 
 			accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
 				limit_point[∀X: ∈ topological_space]: = accumulation_point[X], ; I don't like this name
@@ -123,40 +154,15 @@
 				∈ operator, ; ?
 				∀A: ∈ topological_space, ∀B: ∈ topological_space,
 				(A × B): set.= A set.× B, ; ?
-				{U ∩ A}[∀U: ∈ X.τ] ∈ (A × B).basis
+				{U × V}[∀U: ∈ A.τ, ∀V: ∈ B.τ] ∈ (A × B).basis
 			),
 		; end
 
-		open_cover(∀C: ∈ topological_space):
-		(
-			⊆ set.cover(C),
-			∀𝒞: ∈ open_cover(C),
-			𝒞 ⊆ C.τ
-		),
-
+		[ I may write down some equivalent version of it ]
 		dense_sub(∀X: ∈ topological_space):
 		(
 			⊆ set.sub(X),
 			∀D: ∈ dense_sub(X),
 			closure[X](D) = X
-		),
-		[ I may write down some equivalent version of it ]
-
-		basis(∀D: ∈ set): ; ? space
-		(
-			"generated a topological space from a of basis",
-			⊆ set.cover(D),
-			∀{B1, B2}: ∈ ℬ, ∀x: ∈ B1 ∩ B2,
-			∃B: ∈ ℬ, x ∈ B ⊆  B1 ∩ B2
-		),
-
-		topology(∀D: ∈ set): ; +
-		(
-			"a topological structure on D",
-			⊆ set.cover(D), ; D ∈ τ
-			∀τ: ∈ topology(D),
-			∅ ∈ τ,
-			∀{A, B}: ⊆ τ, A ∩ B ∈ τ,
-			∀𝒞: ⊆ τ, ∩(𝒞) ∈ τ,
 		),
 ),

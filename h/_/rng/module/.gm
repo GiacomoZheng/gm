@@ -10,4 +10,5 @@
 		M ⊆ M.π.S,
 		M.R = M.π.R
 	),
-), 
+	neg[∀V: ∈ module]: = abelian_group.neg[V],
+),

@@ -6,7 +6,7 @@
 		division_ring: = skew_field, ; I mat not use this name as division_ring don't define the division indeed
 		unital_module: = ring.module, ; left module
 		; I'll do not define the singel module in this level
-		linear_space: = field.module,
+		; linear_space: = field.module, ; ! I think it might be a little bit cofuse
 		vector_space: = field.module,
 
 		least_well_ordered_set: = well_ordered_set,
@@ -19,7 +19,7 @@
 		; ? topological_isomorphism: = topological_space.isomorphism,
 	; end
 
-	; about linear (vector) space
+	; about vector space
 		linear_map: = field.module.homomorphism,
 		linear_transformation: = field.module.homomorphism,
 		linear_operator: = field.module.endomorphism. ; * I do not like this name

@@ -1,3 +1,4 @@
+; all the theorems about coset are in group
 s"all the subgroups are normal":
 (
 	∀G: ∈ abelian_group,
@@ -7,7 +8,7 @@ s"all the subgroups are normal":
 s"classification of finite abelian group": ; +
 (
 	∀T: ∈ abelian_group, n: = |T|,
-	T ∈ finite_group ⇒ 
+	T ∈ finite_group ⇒
 ),
 
 s"Fundamental Theorem of Finite generated abelian group":

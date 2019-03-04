@@ -8,8 +8,10 @@
 	[ attributes ]
 		; about alias
 			monomorphism: = extension,
+
+			ker(∀f: ∈ homomorphism): = f.kernel,
 		; end
-		
+
 		; about inheritance
 			sub(∀L: ∈ field):
 			(
@@ -22,7 +24,6 @@
 				&K.+& = &L.+&,
 				&K.×& = &L.×&
 			),
-			ker(∀f: ∈ homomorphism): = ring.ker(f),
 		; end
 
 	; + waitting for rewriting
@@ -61,7 +62,7 @@
 				∃a[∀n: ∈ S]: ∈ L,
 				×[∀n: ∈ S](x - a[n]) = f(x)
 			)}),
-			
+
 			splitting_field(f) = L
 		),
 ),

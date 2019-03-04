@@ -1,7 +1,7 @@
 : ; strictly_monotonic_function
 (
 	"monomorphism or antimonophism",
-	⊆ mapping,
+	⊆ set.homomorphism, ; mapping
 	(
 		∀f: ∈ monotonic_function,
 		∃(f ∈ monomorphism, f ∈ antimonophism)

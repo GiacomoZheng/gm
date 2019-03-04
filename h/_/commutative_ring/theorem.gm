@@ -19,7 +19,7 @@ s"simple commutative ring is the same as field": ; !
 s"an ideal P of a commutative ring is a maximal ideal if and only if R/P is field":
 (
 	∀R: ∈ commutative_rng, ∀I: ∈ ideal(R),
-	I ∈ maximal_ideal(R) ⇔ R/I ∈ field ; rng ; ! /
+	I ∈ maximal_ideal(R) ⇔ R/I ∈ field ; rng
 ),
 [ proof: max ⇔ simple ⇔ field ]
 
@@ -40,4 +40,3 @@ s"every maximal ideal of a commutative ring is prime ideal":
 	∀R: ∈ commutative_rng, ∀I: ∈ ideal(R),
 	I ∈ maximal_ideal(R) ⇔ R/I ∈ field ⇒ R/I ∈ integral_domain ⇔ I ∈ prime_ideal(R)
 ``` ]
-

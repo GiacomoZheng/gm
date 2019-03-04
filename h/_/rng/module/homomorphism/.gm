@@ -8,4 +8,5 @@
 	D.R = C.R,
 	∀α: ∈ D.R, ∀x: ∈ D, f(D.π[α](x)) = C.π[α](f(x))
 	■
+	f.R: = f.D.R ; for convince
 ),

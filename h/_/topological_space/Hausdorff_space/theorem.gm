@@ -1,0 +1,38 @@
+s"every converge sequence converge to a unique point",
+[ proof```
+	x[∀n] → a, x[∀n] → b,
+	!(a = b) ⇒ (
+		∃U: ∈ X.nbh(a),
+		∃V: ∈ X.nbh(b), U ∩ V = ∅
+	)
+``` ]
+
+s"Hausdorff property is a topological property":
+(
+
+),
+
+s"the product space reserve the Hausdorff property":
+(
+
+),
+[ proof```
+
+``` ]
+
+s"the injective continuous function reserve the Hausdorff property":
+(
+	∀f: ∈ continuous_function,
+	∀(f ∈ injection, f.C = X) ⇒ f.D ∈ Hausdorff_space
+),
+[ proof```
+	@f,
+	∀{a, b}: ⊆ D,
+	!(a = b) ⇒ !(f(a) = f(b)) ⇒ (
+		∃U: ∈ C.nbh(f(a)),
+		∃V: ∈ C.nbh(f(b)),
+		U ∩ V = ∅
+	),
+	; the preimage of these two open sets are what we want
+	■
+``` ]

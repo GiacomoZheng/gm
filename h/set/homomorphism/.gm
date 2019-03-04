@@ -1,4 +1,4 @@
-: ; homomorphism
+: ; homomorphism, or mapping
 (
 	⊆ function,
 	∀f: ∈ homomorphism,

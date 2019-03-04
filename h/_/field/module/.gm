@@ -1,5 +1,6 @@
-: ; module, or linear_space, or vector_space
+: ; module, or vector_space
 (
+	; *: = {}, ; just quit the delimiter nature of "*", which
 	"field module",
 	⊆ ring.module, ; "+" defined there
 	(
@@ -21,7 +22,7 @@
 
 			V.independent: ; ?
 			(
-				"independent subset of this linear space",
+				"independent subset of this vector space",
 				⊆ set.sub(V),
 				∀I: ∈ V.independent,
 				∀c[∀α: ∈ I]: ∈ V.F,
@@ -41,7 +42,7 @@
 				⊆ V.spanning_set
 			),
 
-			V.dimension: ; ?
+			V.dimension: ; +
 			(
 
 			),
@@ -54,13 +55,24 @@
 				x = +[∀b: ∈ ℬ](V.π[f(b)](b)), ; + f is unique
 				= f
 			),
+
+			V.dual_space: = Hom(V, V.F),
+			V.dual: = V.dual_space,
+
+			V.annnihilator(∀S: ⊆ V): = {f|∀s: ∈ S, f(s) = V.F.0}[∀f: ∈ V.dual_space],
+			V.ann: = V.annnihilator,
 	),
 	[ property: ... ]
 		; about alias
+			ker(∀f: ∈ homomorphism): = f.kernel,
+
 			independent(∀V: ∈ module): = V.independent,
 			combination[∀V: ∈ module]: = V.combination,
 			span[∀V: ∈ module]: = V.span,
 			spanning_set(V): = V.spanning_set,
+			dim(∀V: ∈ module): = V.dimension,
+			dual(∀V: ∈ module): = V.dual_space,
+			Ann[∀V: ∈ module]: = V.annnihilator,
 		; end
 
 		; + about inheritance
@@ -73,35 +85,24 @@
 				&V.π& = &S.π&
 			),
 
-			min_sub[∀G: ∈ module](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure 
+			min_sub[∀G: ∈ module](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure
 
-			ker(∀f: ∈ homomorphism): = group.ker(f)
+			neg[∀V: ∈ module]: = ring.module.neg[V],
 
-			neg[∀V: ∈ module]: = group.inv[V],
-			
 			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f.D = V, f.C = W}[∀f: ∈ homomorphism], ; + it is also a vector space
+
+			isomorphic(∀V: ∈ module):
+			(
+				⊆ module,
+				∀H: ∈ isomorphic(G),
+				∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
+			),
+			≌: (∈ relator, &≌&.r = isomorphic),
 		; end
 
-		; basis(∀V)
-
-		dim[∀V: ∈ module](∀S: ∈ sub(V)): ; +
-		(
-			"dimension of S in V",
-		),
-		dim(∀V: ∈ module): = dim[V](V),
-
 		rank(∀T: ∈ homomorphism): = dim[T.C](range(T)),
-		[ we can prove it is always equal to the dim of row space ]
 
 		nullity(∀T: ∈ homomorphism): = dim[T.D](ker(T)),
-
-		isomorphic(∀V: ∈ module):
-		(
-			⊆ module,
-			∀H: ∈ isomorphic(G),
-			∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
-		),
-		≌: (∈ relator, &≌&.r = isomorphic),
 
 		eigen(∀f: ∈ endomorphism): ; +
 		(

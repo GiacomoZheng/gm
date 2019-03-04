@@ -1,4 +1,4 @@
-s"the group homomorphism on two linear space": ; +
+s"the group homomorphism on two vector space": ; +
 (
 	∀A: ∈ module, ∀B: ∈ module,
 	∀f: (∈ group.homomorphism, f.D = A, f.C = B),
@@ -10,4 +10,10 @@ s"the group homomorphism on two linear space": ; +
 		■
 	``` ]
 	; ! .... I don't know
-)
+),
+
+s"adjoint of a homomorphism is also a homomorphism":
+(
+	∀T: ∈ homomorphism,
+
+),

@@ -25,6 +25,7 @@ gm
 		├─homomorphism
 		├─isomorphism
 		├─monomorphism
+		├─projection
 		└─σ_algebra
 	├─variable
 	├─_
@@ -60,7 +61,7 @@ gm
 		├─group
 			├─action
 				├─faithful_action
-				└─_transitive_action
+				└─transitive_action
 			├─anti_action
 			├─automorphism
 			├─cyclic_group
@@ -92,13 +93,6 @@ gm
 					└─primitive
 		├─magma
 		├─monoid
-		├─poset
-			├─anti_homomorphism
-			├─anti_monomorphism
-			├─homomorphism
-			├─monomorphism
-			├─monotonic_function
-			└─strictly_monotonic_function
 		├─ring
 			├─action
 			├─homomorphism
@@ -121,15 +115,16 @@ gm
 		├─topological_space
 			├─accessible_space
 			├─compact_set
+			├─connected_space
 			├─continuous_function
 			├─discrete_set
 			├─Hausdorff_space
 			├─homeomorphism
 			├─isomorphism
 			├─metrizable_space
-			├─preregular_space
 			├─trivial
-			└─_homomorphism
+			├─_homomorphism
+			└─_preregular_space
 		├─totally_ordered_set
 		├─well_ordered_set
 		├─_
@@ -139,6 +134,14 @@ gm
 			├─normed_abelian_group
 			├─valued_field
 			└─_random_space
+		├─_poset
+			├─anti_homomorphism
+			├─anti_monomorphism
+			├─homomorphism
+			├─increasing_function
+			├─monomorphism
+			├─monotonic_function
+			└─strictly_monotonic_function
 		└─_preordered_set
 	├─_bracket
 	└─_quantifier

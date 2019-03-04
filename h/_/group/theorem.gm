@@ -1,3 +1,4 @@
+; + replace the redefine into "@"
 ; about generalizing
 	s"criterion of trivial group"
 	(
@@ -114,7 +115,7 @@
 		α ∘ β ∈ sym(S),
 		∀(
 			∀x: ∈ S,
-			(α ∘ i)(x) = α(i(x)) = α(x), 
+			(α ∘ i)(x) = α(i(x)) = α(x),
 			(i ∘ α)(x) = i(α(x)) = α(x)
 		)
 		⇒ α ∘ i = α = i ∘ α ⇒ i = sym(S).e,
@@ -228,13 +229,15 @@
 ; end
 
 ; + about order
-	s"the orders in a group": ; + Proposition 3.13
+	s"the orders in a group": ; !+ Proposition 3.13
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
-		∀x: ∈ G, ∀m: (∈ h.Z, !(m = 0)),
-		n: = order[G](x),
-		!(n ∈ h.N) ⇒ !(order[G](e (* x)^m) ∈ h.N),
-		n ∈ h.N ⇒ order[G](e (* x)^m) = n / gcd(n, m) ; ! ex
+		@h.Z,
+			∀x: ∈ G, ∀m: (∈ h.Z, !(m = 0)),
+			n: = order[G](x),
+			!(n ∈ h.N) ⇒ !(order[G](e (* x)^m) ∈ h.N),
+			n ∈ h.N ⇒ order[G](e (* x)^m) = n / gcd(n, m)
+		■
 	),
 	[ proof```
 		d: = gcd(n, m),
@@ -244,25 +247,109 @@
 	s"the numbers causing to identity divides the order":
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
-		∀x: ∈ G, ∀n: ∈ h.Z, e (* x)^n = e ⇒ n / order[G](x) ∈ h.Z
+		∀x: ∈ G,
+		@h.Z,
+		∀n: ∈ h.Z, e (* x)^n = e ⇒ n / order[G](x) ∈ h.Z
+		■
 	),
 	[ proof```
 		m: = order[T](x),
+		@h.Z,
 		∃{q, r}: ⊆ h.Z, n = m × q + r, 0 ≤ r < m, ; the division theorem on Z ; assume it here
 		e = e (* x)^n = e (* x)^(m × q + r) = e (* x)^(m × q) (* x)^r = e ((* x)^m)^q (* x)^r = e (* x)^r ⇒ r = 0
+		■
 	``` ]
 ; end
 
-; + about normal
+; ? about coset and Lagrange's Theorem
+	s"the elements in the same coset": ; ?
+	(
+		∀G: ∈ group, ∀H: ∈ sub(G),
+		∀{a, b}: ⊆ G,
+		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H,
+		(∃C: ∈ r'coset[G](H), {a, b} ⊆ C) ⇒ a * inv[G](b) ∈ H
+	),
+
+	s"set of cosets consist of a partition": ; +
+	(
+		∀G: ∈ group, ∀H: ∈ sub(G),
+		G /["l"] H ∈ set.partition(G) ; ?
+	),
+	[ ```
+		; G / H is disjoint
+		∀{A, B}: ⊆ G /["l"] H,
+		!(A = B) ⇒ A ∩ B = ∅ ⇐ (
+			!(A = B) ⇒ (
+				∃a: ∈ A\B, A = {a G.* h}[∀h: ∈ H]
+				∃b: ∈ B\A, B = {b G.* h}[∀h: ∈ H]
+				!(A ∩ B = ∅) ⇒ (
+					∃c: ∈ A ∩ B,
+				)
+			)
+		)
+	``` ]
+
+	s"the cardinal number of cosets of the same subgroup are the same":
+	(
+		; lemma for Lagrange theorem
+		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		∀x: ∈ G, |H| = |{x * h}[∀h: ∈ H]|
+	),
+	[ proof```
+		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		∀x: ∈ G,
+		∃φ[x](∀h: ∈ H): = x * h,
+		(
+			(
+				∀h: ∈ H, ∀h': ∈ H,
+				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
+			)
+			⇒ φ[x] ∈ injection,
+			(
+				∀y: ∈ φ[x].C,
+				∃h: ∈ H, y = x * h, φ[x](h) = y
+			)
+			⇒ φ[x] ∈ surjection
+		)
+		⇒ φ[x] ∈ bijection ⇒ |φ[x].D| = |φ[x].C|
+		⇒ |H| = |x * H|
+	``` ]
+
+	s"Lagrange's Theorem":
+	(
+		G: ∈ group, H: ∈ sub(G),
+		|G| ∈ h.N ⇒ |G|/|H| ∈ h.N
+	),
+	[ proof, with the help of the lemma``` ; +
+		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
+		|G| ∈ h.N ⇒
+		(
+			∃m: (∈ h.N, ≤ |G|),
+			|G| = |∪({x * H|∀x: ∈ G})|
+			= |∪[]({x[n] * H|∀x[∀n: (∈ h.N, ≤ m)]: ∈ G})|
+			= +[∀n: (∈ h.N, ≤ m)](|x[n] * H|)
+			= |H| × m
+		)
+	``` ]
+
+	s`The converse of "Lagrange" is true when G is cyclic`:
+	(
+		G: ∈ group,
+		|G| ∈ h.N ⇒ (∀d: ∈ h.N, m/d ∈ h.Z ⇒ (∃H: ∈ sub(G), |H| = d))
+	),
+; end
+
+; + about normal and quotient group
 	s"criterions of normal": ; +
 	(
 
 	),
-	
+
 	s"the quotient space of normal subgroup is still a group":
 	(N
 		∀G: ∈ group, ∀No: ∈ normal(G),
-		H: = G / N, ; ?
+		H: = G / N,
 		H ∈ group,
 		(x G.* N) H.* (y G.* N) = (x G.* y) G.* N
 	),
@@ -361,13 +448,13 @@
 	(
 		∀G: ∈ group,
 		commutator_sub(G) ∈ normal(G),
-		G / commutator_sub(G) ∈ abelian_group ; ! /
+		G / commutator_sub(G) ∈ abelian_group
 	),
 
 	s"commutator group is the smallest normal group quotient to an abelian group": ; +
 	(
 		∀G: ∈ group, ∀H: ∈ normal(G),
-		G/H ∈ abelian_group ⇔ commutator_sub(G) ∈ sub(H) ; ! /
+		G/H ∈ abelian_group ⇔ commutator_sub(G) ∈ sub(H)
 	),
 	[ proof```
 		(G/H ∈ abelian_group ⇒ commutator_sub(G) ∈ normal(H)) ⇐
@@ -427,12 +514,10 @@
 
 		s"First Isomorphism Theorem": ; ?
 		(
-			∀f: ∈ homomorphism, f.D / ker(f) ≌ range(f) ; ! /
+			∀f: ∈ homomorphism, f.D / ker(f) ≌ range(f)
 		),
-		[ proof```
-			∃F: ∈ isomorphism, *: = &f.D.*&,
-			F.D = f.D / ker(f), F.C = range(f),
-			F(a * )
+		[ proof``` ; +
+			f.D / ker(f)
 		``` ]
 	; end
 
@@ -466,10 +551,10 @@
 		(
 			∀G: ∈ group, ∀H: ∈ sub(G), ∀N: ∈ normal(G),
 			K: = {h G.* n}[∀h: ∈ H, ∀n: ∈ N],
-			H / (H ∩ N) ≌ K / N ; ! /
+			H / (H ∩ N) ≌ K / N
 		),
 	; end
-	
+
 	; about third isomorphism theorem
 		s"Third Isomorphism Theorem":,
 	; end
@@ -486,74 +571,7 @@
 	; end
 ; end
 
-; ? about coset and Lagrange's Theorem
-	s"the elements in the same coset": ; ?
-	(
-		∀G: ∈ group, ∀H: ∈ sub(G),
-		∀{a, b}: ⊆ G,
-		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H,
-		(∃C: ∈ r'coset[G](H), {a, b} ⊆ C) ⇒ a * inv[G](b) ∈ H
-	),
-
-	s"set of cosets consist of a partition": ; +
-	(
-
-	),
-
-	s"the cardinal number of cosets of the same subgroup are the same":
-	(
-		; lemma for Lagrange theorem
-		G: ∈ group, H: ∈ sub(G), *: = &G.*&
-		∀x: ∈ G, |H| = |{x * h}[∀h: ∈ H]| 
-	),
-	[ proof```
-		G: ∈ group, H: ∈ sub(G), *: = &G.*&
-		∀x: ∈ G,
-		∃φ[x](∀h: ∈ H): = x * h,
-		(
-			(
-				∀h: ∈ H, ∀h': ∈ H,
-				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
-			)
-			⇒ φ[x] ∈ injection,
-			(
-				∀y: ∈ φ[x].C,
-				∃h: ∈ H, y = x * h, φ[x](h) = y
-			)
-			⇒ φ[x] ∈ surjection
-		)
-		⇒ φ[x] ∈ bijection ⇒ |φ[x].D| = |φ[x].C|
-		⇒ |H| = |x * H| 
-	``` ]
-
-	s"Lagrange's Theorem":
-	(
-		G: ∈ group, H: ∈ sub(G),
-		|G| ∈ h.N ⇒ |G|/|H| ∈ h.N
-	),
-	[ proof, with the help of the lemma``` ; +
-		G: ∈ group, H: ∈ sub(G), *: = &G.*&
-		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
-		|G| ∈ h.N ⇒
-		(
-			∃m: (∈ h.N, ≤ |G|),
-			|G| = |∪({x * H|∀x: ∈ G})|
-			= |∪[]({x[n] * H|∀x[∀n: (∈ h.N, ≤ m)]: ∈ G})|
-			= +[∀n: (∈ h.N, ≤ m)](|x[n] * H|)
-			= |H| × m
-		)
-	``` ]
-
-	s`The converse of "Lagrange" when G is cyclic`:
-	(
-		G: ∈ group, 
-		|G| ∈ h.N ⇒ (∀d: ∈ h.N, m/d ∈ h.Z ⇒ (∃H: ∈ sub(G), |H| = d))
-	),
-
-	s"the group with size prime is cyclic"
-; end
-
-[ 
+[
  	Let G be a group, and h.N a normal subgroup of G. Then
 
 	1.	If K is a subgroup of G such that  h.N ⊆ K ⊆ G, then K/h.N is a subgroup of G/h.N.
@@ -564,16 +582,16 @@
  ]
 s"Third Isomorphism Theorem":
 (
-	∀No: ∈ normal(G), D: = {H|∀H: ∈ sub(G), N ⊆ H}, C: = {∀J: ∈ sub(G)/N}, ; ! /
+	∀No: ∈ normal(G), D: = {H|∀H: ∈ sub(G), N ⊆ H}, C: = {∀J: ∈ sub(G)/N},
 	∃φ: ∈ bijection, φ.D = D, φ.C = C,
-	∀H: ∈ D, φ(H) = H / N ; ! /
+	∀H: ∈ D, φ(H) = H / N
 
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: ∈ sub(G),
 	N ⊆ H ⇒
-	(H / N ∈ normal(G/N) ⇔ H ∈ normal(G)) ; ! /
+	(H / N ∈ normal(G/N) ⇔ H ∈ normal(G))
 
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ sub(G), N ⊆ H),
-	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H ; ! /
+	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H
 ),
 
 p"Jordon-Holder Theorem":

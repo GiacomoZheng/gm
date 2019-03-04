@@ -206,3 +206,24 @@
 		p[Y]∘f ∈ continuous_function,
 	),
 ; end
+
+; about identification space or quotient space
+	s"the canonical projection is continuous":
+	(
+
+	),
+
+	s"the universal property of identification space": ,
+; end
+
+s"compact subsets of Hausdroff_space, are closed":
+(
+	∀X: ∈ Hausdroff_space,
+	∀S: ⊆ X,
+	S ∈ compact_set ⇒ S ∈ X.closed
+),
+
+s"bijective continuous function from compact set to Hausdroff_space":
+(
+
+),

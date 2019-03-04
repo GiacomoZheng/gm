@@ -1,7 +1,7 @@
 : ; monotonic_function
 (
 	"homomorphism or antihomophism",
-	⊆ mapping,
+	⊆ set.homomorphism, ; mapping
 	(
 		∀f: ∈ monotonic_function,
 		∃(f ∈ homomorphism, f ∈ antihomophism)
