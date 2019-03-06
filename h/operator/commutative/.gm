@@ -1,0 +1,7 @@
+: ; commutative, or commutative_operator
+(
+	⊆ operator,
+
+	∀𝓅: ∈ commutative,
+	∀{a, b}: ⊆ &𝓅&.D, a 𝓅 b = b 𝓅 a
+),

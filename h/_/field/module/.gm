@@ -65,6 +65,8 @@
 	[ property: ... ]
 		; about alias
 			ker(∀f: ∈ homomorphism): = f.kernel,
+			Adj(∀f: ∈ homomorphism): = f.adjoint,
+			trans(∀f: ∈ homomorphism): = f.adjoint,
 
 			independent(∀V: ∈ module): = V.independent,
 			combination[∀V: ∈ module]: = V.combination,
@@ -104,8 +106,14 @@
 
 		nullity(∀T: ∈ homomorphism): = dim[T.D](ker(T)),
 
-		eigen(∀f: ∈ endomorphism): ; +
+		eigen_value(∀T: ∈ endomorphism): ; +
 		(
 			"eigen value of "
-		)
+		),
+		eigenvalue: = eigen_value,
+		e'value: = eigen_value,
+
+		det(∀T: ∈ endomorphism): , ; +
+
+		; characteristic_polynomial(∀T: ∈ endomorphism): = det
 ),

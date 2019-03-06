@@ -7,5 +7,7 @@
 
 	T.F: = T.R,
 
-	T.adjoint(∀f: ∈ dual(T.D)) = f ∘ T, ; they may use f* to represent it
+	T.adjoint(∀d: ∈ dual(T.D)): = d ∘ T, ; they may use f* to represent it
+	T.transpose: = T.adjoint, ; the generation of matrix transpose
+	; T.dual: = T.adjoint, ; ? this name may cause misleading
 ),

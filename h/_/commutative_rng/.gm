@@ -1,10 +1,12 @@
 : ; commutative_rng
 (
 	⊆ rng,
-	
-	∀R: ∈ commutative_rng
-	∀{a, b}: ⊆ R,
-	a R.× b = b R.× a ; commutativity
+
+	(
+		∀R: ∈ commutative_rng,
+		∀{a, b}: ⊆ R,
+		a R.× b = b R.× a ; commutativity
+	),
 
 	; location
 		; about inheritance
@@ -15,17 +17,16 @@
 
 			proper_ideal(∀R: ∈ commutative_rng): = rng.proper_ideal(R),
 		; end
-		
+
 		prime(∀R: ∈ commutative_rng):
 		(
 			"prime elements: p | ab then p | a or p |b",
-			[ 0 can nver be a divisor ]
 			⊆ set.element(R),
 			∀p: ∈ prime(R),
 			!(p ∈ unit(R)), ; ?
 			@R,
-			∀{a, b}: ∈ R,
-			p ∈ divisor[R](a × b) ⇒ ∀(p ∈ divisor[R](a), p ∈ divisor[R](b))
+				∀{a, b}: ∈ R,
+				p ∈ divisor[R](a × b) ⇒ ∀(p ∈ divisor[R](a), p ∈ divisor[R](b))
 			■
 		),
 
@@ -36,6 +37,7 @@
 			∀b: ∈ divisor[R](a),
 			∃c: ∈ R, c R.× b = a
 		),
+		factor[∀R: ∈ commutative_rng]: = divisor[R],
 
 		common_divisor[∀R: ∈ commutative_rng](∀S: ⊆ R\{R.0}):
 		(
@@ -44,10 +46,11 @@
 			∀c: ∈ common_divisor[R](S),
 			∀x: ∈ S, c ∈ divisor[R](x)
 		),
+		common_factor[∀R: ∈ commutative_rng]: = common_divisor[R],
 
 		gcd[∀R: ∈ commutative_rng](∀S: ⊆ R\{R.0}): ; +
 		(
-			
+
 		),
 
 		multiple[∀R: ∈ commutative_rng](∀a: ∈ R):

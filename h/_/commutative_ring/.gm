@@ -2,11 +2,13 @@
 (
 	⊆ ring,
 	⊆ commutative_rng,
-	; 
+	;
 		; about alias
 		; end
 
 		; about inheritance
+			unit(∀R: ∈ commutative_ring): = ring.unit(R),
+
 			ideal(∀R: ∈ commutative_ring): = commutative_rng.ideal(R),
 
 			principle_ideal(∀R: ∈ commutative_ring): = commutative_rng.principle_ideal(R),
@@ -16,8 +18,6 @@
 			common_divisor[∀R: ∈ commutative_ring]: = commutative_rng.common_divisor[R],
 
 			gcd[∀R: ∈ commutative_ring]: = commutative_rng.gcd[R],
-			
-			unit(∀R: ∈ commutative_ring): = ring.unit(R),
 
 			divisor[∀R: ∈ commutative_ring]: = commutative_rng.divisor[R],
 
@@ -31,7 +31,7 @@
 			[ equivalently```
 				∀b: ∈ associated[R](a), ∃u: ∈ unit(R), b = u R.× a
 				```
-				all the zero divior are only associated itself
+				? all the zero divior are only associated itself
 			 ]
 		),
 

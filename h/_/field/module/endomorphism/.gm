@@ -1,5 +1,11 @@
 : ; endomorphism
 (
 	⊆ homomorphism,
-	⊆ set.endomorphism
+	⊆ set.endomorphism,
+
+	(
+		∀T: ∈ endomorphism,
+		; attribute
+			T.characteristic_polynomial(): ; +
+	),
 ),

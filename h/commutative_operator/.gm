@@ -1,6 +1,0 @@
-: ; commutative_operator
-(
-	⊆ operator,
-	∀𝓅: ∈ commutative_operator,
-	∀{a, b}: ⊆ &𝓅&.D, a 𝓅 b = b 𝓅 a
-),

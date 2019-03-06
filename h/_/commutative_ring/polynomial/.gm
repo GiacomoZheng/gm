@@ -5,20 +5,19 @@
 		∀f: ∈ polynomial,
 		f.R: ∈ commutative_ring,
 		∀R': (∈ commutative_ring, R ∈ commutative_ring.sub(R')),
-		∀x: ∈ R',
 		∃n: ∈ h.N, S: = {m|h.N.0 ≤ m < n}[∀m: ∈ h.N],
-		∃c[∀m: ∈ S]: ∈ R, ; I may change it to a attribution
+		f.c[∀m: ∈ S]: ∈ R,
 		@R,
-			f(x) = +[∀m: ∈ S](c[m] × x ^ m)
+			∀x: ∈ R', f(x) = +[∀m: ∈ S](f.c[m] × (x ^ m))
 		■
 	),
 	; location
 		deg(∀f: ∈ polynomial): ; +
 		(
 			"the power of maximal nonzero item",
-			
+
 		),
-		
+
 		root(∀f: ∈ polynomial):
 		(
 			⊆ set.element(f.R),

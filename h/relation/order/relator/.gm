@@ -1,0 +1,9 @@
+: ; relator, or order_relator
+(
+	⊆ relation.relator,
+	; + tag: delimiter
+	(
+		∀𝓅: ∈ relator,
+		&𝓅&.r ∈ order,
+	)
+),

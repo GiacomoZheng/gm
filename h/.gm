@@ -32,21 +32,26 @@
 		equivalent_relation: = relation.equivalent,
 		order_relation: = relation.order,
 	; end
-; end
 
-; about relator
-	reflexive_relator: (⊆ relator, ∀𝓅: ∈ reflexive_relator, &𝓅&.r ∈ relation.reflexive),
-	transitive_relator: (⊆ relator, ∀𝓅: ∈ transitive_relator, &𝓅&.r ∈ relation.transitive),
-	symmetric_relator: (⊆ relator, ∀𝓅: ∈ symmetric_relator, &𝓅&.r ∈ relation.symmetric),
+	; about relator
+		reflexive_relator: = relation.reflexive.relator,
+		transitive_relator: = relation.transitive.relator,
+		symmetric_relator: = relation.symmetric.relator,
 
-	irreflexive_relator: (⊆ relator, ∀𝓅: ∈ irreflexive_relator, &𝓅&.r ∈ relation.irreflexive),
-	antitransitive_relator: (⊆ relator, ∀𝓅: ∈ antitransitive_relator, &𝓅&.r ∈ relation.antitransitive),
-	antisymmetric_relator: (⊆ relator, ∀𝓅: ∈ antisymmetric_relator, &𝓅&.r ∈ relation.antisymmetric),
+		irreflexive_relator: = relation.irreflexive.relator,
+		antitransitive_relator: = relation.antitransitive.relator,
+		antisymmetric_relator: = relation.antisymmetric.relator,
 
-	preorder_relator: (⊆ relator, ∀𝓅: ∈ preorder_relator, &𝓅&.r ∈ relation.preorder),
+		preorder_relator: = relation.preorder.relator,
 
-	equivalent_relator: (⊆ relator, ∀𝓅: ∈ equivalent_relator, &𝓅&.r ∈ relation.equivalent),
-	order_relator: (⊆ relator, ∀𝓅: ∈ order_relator, &𝓅&.r ∈ relation.order),
+		equivalent_relator: = relation.equivalent.relator,
+		order_relator: = relation.order.relator,
+	; end
+
+	; about operator
+		associative_operator: = operator.associative,
+		commutative_operator: = operator.commutative,
+	; end
 ; end
 
 ∅: = {},
