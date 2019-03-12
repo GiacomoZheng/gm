@@ -5,5 +5,8 @@
 	f.D: ∈ set, ; domain
 	f.C: ∈ set, ; coodomain
 	∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in
-	; ? maybe I'll add an identity
+	; attributes ; ? maybe I'll add an identity
+		f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],
+		f.preimage(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D]
+		; I may set a alais for them
 ),

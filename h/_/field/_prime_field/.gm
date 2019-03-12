@@ -1,4 +1,4 @@
-: ; prime_field
+: ; ? prime_field
 (
 	"the field who has no proper subfield",
 	⊆ field,

@@ -1,9 +1,0 @@
-: ; ? homeomorphism
-(
-	⊆ set.isomorphism,
-	⊆ continuous_function,
-	(
-		∀f: ∈ homeomorphism,
-		function.inv(f) ∈ continuous_function
-	)
-),

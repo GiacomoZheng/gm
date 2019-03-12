@@ -91,9 +91,17 @@
 				(
 					⊆ set.partition(X),
 					∀Q: ∈ X.identification_space,
-					Q.τ = {U|∪(U) ∈ X.τ}[∀U: ⊆ Q]
+					Q.τ = {U|∪[∀x: ∈ U](x) ∈ X.τ}[∀U: ∈ set.Ps(Q)] ; ? ∪
 				),
 				X.quotient_space: = X.identification_space, ; I don't choose this name as I think in topology, it has nothing to do with the "quotient"
+			; end
+
+			; about compact subspace
+				X.compact:
+				(
+					⊆ set.sub(X),
+					⊆ compact_space
+				),
 			; end
 	),
 
@@ -119,21 +127,27 @@
 		; end
 
 		; about alias
-			topology(∀X: ∈ topological_space): = X.τ, ; a set
 			open(∀X: ∈ topological_space): = X.open, ; a class
 			closed(∀X: ∈ topological_space): = X.closed,
 
 			open_cover(∀X: ∈ topological_space): = X.open_cover(X),
 
 			accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
-				limit_point[∀X: ∈ topological_space]: = accumulation_point[X], ; I don't like this name
+			limit_point[∀X: ∈ topological_space]: = accumulation_point[X],
 			closure[∀X: ∈ topological_space]: = X.closure,
 			interior[∀X: ∈ topological_space]: = X.interior,
 			exterior[∀X: ∈ topological_space]: = X.exterior,
 			boundary[∀X: ∈ topological_space]: = X.boundary,
 
-			; ! homeomorphism: = isomorphism, ; I don't like it name
-			; ! bicontinuous_function: = isomorphism,
+			continuous_map: = continuous_function,
+			quotient_map: = epimorphism,
+			homeomorphism: = isomorphism,
+			bicontinuous_function: = isomorphism,
+
+			T0_space: = Kolmogorov_space,
+			T1_space: = accessible_space,
+				Fréchet_space: = accessible_space,
+			T2_space: = Hausdorff_space,
 		; end
 
 		; + about inheritance
@@ -158,7 +172,7 @@
 			),
 		; end
 
-		[ I may write down some equivalent version of it ]
+		[ I may write down some equivalent version for it ]
 		dense_sub(∀X: ∈ topological_space):
 		(
 			⊆ set.sub(X),

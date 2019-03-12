@@ -1,0 +1,9 @@
+: ; open_map
+(
+	⊆ mapping,
+	∀f: ∈ open_map,
+	@f,
+		D ∈ topological_space, C ∈ topological_space, ; ? I may create a new name for it
+		∀O: ∈ D.τ, image(O) ∈ C.τ
+	■
+),

@@ -1,0 +1,14 @@
+: ; homomorphism
+(
+	⊆ set.homomorphism, ; mapping
+	∀f: ∈ homomorphism,
+	@f,
+		D ∈ topological_space, C ∈ topological_space,
+		∀U: ⊆ C,
+		U ∈ C.τ ⇔ preimage(U) ∈ D.τ ; ? preimage
+	■
+),
+[ equivalently```
+	f ∈ continuous_function,
+	preimage(U) ∈ D.τ ⇒ U ∈ C.τ
+``` ]

@@ -1,11 +1,11 @@
-: ; continuous_function
+: ; continuous_function, or named contiunous_map
 (
 	⊆ set.homomorphism, ; mapping
 	(
 		∀f: ∈ continuous_function,
 		f.D ∈ topological_space, f.C ∈ topological_space,
 		@f,
-		∀U: ∈ C.τ, {x|f(x) ∈ U}[∀x: ∈ D] ∈ D.τ
+			∀U: ∈ C.τ, f.preimage(U) ∈ D.τ
 		■
 	)
 ),

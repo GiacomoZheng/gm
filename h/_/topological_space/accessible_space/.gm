@@ -1,6 +1,5 @@
-: ; accessible_space, or a Tychonoff_space, or T1_space
+: ; accessible_space, or T1_space
 (
-	"first separated space",
 	⊆ topological_space,
 	(
 		∀H: ∈ space,
@@ -12,9 +11,8 @@
 		)
 	)
 ),
-[ chaim: discrete_space ⊆ Hausdroff_space ]
+[ chaim: discrete_space ⊆ Hausdroff_space ⊆ accessible_space ⊆ Kolmogorov_space ]
 [ property:
-	+ every singleton are closed
-	+ example: infinite space with cofinite topology 
+	+ every singleton are closed, vice verse
+	+ example: infinite space with cofinite topology
  ]
- 

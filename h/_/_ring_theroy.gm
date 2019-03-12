@@ -1,3 +1,4 @@
+; + I'll delete this file after complete the ring part
 ; ! a little bit change will be done when I complete the definition of polynomial ring
 s"the unit of Z[n] are the ones coprime to the n":, ; !
 

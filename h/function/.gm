@@ -8,10 +8,10 @@
 
 	; locations
 		; about alias
-			id: = i,
 		; end
 
 		i(∀x: ∈ ◉): = x,
+		id: = i,
 
-		∘: ,; +
+		∘: , ; +
 ),

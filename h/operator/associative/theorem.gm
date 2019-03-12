@@ -1,5 +1,6 @@
+; +
 s"associative opearator can be used sequentially, oblivious to the choice of brackets":
 (
 	∀ℴ: ∈ associative_operator,
-	
+
 )

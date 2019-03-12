@@ -1,0 +1,14 @@
+: ; Kolmogorov_space, or T0_space
+(
+	⊆ topological_space,
+	(
+		∀K: ∈ Kolmogorov_space,
+		∀{x, y}: ⊆ K,
+		∃O: ∈ K.τ,
+		∃(
+			∀(x ∈ O, !(y ∈ O)),
+			∀(y ∈ O, !(x ∈ O))
+		) ; ? I may find a better way
+	)
+),
+[ chiam: Kolmogorov_space ⊇ accessible_space ⊇ Hausdorff_space ]

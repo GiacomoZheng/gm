@@ -7,6 +7,35 @@
 	[ equivalently```
 		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
 	``` ]
+
+	s"criterion of isomorphism via bases of spaces":
+	(
+		∀f: (∈ bijection, f.D ∈ topological_space, f.C: ∈ topological_space),
+		@f,
+			(
+				∃ℬ: ∈ D.basis,
+				{image(∀B: ∈ ℬ)} ∈ C.basis ; image here is f.image
+			)
+			⇒ f ∈ isomorphism
+		■
+	),
+	[ proof```
+
+	``` ]
+
+	s"criterion of bicontinous_function":
+	(
+		"that is why it is called bicontinous_function",
+		∀f: ∈ continuous_function,
+		f ∈ bicontinous_function ⇔
+		∀(
+			f ⊆ set.isomorphism,
+			f.inv ∈ continuous_function
+		)
+	),
+	[ proof```
+
+	``` ]
 ; end
 
 ; about sub
@@ -216,14 +245,24 @@
 	s"the universal property of identification space": ,
 ; end
 
-s"compact subsets of Hausdroff_space, are closed":
+s"compact subsets of Hausdroff_space are closed":
 (
 	∀X: ∈ Hausdroff_space,
-	∀S: ⊆ X,
-	S ∈ compact_set ⇒ S ∈ X.closed
+	X.compact ⊆ X.closed
 ),
+[ counterexample if the space is not accessible (T1)```
+	∀X: ∈ topological_space,
+	!(X ∈ accessible_space) ⇒
+	(
+		∃{x}: ⊆ X, !({x} ∈ X.closed), ; otherwise, X is accessible
+		{x} ∈ X.compact,
+	)
+	```
+	proof``` ; +
 
-s"bijective continuous function from compact set to Hausdroff_space":
+``` ]
+
+s"bijective continuous function from compact set to Hausdroff_space are homeomorpism":
 (
 
 ),

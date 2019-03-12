@@ -1,7 +1,0 @@
-: ; preregular_space
-(
-	"", ; +
-	⊆ topological_space,
-
-),
-[ chaim: preregular_space ⊆ Hausdorff_space ]

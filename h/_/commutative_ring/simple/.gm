@@ -1,6 +1,6 @@
 : ; simple
 (
-	"the rings which has no new in its quetients"
+	"the rings which has no new rings in its quetients"
 	⊆ commutative_ring,
 
 	∀R: ∈ simple,

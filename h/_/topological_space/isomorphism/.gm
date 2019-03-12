@@ -1,5 +1,5 @@
-: ; ? isomorphism
+: ; isomorphism, or named homeomorphism
 (
-	⊆ homomorphism,
-	⊆ bijection
+	⊆ set.isomorphism,
+	⊆ homomorphism
 ),

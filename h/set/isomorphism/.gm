@@ -1,5 +1,15 @@
 : ; isomorphism, or bijection
 (
 	⊆ monomorphism,
-	⊆ epimorphism
+	⊆ epimorphism,
+	(
+		∀f: ∈ isomorphism,
+		; attribute
+			f.inv(∀y: ∈ f.C):
+			(
+				"unique as f is a set.isomorphism",
+				∃x: ∈ f.D, f(x) = y,
+				= x
+			),
+	)
 ),

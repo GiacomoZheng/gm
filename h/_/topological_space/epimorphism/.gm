@@ -1,0 +1,5 @@
+: ; epimorphism, or named quotient_map
+(
+	⊆ set.epimorphism,
+	⊆ homomorphism
+),
