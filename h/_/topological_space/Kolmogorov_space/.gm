@@ -4,11 +4,12 @@
 	(
 		∀K: ∈ Kolmogorov_space,
 		∀{x, y}: ⊆ K,
-		∃O: ∈ K.τ,
+		!(x = y) ⇒
 		∃(
-			∀(x ∈ O, !(y ∈ O)),
-			∀(y ∈ O, !(x ∈ O))
-		) ; ? I may find a better way
+			; open set is the same, compare it with T1, T2
+			∃X: ∈ X.nbh(x), !(y ∈ X),
+			∃Y: ∈ H.nbh(y), !(x ∈ Y)
+		)
 	)
 ),
 [ chiam: Kolmogorov_space ⊇ accessible_space ⊇ Hausdorff_space ]

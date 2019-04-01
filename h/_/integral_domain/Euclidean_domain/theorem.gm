@@ -13,7 +13,7 @@ s"Euclidean 'doman' has its identity: ; +
 			■
 		■
 	),
-	E'doman = ED
+	E'doman ◉.= ED
 ),
 [ proof,
 	we can easily prove that E'doman is a PID as what we do when prove ED is a PID.

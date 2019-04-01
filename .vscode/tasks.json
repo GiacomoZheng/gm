@@ -4,9 +4,13 @@
     "version": "2.0.0",
     "tasks": [
         {
+            
             "label": "tree",
             "type": "shell",
-            "command": "Set-Location C:\\Users\\admin\\Documents\\GitHub\\gm; tree | Out-File tree -Encoding utf8; py .vscode\\tree.py",
+            "command": "bash.exe",
+            "args": [
+                ".vscode/tree.sh"
+            ],
             "group": "build",
             "presentation": {
                 // Reveal the output only if unrecognized errors occur.

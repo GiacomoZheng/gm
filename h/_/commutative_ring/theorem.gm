@@ -1,6 +1,6 @@
 s"simple commutative ring is the same as field": ; !
 (
-	commutative_ring.simple = field
+	commutative_ring.simple ◉.= field
 ),
 [ proof```
 	; ⇐ part is trivial

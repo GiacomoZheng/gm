@@ -35,7 +35,7 @@
 
 	gm.⊆ ◉,
 	(
-		∀X: ∈ set,
+		∀X: ∈ set, ; +
 
 		; attributes
 			X.cover(∀S: ⊆ subset):
@@ -43,15 +43,19 @@
 				"cover of S, set of subsets",
 				gm.⊆ sub(Ps(S)), ; every element of the cover should be a subset of the S of it
 				∀𝒞: ∈ X.cover(S),
-				!({} ∈ 𝒞), ; at least the partition cannot caontains the empty element ; ? others may not require the sets in covers nonempty
+				!({} ∈ 𝒞), ; to be consisent with the quotient space, at least the partition cannot contains the empty element ; ? others may not require the sets in covers nonempty
 				S ⊆ ∪(𝒞)
 			),
 	),
 
 	; location
 		; about alias
-			cover(∀X: ∈ set): = X.cover(X),
-			[ the only cover of ∅ is {}, not {∅} ]
+			cover(∀X: ∈ set): = X.cover(X), [ the only cover of ∅ is {}, not {∅} ]
+
+			; at_most_countable: = 
+			; ! countable: , ; this terminology may cause some ambiguity 
+			countablely_infinite: = denumerable,
+			enumerable: = denumerable, ; I don't think using this term is a good idea indeed
 		; end
 
 		sub(∀S: ∈ set):

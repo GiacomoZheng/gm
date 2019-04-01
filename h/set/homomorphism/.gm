@@ -1,12 +1,28 @@
 : ; homomorphism, or mapping
 (
 	⊆ function,
-	∀f: ∈ homomorphism,
-	f.D: ∈ set, ; domain
-	f.C: ∈ set, ; coodomain
-	∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in
-	; attributes ; ? maybe I'll add an identity
-		f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],
-		f.preimage(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D]
-		; I may set a alais for them
+	(
+		∀f: ∈ homomorphism,
+		f.D: ∈ set, ; domain
+		f.C: ∈ set, ; coodomain
+		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in
+		; attributes, which can never change later
+			; ? maybe I'll add an identity
+			f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],
+			f.preimage(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D]
+				f.inverse_image: = f.preimage,
+				f.inv'image: = f.preimage,
+			; + f.restriction
+	),
+	; location
+		sub(∀f: ∈ homomorphism): ; + generate it
+		(
+			; * this quantity can never be an attribute, as I'll continuously refine it
+			⊆ homomorphism,
+			∀s: ∈ sub(f),
+			∀(
+				s.D ⊆ f.D,
+				s.C ⊆ f.C
+			)
+		),
 ),

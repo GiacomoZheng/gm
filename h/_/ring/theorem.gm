@@ -66,7 +66,7 @@
 			∀a: ∈ R, R.1 R.× a = a = a R.× R.1 ; multiply identity
 		),
 
-		n'abe'ring = ring
+		n'abe'ring ◉.= ring
 	),
 	[ proof, indeed, I want to prove it is abelian```
 		∀R: ∈ n'abe'ring,

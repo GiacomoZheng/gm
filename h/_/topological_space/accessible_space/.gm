@@ -2,16 +2,17 @@
 (
 	⊆ topological_space,
 	(
-		∀H: ∈ space,
-		; the open set version
+		∀H: ∈ accessible_space,
 		∀{x, y}: ∈ H,
 		!(x = y) ⇒
-		(
-			∃X: ∈ X.nbh(x), !(y ∈ X)
+		∀(
+			; open set is the same, compare it with T0, T2
+			∃X: ∈ H.nbh(x), !(y ∈ X),
+			∃Y: ∈ H.nbh(y), !(x ∈ Y) ; this line is indeed superfluous
 		)
 	)
 ),
-[ chaim: discrete_space ⊆ Hausdroff_space ⊆ accessible_space ⊆ Kolmogorov_space ]
+[ chaim: discrete_space ⊆ Hausdorff_space ⊆ accessible_space ⊆ Kolmogorov_space ]
 [ property:
 	+ every singleton are closed, vice verse
 	+ example: infinite space with cofinite topology

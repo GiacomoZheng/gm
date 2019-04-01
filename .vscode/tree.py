@@ -2,17 +2,14 @@
 import os
 if not os.getcwd().endswith("\gm"): raise Exception("invalid location")
 
-# import subprocess as sp
-# with open("tree", "wb") as file:
-# 	file.write(
-# 			sp.run(["tree"], shell=True, stdout=sp.PIPE).stdout
-# 			# .decode('windows-1252')
-# 		)
-with open("tree", "r", encoding = 'windows-1252') as file:
-	while not file.read(1) == "├":
-		file.readline()
+import sys
+tree = sys.argv[1]
+print("the printed aim is: " + tree)
+with open(tree, "r", encoding = 'utf8') as file:
+	file.readline()
 	# jump away
-	text = "gm\n├" + file.read()
+	text = "gm\n" + file.read()
 
-with open("tree", "w", encoding = "utf8") as file:
-	file.write(text.replace("│", " ").replace("   ", "\t").replace(" ", ""))
+with open(tree, "w", encoding = "utf8") as file:
+	file.write(text.replace("│   ", "\t").replace("├── README.md\n", ""))
+	# file.write(text..replace("│", " ").replace("   ", "\t").replace(" ", ""))

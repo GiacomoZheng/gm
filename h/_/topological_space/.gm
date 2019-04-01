@@ -1,4 +1,4 @@
-: ; topological_space
+: ; topological_space, or top'space
 (
 	"topological space via approach to",
 	; ! I cannot deal with some problems like Hausdorff and compact with my version now

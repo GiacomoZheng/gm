@@ -3,29 +3,34 @@
 		commutative_group: = abelian_group,
 		commutative_domain: = integral_domain,
 
-		division_ring: = skew_field, ; I mat not use this name as division_ring don't define the division indeed
+		division_ring: = skew_field, ; I mat not use this name, as division_ring don't define the division indeed
 		unital_module: = ring.module, ; left module
 		; I'll do not define the singel module in this level
 		; linear_space: = field.module, ; ! I think it might be a little bit cofuse
 		vector_space: = field.module,
 
 		least_well_ordered_set: = well_ordered_set,
+		
+		top'space: = topological_space, ; My (year 2) topology teacher use it
+		abstract_simplicial_complex: = simplicial_complex,
+	; end
+
+	; about simplicpial_complex
+		simplicial_map: = simplicpial_complex.homomorphism,
 	; end
 
 	; about topology
-		top'space: = topological_space, ; My (year 2) topology teacher use it
-		; ! continuous_function: = topological_space.homomorphism,
-		; ! homeomorphism: = topological_space.isomorphism,
-		; ? topological_isomorphism: = topological_space.isomorphism,
+		homeomorphism: = topological_space.isomorphism,
+		topological_isomorphism: = topological_space.isomorphism,
 	; end
 
 	; about vector space
-		linear_map: = field.module.homomorphism,
 		linear_transformation: = field.module.homomorphism,
+		linear_map: = field.module.homomorphism, ; some one may use it
 		linear_operator: = field.module.endomorphism. ; * I do not like this name
 	; end
 
-	; about poset
+	; ! about poset
 		increasing_function: = poset.homomorphism,
 		decreasing_function: = poset.anti_homomorphism,
 		strictly_increasing_function: = poset.monomorphism,
@@ -46,9 +51,9 @@
 			subrng: = rng.sub,
 			subring: = ring.sub,
 			subfield: = field.sub,
-			topological_subspace: = topological_space.sub,
 			linear_subspace: = field.module.sub,
 			vector_subspace: = field.module.sub,
+			topological_subspace: = topological_space.sub,
 		; end
 	; end
 ; end

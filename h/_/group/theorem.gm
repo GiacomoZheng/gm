@@ -86,7 +86,7 @@
 			∀g: ∈ G, G.e * g = g, ; left identity
 				∃g': ∈ G, g' * g = G.e ; left inverse
 		),
-		l'group = group = r'group
+		l'group ◉.= group ◉.= r'group
 	),
 	[ proof with the example of r'group```
 		∀R: ∈ r'group, *: = &R.*&, e: = G.e,

@@ -1,0 +1,9 @@
+: ; + triangulable_space
+(
+	⊆ topological_space,
+	(
+		∀T: ∈ triangulable_space,
+		∃K: ∈ simplical_complex,
+		T.f: (∈ isomorphism, T.f.D = K.realization, T.f.C = T),
+	)
+),

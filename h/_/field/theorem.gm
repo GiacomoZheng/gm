@@ -2,7 +2,7 @@
 	s"there is no such a thing as trivial field",
 	s"the homomorphism of fields are always injective":
 	(
-		homomorphism = extension
+		homomorphism ◉.= extension
 	),
 	[ ker(f) contains no unit, as a * a^-1 = 1 ≠ 0 ]
 

@@ -8,5 +8,5 @@
 ),
 [
 	it is true that a field.homomorphism is always an injection,
-	it means that the field.homomorphism = field.extension
+	it means that the field.homomorphism is just field.extension
  ]

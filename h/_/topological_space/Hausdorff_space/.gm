@@ -4,12 +4,13 @@
 	⊆ topological_space,
 	(
 		∀H: ∈ Hausdorff_space,
-		; the open set version
 		∀{x, y}: ∈ H,
 		!(x = y) ⇒
-		(
-			∃X: ∈ H.nbh(x), ∃Y: ∈ H.nbh(y), ; open set is the same
-			X ∩ Y = ∅
+		∀(
+			; open set is the same, compare it with T0, T1
+			∃X: ∈ H.nbh(x), !(y ∈ X),
+			∃Y: ∈ H.nbh(y), !(x ∈ Y),
+			X ∩ Y = ∅ ; indeed the !(y ∈ X) and !(x ∈ Y) are superfluous
 		)
 	)
 ),

@@ -10,7 +10,7 @@ The names start with `_` is the ones may be deleted or renamed later.
 
 The folder `h` is the entry of the whole file
 
-The file `tree` is the menu of the whole file
+The file `.tree` is the menu of the whole file
 
 ## about the better comment
 * `; *` is equal to `; NOTE`, meaning it is important.

@@ -29,7 +29,7 @@
 		∀f: ∈ continuous_function,
 		f ∈ bicontinous_function ⇔
 		∀(
-			f ⊆ set.isomorphism,
+			f ∈ set.isomorphism,
 			f.inv ∈ continuous_function
 		)
 	),
@@ -62,7 +62,7 @@
 ; end
 
 ; about closure, interior and boundary
-	s"equations":
+	s"equations": ; +
 	(
 		∀X: ∈ topological_space, ∀A: ⊆ X,
 		@X,
@@ -245,24 +245,36 @@
 	s"the universal property of identification space": ,
 ; end
 
-s"compact subsets of Hausdroff_space are closed":
+s"compact subsets of Hausdorff_space are closed":
 (
-	∀X: ∈ Hausdroff_space,
+	∀X: ∈ Hausdorff_space,
 	X.compact ⊆ X.closed
 ),
 [ counterexample if the space is not accessible (T1)```
-	∀X: ∈ topological_space,
-	!(X ∈ accessible_space) ⇒
-	(
-		∃{x}: ⊆ X, !({x} ∈ X.closed), ; otherwise, X is accessible
-		{x} ∈ X.compact,
-	)
+		∀X: ∈ topological_space,
+		!(X ∈ accessible_space) ⇒
+		∀(
+			∀{x}: ⊆ X,
+			!({x} ∈ X.closed), ; otherwise, X is accessible
+			{x} ∈ X.compact,
+		)
+	```
+	counterexample if the space is not Hausdorff (T2)```
+		∀X: ∈ ex.finite_space,
+		!(X ∈ set.finite) ⇒
+		∀(
+			X ∈ accessible_space,
+			!(X ∈ Hausdorff_space),
+			∀A: (⊆ X, !(A ∈ set.finite)),
+			!(A ∈ X.closed),
+			A ∈ X.compact
+		)
 	```
 	proof``` ; +
 
 ``` ]
 
-s"bijective continuous function from compact set to Hausdroff_space are homeomorpism":
+s"bijective continuous function from compact set to Hausdorff_space are homeomorpism":
 (
 
 ),

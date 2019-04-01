@@ -1,5 +1,6 @@
 : ; open_map
 (
+	"the mappings maps open sets to opens sets",
 	⊆ mapping,
 	∀f: ∈ open_map,
 	@f,
@@ -7,3 +8,4 @@
 		∀O: ∈ D.τ, image(O) ∈ C.τ
 	■
 ),
+properties

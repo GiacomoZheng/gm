@@ -1,0 +1,6 @@
+: ; cofinite_space
+(
+	⊆ topological_space,
+	∀X: ∈ cofinite_space,
+	X.τ = {A|X\A ∈ set.finite}[∀A: ⊆ X] ∪ {∅}
+),
