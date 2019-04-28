@@ -141,6 +141,6 @@
 	s"every ring with characteristics n has a subring isomorphic to Z[n] (or Z)":
 	(
 		∀R: ∈ ring, n: = char(R),
-		φ(∀m: ∈ h.Z): = m ∘ R.1,
+		φ(∀m: ∈ ℤ): = m ∘ R.1,
 	)
 ; end

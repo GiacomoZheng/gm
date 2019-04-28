@@ -16,7 +16,7 @@ s"Fundamental Theorem of Finite generated abelian group":
 	∀G: ∈ finitely_generated_group,
 	G ∈ abelian_group ⇒
 	(
-		∃m: ∈ h.N,(∃T: ∈ abelian_group, |T| ∈ h.N), G ≌ Z^m × T
+		∃m: ∈ ℕ,(∃T: ∈ abelian_group, |T| ∈ ℕ), G ≌ ℤ^m × T ; !
 	)
 ),
 ; Proof

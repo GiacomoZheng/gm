@@ -3,7 +3,7 @@
 	⊆ function,
 
 	∀f: ∈ circle,
-	f.Length: ∈ h.N,
+	f.Length: ∈ ℕ,
 	S: = {n|0 ≤ n < f.Length},
 
 	f.a[∀n: ∈ S]: ∈ ◉, 

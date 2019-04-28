@@ -6,11 +6,11 @@
 		M.d: ∈ metric, ; defined below
 		M ⊆ M.d.D,
 
-		@h.R,
+		@ℝ,
 			M.d(x, y) ↔ 0 ⇔ x M.↔ y, ; ? to make it be a topological_space
 			; ! the ↔ left is under the real number
 
-			Rp: = {x|x > 0}[∀x: ∈ h.R],
+			Rp: = {x|x > 0}[∀x: ∈ ℝ],
 			M.B[∀ε: ∈ Rp](∀x: ∈ M): = {y|M.d(x, y) < ε}[∀y: ∈ M] ; open ball
 			; x here is the center of the ball, and the ε is radius of the ball
 			; M.B[∀ε: ∈ Rp](∀x: ∈ M) ∈ M.τ ; via open set
@@ -30,8 +30,8 @@
 			⊆ set.homomorphism, ; mapping
 			∀d: ∈ metric,
 			d.D ∈ set, ; ? maybe I'll create a space class later
-			d.C ∈ h.R,
-			@h.R, ; the 0, R, ≥, + are all in the real number
+			d.C ∈ ℝ,
+			@ℝ, ; the 0, R, ≥, + are all in the real number
 				∀{x, y}: ∈ d.D,
 				d(x, y) ≥ 0, ; non-negativity
 				d(x, y) = d(y, x), ; symmetry, or commutative
@@ -46,7 +46,7 @@
 			⊆ metric,
 			∀d: ∈ topologically_equivalent(d'),
 			d.D = d'.M,
-			@h.R,
+			@ℝ,
 				∀{x, y}: ⊆ M, d(x, y) ↔ 0 ⇔ d'(x, y) ↔ 0
 			■
 		),
@@ -56,7 +56,7 @@
 			∈ metric,
 			∀d: ∈ strongly_equivalent(d'),
 			d.D = d'.M,
-			@h.R,
+			@ℝ,
 				∃{α, β}: ⊆ R, 0 ≤ α ≤ β,
 				∀{x, y}: ⊆ M, α × d'(x, y) ≤ d(x, y) ≤ β × d'(x, y)
 			■

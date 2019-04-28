@@ -1,0 +1,6 @@
+: ; + ℤ
+(
+	"the set of integers",
+	∈ set,
+	...
+),

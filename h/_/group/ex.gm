@@ -1,7 +1,7 @@
-Np: = {n}[∀n: ∈ h.Z, n > 0]
+Np: = {n}[∀n: ∈ ℤ, n > 0]
 
 ; group of roots of 1
-U[∀n: ∈ Np]: = {ξ^m}[∀m: (∈ h.Z, 0 ≤ m < n), ζ: (∈ s.C, ζ^n = 1)],
+U[∀n: ∈ Np]: = {ξ^m}[∀m: (∈ ℤ, 0 ≤ m < n), ζ: (∈ s.C, ζ^n = 1)],
 ; Circle group
 T: = {z||z| = 1}[∀z: ∈ s.C],
 
@@ -12,7 +12,7 @@ GL[∀n: ∈ Np](∀V: ∈ field.module): = M[n](V) \ {A|matrix.det(A) = 0}[∀A
 ; Special Linear group
 SL[∀n: ∈ Np](∀V: ∈ field.module): = {A|det(A) = 1}[∀A: ∈ M[n](V)],
 
-Z[∀n: ∈ Np]: ; ring of integers modulo n ; ! I don't know how to define it up to now
+ℤ[∀n: ∈ Np]: ; ring of integers modulo n ; ! I don't know how to define it up to now
 (
 	......
 ),

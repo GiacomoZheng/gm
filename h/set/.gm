@@ -1,4 +1,4 @@
-: ; + set
+: ; !+ set
 (
 	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
 		(
@@ -33,6 +33,10 @@
 		)
 	; end
 
+	; * I cannot deal with the ⊆ ∈ (for class) and ⊆ ∈ (for set)
+	; * idea 1: differ the symbol for classes and samples
+	; * idea 2: give other symbols for class
+
 	gm.⊆ ◉,
 	(
 		∀X: ∈ set, ; +
@@ -41,22 +45,33 @@
 			X.cover(∀S: ⊆ subset):
 			(
 				"cover of S, set of subsets",
+				; * the element in it may be empty, as I define the topology as a cover latter
 				gm.⊆ sub(Ps(S)), ; every element of the cover should be a subset of the S of it
 				∀𝒞: ∈ X.cover(S),
-				!({} ∈ 𝒞), ; to be consisent with the quotient space, at least the partition cannot contains the empty element ; ? others may not require the sets in covers nonempty
 				S ⊆ ∪(𝒞)
 			),
 	),
 
 	; location
 		; about alias
-			cover(∀X: ∈ set): = X.cover(X), [ the only cover of ∅ is {}, not {∅} ]
+			cover(∀X: ∈ set): = X.cover(X),
+			partition: = quotient, ; I don't recommend to write something like set.partition, just write partition directly
 
 			; at_most_countable: = 
 			; ! countable: , ; this terminology may cause some ambiguity 
 			countablely_infinite: = denumerable,
 			enumerable: = denumerable, ; I don't think using this term is a good idea indeed
 		; end
+
+		quotient(∀S: ∈ set):
+		(
+			gm.⊆ cover(S), ; ?
+
+			∀𝒫: ∈ quotient(S), ; sets in 𝒫 may be empty in cover as I define cover as so
+			!({} ∈ 𝒫),; ? others may not require the sets in partition nonempty
+			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
+			!(A = B) ⇒ A ∩ B = ∅
+		),
 
 		sub(∀S: ∈ set):
 		(
@@ -65,7 +80,7 @@
 			∀A: ∈ sub(S),
 			∀a: ∈ A, a ∈ S
 		),
-		⊆: (∈ relator, &⊆&.r = sub),
+		⊆: (∈ relator, &⊆&.r = sub), ; !
 
 		element(∀S: ∈ set): ; +
 		(
@@ -73,19 +88,10 @@
 
 		Ps(∀S: ∈ set): = {A}[∀A: ⊆ S], ; + return a set ; I'll create another function return a class
 
-		partition(∀S: ∈ set):
-		(
-			gm.⊆ cover(S),
-
-			∀𝒫: ∈ partition(S), ; ? sets in 𝒫 is nonempty as I define cover as so
-			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
-			!(A = B) ⇒ A ∩ B = ∅
-		),
-
 		equal(∀S: ∈ set): ; ?
 		(
 			gm.⊆ set,
-		)
+		),
 		=: (∈ relator, &=&.r = equal),
 
 		×: ; !

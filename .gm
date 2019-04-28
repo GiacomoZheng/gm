@@ -5,6 +5,16 @@
 
 =: , ; equal, point to the same location
 ⇒: , ; if … then
+
+◉.=: ; ?
+(
+	"class equal",
+	⊆ keyword,
+	; + tag: delimiter
+	∀A: ⊆ ◉, ∀B: ⊆ ◉, ; subclass
+	A ◉.= B ⇔ ∀(A ⊆ B, B ⊆ A)
+),
+
 [ 
 	the definition of these
 	' symbols '

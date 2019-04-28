@@ -1,0 +1,6 @@
+: ; + ℂ
+(
+	"the set of complex number",
+	∈ set,
+	...
+),

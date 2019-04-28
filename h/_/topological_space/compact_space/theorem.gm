@@ -5,7 +5,7 @@ s"criterion of compact subset":
 	∀X: ∈ topological_space,
 	∀A: ⊆ X,
 	(
-		∀𝒰: ⊆ X.open_cover(A), ∃𝒰': (⊆ 𝒰, |𝒰'| ∈ h.N), A ⊆ ∪(𝒰')
+		∀𝒰: ⊆ X.open_cover(A), ∃𝒰': (⊆ 𝒰, |𝒰'| ∈ ℕ), A ⊆ ∪(𝒰')
 	)
 	⇒ A ∈ compact_space
 ),

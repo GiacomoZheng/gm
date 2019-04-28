@@ -4,8 +4,8 @@
 	(
 		∀f: ∈ polynomial,
 		f.R: ∈ commutative_ring,
-		@h.N,
-			∃n: ∈ h.N, S: = {m|0 ≤ m < n}[∀m: ∈ h.N],
+		@ℕ,
+			∃n: ∈ ℕ, S: = {m|0 ≤ m < n}[∀m: ∈ ℕ],
 			f.c[∀m: ∈ S]: ∈ R
 		■
 		@R,

@@ -1,0 +1,4 @@
+: ; ! Noetherian
+(
+	; there is no infinite ascending sequence of left (or right) ideals
+),

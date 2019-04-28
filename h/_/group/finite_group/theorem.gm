@@ -3,7 +3,7 @@
 
 	s"lemma: the center of p-group": ; +
 	(
-		∀G: ∈ group, ∀p: ∈ h.N.prime, ∀n: ∈ h.N,
+		∀G: ∈ group, ∀p: ∈ ℕ.prime, ∀n: ∈ ℕ,
 		|G| = p^n ⇒ !(center(G) = {G.e})
 	),
 
@@ -11,10 +11,10 @@
 	(
 		; + after the writting of natural numbers
 		∀G: ∈ finite_group,
-		@h.N,
-		∀p: ∈ prime(h.N), ; ?
-			∀n: ∈ h.N, m: = |G|/(p^n),
-			∀(m ∈ h.N, gcd(m, p) = 1) ⇒
+		@ℕ,
+		∀p: ∈ prime(ℕ), ; ?
+			∀n: ∈ ℕ, m: = |G|/(p^n),
+			∀(m ∈ ℕ, gcd(m, p) = 1) ⇒
 			(
 				∃H: ∈ sub(G), |H| = p^n
 			)

@@ -3,8 +3,8 @@
 	⊆ function,
 
 	∀f: ∈ even_func,
-	@h.Z,
-		∃m: (∈ N, m / 2 ∈ h.Z,)
+	@ℤ,
+		∃m: (∈ N, m / 2 ∈ ℤ,)
 		∃a[∀n: (∈ N, ≤ m)]: ∈ transposition,
 		t[0]: = i,
 		t[∀n: (∈ N, ≤ m)]: = t[n - 1] ∘ a[n],

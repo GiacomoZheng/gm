@@ -17,7 +17,7 @@
 	s"the closure of an open ball is not a the correspondding closed ball":
 	[ counterexample```
 		∀X: ∈ discrete_space, ∀x: ∈ X,
-		@h.R,
+		@ℝ,
 			B[1](x) = {x}, clousre(B[1](x)) = {x},
 			c'B[1](x) = X ; ?
 		■

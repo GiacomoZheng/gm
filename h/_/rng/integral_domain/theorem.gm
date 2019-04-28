@@ -1,7 +1,7 @@
 s"nonzero finite integral domain are fields":
 (
 	∀R: ∈ integral_domain,
-	|R| ∈ h.N ⇒ R ∈ field
+	|R| ∈ ℕ ⇒ R ∈ field
 ),
 [ proof,
 	first, every finite domain has an identity

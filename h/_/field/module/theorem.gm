@@ -94,7 +94,7 @@
 	s"Rank-Nullity theorem":
 	(
 		∀T: ∈ homomorphism,
-		@h.N,
+		@ℕ,
 		rank(T) + nullity(T) = dim(T.D)
 		■
 	),

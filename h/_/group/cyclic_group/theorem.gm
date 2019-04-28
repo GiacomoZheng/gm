@@ -3,8 +3,8 @@ s"every cyclic group is an abelian group":
 	cyclic_group ⊆ abelian_group
 ),
 [ proof```
-	∀G: ∈ cyclic_group, ∃g: ∈ G, {G.e (G.*g)^z}[∀z: ∈ h.Z] = G,
-	∀{a, b}: ⊆ G, ∃{m, n}: ∈ Z,
+	∀G: ∈ cyclic_group, ∃g: ∈ G, {G.e (G.*g)^z}[∀z: ∈ ℤ] = G,
+	∀{a, b}: ⊆ G, ∃{m, n}: ∈ ℤ,
 	a = G.e (G.*g)^m, b = G.e (G.*g)^n,
 	(
 		a G.* b = G.e (*g)^m G.* G.e (G.*g)^n = G.e (*g)^(m + n),
@@ -28,28 +28,28 @@ s"the subgroup of cyclic group is still cyclic":
 	H = {e} ⇒ H ∈ cyclic_group,
 	
 		∀(G.e (G.* g)^n): ∈ H,
-		∃{m, q, r}: ∈ h.Z, n = m × q + r, 0 ≤ r < m,
+		∃{m, q, r}: ∈ ℤ, n = m × q + r, 0 ≤ r < m,
 ``` ]
 
 s"the cardinal of the cyclic (sub)group is the order of generator":
 (
 	∀G: ∈ cyclic_group, *: = &G.*&, e: = G.e,
-	∃g: ∈ G, {e (* g)^n}[∀n: ∈ h.Z] = G,
+	∃g: ∈ G, {e (* g)^n}[∀n: ∈ ℤ] = G,
 	|G| = order[G](g)
 ),
 [ proof```
-	!(|G| ∈ h.N) ⇒ |G| = order[G](g) ; the cardinal of Z
-	|G| ∈ h.N ⇒
+	!(|G| ∈ ℕ) ⇒ |G| = order[G](g) ; the cardinal of ℤ
+	|G| ∈ ℕ ⇒
 	(
 		S: = {n|0 ≤ n < order[G](g)},
-		|G| = |{e (* g)^n}[∀n: ∈ h.Z]| = |{e (* g)^n}[∀n: ∈ S]| = |S| = order[G](g)
+		|G| = |{e (* g)^n}[∀n: ∈ ℤ]| = |{e (* g)^n}[∀n: ∈ S]| = |S| = order[G](g)
 	),
 ``` ]
 
 s"direct product of finite cyclic group": ; ! ex
 (
-	∀m: (∈ h.N, > 1), ∀n: (∈ h.N, > 1),
-	Z[m] × Z[n] ≌ Z[m × n] ⇔ gcd(m, n) = 1
+	∀m: (∈ ℕ, > 1), ∀n: (∈ ℕ, > 1),
+	ℤ[m] × ℤ[n] ≌ ℤ[m × n] ⇔ gcd(m, n) = 1
 ),
 
 s"about the orders in a cyclic group":
@@ -57,18 +57,18 @@ s"about the orders in a cyclic group":
 	∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,
 	∃g: ∈ G, H = gp[&*&](g), ; !
 	order[G](g) = |H|,
-	|H| ∈ h.N ⇒ ( ; finite
+	|H| ∈ ℕ ⇒ ( ; finite
 		n: = |H|,
-		S: = {m|0 ≤ m < n}[∀m: ∈ h.Z], ; |S| = n
+		S: = {m|0 ≤ m < n}[∀m: ∈ ℤ], ; |S| = n
 		∀(
 			e (* g)^n = e,
 			|{e (* g)^n}[∀m: ∈ S]| = n, ; 1, g, g * g, … e (* g)^(n-1), distinct
 		)
 	),
-	|H| = |h.N| ⇒ ∀( ; infinite
-		(∀n: ∈ h.Z, e (* g)^n = e ⇒ n = 0),
+	|H| = |ℕ| ⇒ ∀( ; infinite
+		(∀n: ∈ ℤ, e (* g)^n = e ⇒ n = 0),
 		; equivalently
-		(∀n: ∈ h.Z, ∀m: ∈ h.Z, e (* g)^n = e (* g)^m ⇒ n = m)
+		(∀n: ∈ ℤ, ∀m: ∈ ℤ, e (* g)^n = e (* g)^m ⇒ n = m)
 	)
 ),
 
@@ -79,12 +79,12 @@ s"two cyclic group with the same cardinal is isomorphic":
 ),
 [ proof```
 	∃g: ∈ generator(G), ∃h: ∈ generator(H),
-	∀n: ∈ h.Z, ∃φ(∀(g G.^ n): ∈ G): = h H.^ n ; + I need to define G.^ later
+	∀n: ∈ ℤ, ∃φ(∀(g G.^ n): ∈ G): = h H.^ n ; + I need to define G.^ later
 ``` ]
 ; and equvalently
-s"all the cyclic groups are isomorphic to Z[n] or Z":
+s"all the cyclic groups are isomorphic to ℤ[n] or ℤ":
 (
 	∀G: ∈ cyclic_group, n: = |G|,
-	n ∈ h.N ⇒ G ≌ Z[|G|],
-	n = |h.Z| ⇒ G ≌ Z
+	n ∈ ℕ ⇒ G ≌ ℤ[|G|],
+	n = |ℤ| ⇒ G ≌ ℤ
 ),

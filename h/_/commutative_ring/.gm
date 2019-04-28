@@ -50,8 +50,8 @@
 		P[∀R: ∈ commutative_ring](∀x: ∈ ◉):
 		(
 			"a polynomial ring over R",
-			S[∀n: ∈ h.N]: = {m|h.N.0 ≤ m < n}[∀m: ∈ h.N], ; pre definition
-			= {+[∀n: ∈ S[m]](c[n] R.× (x R.^ n))}[∀m: ∈ h.N, ∀n: ∈ S[m], ∀c[∀n: ∈ S[m]]: ∈ R]
+			S[∀n: ∈ ℕ]: = {m|ℕ.0 ≤ m < n}[∀m: ∈ ℕ], ; pre definition
+			= {+[∀n: ∈ S[m]](c[n] R.× (x R.^ n))}[∀m: ∈ ℕ, ∀n: ∈ S[m], ∀c[∀n: ∈ S[m]]: ∈ R]
 			; * if the x don't in any super ring of the R, the error would occurs
 		),
 ),

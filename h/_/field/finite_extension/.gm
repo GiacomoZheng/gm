@@ -3,5 +3,5 @@
 	⊆ extension,
 
 	∀f: ∈ finite_extension,
-	f.degree ∈ h.N ; !
+	f.degree ∈ ℕ ; !
 ),

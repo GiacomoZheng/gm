@@ -35,7 +35,20 @@
 				&H.*& = &G.*&
 			),
 
-			min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
+			×:
+			(
+				"product space: the result of it is indeed a group",
+				∈ operator,
+				∀A: ∈ group, ∀B: ∈ group,
+				(A × B) set.= A set.× B,
+				(A × B).*:
+				(
+					∀{(x1, y1), (x2, y2)}: ⊆ A × B,
+					(x1, y1) (A × B).* (x2, y2) = (x1 A.* x2, y1 A.* y2)
+				)
+			),
+
+			; ! min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating ; * hhhh
 
 		; end
 		Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f.D = G, f.C = H}[∀f: ∈ homomorphism], ; ?
@@ -61,7 +74,7 @@
 		(
 			⊆ set.element(G),
 			∀g: ∈ generator(G),
-			G = {G.e (G.* g)^n}[∀n: ∈ h.Z]
+			G = {G.e (G.* g)^n}[∀n: ∈ ℤ]
 		),
 
 		C[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G], ; centralizer
@@ -109,14 +122,14 @@
 			∀N: ∈ normal(G),
 			∀h: ∈ N, ∀g: ∈ G,
 			@G,
-			g*h*inv[G](g) ∈ N
+				g*h*inv[G](g) ∈ N
 			■
 		),
 		/:
 		(
 			∈ operator,
 			∀G: ∈ group, ∀H: ∈ normal(G),
-			G / H = G /["l"] H
+			G / H = G /["l"] H ; in fact, here /[l] and /[r] has the same result
 		),
 
 		isomorphic(∀G: ∈ group):

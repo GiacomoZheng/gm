@@ -1,4 +1,4 @@
-; + replace the redefine into "@"
+; + replace the "redefine" into "@"
 ; about generalizing
 	s"criterion of trivial group"
 	(
@@ -132,8 +132,8 @@
 
 	s"the sub of Z is always nZ": ; ! ex
 	(
-		∀G: ∈ sub(h.Z), ; "+" as operator
-		∃n: ∈ h.Z, Z': = {n × z}[∀z: ∈ h.Z], G = Z'
+		∀G: ∈ sub(ℤ), ; "+" as operator
+		∃n: ∈ ℤ, Z': = {n × z}[∀z: ∈ ℤ], G = Z'
 	),
 	[  ] ; + after the Euclidean algorithm
 
@@ -232,11 +232,11 @@
 	s"the orders in a group": ; !+ Proposition 3.13
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
-		@h.Z,
-			∀x: ∈ G, ∀m: (∈ h.Z, !(m = 0)),
+		@ℤ,
+			∀x: ∈ G, ∀m: (∈ ℤ, !(m = 0)),
 			n: = order[G](x),
-			!(n ∈ h.N) ⇒ !(order[G](e (* x)^m) ∈ h.N),
-			n ∈ h.N ⇒ order[G](e (* x)^m) = n / gcd(n, m)
+			!(n ∈ ℕ) ⇒ !(order[G](e (* x)^m) ∈ ℕ),
+			n ∈ ℕ ⇒ order[G](e (* x)^m) = n / gcd(n, m)
 		■
 	),
 	[ proof```
@@ -248,14 +248,14 @@
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
 		∀x: ∈ G,
-		@h.Z,
-		∀n: ∈ h.Z, e (* x)^n = e ⇒ n / order[G](x) ∈ h.Z
+		@ℤ,
+		∀n: ∈ ℤ, e (* x)^n = e ⇒ n / order[G](x) ∈ ℤ
 		■
 	),
 	[ proof```
 		m: = order[T](x),
-		@h.Z,
-		∃{q, r}: ⊆ h.Z, n = m × q + r, 0 ≤ r < m, ; the division theorem on Z ; assume it here
+		@ℤ,
+		∃{q, r}: ⊆ ℤ, n = m × q + r, 0 ≤ r < m, ; the division theorem on Z ; assume it here
 		e = e (* x)^n = e (* x)^(m × q + r) = e (* x)^(m × q) (* x)^r = e ((* x)^m)^q (* x)^r = e (* x)^r ⇒ r = 0
 		■
 	``` ]
@@ -275,7 +275,7 @@
 		∀G: ∈ group, ∀H: ∈ sub(G),
 		G /["l"] H ∈ set.partition(G) ; ?
 	),
-	[ ```
+	[ proof```
 		; G / H is disjoint
 		∀{A, B}: ⊆ G /["l"] H,
 		!(A = B) ⇒ A ∩ B = ∅ ⇐ (
@@ -318,17 +318,17 @@
 	s"Lagrange's Theorem":
 	(
 		G: ∈ group, H: ∈ sub(G),
-		|G| ∈ h.N ⇒ |G|/|H| ∈ h.N
+		|G| ∈ ℕ ⇒ |G|/|H| ∈ ℕ
 	),
 	[ proof, with the help of the lemma``` ; +
 		G: ∈ group, H: ∈ sub(G), *: = &G.*&
 		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
-		|G| ∈ h.N ⇒
+		|G| ∈ ℕ ⇒
 		(
-			∃m: (∈ h.N, ≤ |G|),
+			∃m: (∈ ℕ, ≤ |G|),
 			|G| = |∪({x * H|∀x: ∈ G})|
-			= |∪[]({x[n] * H|∀x[∀n: (∈ h.N, ≤ m)]: ∈ G})|
-			= +[∀n: (∈ h.N, ≤ m)](|x[n] * H|)
+			= |∪[]({x[n] * H|∀x[∀n: (∈ ℕ, ≤ m)]: ∈ G})|
+			= +[∀n: (∈ ℕ, ≤ m)](|x[n] * H|)
 			= |H| × m
 		)
 	``` ]
@@ -336,7 +336,7 @@
 	s`The converse of "Lagrange" is true when G is cyclic`:
 	(
 		G: ∈ group,
-		|G| ∈ h.N ⇒ (∀d: ∈ h.N, m/d ∈ h.Z ⇒ (∃H: ∈ sub(G), |H| = d))
+		|G| ∈ ℕ ⇒ (∀d: ∈ ℕ, m/d ∈ ℤ ⇒ (∃H: ∈ sub(G), |H| = d))
 	),
 ; end
 
@@ -471,7 +471,7 @@
 		G: = φ.D, H: = φ.C,
 		φ(G.e) = H.e, ; identity
 		∀g: ∈ G, φ(inv[G](g)) = inv[H](φ(g)), ; inverse
-		∀n: ∈ h.Z, φ(G.e (G.* g)^n) = H.e (H.* φ(g))^n
+		∀n: ∈ ℤ, φ(G.e (G.* g)^n) = H.e (H.* φ(g))^n
 	),
 	[ proof ]
 
@@ -572,13 +572,13 @@
 ; end
 
 [
- 	Let G be a group, and h.N a normal subgroup of G. Then
+ 	Let G be a group, and ℕ a normal subgroup of G. Then
 
-	1.	If K is a subgroup of G such that  h.N ⊆ K ⊆ G, then K/h.N is a subgroup of G/h.N.
-	2.	Every subgroup of G/h.N is of the form K/h.N, for some subgroup K of G such that  h.N ⊆ K ⊆ G.
-	3.	If K is a normal subgroup of G such that  h.N ⊆ K ⊆ G, then K/h.N is a normal subgroup of G/h.N.
-	4.	Every normal subgroup of G/h.N is of the form K/h.N, for some normal subgroup K of G such that  h.N ⊆ K ⊆ G.
-	5.	If K is a normal subgroup of G such that  h.N ⊆ K ⊆ G, then the quotient group (G/h.N)/(K/h.N) is isomorphic to G/K.
+	1.	If K is a subgroup of G such that  ℕ ⊆ K ⊆ G, then K/ℕ is a subgroup of G/ℕ.
+	2.	Every subgroup of G/ℕ is of the form K/ℕ, for some subgroup K of G such that  ℕ ⊆ K ⊆ G.
+	3.	If K is a normal subgroup of G such that  ℕ ⊆ K ⊆ G, then K/ℕ is a normal subgroup of G/ℕ.
+	4.	Every normal subgroup of G/ℕ is of the form K/ℕ, for some normal subgroup K of G such that  ℕ ⊆ K ⊆ G.
+	5.	If K is a normal subgroup of G such that  ℕ ⊆ K ⊆ G, then the quotient group (G/ℕ)/(K/ℕ) is isomorphic to G/K.
  ]
 s"Third Isomorphism Theorem":
 (
@@ -591,7 +591,7 @@ s"Third Isomorphism Theorem":
 	(H / N ∈ normal(G/N) ⇔ H ∈ normal(G))
 
 	∀G: ∈ group, ∀No: ∈ normal(G), ∀H: (∈ sub(G), N ⊆ H),
-	H ∈ normal(G) ⇒ (G/h.N)/(H/h.N) ≌ G/H
+	H ∈ normal(G) ⇒ (G/ℕ)/(H/ℕ) ≌ G/H
 ),
 
 p"Jordon-Holder Theorem":
@@ -606,6 +606,6 @@ p"Jordon-Holder Theorem":
 ; Theorem: start
 	ex.A[5] ∈ solvable_group,
 	ex.S[∀n: ∈ {3, 4}] ∈ solvable_group,
-	∀n: (∈ h.N, n ≥ 5), !(ex.S[n] ∈ solvable_group),
+	∀n: (∈ ℕ, n ≥ 5), !(ex.S[n] ∈ solvable_group),
 	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group
 ; Theorem: end

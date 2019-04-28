@@ -1,12 +1,8 @@
-Z: = h.Z,
-Q: = h.Q,
-C: = h.C,
-
 s"rational root test":
 (
 	∀x: ∈ ◉,
-	∀f(x): ∈ P[Q](x), ∀α: ∈ root(f), ; rational
-	f(x) ∈ P[Z](x) ⇒
+	∀f(x): ∈ P[ℚ](x), ∀α: ∈ root(f), ; rational
+	f(x) ∈ P[ℤ](x) ⇒
 	(
 
 	)

@@ -1,0 +1,6 @@
+: ; + ℚ
+(
+	"the set of rational number",
+	∈ set,
+	...
+),

@@ -2,6 +2,6 @@
 (
 	⊆ group,
 	∀T: ∈ torsion_group,
-	∀x: ∈ T, order[T](x) ∈ h.N
+	∀x: ∈ T, order[T](x) ∈ ℕ
 ),
 [ chaim: finite_group ⊆ torsion_group ]

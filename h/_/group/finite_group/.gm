@@ -3,7 +3,7 @@
 	⊆ group,
 	(
 		∀G: ∈ finite_group,
-		|G| ∈ h.N
+		|G| ∈ ℕ
 	),
 
 	[ attributes ]

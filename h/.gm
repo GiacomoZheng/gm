@@ -8,6 +8,8 @@
 
 			permutation: = set.automorphism,
 		; end
+
+		partition: = set.quotient,
 	; end
 
 	; about function
@@ -50,23 +52,9 @@
 	; end
 ; end
 
-∅: = {},
-
 ; ? the items below are waitting for adjustment
 
-^: ; ? move to bijiecton
-(
-	∈ symbol,
-	∀n: ∈ h.Z,
-
-	∀f: ∈ bijection,
-	i: = f.i, ; the identity permutation with the domain of f
-	∃f': ∈ bijection, f' ∘ f = f ∘ f' = i,
-	f ^ 0 = i,
-	f ^ -1 = f',
-	n > 0 ⇒ f ^ n = f ^ (n - 1) ∘ f,
-	n < 0 ⇒ f ^ n = f ^ (n + 1) ∘ f ^ -1
-),
+∅: = {},
 
 {…}: ; +
 (
@@ -77,10 +65,3 @@
 (
 	∈ bracket,
 ),
-
-; ? I don't how to deal with them now ; ! I may move them away later
-; * but I suggest you to write h.* than just use NZQR
-N: = {}, ; 0, 1, 2, …
-Z: = {},
-Q: = {},
-R: = {},

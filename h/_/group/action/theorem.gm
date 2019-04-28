@@ -8,9 +8,9 @@ s"stabilizers and kernel of action are subgroup":
 s"Orbit-Stabilizer Theorem":
 (
 	∀μ: ∈ action, ∀s: ∈ μ.S,
-	|orbit[μ](s)| ∈ h.N ⇒ |G / stab[μ](s)| = |orbit[μ](x)|
+	|orbit[μ](s)| ∈ ℕ ⇒ |G / stab[μ](s)| = |orbit[μ](x)|
 	; with the help of "Lagrange Theorem", we get
-	∀(|orbit[μ](s)| ∈ h.N, |μ.G| ∈ h.N) ⇒ |G| = |stab[μ](s)| × |orbit[μ](x)|
+	∀(|orbit[μ](s)| ∈ ℕ, |μ.G| ∈ ℕ) ⇒ |G| = |stab[μ](s)| × |orbit[μ](x)|
 ),
 
 s"an action is a homomorphism from the group to a permutation group":

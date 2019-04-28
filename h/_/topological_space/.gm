@@ -16,7 +16,7 @@
 					; for U = ∅, just pick ℬ' empty
 				),
 
-				X.open_cover(∀A: ∈ sub(X)):
+				X.open_cover(∀A: ∈ sub(X)): ; ?
 				(
 					⊆ X.cover(A),
 					⊆ set.sub(X.τ)
@@ -106,23 +106,24 @@
 	),
 
 	[ for location ]
-		; about constructing topological space
+		; about tools to construct topological space
 			topology(∀D: ∈ set): ; +
 			(
 				"a topological structure on D",
-				⊆ set.cover(D), ; D ∈ τ
+				⊆ set.cover(D),
 				∀τ: ∈ topology(D),
-				∅ ∈ τ,
-				∀{A, B}: ⊆ τ, A ∩ B ∈ τ,
-				∀𝒞: ⊆ τ, ∩(𝒞) ∈ τ,
+				(∅ ∈ τ),
+				(∀{A, B}: ⊆ τ, A ∩ B ∈ τ),
+				(∀𝒞: ⊆ τ, ∪(𝒞) ∈ τ) ; ! ∪ ; so that D ∈ τ
 			),
+			[ cover + union closure ⇒ D ∈ τ ]
 
 			basis(∀D: ∈ set): ; ? space
 			(
 				"generated a topological space from a of basis",
 				⊆ set.cover(D),
 				∀{B1, B2}: ∈ ℬ, ∀x: ∈ B1 ∩ B2,
-				∃B: ∈ ℬ, x ∈ B ⊆  B1 ∩ B2
+				∃B: ∈ ℬ, x ∈ B ⊆ B1 ∩ B2
 			),
 		; end
 
@@ -146,14 +147,12 @@
 
 			T0_space: = Kolmogorov_space,
 			T1_space: = accessible_space,
-				Fréchet_space: = accessible_space,
+				Fréchet_space: = accessible_space, ; ? this name might be confusing
 			T2_space: = Hausdorff_space,
 		; end
 
 		; + about inheritance
-			⊆: ; ? I don't know up to now
-
-			sub(∀S: ∈ topological_space):
+			sub(∀S: ∈ topological_space): ; or topological_subspace
 			(
 				"sub topological space",
 				⊆ set.sub(S),
@@ -170,10 +169,12 @@
 				(A × B): set.= A set.× B, ; ?
 				{U × V}[∀U: ∈ A.τ, ∀V: ∈ B.τ] ∈ (A × B).basis
 			),
+
+			⊆: , ; ? I don't know up to now
 		; end
 
 		[ I may write down some equivalent version for it ]
-		dense_sub(∀X: ∈ topological_space):
+		dense_sub(∀X: ∈ topological_space): ; ?
 		(
 			⊆ set.sub(X),
 			∀D: ∈ dense_sub(X),

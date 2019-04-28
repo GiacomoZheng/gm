@@ -14,95 +14,60 @@ s"P[set of real_number](x) / I[real_number](x) ≌ complex_number":, ; !
 
 s"enough intersection points make two polynomial the same":
 (
-	@gm.h.Ring,
+	@gm.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
-	∃m: ∈ h.Z, m > deg(f(x)), m > deg(g(x)),
+	∃m: ∈ ℤ, m > deg(f(x)), m > deg(g(x)),
 	(∃A: ⊆ R, |A| = m, (∀a: ∈ A, f(a) = g(a))) ⇒ f = g
 	■
 ),
 
 s"intersection over the infinite ring make two polynomials the same":
 (
-	@gm.h.Ring,
+	@gm.Ring,
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
 	∀(
-		!(|R| ∈ h.N),
+		!(|R| ∈ ℕ),
 		(∀a: ∈ R, f(a) = g(a))
 	) ⇒ f = g
 	■
 ),
-
-s"PID and UFD":
-(
-	Z ∈ principle_ideal_ring,
-	∀x: ∈ ◉, ∀y: ∈ ◉, ; !
-	∀K: ∈ field,
-	K ∈ principle_ideal_ring,
-	P[K](x) ∈ principle_ideal_ring,
-
-	!(P[Z](x) ∈ principle_ideal_ring),
-	!(P[K](x, y) ∈ principle_ideal_ring), ; as I[P[K](x, y)]({x, y})
-
-	principle_ideal_ring ⊆ unique_factorization_ring,
-	principle_ideal_ring ⊆ Noetherian_ring
-)
 
 s"Fundamental Theorem of Algebra":,
 [ every non-constant polynomial over Complex numbers has a root ]
 
 s"irreducible polynomials in P[R](x) are linears and irreducible quadratic": ; !
 (
-	@gm.h.Ring,
-	∀x: ∈ ◉, ; !
-	p(x): ∈ P[h.R](x),
-	S: = {n|∀n: ∈ h.Z, n ≥ 0, n ≤ deg(p(x))},
-	∃α[∀n: ∈ S]: ∈ s.C,
-	∀y: ∈ h.R, p(y) = ×[∀n: ∈ S](y - α[n]),
-	p(y) ∈ h.R ⇒ p(y) = conj(p(y))
-	⇒ p(y) = conj(×[∀n: ∈ S](y - α[n]))
-	⇒ p(y) = ×[∀n: ∈ S](y - conj(α[n])),
-	q(x): = ×[∀n: ∈ S](x - conj(α[n])),
-	∀(
-		!(|R| ∈ h.N),
-		(∀y: ∈ h.R, q(y) = p(y))
-	)
-	⇒ p = q,
-	P[h.R](x) ∈ unique_factorization_ring,
-	∃S1: ⊆ S, α[∀n: ∈ S1] ∈ h.R,
-	S2: = S \ S1,
-	∀n: ∈ S2, ∃β[n]: ∈ s.C, conj(β[n]) ∈ {β[m]|∀m: ∈ S2},
-	p(y) = ×[∀n: ∈ S1](y - α[n]) × ×[∀n: ∈ S2](y - β[n])
-	= ×[∀n: ∈ S1](y - α[n]) × ×[{j1, j2}: ⊆ S2](y^2 - (β[j1]+β[j2]) * y + β[j1] * β[j2]) ; !
-	■
+	s"for every real polynomial f, if x ∈ ℂ is a root of f, so is the conjugate",
+	s"decomposition the f into the product of monic linear term in ℂ and combine the conjugate pairs"
 ),
 
 s"rational root test":
 (
-	@gm.h.Ring,
+	@gm.Ring,
 	∀x: ∈ ◉, ; !
-	∀f(x): ∈ P[h.Z](x),
+	∀f(x): ∈ P[ℤ](x),
 	n: = deg(f(x)),
 	a: = f(x).a,
-	∀r: ∈ root[h.Q](f), ; *
+	∀r: ∈ root[ℚ](f), ; *
 	∃(
 		r = 0,
 		(
-			∃{p, q}: ⊆ h.Z \ {0}, r = p / q,
-			a[0] / p ∈ h.Z,
-			a[n] / q ∈ h.Z
+			∃{p, q}: ⊆ ℤ \ {0}, r = p / q,
+			a[0] / p ∈ ℤ,
+			a[n] / q ∈ ℤ
 		)
 	)■
 ),
 
 s"Eisenstein's criterion": ; + add it to cheeting paper,
 (
-	@gm.h.Ring,
+	@gm.Ring,
 	∀x: ∈ ◉, ; !
-	∀f(x): ∈ P[h.Z](x),
+	∀f(x): ∈ P[ℤ](x),
 	n: = deg(f(x)),
-	S: = {m|∀m: ∈ h.Z, 0 ≤ m ≤ n},
+	S: = {m|∀m: ∈ ℤ, 0 ≤ m ≤ n},
 	a: = f(x).a,
 	(
 		∃p: ∈ prime_number,
@@ -115,14 +80,14 @@ s"Eisenstein's criterion": ; + add it to cheeting paper,
 
 s"the ideal over a prime number in Z is maximal":
 (
-	@gm.h.Ring,
-	∀p: ∈ prime_number, I[h.Z]({p}) ∈ maximal_ideal_ideal(Z)■
+	@gm.Ring,
+	∀p: ∈ prime_number, I[ℤ]({p}) ∈ maximal_ideal_ideal(Z)■
 ),
 
 s"nature of quotient ring":
 (
 	; "indeed it is a part of third isomorphism theorems",
-	@gm.h.Ring,
+	@gm.Ring,
 	∀R: ∈ commutative_ring, ∀Id: ∈ ideal(R),
 	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_domain,
 	Id ∈ maximal_ideal_ideal(R) ⇔ R/Id ∈ field■

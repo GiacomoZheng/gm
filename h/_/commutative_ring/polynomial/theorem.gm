@@ -13,7 +13,7 @@
 		unit(R) ⊇ unit(P[R](x)) ⇐
 		(
 			∀u: ∈ unit(P[R](x)),
-			@h.R,
+			@ℝ,
 				1 = deg(inv[P[R](x)](u) * u) = deg(inv[P[R](x)](u)) * deg(u) ⇒
 				∀(
 					deg(inv[P[R](x)](u)) = 1 ⇒ inv[P[R](x)](u) ∈ R,
@@ -39,7 +39,7 @@
 		)
 	),
 	[ proof``` ; !
-		N[∀n: ∈ h.N]: = {m|0 ≤ m < n}[∀m: ∈ h.N],
+		N[∀n: ∈ ℕ]: = {m|0 ≤ m < n}[∀m: ∈ ℕ],
 		@P,
 		deg(f) < deg(g) ⇒ ∀(p(x) = 0, r = f),
 		deg(f) ≥ deg(g) ⇒
