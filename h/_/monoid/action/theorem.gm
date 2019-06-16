@@ -1,0 +1,35 @@
+s"stabilizers and kernel of action are subgroup":
+(
+	∀μ: ∈ action,
+	stabilizer[μ](∀s: ∈ μ.S) ∈ sub(μ.G),
+	ker(μ) = {g|∀s: ∈ μ.S, μ(g, s) = s}[∀g: ∈ G]
+),
+
+s"Orbit-Stabilizer Theorem":
+(
+	∀μ: ∈ action, ∀s: ∈ μ.S,
+	|orbit[μ](s)| ∈ ℕ ⇒ |G / stab[μ](s)| = |orbit[μ](x)|
+	; with the help of "Lagrange Theorem", we get
+	∀(|orbit[μ](s)| ∈ ℕ, |μ.G| ∈ ℕ) ⇒ |G| = |stab[μ](s)| × |orbit[μ](x)|
+),
+
+s"an action is a homomorphism from the group to a permutation group":
+(
+	action ⊆ homomorphism
+),
+[ proof```
+	∀μ: ∈ action, G: = μ.D,
+	H: = sym(μ.S), H ∈ group, &H.*& = &∘&,
+	μ(x * y) = μ(x) ∘ μ(y) = f(x) ∘ f(y)
+``` ]
+
+s"Cayley's Theorem: every group are isomorphic to a permutation group":
+(
+	∀G: ∈ group, ∃T: ∈ sub(sym(G)), G ≌ T
+),
+[ similarly ```
+	∀G: ∈ group, ∃T: ∈ sub(ex.S[|G|]), G ≌ T
+	```
+	proof with left regular action```
+
+``` ]

@@ -1,4 +1,4 @@
-; about chaim
+; about hierarchy chain
 	s"any ED is PID":
 	(
 
@@ -14,7 +14,7 @@
 		
 	),
 
-	s"chaim of domains":
+	s"hierarchy chain of domains":
 	(
 		integral_domain ⊇ GCD_domain ⊇ UFD ⊇ PID ⊇ ED ⊇ field,
 		PID ⊇ Bezout_domain

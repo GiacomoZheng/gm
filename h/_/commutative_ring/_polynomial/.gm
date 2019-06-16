@@ -1,20 +1,25 @@
-: ; polynomial
+: ; ! polynomial
 (
 	⊆ function,
 	(
 		∀f: ∈ polynomial,
-		f.R: ∈ commutative_ring,
+		f.D: ; !
+		(
+			∈ commutative_ring.module,
+			∈ commutative_ring
+		),
+		f.R: = f.D.R,
 		@ℕ,
 			∃n: ∈ ℕ, S: = {m|0 ≤ m < n}[∀m: ∈ ℕ],
-			f.c[∀m: ∈ S]: ∈ R
+			f.c[∀m: ∈ S]: ∈ f.R
 		■
-		@R,
-			∀x: ∈ ◉,
-			∃R': (∈ commutative_ring, R ∈ commutative_ring.sub(R'), x ∈ R'), ; ?
-			f(x) = +[∀m: ∈ S](f.c[m] × (x ^ m))
+		@f.D,
+			∀x: ∈ f.D,
+			f(x) = +[∀m: ∈ S](π[f.c[m]](x ^ m))
 		■
 		; attributes
-			f.trivial(∀x: ∈ ◉): = f.R.0 ; ?
+			f.trivial(∀x: ∈ ◉): = f.R.0, ; ?
+			f.zero: = f.trivial
 	),
 	; location
 		deg(∀f: ∈ polynomial): ; +

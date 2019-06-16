@@ -1,0 +1,21 @@
+: ; deterministic_automaton
+(
+	⊆ set, ; the elements of it are called state
+	(
+		∀S: ∈ automaton,
+		S.start: ∈ S, ; start state
+		S.F: ⊆ S, ; final state, or accept states
+
+		S.Σ: ∈ alphabet, ; monoid of string, where the string is always finite
+		S.δ: ∈ monoid.action, S ⊆ S.δ.S, S.δ.D = S.Σ
+		S.δ[∀σ: ∈ Σ]: ∈ S.δ(σ), ; I will use this line more frequently
+		
+		; attributes
+			; about alias
+				S.s[ℕ.0]: = S.start,
+				S.q[ℕ.0]: = S.start,
+				S.f[∀σ: ∈ Σ]: = S.δ[σ],
+			; end
+		; end
+	)
+),

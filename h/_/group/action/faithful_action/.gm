@@ -1,5 +1,5 @@
-: ; faithful_action
+: ; ? faithful_action
 (
 	⊆ action,
-	⊆ injection
+	; ⊆ set.monomorphism ; ? if so, the S is always nonempty
 ),

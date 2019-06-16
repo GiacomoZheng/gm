@@ -1,0 +1,5 @@
+: ; + alphabet
+(
+	"set of letters would be used",
+	⊆ set,
+),

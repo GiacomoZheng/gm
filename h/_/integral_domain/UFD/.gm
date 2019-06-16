@@ -5,9 +5,9 @@
 	⊆ integral_domain,
 	... ; +
 	∀U: ∈ unique_factorization_ring,
-	[ chaim: integral_domain ⊇ GCD_domain ⊇ UFD ]
+	[ hierarchy chain: integral_domain ⊇ GCD_domain ⊇ UFD ]
 	; location
 		; about inheritance
 		; end
 ),
-[ chaim: UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]
+[ hierarchy chain: UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

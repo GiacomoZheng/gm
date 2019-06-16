@@ -12,7 +12,7 @@
 		)
 	)
 ),
-[ chaim: discrete_space ⊆ Hausdorff_space ⊆ accessible_space ⊆ Kolmogorov_space ]
+[ hierarchy chain: discrete_space ⊆ Hausdorff_space ⊆ accessible_space ⊆ Kolmogorov_space ]
 [ property:
 	+ every singleton are closed, vice verse
 	+ example: infinite space with cofinite topology

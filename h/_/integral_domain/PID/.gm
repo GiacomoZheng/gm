@@ -4,4 +4,4 @@
 	∀P: ∈ PID,
 	ideal(P) = principle_ideal(P)
 ),
-[ chaim: PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]
+[ hierarchy chain: PID ⊆ UFD ⊆ integral_domain (ring) ⊆ commutative_ring ]

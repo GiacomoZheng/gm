@@ -1,14 +1,10 @@
 : ; homomorphism
 (
 	⊆ set.homomorphism, ; mapping
-
-	∀f: ∈ homomorphism,
-	f.D ∈ group, f.C ∈ group,
-	∀x: ∈ f.D, ∀y: ∈ f.D,
-	f(x f.D.* y) = f(x) f.C.* f(y),
-
-	[ attributes ]
-		f.kernel: = {g|f(g) = f.C.e}[∀g: ∈ f.D]
+	(
+		∀f: ∈ homomorphism,
+		f.D ∈ group, f.C ∈ group
+	)
 ),
 [ ```
 	∀a: ∈ G,

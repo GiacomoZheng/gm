@@ -5,4 +5,4 @@
 	∀S: ∈ semigroup,
 	&S.*& ∈ associative_operator, S ⊆ &S.*&.D ; association
 ),
-[ chaim: semigroup ⊆ magma ]
+[ hierarchy chain: semigroup ⊆ magma ]

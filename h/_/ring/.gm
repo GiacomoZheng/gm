@@ -1,12 +1,13 @@
-: ; ring, with multiplication identity
+: ; ring, or unital_ring, or unital_rng
 (
+	"rng with multiplication identity"
 	⊆ rng,
 	(
 		∀R: ∈ ring,
 		R.1: ∈ R \ {R.0}, ; ? I prefer this version
 		∀a: ∈ R, R.1 R.× a = a = a R.× R.1 ; multiply identity
 	),
-	[ chain: ring ⊆ rng ⊆ abelian_group ]
+	[ hierarchy chain: ring ⊆ rng ⊆ abelian_group ]
 	; location
 		; about alias
 			commutative_domain: = integral_domain,

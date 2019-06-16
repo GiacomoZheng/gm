@@ -1,7 +1,12 @@
 : ; endomorphism
 (
 	⊆ homomorphism,
-
-	∀f: ∈ endomorphism,
-	f.D = f.C
+	(
+		∀f: ∈ endomorphism,
+		f.D = f.C
+		; attributes
+			f.identity(∀x: ∈ f.D): = x,
+			f.identity.D: = f.D, f.identity.C: = f.C,
+				f.id: = f.identity
+	)
 ),

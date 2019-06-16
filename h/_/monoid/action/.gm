@@ -1,0 +1,16 @@
+: ; action, or regular_action, or l'action
+(
+	"a homomorphism from a monoid into an endomorphsism monoid on a set",
+	; * a little bit different with others' version
+	⊆ set.homomorphism, ; mapping
+	(
+		∀μ: ∈ action,
+		μ.D ∈ monoid,
+		μ.S: ∈ set,
+		μ.C = {f|f.D = μ.S}[∀f: ∈ set.endomorphsism],
+
+		@μ,
+			μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility
+		■
+	)
+),

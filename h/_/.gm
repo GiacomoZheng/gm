@@ -3,16 +3,17 @@
 		commutative_group: = abelian_group,
 		commutative_domain: = integral_domain,
 
+		unital_rng: = ring,
+		unital_ring: = ring,
 		division_ring: = skew_field, ; I mat not use this name, as division_ring don't define the division indeed
-		unital_module: = ring.module, ; left module
-		; I'll do not define the singel module in this level
+		unital_module: = ring.module, ; left module ; * I'll do not define the singel module in this level
 		; linear_space: = field.module, ; ! I think it might be a little bit cofuse
 		vector_space: = field.module,
 
 		least_well_ordered_set: = well_ordered_set,
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
-		abstract_simplicial_complex: = simplicial_complex,
+		abstract_simplicial_complex: = simplicial_complex, ; the latter maight be confusing
 	; end
 
 	; about simplicpial_complex
@@ -21,6 +22,7 @@
 
 	; about topology
 		homeomorphism: = topological_space.isomorphism,
+		bicontinuous_function: = topological_space.isomorphism,
 		topological_isomorphism: = topological_space.isomorphism,
 	; end
 
@@ -31,10 +33,10 @@
 	; end
 
 	; ! about poset
-		increasing_function: = poset.homomorphism,
-		decreasing_function: = poset.anti_homomorphism,
-		strictly_increasing_function: = poset.monomorphism,
-		strictly_decreasing_function: = poset.anti_monomorphism,
+		; ! increasing_function: = poset.homomorphism,
+		; ! decreasing_function: = poset.anti_homomorphism,
+		; ! strictly_increasing_function: = poset.monomorphism,
+		; ! strictly_decreasing_function: = poset.anti_monomorphism,
 	; end
 
 	; about full name of inheritance

@@ -1,0 +1,12 @@
+: ; affine_space
+(
+	⊆ set,
+	(
+		∀A: ∈ affine_space, ; set of positions
+		A.V: ∈ field.module, ; set of vectors
+		A.σ: ∈ group.regular_action, ; the definition in wiki looks like an anti-action, however, V is an ableian group
+		A.σ[∀v: ∈ V]: = A.σ(v), ; for convinience, σ means "συνοψίζω" (sum up in Greek)
+			A ⊆ A.σ.S,
+		A.F: = A.V.F
+	),
+),

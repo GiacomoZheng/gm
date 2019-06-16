@@ -14,7 +14,7 @@
 		)
 	)
 ),
-[ chaim: discrete_space ⊆  ⊆ Hausdorff_space ]
+[ hierarchy chain: discrete_space ⊆  ⊆ Hausdorff_space ]
 [ properties:
 	1. every converge sequence converge to a unique point
  ]

@@ -3,7 +3,4 @@
 	⊆ function,
 	∀in: ∈ inner_product,
 	in.D: ∈ module,
-	(∀{x, y}: ⊆ in.D, in(x, y) = in(y, x)),
-	(∀{a, b}: ⊆ in.D, ∀y: ∈ in.D.F, in(a - b, y) = in(a, y) - in(b, y)),
-	(∀α: ∈ in.D.F, ∀{x, y}: ∈ in.D, in(α × x, y) = α × in(x, y))
 ),

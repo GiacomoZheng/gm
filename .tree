@@ -4,13 +4,25 @@ gm
 └── h
     ├── _
     	├── _
-    		├── _random_space
-    		├── measurable_space
-    		├── metric_space
-    			├── _complete_space
+    		├── _
+    			├── _cs
+    				├── _deterministic_automaton
+    				├── alphabet
+    				├── fake_alphabet
+    				└── grammar
+    			├── _random_space
+    			├── measurable_space
+    			├── metric_space
+    				├── _complete_space
+    				└── theorem.gm
+    			├── normed_abelian_group
+    			└── valued_field
+    		├── affine_space
+    		├── forest
+    		├── graph
+    		├── topological_group
     			└── theorem.gm
-    		├── normed_abelian_group
-    		└── valued_field
+    		└── tree
     	├── _poset
     		├── _theorem.gm
     		├── anti_homomorphism
@@ -25,11 +37,15 @@ gm
     	├── abelian_group
     		├── _norm
     		└── theorem.gm
+    	├── cell_complex
     	├── commutative_ring
-    		├── polynomial
+    		├── _polynomial
     			├── ex.gm
     			├── monic
     			└── theorem.gm
+    		├── action
+    		├── module
+    			└── homomorphism
     		├── simple
     		└── theorem.gm
     	├── commutative_rng
@@ -70,6 +86,8 @@ gm
     		├── _transposition
     		├── action
     			├── faithful_action
+    			├── free_action
+    			├── regular_action
     			├── theorem.gm
     			└── transitive_action
     		├── anti_action
@@ -108,7 +126,11 @@ gm
     			└── theorem.gm
     		└── theorem.gm
     	├── magma
+    		└── homomorphism
     	├── monoid
+    		├── action
+    			└── theorem.gm
+    		└── homomorphism
     	├── ring
     		├── action
     		├── homomorphism
@@ -131,6 +153,7 @@ gm
     		├── theorem.gm
     		└── trivial
     	├── semigroup
+    		└── homomorphism
     	├── simplex
     	├── simplicial_complex
     		└── homomorphism
@@ -139,7 +162,10 @@ gm
     		├── Hausdorff_space
     			└── theorem.gm
     		├── Kolmogorov_space
+    		├── _ex
+    			└── cofinite_space
     		├── _metrizable_space
+    		├── _trivial
     		├── accessible_space
     			└── theorem.gm
     		├── compact_space
@@ -148,14 +174,11 @@ gm
     		├── continuous_function
     		├── discrete_set
     		├── epimorphism
-    		├── ex
-    			└── cofinite_space
     		├── homomorphism
     		├── isomorphism
     		├── open_map
     		├── theorem.gm
-    		├── triangulable_space
-    		└── trivial
+    		└── triangulable_space
     	├── totally_ordered_set
     	└── well_ordered_set
     ├── _bracket
@@ -202,9 +225,11 @@ gm
     	└── quetient
     ├── variable
     ├── ℂ
+    	├── holomorphism
+    	└── meromorphism
     ├── ℕ
     ├── ℚ
     ├── ℝ
     └── ℤ
 
-171 directories, 37 files
+194 directories, 38 files

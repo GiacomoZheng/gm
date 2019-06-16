@@ -16,7 +16,7 @@
 			; M.B[∀ε: ∈ Rp](∀x: ∈ M) ∈ M.τ ; via open set
 		■
 	),
-	[ chaim: metric_space ⊆ Hausdorff_space ]
+	[ hierarchy chain: metric_space ⊆ Hausdorff_space ]
 	[ location ]
 		; about alias
 			distance_function: = metric, ; ?

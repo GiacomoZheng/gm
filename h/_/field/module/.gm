@@ -1,13 +1,12 @@
 : ; module, or vector_space
 (
-	; *: = {}, ; just quit the delimiter nature of "*", which
 	"field module",
 	⊆ ring.module, ; "+" defined there
 	(
 		∀V: ∈ module,
 		V.F: = V.R,
 		V.F ∈ field,
-		V.π ∈ action, ; here it is the field (left) action
+		V.π ∈ action, ; here it is the field action
 		V.π[∀v: ∈ V]: = V.π(v), ; ? for convenience
 		[ attributes ]
 			V.combination(∀S: ⊆ V):
@@ -91,7 +90,8 @@
 
 			neg[∀V: ∈ module]: = ring.module.neg[V],
 
-			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f.D = V, f.C = W}[∀f: ∈ homomorphism], ; + it is also a vector space
+			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f ∈ homomorphism}[∀f: ∈ abelian_group.Hom(V, W)], ; = f|f ∈ homomorphism}[∀f: ∈ set.Hom(V, W)]
+			; + it is also a vector space
 
 			isomorphic(∀V: ∈ module):
 			(

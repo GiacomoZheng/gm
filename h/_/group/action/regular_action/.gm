@@ -1,0 +1,5 @@
+: ; regular_action
+(
+	⊆ free_action,
+	⊆ transitive_action
+),

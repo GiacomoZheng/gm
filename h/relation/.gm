@@ -1,14 +1,13 @@
-: ; relation
+: ; + relation
 (
 	"a function on a set return a subset of it",
 	⊆ function,
 	(
 		∀P: ∈ relation,
-		P.D: ∈ set,
+		P.D: ∈ set, ; + P.C
 		∀x: ∈ P.D, P(x) ⊆ set.sub(P.D)
 	),
 	; locations
 		; about alias
-			antireflexive: = irreflexive,
 		; end
 ),

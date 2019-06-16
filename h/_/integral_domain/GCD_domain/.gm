@@ -7,7 +7,7 @@
 		∀τ: ⊆ R\{R.0}, ; ?
 		∀x: ∈ gcd[R](τ), ∀y: ∈ gcd[R](τ), y ∈ associated[R](x)
 	),
-	[ chaim: integral_domain ⊇ GCD_domain ⊇ UFD ]
+	[ hierarchy chain: integral_domain ⊇ GCD_domain ⊇ UFD ]
 	; 
 		; about inheritance
 			gcd[∀R: ∈ GCD_domain]: = integral_domain.gcd[R],

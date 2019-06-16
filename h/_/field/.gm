@@ -3,7 +3,7 @@
 	⊆ commutative_ring,
 	⊆ skew_field,
 
-	[ chaim: field ⊆ integral_domain ⊆ commutative_ring ]
+	[ hierarchy chain: field ⊆ integral_domain ⊆ commutative_ring ]
 
 	[ attributes ]
 		; about alias

@@ -4,7 +4,7 @@
 
 	∀S: ∈ monoid,
 	!(S = ∅), ; nonempty
-	S.e: ∈ S, ; identity, and as nonempty, it is possible
+	S.e: ∈ S, ; identity, and as nonemptiness, it is possible
 	∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
 ),
-[ chaim: monoid ⊆ semigroup ⊆ maga ]
+[ hierarchy chain: monoid ⊆ semigroup ⊆ maga ]

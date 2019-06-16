@@ -6,15 +6,12 @@
 	(
 		∀μ: ∈ action,
 		μ.D ∈ group,
-		μ.S: ∈ set,
-		μ.C = {f|f.D = μ.S}[∀f: ∈ set.automorphism], ; permutation
+		μ.S: ∈ set, ; ? I want it to be nonempty
+		μ.C = set.Aut(μ.S), ; permutations
 
 		@μ,
 			μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility
-			; * μ(D.e)(∀s: ∈ S) = s ; I think it useless
-			[ proof```
-				i = μ(a) ∘ inv(μ(a)) = μ(D.e D.* a) ∘ inv(μ(a)) = μ(D.e) ∘ μ(a) ∘ inv(μ(a)) = μ(D.e),
-			``` ]
+			
 		■
 	),
 
@@ -23,3 +20,9 @@
 		orbit[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g)(s)}[∀g: ∈ G],
 
 ),
+[ property```
+	μ(D.e)(∀s: ∈ S) = s
+	```
+	proof```
+	i = μ(a) ∘ inv(μ(a)) = μ(D.e D.* a) ∘ inv(μ(a)) = μ(D.e) ∘ μ(a) ∘ inv(μ(a)) = μ(D.e)
+``` ]

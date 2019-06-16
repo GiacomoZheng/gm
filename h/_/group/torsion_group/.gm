@@ -4,4 +4,4 @@
 	∀T: ∈ torsion_group,
 	∀x: ∈ T, order[T](x) ∈ ℕ
 ),
-[ chaim: finite_group ⊆ torsion_group ]
+[ hierarchy chain: finite_group ⊆ torsion_group ]

@@ -10,7 +10,7 @@
 		(a R.+ b) R.× c = a R.× c R.+ b R.× c,
 		a R.× (b R.+ c) = a R.× b R.+ a R.× c
 	),
-	[ chain: rng ⊆ abelian_group ]
+	[ hierarchy chain: rng ⊆ abelian_group ]
 
 	; location
 		; about alias

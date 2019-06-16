@@ -1,0 +1,7 @@
+: ; + free_action
+(
+	⊆ action,
+
+	∀μ: ∈ free_action,
+
+),

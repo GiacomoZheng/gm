@@ -1,0 +1,9 @@
+: ; homomorphism
+(
+	⊆ semigroup.homomorphism, ; mapping
+	(
+		∀f: ∈ homomorphism,
+		f.D ∈ monoid, f.C ∈ monoid,
+		f(D.e) = C.e ; in fact, this line is useless for group
+	)
+),

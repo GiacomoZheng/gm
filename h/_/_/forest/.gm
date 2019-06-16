@@ -1,0 +1,5 @@
+: ; + forest
+(
+	"a graph without cycles"
+	⊆ graph,
+),

@@ -1,4 +1,4 @@
-: ; isomorphism, or named homeomorphism
+: ; isomorphism, or homeomorphism
 (
 	⊆ set.isomorphism,
 	⊆ homomorphism

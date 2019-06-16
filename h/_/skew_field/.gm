@@ -5,4 +5,4 @@
 	; ? !(F = {F.0}), ; I'll write it in ring
 	∀x: ∈ F \ {F.0}, x ∈ ring.unit(F)
 ),
-[ chaim: skew_field ⊇ field ]
+[ hierarchy chain: skew_field ⊇ field ]

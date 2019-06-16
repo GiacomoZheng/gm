@@ -3,5 +3,11 @@
 	⊆ action,
 
 	∀μ: ∈ transitive_action,
+	!(μ.S = ∅), ; ?
 	orbit[μ](∀x: ∈ μ.S) = μ.S
 ),
+[ equivalently```
+	∀μ: ∈ transitive_action,
+	!(μ.S = ∅),
+	∀{x, y}: ⊆ μ.S, ∃g: ∈ μ.D, μ(g)(x) = y
+``` ]

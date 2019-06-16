@@ -4,9 +4,11 @@
 	⊆ rng.module,
 	(
 		∀M: ∈ module,
-		M.R ∈ ring,
 		M.π ∈ action ; here it is the ring (left) action
 	),
 
-	neg[∀V: ∈ module]: = rng.module.neg[V],
+	; location
+		; about inheritace
+			neg[∀V: ∈ module]: = rng.module.neg[V],
+		; end
 ),

@@ -1,0 +1,5 @@
+: ; + tree
+(
+	"a connected forest, remark the tree has no root",
+	⊆ graph,
+),

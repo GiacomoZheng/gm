@@ -1,4 +1,16 @@
-: ; string
+: ; + string
 (
-	
+	⊆ ◉,
+	(
+
+	),
+	; location
+	(
+		∀α: ∈ string, ∀β: ∈ string,
+		+:
+		(
+			⊆ keyword,
+			(α + β) = ... ; +
+		)
+	),
 ),

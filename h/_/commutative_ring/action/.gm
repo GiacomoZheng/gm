@@ -1,0 +1,8 @@
+: ; action
+(
+	⊆ ring.action,
+	(
+		∀π: ∈ action,
+		π.D ∈ commutative_ring
+	)
+),

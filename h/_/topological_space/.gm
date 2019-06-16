@@ -1,12 +1,11 @@
 : ; topological_space, or top'space
 (
 	"topological space via approach to",
-	; ! I cannot deal with some problems like Hausdorff and compact with my version now
-	⊆ set, ; * I give up my "→" version
+	⊆ set, ; * I give up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
 	(
 		∀X: ∈ topological_space,
 		X.τ: ∈ topology(D), ; in the tools
-		[ attibutions ]
+		; attibutions
 			; via open set
 				X.basis: ; do not be confuse with the basis in tools
 				(
@@ -105,7 +104,7 @@
 			; end
 	),
 
-	[ for location ]
+	; location
 		; about tools to construct topological space
 			topology(∀D: ∈ set): ; +
 			(
@@ -142,12 +141,10 @@
 
 			continuous_map: = continuous_function,
 			quotient_map: = epimorphism,
-			homeomorphism: = isomorphism,
-			bicontinuous_function: = isomorphism,
 
 			T0_space: = Kolmogorov_space,
 			T1_space: = accessible_space,
-				Fréchet_space: = accessible_space, ; ? this name might be confusing
+				; ! Fréchet_space: = accessible_space, ; ? this name might be confusing
 			T2_space: = Hausdorff_space,
 		; end
 
@@ -173,11 +170,60 @@
 			⊆: , ; ? I don't know up to now
 		; end
 
-		[ I may write down some equivalent version for it ]
-		dense_sub(∀X: ∈ topological_space): ; ?
+		; about continuity
+			C(∀S: ∈ topological_space, ∀T: ∈ topological_space): = {f|f ∈ continuous_map}[f ∈ set.Hom(S, T)], ; space of continous function
+
+			homeomorphic(∀T: ∈ topological_space):
+			(
+				⊆ topological_space,
+				∀S: ∈ homeomorphic(T),
+				∃f: C(S, T), ∃g: ∈ C(T, S),
+				f ∘ g = g.id,
+				g ∘ f = f.id
+			),
+			≌: (∈ relator, &≌&.r = homeomorphic),
+			[ property```
+				A ≌ B ⇔ ∀(
+					∃f: ∈ homeomorphism, f.D = A, f.C = B
+				)
+			``` ]
+		; end
+		
+		; about connectness
+			connected_component(∀X: ∈ topological_space):
+			(
+				⊆ sub(X),
+				⊆ connected_space,
+				∀C: ∈ connected_component(X),
+				∀x: ∈ X \ C, !(C ∪ {x} ∈ connected_space),
+			),
+		; end
+		
+		dense_sub(∀X: ∈ topological_space): ; ? I may write down some equivalent version for it
 		(
 			⊆ set.sub(X),
 			∀D: ∈ dense_sub(X),
 			closure[X](D) = X
 		),
+
+		covering_space(∀X: ∈ connected_space):
+		(
+			; * I choose the connect C,X and continuous p
+			"nothing to do with cover, I think"
+			⊆ connected_space,
+			(
+				∀C: ∈ covering_space,
+				C.base_space: = X,
+				C.p: ∈ topological_space.C(C, X), ; covering map (also covering projection)
+
+				∀x: ∈ X,
+				∃U: ∈ X.τ, x ∈ U, ; evenly covered neighborhood
+				∀sheet: ∈ connected_component(p.preimage(U)), p.restriction[sheet] ∈ homeomorphism
+			)
+		),
+		[ ```property
+			C.p ∈ surjection
+			```
+			proof``` ; +
+		``` ]
 ),

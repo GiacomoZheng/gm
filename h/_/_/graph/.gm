@@ -1,0 +1,5 @@
+: ; + graph
+(
+	"1-dimension cell complex",
+	⊆ cell_complex,
+),

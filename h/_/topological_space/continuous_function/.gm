@@ -1,4 +1,4 @@
-: ; continuous_function, or named contiunous_map
+: ; continuous_function, or contiunous_map
 (
 	⊆ set.homomorphism, ; mapping
 	(

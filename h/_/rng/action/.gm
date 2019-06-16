@@ -1,19 +1,28 @@
 : ; action, or regular action, or l'action
 (
-	"a homomorphism from a rng into the rng of automorphism on an abelian group",
-	⊆ set.homomorphism, ; mapping ; * it is not a group action
+	"a homomorphism from a rng into the rng of endomorphia on an abelian group",
+	⊆ set.homomorphism, ; mapping ; *** it is not a group action
 	(
 		∀π: ∈ action,
 		π.D ∈ rng,
 		π.S: ∈ abelian_group, ; * important
-		π.C = {f|f.D = π.S}[∀f: ∈ group.endomorphism], ; *
-		; ∀z: ∈ D, ∀{r, t}: ∈ S, π(z)(r S.+ t) = π(z)(r) S.+ π(z)(t),
-		; π(z)(S.0) = S.0,
+		π.C = abelian_group.End(π.S), ; it is an ring in some sence
+		π.C.+:
+		(
+			⊆ operator,
+			&π.C.+&.D = π.C,
+			∀{f, g}: ⊆ π.C,
+			∀s: ∈ π.S, (f π.C.+ g)(s) = f(s) π.S.+ g(s)
+		),
 
 		@π,
-		∀{x, y}: ∈ D,
-		∀s: ∈ S, π(x D.+ y)(s) = π(x)(s) S.+ π(y)(s), ; group homomorphism
-		π(x D.× y) = π(x) ∘ π(y) ; rng homomorphism
+			∀{x, y}: ∈ D,
+			∀s: ∈ S, π(x D.+ y)(s) = π(x)(s) S.+ π(y)(s), ; group homomorphism
+			π(x D.× y) = π(x) ∘ π(y) ; rng homomorphism
 		■
 	),
 ),
+[ ```
+	∀z: ∈ D, ∀{r, t}: ∈ S, π(z)(r S.+ t) = π(z)(r) S.+ π(z)(t),
+	π(z)(S.0) = S.0,
+``` ]

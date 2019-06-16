@@ -1,0 +1,4 @@
+s"left and right translates are continuous":
+(
+	∀g: ∈ G, G.l'translate[g] ∈ continuous_function, G.r'translate[g] ∈ continuous_function,
+),

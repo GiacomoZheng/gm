@@ -1,0 +1,36 @@
+: ; topological_group
+(
+	⊆ topological_space,
+	⊆ group,
+	(
+		∀G: ∈ topological_group,
+		inv[G] ∈ continuous_function,
+		G.multiply(∀(x, y): ∈ G set.× G): = x G.* x,
+		G.multiply.D = G topological_space.× G, G.multiply.C = G,
+		G.multiply ∈ continuous_function,
+
+		G.l'translate[∀g: ∈ G](∀x: ∈ G): = g G.* x,
+		G.r'translate[∀g: ∈ G](∀x: ∈ G): = x G.* g,
+
+		; attributes
+			; about alias
+				G.L[∀g: ∈ G]: = G.l'translate[g],
+				G.R[∀g: ∈ G]: = G.r'translate[g]
+			; end
+	),
+
+	; location
+		; about alias
+		; end
+		
+		; about tools
+			( ; ? I don't whether this kind of definitions are suitable
+				∀G: ∈ topological_group,
+				inv[G]: = group.inv[G],
+				inv[G].D: = G,
+				inv[G].C: = G
+			),
+			
+			continuous_function: = topological_space.continuous_function,
+		; end
+),

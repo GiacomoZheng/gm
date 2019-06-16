@@ -9,5 +9,5 @@
 		(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)) ; integral_domain.gcd
 		■
 	),
-	[ chaim: Bézout_domain ⊇ PID ]
+	[ hierarchy chain: Bézout_domain ⊇ PID ]
 ),

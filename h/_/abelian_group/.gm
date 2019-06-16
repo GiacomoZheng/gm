@@ -25,7 +25,9 @@
 
 		inv[∀R: ∈ abelian_group](∀a: ∈ R): = group.inv[R](a),
 		neg[∀R: ∈ abelian_group](∀a: ∈ R): = group.inv[R](a),
+
+		Hom(∀G: ∈ abelian_group, ∀H: ∈ abelian_group): = {f|f ∈ homomorphism}[∀f: ∈ group.Hom(G, H)], ; = ... ∈ set.Hom ... ; + a monoid
 		; coset
 	; end
 ),
-[ chaim: abelian group ⊆ group ]
+[ hierarchy chain: abelian group ⊆ group ]

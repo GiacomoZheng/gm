@@ -1,28 +1,39 @@
 : ; homomorphism, or mapping
 (
-	⊆ function,
+	⊆ function, ; maybe I want to change it to a relation
 	(
 		∀f: ∈ homomorphism,
 		f.D: ∈ set, ; domain
 		f.C: ∈ set, ; coodomain
-		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in
-		; attributes, which can never change later
-			; ? maybe I'll add an identity
+		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in, I want them be error
+		; attributes, which can never be changed in subclasses
 			f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],
-			f.preimage(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D]
+			f.image.D: = Ps(f.D), f.image.C: = Ps(f.C),
+
+			f.preimage(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D],
+			f.preimage.D: = Ps(f.D), f.preimage.C: = Ps(f.C),
 				f.inverse_image: = f.preimage,
 				f.inv'image: = f.preimage,
-			; + f.restriction
+			
+			f.restriction[∀U: ⊆ f.D](∀x: ∈ U): = f(x),
+			f.restriction[∀U: ⊆ f.D].D: = U, f.restriction[∀U: ⊆ f.D].C: = f.C, ; ?
+
+			f.restriction:
+			(
+				"a map with smaller (or =) domain or codomaim",
+				⊆ homomorphism,
+				∀g: ∈ f.restriction,
+				g.D ⊆ f.D, g.C ⊆ f.C,
+				∀x: ∈ g.D, g(x) = f(x)
+			),
+			f.extension: ; ?
+			(
+				"a map with bigger (or =) domain or codomaim",
+				⊆ homomorphism,
+				∀g: ∈ f.restriction,
+				g.D ⊇ f.D, g.C ⊇ f.C,
+				∀x: ∈ f.D, g(x) = f(x)
+			),
 	),
 	; location
-		sub(∀f: ∈ homomorphism): ; + generate it
-		(
-			; * this quantity can never be an attribute, as I'll continuously refine it
-			⊆ homomorphism,
-			∀s: ∈ sub(f),
-			∀(
-				s.D ⊆ f.D,
-				s.C ⊆ f.C
-			)
-		),
 ),

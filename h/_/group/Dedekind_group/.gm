@@ -3,6 +3,6 @@
 	∀D: ∈ Dedekind_group,
 	sub(D) = normal(D)
 ),
-[ chaim: group ⊇ Dedekind_group ⊇ abelian_group
+[ hierarchy chain: group ⊇ Dedekind_group ⊇ abelian_group
 By the way, the nonabelian Dedekind groups are called Hamiltonian group
 I don't like this definition, so I didn't define it here ]

@@ -1,9 +1,10 @@
 : ; action
 (
-	"a homomorphism from a field into the field of automorphism on an abelian group",
+	"a homomorphism from a field into the ring of endomorphism on an abelian group",
 	⊆ ring.action, ; * it is not a group action
 	(
 		∀π: ∈ action,
 		π.D ∈ field
+		; * indeed, the π.C is not an field
 	),
 ),

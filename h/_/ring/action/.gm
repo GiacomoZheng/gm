@@ -4,8 +4,8 @@
 	(
 		∀π: ∈ action,
 		@π,
-		D ∈ ring,
-		∀s: ∈ S, π(R.1)(s) = s
+			D ∈ ring,
+			∀s: ∈ S, π(D.1)(s) = s
 		■
 	)
 ),

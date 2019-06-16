@@ -1,0 +1,6 @@
+: ; homomorphism
+(
+	⊆ rng.module.homomorphism,
+	∀f: ∈ homomorphism,
+	f.D ∈ module, f.C ∈ module ; ring.module here
+),

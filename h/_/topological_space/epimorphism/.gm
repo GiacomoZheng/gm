@@ -1,4 +1,4 @@
-: ; epimorphism, or named quotient_map
+: ; epimorphism, or quotient_map
 (
 	⊆ set.epimorphism,
 	⊆ homomorphism
