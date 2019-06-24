@@ -1,7 +1,7 @@
 : ; topological_space, or top'space
 (
 	"topological space via approach to",
-	⊆ set, ; * I give up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
+	⊆ set, ; * I have given up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
 	(
 		∀X: ∈ topological_space,
 		X.τ: ∈ topology(D), ; in the tools
@@ -105,11 +105,11 @@
 	),
 
 	; location
-		; about tools to construct topological space
+		; about tools
 			topology(∀D: ∈ set): ; +
 			(
 				"a topological structure on D",
-				⊆ set.cover(D),
+				⊆ cover(D),
 				∀τ: ∈ topology(D),
 				(∅ ∈ τ),
 				(∀{A, B}: ⊆ τ, A ∩ B ∈ τ),
@@ -120,32 +120,42 @@
 			basis(∀D: ∈ set): ; ? space
 			(
 				"generated a topological space from a of basis",
-				⊆ set.cover(D),
+				⊆ cover(D),
 				∀{B1, B2}: ∈ ℬ, ∀x: ∈ B1 ∩ B2,
 				∃B: ∈ ℬ, x ∈ B ⊆ B1 ∩ B2
 			),
 		; end
 
 		; about alias
-			open(∀X: ∈ topological_space): = X.open, ; a class
-			closed(∀X: ∈ topological_space): = X.closed,
+			; about basic
+				open(∀X: ∈ topological_space): = X.open, ; a class
+				closed(∀X: ∈ topological_space): = X.closed,
 
-			open_cover(∀X: ∈ topological_space): = X.open_cover(X),
+				open_cover(∀X: ∈ topological_space): = X.open_cover(X),
 
-			accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
-			limit_point[∀X: ∈ topological_space]: = accumulation_point[X],
-			closure[∀X: ∈ topological_space]: = X.closure,
-			interior[∀X: ∈ topological_space]: = X.interior,
-			exterior[∀X: ∈ topological_space]: = X.exterior,
-			boundary[∀X: ∈ topological_space]: = X.boundary,
+				accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
+				limit_point[∀X: ∈ topological_space]: = accumulation_point[X],
+				closure[∀X: ∈ topological_space]: = X.closure,
+				interior[∀X: ∈ topological_space]: = X.interior,
+				exterior[∀X: ∈ topological_space]: = X.exterior,
+				boundary[∀X: ∈ topological_space]: = X.boundary,
+			; end
 
-			continuous_map: = continuous_function,
-			quotient_map: = epimorphism,
+			; about function and morphism
+				continuous_map: = continuous_function,
+				quotient_map: = epimorphism,
+			; end
 
-			T0_space: = Kolmogorov_space,
-			T1_space: = accessible_space,
-				; ! Fréchet_space: = accessible_space, ; ? this name might be confusing
-			T2_space: = Hausdorff_space,
+			; about separable space
+				T0_space: = Kolmogorov_space,
+				T1_space: = accessible_space,
+					; ! Fréchet_space: = accessible_space, ; ? this name might be confusing
+				T2_space: = Hausdorff_space,
+			; end
+
+			; about connectness
+				connected_component: = connected_space.component
+			; end
 		; end
 
 		; + about inheritance
@@ -177,53 +187,50 @@
 			(
 				⊆ topological_space,
 				∀S: ∈ homeomorphic(T),
-				∃f: C(S, T), ∃g: ∈ C(T, S),
-				f ∘ g = g.id,
-				g ∘ f = f.id
+				∃f: ∈ homeomorphism, f.D = S, f.C = T
 			),
 			≌: (∈ relator, &≌&.r = homeomorphic),
-			[ property```
-				A ≌ B ⇔ ∀(
-					∃f: ∈ homeomorphism, f.D = A, f.C = B
-				)
-			``` ]
 		; end
-		
-		; about connectness
-			connected_component(∀X: ∈ topological_space):
+
+		; about subspace
+			connected_sub(∀X: ∈ topological_space):
 			(
-				⊆ sub(X),
+				⊆ set.sub(X),
 				⊆ connected_space,
-				∀C: ∈ connected_component(X),
-				∀x: ∈ X \ C, !(C ∪ {x} ∈ connected_space),
+			),
+
+			dense_sub(∀X: ∈ topological_space): ; ? I may write down some equivalent version for it
+			(
+				⊆ set.sub(X),
+				∀D: ∈ dense_sub(X),
+				closure[X](D) = X
 			),
 		; end
-		
-		dense_sub(∀X: ∈ topological_space): ; ? I may write down some equivalent version for it
-		(
-			⊆ set.sub(X),
-			∀D: ∈ dense_sub(X),
-			closure[X](D) = X
-		),
 
-		covering_space(∀X: ∈ connected_space):
-		(
-			; * I choose the connect C,X and continuous p
-			"nothing to do with cover, I think"
-			⊆ connected_space,
+		; about covering space
+			evenly_covered(∀p: ∈ continuous_function):
 			(
-				∀C: ∈ covering_space,
-				C.base_space: = X,
-				C.p: ∈ topological_space.C(C, X), ; covering map (also covering projection)
+				"evenly covered over p",
+				⊆ connected_sub(p.C), ; may not be open ; ? connected as I want to use the connected component to simplify the definition
+				(
+					∀U: ∈ evenly_covered(p),
+					∀sheet: ∈ connected_component(p.preimage(U)), ; the preimage may be empty
+					p.restriction[sheet] ∈ homeomorphism
+				)
+			),
 
-				∀x: ∈ X,
-				∃U: ∈ X.τ, x ∈ U, ; evenly covered neighborhood
-				∀sheet: ∈ connected_component(p.preimage(U)), p.restriction[sheet] ∈ homeomorphism
-			)
-		),
-		[ ```property
-			C.p ∈ surjection
-			```
-			proof``` ; +
-		``` ]
+			covering_space(∀X: ∈ connected_space):
+			(
+				; Source from "Allen Hatcher - Algebraic Topology"
+				; the connected space X makes the index a constant
+				⊆ topological_space, ; allow disconnected space
+				(
+					∀C: ∈ covering_space(X),
+					; C.base_space: = X, ; I think it useless
+					C.p: ∈ topological_space.C(C, X), ; covering map (also covering projection), may not be surjective
+					∃𝒞: ∈ open_cover(X), ; indeed cover of connected open sets
+					∀U: ∈ 𝒞, U ∈ evenly_covered(p) ; makes the elements in 𝒞 connected
+				)
+			),
+		; end
 ),

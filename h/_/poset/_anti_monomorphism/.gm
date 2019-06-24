@@ -1,0 +1,5 @@
+: ; ? anti_monomorphism, or strictly_decreasing_function
+(
+	⊆ set.monomorphism, ; ?
+	⊆ anti_homomorphism
+),

@@ -1,0 +1,13 @@
+s"a set is always a maximal of its power set":
+(
+	∀X: ∈ set,
+	PS(X).≤: = &⊆&,
+	Ps(X) ∈ poset, X ∈ G.maximal ; in fact, it is the only one
+),
+
+s"every finite poset cathes its maximal":
+(
+	∀P: ∈ poset,
+	set.#(P) ∈ ℕ ; ? # cardinal number
+	⇒ (∃x: ∈ P, x ∈ G.maximal),
+),

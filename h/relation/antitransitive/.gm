@@ -1,6 +1,6 @@
 : ; antitransitive
 (
-	⊆ relation,
+	⊆ endorelation,
 	(
 		∀P: ∈ antitransitive,
 		∀b: ∈ P.D, ∀c: ∈ P.D,

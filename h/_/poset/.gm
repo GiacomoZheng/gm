@@ -1,0 +1,103 @@
+: ; poset, or partial ordered set
+(
+	⊆ preordered_set, ; ?
+	(
+		[ not all the elements are comparable ]
+		∀S: ∈ poset,
+		S.≤: = &S.~&,
+		&S.≤&.r ∈ order_relation,
+		; attributions
+			; about relator
+				S.≥:
+				(
+					∈ relator,
+					∀{x, y}: ⊆ S, x S.≥ y ⇔ y S.≤ x
+				),
+
+				S.<:
+				(
+					∈ relator,
+					∀{x, y}: ⊆ S, x S.< y ⇔ ∀(x S.≤ y, !(x = y))
+				),
+
+				S.>:
+				(
+					∈ relator,
+					∀{x, y}: ⊆ S, x S.> y ⇔ y S.< x
+				),
+			; end
+
+			; about extreme points
+				S.lowerest:
+				(
+					⊆ set.element(S),
+					∀x: ∈ S.lowerest,
+					∀y: ∈ S, x S.≤ y
+				),
+				S.least: = S.lowerest,
+
+				S.greatest:
+				(
+					⊆ set.element(S),
+					∀x: ∈ S.greatest,
+					∀y: ∈ S, x S.≥ y
+				),
+
+				S.minimal:
+				(
+					⊆ set.element(S),
+					∀x: ∈ S.minimal,
+					!(
+						∃y: ∈ S, y S.> x
+					)
+				),
+
+				S.maximal:
+				(
+					⊆ set.element(S),
+					∀x: ∈ S.maximal,
+					!(
+						∃y: ∈ S, y S.< x
+					)
+				),
+
+				S.lower_bound(∀A: ∈ sub(S)):
+				(
+					⊆ set.element(S),
+					∀x: ∈ S.lower_bound(A),
+					∀a: ∈ A, a S.≤ x
+				),
+				
+				S.upper_bound(∀A: ∈ sub(S)):
+				(
+					⊆ set.element(S),
+					∀x: ∈ S.upper_bound(A),
+					∀a: ∈ A, a S.≥ x
+				),
+
+				S.greatest_lower_bound(∀A: ∈ sub(S)): = S.lower_bound(A).greatest,
+					S.infimum: = S.greatest_lower_bound,
+					S.inf: = S.infimum,
+					S.glb: = S.greatest_lower_bound,
+				S.lowerest_upper_bound(∀A: ∈ sub(S)): = S.upper_bound(A).lowerest,
+					S.least_upper_bound: = S.lowerest_upper_bound,
+					S.supremum: = S.lowerest_upper_bound,
+					S.sup: = S.supremum,
+					S.lub: = S.lowerest_upper_bound,
+			; end
+	),
+
+	; location
+		; about alias
+			maximal(∀P: ∈ poset): = P.maximal,
+			minimal(∀P: ∈ poset): = P.minimal,
+		; end
+
+		
+
+		chain(∀P: ∈ poset):
+		(
+			⊆ set.sub(P),
+			⊆ total_ordered_set
+		),
+),

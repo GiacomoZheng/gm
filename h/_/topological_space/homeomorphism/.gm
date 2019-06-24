@@ -1,0 +1,10 @@
+: ; homeomorphism
+(
+	⊆ continuous_function,
+	∀f: ∈ homeomorphism, ∃g: C(f.C, f.D),
+	f ∘ g = g.id,
+	g ∘ f = f.id
+),
+[ property```
+	homeomorphism ⊆ bijection,
+``` ]

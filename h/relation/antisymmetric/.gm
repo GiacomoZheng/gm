@@ -1,6 +1,6 @@
 : ; antisymmetric
 (
-	⊆ relation,
+	⊆ endorelation,
 	(
 		∀P: ∈ antisymmetric,
 

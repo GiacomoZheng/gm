@@ -5,5 +5,12 @@
 		∀X: ∈ connected_space,
 		∀{A, B}: ∈ open_cover(X), !(A ∩ B = ∅) ; ?
 	),
-
+	; location
+		component(∀X: ∈ topological_space):
+		(
+			⊆ sub(X),
+			⊆ connected_space,
+			∀C: ∈ component(X),
+			∀x: ∈ X \ C, !(C ∪ {x} ∈ connected_space),
+		),
 ),

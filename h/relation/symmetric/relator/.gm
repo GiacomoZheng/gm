@@ -1,7 +1,6 @@
 : ; relator, or symmetric_relater
 (
-	⊆ relation.relator,
-	; + tag: delimiter
+	⊆ relator,
 	(
 		∀𝓅: ∈ relator,
 		&𝓅&.r ∈ symmetric,

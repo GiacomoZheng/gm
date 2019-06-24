@@ -1,0 +1,9 @@
+: ; endorelation, or homogeneous_relation, or endo_relation
+(
+	"similar to endomorphism",
+	⊆ relation,
+	(
+		∀R: ∈ endorelation,
+		R.D = R.C
+	)
+),

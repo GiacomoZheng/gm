@@ -4,14 +4,15 @@
 	"every subset of it has its least",
 	(
 		∀S: ∈ well_ordered_set,
-		∀R: ⊆ S, ; +
-
-		; x ∈ poset.least(R) ; existence
+		∀R: ∈ sub(S), ∃x: ∈ S, x ∈ R.least
+		; attributes
+			S.initial_segment(∀a: ∈ S): = {x|x S.< a}[∀x: ∈ S],
+				S.seg: = S.initial_segment,
 	),
 
 	; location
 		; about inheritance	
-			sub(∀R: ∈ well_ordered_set): = set.sub(R),
+			sub(∀R: ∈ well_ordered_set): = poset.sub(R),
 			; * every subset of a well_ordered_set is still a well_ordered_set
 		; end
 ),

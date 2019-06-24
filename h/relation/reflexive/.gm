@@ -1,6 +1,6 @@
 : ; reflexive
 (
-	⊆ relation,
+	⊆ endorelation,
 	(	
 		∀P: ∈ reflexive,
 		∀a: ∈ P.D, a ∈ P(a)

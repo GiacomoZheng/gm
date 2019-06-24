@@ -1,0 +1,12 @@
+: ; ? isomorphism
+(
+	⊆ set.isomorphism,
+	(
+		∀f: ∈ isomorphism,
+		@f,
+			D ∈ poset, C ∈ poset,
+			∀{a, b}: ⊆ D,
+			a D.< b ⇒ f(a) C.< f(b)
+		■
+	)
+),

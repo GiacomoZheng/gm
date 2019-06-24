@@ -11,7 +11,6 @@
 
 		@μ,
 			μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility
-			
 		■
 	),
 

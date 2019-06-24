@@ -1,6 +1,6 @@
 : ; symmetric
 (
-	⊆ relation,
+	⊆ endorelation,
 	(
 		∀P: ∈ symmetric,
 		∀a: ∈ P.D, ∀b: ∈ P.D,

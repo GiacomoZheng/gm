@@ -1,7 +1,7 @@
 : ; relator, or antitransitive_relator
 (
-	⊆ relation.relator,
-	; + tag: delimiter
+	⊆ relator,
+
 	(
 		∀𝓅: ∈ relator,
 		&𝓅&.r ∈ antitransitive,

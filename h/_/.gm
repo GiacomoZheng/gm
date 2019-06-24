@@ -3,13 +3,14 @@
 		commutative_group: = abelian_group,
 		commutative_domain: = integral_domain,
 
-		unital_rng: = ring,
+		unital_rng: = ring, ; ? I think it useless
 		unital_ring: = ring,
 		division_ring: = skew_field, ; I mat not use this name, as division_ring don't define the division indeed
 		unital_module: = ring.module, ; left module ; * I'll do not define the singel module in this level
 		; linear_space: = field.module, ; ! I think it might be a little bit cofuse
 		vector_space: = field.module,
 
+		linearly_ordered_set: = totally_ordered_set, ; may be confusing
 		least_well_ordered_set: = well_ordered_set,
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
@@ -21,31 +22,30 @@
 	; end
 
 	; about topology
-		homeomorphism: = topological_space.isomorphism,
-		bicontinuous_function: = topological_space.isomorphism,
-		topological_isomorphism: = topological_space.isomorphism,
+		bicontinuous_function: = topological_space.homeomorphism,
+		; topological_isomorphism: = topological_space.isomorphism,
 	; end
 
 	; about vector space
+		; ! linear_space ; it would cause confusing, as the (true) linear space should be a special affine space I think
 		linear_transformation: = field.module.homomorphism,
 		linear_map: = field.module.homomorphism, ; some one may use it
 		linear_operator: = field.module.endomorphism. ; * I do not like this name
 	; end
 
 	; ! about poset
-		; ! increasing_function: = poset.homomorphism,
-		; ! decreasing_function: = poset.anti_homomorphism,
-		; ! strictly_increasing_function: = poset.monomorphism,
-		; ! strictly_decreasing_function: = poset.anti_monomorphism,
+		; increasing_function: = poset.homomorphism,
+		; decreasing_function: = poset.anti_homomorphism,
+		; strictly_increasing_function: = poset.monomorphism,
+		; strictly_decreasing_function: = poset.anti_monomorphism,
 	; end
 
 	; about full name of inheritance
-		; about trivial
+		; ? about trivial
 			trivial_group: = group.trivial,
 			trivial_rng: = rng.trivial,
 			topological_trivial_space: = topological_space.trivial,
 			trivial_vector_space: = field.module.trivial,
-			trivial_linear_space: = field.module.trivial,
 		; end
 
 		; about sub
@@ -56,6 +56,10 @@
 			linear_subspace: = field.module.sub,
 			vector_subspace: = field.module.sub,
 			topological_subspace: = topological_space.sub,
+			; about topological space
+				connected_subspace: = topological_space.connected_sub,
+				dense_subspace: = topological_space.dense_sub,
+			; end
 		; end
 	; end
 ; end

@@ -1,0 +1,15 @@
+s"Well-Ordering Isomorphism Theorem":
+(
+	∀A: ∈ well_ordered_set, ∀B: ∈ well_ordered_set,
+	∀(
+		A ≌ B, ; case 1
+		∀(
+			∃a: ∈ A, A.seg(a) ≌ B,
+			∀a': ∈ A\{a}, !(A.seg(a') ≌ B,)
+		),
+		∀(
+			∃b: ∈ B, A ≌ B.seg(b),
+			∀a': ∈ A\{a}, !(A.seg(a') ≌ B,)
+		)
+	)
+),

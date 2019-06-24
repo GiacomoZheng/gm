@@ -1,7 +1,7 @@
 : ; relator
 (
 	⊆ keyword, ; ?
-	; + tag: delimiter
+
 	(
 		∀𝓅: ∈ relator,
 		&𝓅&.r: ∈ relation,

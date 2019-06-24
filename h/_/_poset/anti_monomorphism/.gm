@@ -1,5 +1,0 @@
-: ; anti_monomorphism, or strictly_decreasing_function
-(
-	⊆ set.monomorphism, ; ? injection
-	⊆ anti_homomorphism
-),

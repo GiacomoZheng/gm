@@ -16,7 +16,7 @@
 
 		(
 			∀A: ∈ set,
-			∀cls: gm.⊆ ◉,
+			∀cls: ◉.⊆ ◉,
 			∃B: ∈ set, ∀x: ∈ B, x ∈ cls
 		), ; 3. specification
 
@@ -37,7 +37,7 @@
 	; * idea 1: differ the symbol for classes and samples
 	; * idea 2: give other symbols for class
 
-	gm.⊆ ◉,
+	◉.⊆ ◉,
 	(
 		∀X: ∈ set, ; +
 
@@ -46,7 +46,7 @@
 			(
 				"cover of S, set of subsets",
 				; * the element in it may be empty, as I define the topology as a cover latter
-				gm.⊆ sub(Ps(S)), ; every element of the cover should be a subset of the S of it
+				◉.⊆ sub(Ps(S)), ; every element of the cover should be a subset of the S of it
 				∀𝒞: ∈ X.cover(S),
 				S ⊆ ∪(𝒞)
 			),
@@ -54,20 +54,17 @@
 
 	; location
 		; about alias
-			cover(∀X: ∈ set): = X.cover(X),
-			partition: = quotient, ; I don't recommend to write something like set.partition, just write partition directly
-
-			; at_most_countable: = 
 			; ! countable: , ; this terminology may cause some ambiguity 
+			; at_most_countable: = 
 			countablely_infinite: = denumerable,
 			enumerable: = denumerable, ; I don't think using this term is a good idea indeed
 		; end
 
 		quotient(∀S: ∈ set):
 		(
-			gm.⊆ cover(S), ; ?
+			◉.⊆ cover(S), ; ?
 
-			∀𝒫: ∈ quotient(S), ; sets in 𝒫 may be empty in cover as I define cover as so
+			∀𝒫: ∈ quotient(S),
 			!({} ∈ 𝒫),; ? others may not require the sets in partition nonempty
 			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
 			!(A = B) ⇒ A ∩ B = ∅
@@ -76,7 +73,7 @@
 		sub(∀S: ∈ set):
 		(
 			"subset",
-			gm.⊆ set,
+			◉.⊆ set,
 			∀A: ∈ sub(S),
 			∀a: ∈ A, a ∈ S
 		),
@@ -90,7 +87,7 @@
 
 		equal(∀S: ∈ set): ; ?
 		(
-			gm.⊆ set,
+			◉.⊆ set,
 		),
 		=: (∈ relator, &=&.r = equal),
 

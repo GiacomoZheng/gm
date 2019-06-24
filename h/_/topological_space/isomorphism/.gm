@@ -1,5 +1,8 @@
-: ; isomorphism, or homeomorphism
+: ; isomorphism
 (
 	⊆ set.isomorphism,
 	⊆ homomorphism
 ),
+[ property```
+	isomorphism ◉.= homemorphism
+``` ]

@@ -1,3 +1,5 @@
+; ? set.=:
+
 ; about alias
 	; about set
 		; about morphism
@@ -9,6 +11,7 @@
 			permutation: = set.automorphism,
 		; end
 
+		cover(∀X: ∈ set): = X.cover(X),
 		partition: = set.quotient,
 	; end
 
@@ -16,7 +19,12 @@
 		∘: = &function.∘&,
 	; end
 
-	; about relation
+	; ! about relation
+		multivalued_function: = relation, ; I'll use it is complex analysis
+
+		endo_relation: = endorelation,
+		homogeneous_relation: = endorelation,
+
 		reflexive_relation: = relation.reflexive,
 		transitive_relation: = relation.transitive,
 		symmetric_relation: = relation.symmetric,
@@ -31,7 +39,7 @@
 		order_relation: = relation.order,
 	; end
 
-	; about relator
+	; ! about relator
 		reflexive_relator: = relation.reflexive.relator,
 		transitive_relator: = relation.transitive.relator,
 		symmetric_relator: = relation.symmetric.relator,
@@ -46,7 +54,7 @@
 		order_relator: = relation.order.relator,
 	; end
 
-	; about operator
+	; ! about operator
 		associative_operator: = operator.associative,
 		commutative_operator: = operator.commutative,
 	; end
