@@ -48,9 +48,12 @@
 		T ∈ topological_space ⇐ T ⊆ X ⊆ &X.→&.D = &T.→&.D
 	``` ]
 
-	s"sub topology is the coarsest topology to make the id function continuous":, ; +
+	s"sub topology is the coarsest topology to make the inclusion map continuous": ; +
+	(
 
-	s"sub topology is the unique topology makes": ; ?
+	),
+
+	s"sub topology is the unique topology makes": ; !
 	(
 		∀X: ∈ topological_space, ∀A: ∈ sub(X),
 		i(∀x: ∈ A): = x, i.C: = X, ; ?

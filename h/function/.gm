@@ -10,8 +10,5 @@
 		; about alias
 		; end
 
-		i(∀x: ∈ ◉): = x,
-		id: = i,
-
 		∘: , ; +
 ),

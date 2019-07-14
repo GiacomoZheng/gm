@@ -18,25 +18,18 @@ gm
     			├── normed_abelian_group
     			└── valued_field
     		├── affine_space
-    		├── forest
+    		├── contractible_space
     		├── graph
     		├── topological_group
     			└── theorem.gm
     		└── tree
-    	├── _poset
-    		├── _theorem.gm
-    		├── anti_homomorphism
-    		├── anti_monomorphism
-    		├── homomorphism
-    		├── increasing_function
-    		├── monomorphism
-    		├── monotonic_function
-    		└── strictly_monotonic_function
     	├── _preordered_set
     	├── _ring_theroy.gm
     	├── abelian_group
     		├── _norm
     		└── theorem.gm
+    	├── abstract_simplicial_complex
+    		└── homomorphism
     	├── cell_complex
     	├── commutative_ring
     		├── _polynomial
@@ -131,6 +124,19 @@ gm
     		├── action
     			└── theorem.gm
     		└── homomorphism
+    	├── poset
+    		├── _anti_homomorphism
+    		├── _anti_monomorphism
+    		├── _homomorphism
+    		├── _monomorphism
+    		├── decreasing_function
+    		├── increasing_function
+    		├── isomorphism
+    		├── monotonic_function
+    		├── strictly_decreasing_function
+    		├── strictly_increasing_function
+    		├── strictly_monotonic_function
+    		└── theorem.gm
     	├── ring
     		├── action
     		├── homomorphism
@@ -155,8 +161,6 @@ gm
     	├── semigroup
     		└── homomorphism
     	├── simplex
-    	├── simplicial_complex
-    		└── homomorphism
     	├── skew_field
     	├── topological_space
     		├── Hausdorff_space
@@ -164,6 +168,8 @@ gm
     		├── Kolmogorov_space
     		├── _ex
     			└── cofinite_space
+    		├── _homomorphism
+    		├── _isomorphism
     		├── _metrizable_space
     		├── _trivial
     		├── accessible_space
@@ -174,15 +180,16 @@ gm
     		├── continuous_function
     		├── discrete_set
     		├── epimorphism
-    		├── homomorphism
-    		├── isomorphism
+    		├── homeomorphism
     		├── open_map
     		├── theorem.gm
     		└── triangulable_space
     	├── totally_ordered_set
     	└── well_ordered_set
+    	    └── theorem.gm
     ├── _bracket
     ├── _quantifier
+    ├── endorelation
     ├── function
     	└── idempotent
     ├── operator
@@ -204,11 +211,12 @@ gm
     		└── relator
     	├── reflexive
     		└── relator
-    	├── relator
     	├── symmetric
     		└── relator
+    	├── theorem.gm
     	└── transitive
     	    └── relator
+    ├── relator
     ├── set
     	├── _algebra
     	├── _continuum
@@ -221,8 +229,7 @@ gm
     	├── homomorphism
     	├── isomorphism
     	├── monomorphism
-    	├── projection
-    	└── quetient
+    	└── projection
     ├── variable
     ├── ℂ
     	├── holomorphism
@@ -232,4 +239,4 @@ gm
     ├── ℝ
     └── ℤ
 
-194 directories, 38 files
+199 directories, 40 files

@@ -1,0 +1,12 @@
+: ; contractible_space
+(
+	⊆ topological_space,
+	(
+		∀X: ∈ contractible_space,
+		∃c: ∈ X, ; in fact we can prove it is true for every c
+		null(∀x: ∈ X): = c,
+			null.D = X, null.C = X,
+		mapping.id[X] ∈ homotopic(null) ; ?
+	),
+),
+[ hierarchy chain: contractible_space ⊆ topological_space ]

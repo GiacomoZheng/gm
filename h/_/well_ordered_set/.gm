@@ -12,7 +12,7 @@
 
 	; location
 		; about inheritance	
-			sub(∀R: ∈ well_ordered_set): = poset.sub(R),
+			sub(∀R: ∈ well_ordered_set): = poset.sub(R), ; ?
 			; * every subset of a well_ordered_set is still a well_ordered_set
 		; end
 ),

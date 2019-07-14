@@ -215,11 +215,11 @@
 				(
 					∀U: ∈ evenly_covered(p),
 					∀sheet: ∈ connected_component(p.preimage(U)), ; the preimage may be empty
-					p.restriction[sheet] ∈ homeomorphism
+					p.restriction[sheet][U] ∈ homeomorphism
 				)
 			),
 
-			covering_space(∀X: ∈ connected_space):
+			covering_space(∀X: ∈ connected_space): ; ? whether should I preserve the X here
 			(
 				; Source from "Allen Hatcher - Algebraic Topology"
 				; the connected space X makes the index a constant
@@ -227,10 +227,37 @@
 				(
 					∀C: ∈ covering_space(X),
 					; C.base_space: = X, ; I think it useless
-					C.p: ∈ topological_space.C(C, X), ; covering map (also covering projection), may not be surjective
+					C.p: ∈ topological_space.C(C, X), ; covering map (also covering projection), may not be surjective ; ! X should be temporary
 					∃𝒞: ∈ open_cover(X), ; indeed cover of connected open sets
 					∀U: ∈ 𝒞, U ∈ evenly_covered(p) ; makes the elements in 𝒞 connected
-				)
+				),
+				; location
+					isomorphism:
+					(
+						⊆ homeomorphism, ; topological_space.isomorphism
+						∀f: ∈ isomorphism,
+						@f,
+							D.p = C.p ∘ f ; D → C → X
+						■
+					),
+					automorphism:
+					(
+						⊆ isomorphism,
+						⊆ set.endomorphism
+					),
+					; about alias
+						deck_transformation: = automorphism,
+						covering_transformation: = automorphism,
+					; end
+					Aut(∀C: ∈ covering_space): = {f|f ∈ automorphism}[∀f: ∈ toplogical_space.C(C, C)],
 			),
+			; covering_space(X).isomorphism
+
+			universal_covering_space(∀X: ∈ connected_space): ; ? X may need to be path-connected and locally path-connected
+			(
+				⊆ covering_space(X),
+				⊆ simple_connected_space
+			),
+			[  universal covering space of X is the covring space of all the covering space of X ]
 		; end
 ),

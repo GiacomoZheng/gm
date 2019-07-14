@@ -93,8 +93,6 @@
 			minimal(∀P: ∈ poset): = P.minimal,
 		; end
 
-		
-
 		chain(∀P: ∈ poset):
 		(
 			⊆ set.sub(P),

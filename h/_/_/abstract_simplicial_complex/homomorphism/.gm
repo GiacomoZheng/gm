@@ -3,10 +3,9 @@
 	⊆ set.homomorphism,
 	(
 		∀f: ∈ homomorphism,
-		f.D ∈ simplicial_complex, f.C ∈ simplicial_complex,
+		f.D ∈ abstract_simplicial_complex, f.C ∈ abstract_simplicial_complex,
 		@f,
-			∀σ: ∈ D.Σ,
-			image(σ) ∈ C.Σ
+			∀σ: ∈ D.Σ, image(σ) ⊆ C.Σ
 		■
 		; attributes
 			f.realization:

@@ -1,5 +1,6 @@
-: ; + tree
+: ; tree
 (
-	"a connected forest, remark the tree has no root",
+	"a contractible, remark the tree here has no root",
 	⊆ graph,
+	⊆ contractible_space
 ),

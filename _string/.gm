@@ -5,12 +5,15 @@
 
 	),
 	; location
-	(
-		∀α: ∈ string, ∀β: ∈ string,
-		+:
 		(
-			⊆ keyword,
-			(α + β) = ... ; +
-		)
-	),
+			∀α: ∈ string, ∀β: ∈ string,
+			+:
+			(
+				; + tag: delimiter
+				∈ keyword,
+				(α + β) = ... ; +
+			)
+		),
+		length(∀x: ∈ string): = ; +
+			len: = length, ; ?
 ),

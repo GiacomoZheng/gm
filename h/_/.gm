@@ -7,18 +7,21 @@
 		unital_ring: = ring,
 		division_ring: = skew_field, ; I mat not use this name, as division_ring don't define the division indeed
 		unital_module: = ring.module, ; left module ; * I'll do not define the singel module in this level
-		; linear_space: = field.module, ; ! I think it might be a little bit cofuse
 		vector_space: = field.module,
+		; ! linear_space: = field.module, ; it would cause confusing, as the (true) linear space should be a special affine space I think
 
 		linearly_ordered_set: = totally_ordered_set, ; may be confusing
 		least_well_ordered_set: = well_ordered_set,
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
-		abstract_simplicial_complex: = simplicial_complex, ; the latter maight be confusing
+		; simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
 	; end
 
-	; about simplicpial_complex
-		simplicial_map: = simplicpial_complex.homomorphism,
+	; about complex
+		CW_complex: = cell_complex, ; refernce: Allen Hatcher - Algebraic Topology
+		; about simplicial_complex
+			simplicial_map: = abstract_simplicial_complex.homomorphism, ; ?
+		; end
 	; end
 
 	; about topology
@@ -27,7 +30,6 @@
 	; end
 
 	; about vector space
-		; ! linear_space ; it would cause confusing, as the (true) linear space should be a special affine space I think
 		linear_transformation: = field.module.homomorphism,
 		linear_map: = field.module.homomorphism, ; some one may use it
 		linear_operator: = field.module.endomorphism. ; * I do not like this name

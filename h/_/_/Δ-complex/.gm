@@ -1,0 +1,45 @@
+: ; Δ-complex
+(
+	"replace the cells in CW-complex with standard simplex (Δ^n), and add a bit more restrictions",
+	⊆ topological_space,
+	(
+		∀X: ∈ Δ-complex,
+		X.
+	),
+	; attributes
+		; about tools
+			; @ℝ,
+			; 	ℝ[∀n: ∈ ℕ]: = ℝ ^ n,
+			; 	D[∀n: ∈ ℕ]: = {m|0 ≤ m ≤ n}[∀m: ∈ ℕ],
+
+			; 	; standard simplex
+			; 	Δ[∀n: ∈ ℕ \ {ℕ.0}]: ; I do not define 0-simplex here
+			; 	= {x| ; ? {|}
+			; 		∀(
+			; 			+[∀m: ∈ D[n]](ℝ[n+1].p[m](x)) = 1, ; the sum of componments is 1
+			; 			∀m: ∈ D[n], ℝ[n+1].p[m](x) ≥ 0 ; every componment are non-negative
+			; 		), ; + p[1]
+			; 	}[∀x: ∈ ℝ[n+1]],
+			; 	; Δ: = simplex,
+
+			; 	boundary(Δ[∀n: ∈ ℕ \ {ℕ.0}]):
+			; 	= {x|
+			; 		+[∀m: ∈ D[n]](ℝ[n+1].p[m](x)) = 1,
+			; 		∃m: ∈ D[n], ℝ[n+1].p[m](x) = 0
+			; 	}[∀x: ∈ ℝ[n+1]],
+			; 	∂: = boundary
+			; ■
+			characteristic_map(∀X: ∈ topological_space):
+			(
+				⊆ topological_space.continuous_function,
+				∀σ: ∈ characteristic_map(X),
+				σ.dimension: ∈ ℕ \ {ℕ.0},
+					σ.dim: = σ.dimension,
+				@topological_space,
+					σ.Δ = Δ[σ.dim].interior, ; +
+					σ.restriction[σ.D][σ.image(σ.D)] ∈ homeomorphism,
+				■
+				σ.C = X
+			)
+		; end
+),

@@ -33,5 +33,3 @@ The file `.tree` is the menu of the whole file
     - examples: [`topological_space`](./h/_/topological_space/.gm), [`poset`](./h/_/poset/.gm) and [`group`](./h/_/group/.gm).
 * space: a set where all the elements can be regrad as points, or atoms (meaning "indivisible").
     - examples: [`topological_space`](./h/_/topological_space/.gm), [`vector_space`](./h/_/vector_space/.gm), [`metric_space`](./h/_/metric_space/.gm).
-* complex: a set where all tehe elements are regraded as "vertices".
-    - examples: [`simplicial_complex`](./h/_/simplicial_complex/.gm), [`graph`](./h/_/graph/.gm), [`tree`](./h/_/tree/.gm)

@@ -5,7 +5,8 @@
 		∀f: ∈ homomorphism,
 		f.D: ∈ set, ; domain
 		f.C: ∈ set, ; coodomain
-		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in, I want them be error
+		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in, I want them be error or empty class
+		
 		; attributes, which can never be changed in subclasses
 			f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],
 			f.image.D: = Ps(f.D), f.image.C: = Ps(f.C),
@@ -14,9 +15,12 @@
 			f.preimage.D: = Ps(f.D), f.preimage.C: = Ps(f.C),
 				f.inverse_image: = f.preimage,
 				f.inv'image: = f.preimage,
+			f.fiber(∀b: ∈ f.C): = f.preimage({b}), ; I would use it in covering space in topology
 			
 			f.restriction[∀U: ⊆ f.D](∀x: ∈ U): = f(x),
 			f.restriction[∀U: ⊆ f.D].D: = U, f.restriction[∀U: ⊆ f.D].C: = f.C, ; ?
+			f.restriction[∀U: ⊆ f.D][∀V: ⊆ f.image(U)](∀x: ∈ U): = f(x),
+			f.restriction[∀U: ⊆ f.D][∀V: ⊆ f.image(U)].D: = U, f.restriction[∀U: ⊆ f.D, ∀V: ∈ f.C].C: = V, ; ?
 
 			f.restriction:
 			(

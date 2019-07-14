@@ -1,4 +1,4 @@
-: ; + simplicial_complex, or abstract_simplicial_complex
+: ; abstract_simplicial_complex
 (
 	⊆ set, ; * I have do some changes on it
 	`
@@ -7,7 +7,7 @@
 		it may casue some unconvenience when I define the mapings on it, so that I change it to K and K.Σ
 	`,
 	(
-		∀K: ∈ simplicial_complex,
+		∀K: ∈ abstract_simplicial_complex,
 		K.Σ: ∈ set.sub(set.Ps(K)),
 		@K,
 			∀v: ∈ V, {v} ∈ Σ,
@@ -15,7 +15,7 @@
 		■
 		; attribute
 			; about alias
-				K.V: = K, ; set of vertex, written for other one preference
+				K.V: set.= K, ; set of vertex, written for other one preference
 			; end
 			K.realization: ; topologically_realization
 			(

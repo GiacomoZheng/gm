@@ -1,0 +1,9 @@
+: ; alphabet
+(
+	"the set of characters",
+	⊆ set,
+	(
+		∀L: ∈ alphabet,
+		∀x: ∈ L, x ∈ string, string.len(x) = 1 ; ?+
+	)
+),
