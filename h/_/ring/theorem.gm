@@ -93,11 +93,11 @@
 		∀a: ∈ R, ; can be zero
 		(
 			∃x: ∈ R \ {R.0}, ∃(a R.× x = R.0, x R.× a = R.0)
-		) ⇒ (!y: ∈ R, a R.× y = y R.× a = R.1)
+		) ⇒ (¬y: ∈ R, a R.× y = y R.× a = R.1)
 	),
 	[ proof, assume there exist``` ; +
 		(
-			∃b: (∈ R, !(b = R.0)), a R.× b = R.0
+			∃b: (∈ R, ¬(b = R.0)), a R.× b = R.0
 		)
 		⇒ b = inv[R](a) R.× a R.× b = R.0
 	``` ]

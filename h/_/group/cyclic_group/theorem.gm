@@ -38,7 +38,7 @@ s"the cardinal of the cyclic (sub)group is the order of generator":
 	|G| = order[G](g)
 ),
 [ proof```
-	!(|G| ∈ ℕ) ⇒ |G| = order[G](g) ; the cardinal of ℤ
+	¬(|G| ∈ ℕ) ⇒ |G| = order[G](g) ; the cardinal of ℤ
 	|G| ∈ ℕ ⇒
 	(
 		S: = {n|0 ≤ n < order[G](g)},

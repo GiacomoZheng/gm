@@ -27,7 +27,7 @@
 		; end
 
 	; + waitting for rewriting
-		Q[∀K: ∈ field](∀x: ∈ ◉): = {p(x)/q(x)}[∀{p(x), q(x)}: ⊆ P[K](x), !(q(x) = 0)], ; !
+		Q[∀K: ∈ field](∀x: ∈ ◉): = {p(x)/q(x)}[∀{p(x), q(x)}: ⊆ P[K](x), ¬(q(x) = 0)], ; !
 		; fraction field of P[K](x)
 
 		algebraic[∀L: ∈ field](∀K: ∈ sub(L)): ; extension from the root

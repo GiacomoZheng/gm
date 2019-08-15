@@ -41,13 +41,13 @@
 	[ proof``` ; !
 		N[∀n: ∈ ℕ]: = {m|0 ≤ m < n}[∀m: ∈ ℕ],
 		@P,
-		deg(f) < deg(g) ⇒ ∀(p(x) = 0, r = f),
-		deg(f) ≥ deg(g) ⇒
-		(
-			∃a[∀m: ∈ N[deg(f)]]: +[∀m: ∈ N[deg(f)]](a[m] × x ^ m) = f(x),
-			∃b[∀n: ∈ N[deg(f)]]: +[∀m: ∈ N[deg(g)]](b[n] × x ^ n) = g(x),
-			f'(x): = f(x) - inv(b[deg(g)]) × a[deg(f)] × g(x), ; repeat it
-		),
+			deg(f) < deg(g) ⇒ ∀(p(x) = 0, r = f),
+			deg(f) ≥ deg(g) ⇒
+			(
+				∃a[∀m: ∈ N[deg(f)]]: +[∀m: ∈ N[deg(f)]](a[m] × x ^ m) = f(x),
+				∃b[∀n: ∈ N[deg(f)]]: +[∀m: ∈ N[deg(g)]](b[n] × x ^ n) = g(x),
+				f'(x): = f(x) - inv(b[deg(g)]) × a[deg(f)] × g(x), ; repeat it
+			),
 		■
 	``` ]
 

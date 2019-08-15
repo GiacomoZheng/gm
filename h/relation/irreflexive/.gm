@@ -2,5 +2,5 @@
 (
 	⊆ endorelation,
 	∀P: ∈ irreflexive,
-	∀a: ∈ P.D, !(a ∈ P(a))
+	∀a: ∈ P.D, ¬(a ∈ P(a))
 ),

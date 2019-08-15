@@ -93,7 +93,7 @@
 			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f ∈ homomorphism}[∀f: ∈ abelian_group.Hom(V, W)], ; = f|f ∈ homomorphism}[∀f: ∈ set.Hom(V, W)]
 			; + it is also a vector space
 
-			isomorphic(∀V: ∈ module):
+			isomorphic(∀V: ∈ module): ; ?
 			(
 				⊆ module,
 				∀H: ∈ isomorphic(G),

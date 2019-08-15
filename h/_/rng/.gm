@@ -81,7 +81,7 @@
 		(
 			⊆ ideal(R),
 			∀M: ∈ maximal_ideal(R),
-			!(M = R),
+			¬(M = R),
 			∀I: ∈ ideal(R),
 			M ⊆ I ⇒ ∃(I = R, I = M)
 		),
@@ -98,7 +98,7 @@
 		(
 			⊆ ideal(R),
 			∀P: ∈ proper_ideal(R),
-			!(P = R)
+			¬(P = R)
 		),
 
 		nil(∀R: ∈ rng): = {a|∃n: ∈ ℕ, a R.^ n = R.0}[∀a: ∈ R],

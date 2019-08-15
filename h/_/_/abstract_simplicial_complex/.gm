@@ -11,7 +11,7 @@
 		K.Σ: ∈ set.sub(set.Ps(K)),
 		@K,
 			∀v: ∈ V, {v} ∈ Σ,
-			∀σ: ∈ Σ, ∀τ: ⊆ σ, !(τ = ∅) ⇒ τ ∈ Σ ; + I think filter may mean something the same
+			∀σ: ∈ Σ, ∀τ: ⊆ σ, ¬(τ = ∅) ⇒ τ ∈ Σ ; + I think filter may mean something the same
 		■
 		; attribute
 			; about alias

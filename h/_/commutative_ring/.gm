@@ -41,7 +41,7 @@
 			"p = ab then a is a unit or b is a unit",
 			⊆ set.element(R),
 			∀ir: ∈ irreducible(R),
-			!(ir ∈ unit(R)), ; ?
+			¬(ir ∈ unit(R)), ; ?
 			@R,
 			∀(d1, d2): ∈ R, d1 × d2 = ir ⇒ ∃(d1 ∈ unit(R), d2 ∈ unit(R))
 			■

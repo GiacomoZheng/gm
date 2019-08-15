@@ -11,7 +11,7 @@
 	f(f.a[f.Length - 1]) = f.a[0],
 
 	∀x: ∈ ◉, 
-	!(
+	¬(
 		∃n: ∈ S, x = f.a[n]
 	)
 	⇒ f(x) = x ; anything else

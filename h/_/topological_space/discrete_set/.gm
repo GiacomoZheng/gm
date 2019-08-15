@@ -2,7 +2,7 @@
 (
 	⊆ topological_space,
 	∀D: ∈ discrete_set,
-	∀{x, y}: ⊆ D, !(x = y) ⇒ ∀(!(x D.→ y), !(y D.→ x))
+	∀{x, y}: ⊆ D, ¬(x = y) ⇒ ∀(¬(x D.→ y), ¬(y D.→ x))
 	[ equivalently
 		```∃(x D.→ y, y D.→ x) ⇒ x = y```
 		or

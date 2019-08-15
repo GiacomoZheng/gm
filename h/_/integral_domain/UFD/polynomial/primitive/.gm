@@ -3,6 +3,6 @@
 	"the polynomial on a UFD whose coefficients are coprime",
 	⊆ polynomial, ; UFD.polynomial
 	∀f: ∈ primitive,
-	!(f ∈ trivial), ; ? I may delete this line maybe
+	¬(f ∈ trivial), ; ? I may delete this line maybe
 	f.R.1 ∈ content(f)
 )

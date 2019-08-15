@@ -3,6 +3,6 @@
 	⊆ endorelation,
 	(
 		∀P: ∈ transitive,
-		∀b: ∈ P.D, ∀c: ∈ P.D, ∀(a ∈ P(b), b ∈ P(c)) ⇒ !(a ∈ P(c))
+		∀b: ∈ P.D, ∀c: ∈ P.D, ∀(a ∈ P(b), b ∈ P(c)) ⇒ ¬(a ∈ P(c))
 	)
 ),

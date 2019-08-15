@@ -87,9 +87,11 @@
 ; end
 
 ; about open and closed
-	s"open and closed are both transitive relation":
+	s"open and closed are both transitive relation": ; !
 	(
+		X.open.D: = set.Ps(X),
 		X.open ∈ transitive_relation,
+		X.closed.D: = set.Ps(X),
 		X.closed ∈ transitive_relation
 	),
 	[ proof```
@@ -255,21 +257,21 @@ s"compact subsets of Hausdorff_space are closed":
 ),
 [ counterexample if the space is not accessible (T1)```
 		∀X: ∈ topological_space,
-		!(X ∈ accessible_space) ⇒
+		¬(X ∈ accessible_space) ⇒
 		∀(
 			∀{x}: ⊆ X,
-			!({x} ∈ X.closed), ; otherwise, X is accessible
+			¬({x} ∈ X.closed), ; otherwise, X is accessible
 			{x} ∈ X.compact,
 		)
 	```
 	counterexample if the space is not Hausdorff (T2)```
 		∀X: ∈ ex.finite_space,
-		!(X ∈ set.finite) ⇒
+		¬(X ∈ set.finite) ⇒
 		∀(
 			X ∈ accessible_space,
-			!(X ∈ Hausdorff_space),
-			∀A: (⊆ X, !(A ∈ set.finite)),
-			!(A ∈ X.closed),
+			¬(X ∈ Hausdorff_space),
+			∀A: (⊆ X, ¬(A ∈ set.finite)),
+			¬(A ∈ X.closed),
 			A ∈ X.compact
 		)
 	```

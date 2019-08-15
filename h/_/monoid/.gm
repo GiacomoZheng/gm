@@ -3,7 +3,7 @@
 	⊆ semigroup, ; associative magma 
 
 	∀S: ∈ monoid,
-	!(S = ∅), ; nonempty
+	¬(S = ∅), ; nonempty
 	S.e: ∈ S, ; identity, and as nonemptiness, it is possible
 	∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
 ),

@@ -3,7 +3,7 @@
 	: = &&,
 ; define " ","\n", "\t" as pure delimiters
 
-=: , ; equal, point to the same location
+; =: , ; equal, point to the same location
 ⇒: , ; if … then
 
 ◉.=: ; ?
@@ -48,17 +48,17 @@
 	+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
  ]
 
-[ ```
+[ ``` ; !
 	⇒:
 	(
-		∈ relator, ; a sample of symbol
+		∈ relator,
 		∀A: ∈ statement,
 		∀B: ∈ statement,
 		B ⇒ (A ⇒ B),
 		(∀C: ∈ statement, A ⇒ (B ⇒ C)) ⇒ ((A ⇒ B) ⇒ (A ⇒ C)),
 	)
 	A ⇒ (B ⇒ A),
-	(!(A) ⇒ !(B)) ⇒ (B ⇒ A),
+	(¬(A) ⇒ ¬(B)) ⇒ (B ⇒ A),
 
-	!(A) ⇒ (A ⇒ B),
+	¬(A) ⇒ (A ⇒ B),
 ``` ]

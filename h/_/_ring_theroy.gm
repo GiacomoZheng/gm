@@ -28,7 +28,7 @@ s"intersection over the infinite ring make two polynomials the same":
 	∀P[R](x): ∈ polynomial_ring,
 	∀{f(x), g(x)}: ⊆ P[R](x),
 	∀(
-		!(|R| ∈ ℕ),
+		¬(|R| ∈ ℕ),
 		(∀a: ∈ R, f(a) = g(a))
 	) ⇒ f = g
 	■
@@ -71,8 +71,8 @@ s"Eisenstein's criterion": ; + add it to cheeting paper,
 	a: = f(x).a,
 	(
 		∃p: ∈ prime_number,
-		!(a[0] / p^2),
-		!(a[n] / p),
+		¬(a[0] / p^2),
+		¬(a[n] / p),
 		a[∀n: ∈ S\{n}]/ p
 	)
 	⇒ f(x) ∈ irreducible(R)■
@@ -81,7 +81,7 @@ s"Eisenstein's criterion": ; + add it to cheeting paper,
 s"the ideal over a prime number in Z is maximal":
 (
 	@gm.Ring,
-	∀p: ∈ prime_number, I[ℤ]({p}) ∈ maximal_ideal_ideal(Z)■
+	∀p: ∈ prime_number, I[ℤ]({p}) ∈ maximal_ideal(Z)■
 ),
 
 s"nature of quotient ring":
@@ -90,19 +90,19 @@ s"nature of quotient ring":
 	@gm.Ring,
 	∀R: ∈ commutative_ring, ∀Id: ∈ ideal(R),
 	Id ∈ prime_ideal(R) ⇔ R/Id ∈ integral_domain,
-	Id ∈ maximal_ideal_ideal(R) ⇔ R/Id ∈ field■
+	Id ∈ maximal_ideal(R) ⇔ R/Id ∈ field■
 ),
 [ ```
 	Id ∈ prime_ideal ⇒
 	(
-		!(R/Id ∈ integral_domain) ⇒
+		¬(R/Id ∈ integral_domain) ⇒
 		(
-			∃{a + Id, b + Id}: ⊆ R/Id, !(a ∈ Id), !(b ∈ Id),
+			∃{a + Id, b + Id}: ⊆ R/Id, ¬(a ∈ Id), ¬(b ∈ Id),
 			(a + Id) (R/Id).× (b + Id) = R.0 + Id
 			⇒ (a R.× b) + Id = R.0 + Id
 			⇒ a R.× b ∈ Id
 		)
-		⇒ !(Id ∈ prime_ring)
+		⇒ ¬(Id ∈ prime_ring)
 	)
 	⇒ R/Id ∈ integral_domain,
 

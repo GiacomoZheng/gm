@@ -1,10 +1,10 @@
 : ; topological_space, or top'space
 (
-	"topological space via approach to",
+	"topological space via topology (open set)",
 	⊆ set, ; * I have given up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
 	(
 		∀X: ∈ topological_space,
-		X.τ: ∈ topology(D), ; in the tools
+		X.τ: ∈ topology(X), ; defined in the tools
 		; attibutions
 			; via open set
 				X.basis: ; do not be confuse with the basis in tools
@@ -25,7 +25,7 @@
 					X.base: = X.basis,
 					X.𝒯: = X.τ, ; I won't use this one later
 					; ! X.topology: ; it may cause me confused
-					X.open: = set.element(X.τ), ; directly trans it to a class
+					X.open: = set.element(X.τ), ; just trans it to a class
 				; end
 			; end
 
@@ -53,29 +53,32 @@
 			; end
 
 			; ? about arrow
-				X.→:
+				X.approach_to(∀x: ∈ X): ; ?
 				(
-					∈ relator,
-					∀{x, y}: ⊆ X, x X.→ y ⇔ X.nbh(x) ⊇ X.nhb(y)
+					⊆ sub(X),
+					(
+						∀y: ∈ X.approach_to(x),
+						X.nbh(x) ⊆ X.nhb(y) ; ◉.⊆
+					)
 				),
+				X.→: (∈ relator, &X.→& = X.approach_to),
 
-				X.←:
-				(
-					∈ relator,
-					∀{a, b}: ⊆ X, a X.← b ⇔ b X.→ a
-				),
+				X.be_approached_to: = relation.dual(X.approach_to)
+				X.→: (∈ relator, &X.→& = X.be_approached_to),
 
-				X.↔: ; * Topological indistinguishability
+				X.be_indistinguishable_with(∀x: ∈ X):
 				(
-					∈ relator,
-					∀{a, b}: ⊆ X, a X.↔ b ⇔ ∀(a X.→ b, b X.→ a)
+					⊆ X.approach_to(x),
+					⊆ X.be_approached_to(x)
 				),
+					X.be_topological_indistinguishable_with: = X.be_indistinguishable_with, ; ?
+				X.↔: (∈ relator, &X.↔& = X.be_indistinguishable_with),
 			; end
 
 			; about closure interor and boundary
-				X.accumulation_point(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N\{x} = ∅)}[ ; + bug ...
+				X.accumulation_point(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), ¬(A ∩ N\{x} = ∅)}[ ; + bug ...
 					∀x: ∈ X],
-				X.closure(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), !(A ∩ N = ∅)}[ ; + bug ...
+				X.closure(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), ¬(A ∩ N = ∅)}[ ; + bug ...
 					∀x: ∈ X], ; the minimal closed set in X containing the A
 					; = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; ?
 				X.interior(∀A: ⊆ X): = {x|A ∈ X.nbh(x)}[∀x: ∈ X], ; the maximal open set in X contained in the A,
@@ -106,11 +109,11 @@
 
 	; location
 		; about tools
-			topology(∀D: ∈ set): ; +
+			topology(∀X: ∈ set): ; +
 			(
-				"a topological structure on D",
-				⊆ cover(D),
-				∀τ: ∈ topology(D),
+				"a topological structure on X",
+				⊆ X.cover,
+				∀τ: ∈ topology(X),
 				(∅ ∈ τ),
 				(∀{A, B}: ⊆ τ, A ∩ B ∈ τ),
 				(∀𝒞: ⊆ τ, ∪(𝒞) ∈ τ) ; ! ∪ ; so that D ∈ τ

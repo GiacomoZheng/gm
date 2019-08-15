@@ -5,12 +5,12 @@
 	(
 		∀H: ∈ Hausdorff_space,
 		∀{x, y}: ∈ H,
-		!(x = y) ⇒
+		¬(x = y) ⇒
 		∀(
 			; open set is the same, compare it with T0, T1
-			∃X: ∈ H.nbh(x), !(y ∈ X),
-			∃Y: ∈ H.nbh(y), !(x ∈ Y),
-			X ∩ Y = ∅ ; indeed the !(y ∈ X) and !(x ∈ Y) are superfluous
+			∃X: ∈ H.nbh(x), ¬(y ∈ X),
+			∃Y: ∈ H.nbh(y), ¬(x ∈ Y),
+			X ∩ Y = ∅ ; indeed the ¬(y ∈ X) and ¬(x ∈ Y) are superfluous
 		)
 	)
 ),

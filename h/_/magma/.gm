@@ -5,14 +5,24 @@
 		∀S: ∈ magma,
 		S.*: ∈ operator,
 		∀x: ∈ S, ∀y: ∈ S, x S.* y ∈ S ; closure
-		[ attributions ]
-			S.idempotent:
+		; attributes
+			S.idempotence: ; ? what about a ring
 			(
 				⊆ set.element(S),
-				∀x: ∈ S.idempotent,
+				∀x: ∈ S.idempotence,
 				x S.* x = x
 			),
 	),
-	; 
-		idempotent(∀S: ∈ magma): = S.idempotent,
+	; location
+		idempotence(∀S: ∈ magma): = S.idempotence,
+		; about inheritance
+			; + variable(∀S: ∈ magma):
+			(
+				⊆ set.sub(S), ; Intuitively, the domain for it to pick some variable
+				(
+					∀X: ∈ variable(S),
+					X ∈ &S.*&.D,
+				)
+			),
+		; end
 ),

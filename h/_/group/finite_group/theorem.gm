@@ -4,7 +4,7 @@
 	s"lemma: the center of p-group": ; +
 	(
 		∀G: ∈ group, ∀p: ∈ ℕ.prime, ∀n: ∈ ℕ,
-		|G| = p^n ⇒ !(center(G) = {G.e})
+		|G| = p^n ⇒ ¬(center(G) = {G.e})
 	),
 
 	s"Sylow's First Theorem": ; ! ex

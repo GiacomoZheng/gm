@@ -23,7 +23,7 @@
 			"prime elements: p | ab then p | a or p |b",
 			⊆ set.element(R),
 			∀p: ∈ prime(R),
-			!(p ∈ unit(R)), ; ?
+			¬(p ∈ unit(R)), ; ?
 			@R,
 				∀{a, b}: ∈ R,
 				p ∈ divisor[R](a × b) ⇒ ∀(p ∈ divisor[R](a), p ∈ divisor[R](b))

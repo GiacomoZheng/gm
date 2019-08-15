@@ -1,13 +1,14 @@
 : ; ? action, or regular_action, or l'action
 (
-	"a homomorphism from a group into a permutation group on a set",
+	; ! move to semigroup, as it is associative
+	"a semigoup homomorphism from a group into a permutation group on a set",
 	; * a little bit different with others' version
 	⊆ set.homomorphism, ; mapping
 	(
 		∀μ: ∈ action,
 		μ.D ∈ group,
 		μ.S: ∈ set, ; ? I want it to be nonempty
-		μ.C = set.Aut(μ.S), ; permutations
+		μ.C ∈ sub(set.End(μ.S)), ; permutations
 
 		@μ,
 			μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility

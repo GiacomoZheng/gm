@@ -17,7 +17,7 @@
 				S.<:
 				(
 					∈ relator,
-					∀{x, y}: ⊆ S, x S.< y ⇔ ∀(x S.≤ y, !(x = y))
+					∀{x, y}: ⊆ S, x S.< y ⇔ ∀(x S.≤ y, ¬(x = y))
 				),
 
 				S.>:
@@ -47,7 +47,7 @@
 				(
 					⊆ set.element(S),
 					∀x: ∈ S.minimal,
-					!(
+					¬(
 						∃y: ∈ S, y S.> x
 					)
 				),
@@ -56,7 +56,7 @@
 				(
 					⊆ set.element(S),
 					∀x: ∈ S.maximal,
-					!(
+					¬(
 						∃y: ∈ S, y S.< x
 					)
 				),

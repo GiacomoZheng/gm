@@ -10,8 +10,10 @@
 		vector_space: = field.module,
 		; ! linear_space: = field.module, ; it would cause confusing, as the (true) linear space should be a special affine space I think
 
-		linearly_ordered_set: = totally_ordered_set, ; may be confusing
-		least_well_ordered_set: = well_ordered_set,
+		totally_ordered_set: = totally-ordered_set,
+		linearly_ordered_set: = totally-ordered_set, ; may be confusing
+		well_ordered_set: = well-ordered_set,
+		least_well_ordered_set: = well-ordered_set,
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
 		; simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing

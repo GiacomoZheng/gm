@@ -1,0 +1,14 @@
+: ; ? space
+(
+	; Source: https://en.wikipedia.org/wiki/Space_(mathematics)
+	; * the first "class of class" I defined
+	∋ set, ; *** means that set is a specific class of it,
+	; I don't know:
+	; ? and every subclass of set is a specific class of it
+	; ? or everything not a subclass of set is not a specific class of it
+	(
+		∀cls: ∈ space,
+		; here we can restrict it has defined some class attributes (as location) like homomorphism.
+		; I'm not sure about the criteria of `space` 
+	)
+),

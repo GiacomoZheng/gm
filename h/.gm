@@ -60,6 +60,27 @@
 	; end
 ; end
 
+; about variable
+	variable(∀D: ∈ set): ; ?
+	(
+		"a generalization of random variable in statistics",
+		"a subset which can work as an element"
+		; for example: [0, 1] + [2, 4] = [2, 4], we can read it as the summation of two variables",
+		; + it will be use in analysis to define something like polynomial or dy/dx
+		⊆ set.sub(D), ; Intuitively, the domain for it to pick some
+		(
+			∀X: ∈ variable,
+			; * a subclass of set, may catch some operators with it
+		)
+	),
+	[ hierarchy chain: variable ⊇ random_variable ]
+
+	constant(∀x: ∈ variable): ; +
+	(
+		; ⊆ variable
+	)
+; end
+
 ; ? the items below are waitting for adjustment
 
 ∅: = {},

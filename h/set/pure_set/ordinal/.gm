@@ -1,0 +1,18 @@
+: ; ordinal, or ordinal_numbers, or von_Neumann_ordinal
+(
+	"Source: The Foundations of Mathematics - Kenneth Kunen",
+	"von Neumann's ordinal numbers",
+	⊆ transitive_set,
+	⊆ well-ordered_set,
+	(
+		∀z: ∈ ordinal,
+		; attributes
+			z.successor: = z ∪ {z},
+				z.s: = z.successor
+			
+	),
+	; location
+		; about alias
+			S(∀z: ∈ transitive_set): = z.successor ; ?
+		; end
+),

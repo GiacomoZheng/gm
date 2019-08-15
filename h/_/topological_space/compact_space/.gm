@@ -12,5 +12,5 @@
 	```
 	proof``` ; +
 	∀C: ∈ compact_space,
-	∀𝒞: ⊆ cover(C),
+	∀𝒞: ⊆ C.cover,
 ``` ]

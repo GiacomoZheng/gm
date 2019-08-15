@@ -2,7 +2,7 @@
 (
 	⊆ ring, ; non zero ring
 	∀F: ∈ skew_field,
-	; ? !(F = {F.0}), ; I'll write it in ring
+	; ? ¬(F = {F.0}), ; I'll write it in ring
 	∀x: ∈ F \ {F.0}, x ∈ ring.unit(F)
 ),
 [ hierarchy chain: skew_field ⊇ field ]

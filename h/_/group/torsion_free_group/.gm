@@ -2,6 +2,6 @@
 (
 	⊆ group,
 	∀T: ∈ torsion_free_group,
-	∀x: ∈ T, !(x = T.e) ⇒ !(order[T](x) ∈ ℕ)
+	∀x: ∈ T, ¬(x = T.e) ⇒ ¬(order[T](x) ∈ ℕ)
 ),
 [ example: ℤ ]

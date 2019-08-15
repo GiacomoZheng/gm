@@ -24,12 +24,15 @@ The file `.tree` is the menu of the whole file
     - Hom
     - End
     - Aut
-* adjust relation into generaler function 
+<!-- * adjust relation into generaler function  -->
+* create a `space` class as the superclass of `group`, `topological_space`.
 
 
 ## some "high order class", "class of classes"
     (these are not really `gm` concepts, but something like "universal property" or "isomorphic theorem", I'll list some intutive properties below)
 * (mathematic) structure: a set with some additional mathematical object, like [`topology`](./h/_/topological_space/.gm), [`relation`](./h/relation/.gm) or [`operator`](./h/operator/.gm).
     - examples: [`topological_space`](./h/_/topological_space/.gm), [`poset`](./h/_/poset/.gm) and [`group`](./h/_/group/.gm).
-* space: a set where all the elements can be regrad as points, or atoms (meaning "indivisible").
-    - examples: [`topological_space`](./h/_/topological_space/.gm), [`vector_space`](./h/_/vector_space/.gm), [`metric_space`](./h/_/metric_space/.gm).
+<!-- * space: a set where all the elements can be regrad as points, or atoms (meaning "indivisible").
+    - examples: [`topological_space`](./h/_/topological_space/.gm), [`vector_space`](./h/_/vector_space/.gm), [`metric_space`](./h/_/metric_space/.gm). -->
+
+# class.= defined by default for each class

@@ -2,7 +2,7 @@ s"cancellation of the multiplication in a domain":
 (
 	∀R: ∈ domain,
 	∀{a, b, c}: ⊆ R, ×: = &R.×&,
-	!(c = R.0) ⇒ (a × c = b × c ⇒ a = b)
+	¬(c = R.0) ⇒ (a × c = b × c ⇒ a = b)
 ),
 [ proof```
 	a × c = b × c
@@ -20,7 +20,7 @@ s"Every finite domain has an identity":
 	; if n = 1, then R = {R.0}
 	; for the case n ≠ 1
 	n: = |R|,
-	∀a: (∈ R, !(a = R.0)),
+	∀a: (∈ R, ¬(a = R.0)),
 	{a R.^ i}[∀i: ∈ ℕ] ⊆ R ⇒ (∃m: ∈ ℕ, ∃r: ∈ ℕ, a R.^ m = a R.)
 	; I have found ∀a, ∃i, now I want to prove ∃i, ∀a
 ``` ]
@@ -28,7 +28,7 @@ s"Every finite domain has an identity":
 s"nonzero finite domain is a skew field":
 (
 	∀R: ∈ domain,
-	∀(|R| ∈ ℕ, !(R = {R.0})) ⇒ R ∈ skew_field
+	∀(|R| ∈ ℕ, ¬(R = {R.0})) ⇒ R ∈ skew_field
 ),
 [ proof ```
 	×: = &R.×&,

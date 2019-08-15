@@ -1,0 +1,32 @@
+: ; + pure_set
+(
+	"the set of sets (of sets ...)",
+	⊆ set,
+	(
+		∀z: ∈ pure_set,
+		∀x: ∈ z, x ∈ pure_set ; ?
+		
+	)
+	; location
+		; about alias
+			ordinal_numbers: = ordinal,
+			von_Neumann_ordinal: = ordinal,
+			cardinal_numbers: = cardinal,
+			von_Neumann_cardinal: = cardinal,
+			; about ZFC
+				Z-: = Z¯, ; 1 345 78 
+				; Z ; 12345 78 
+				ZC-: = ZC¯, ; 1 345 789
+				ZF-: = ZF¯, ; 1 345678 
+
+				; ZC ; 12345 789
+				; ZF ; 12345678 
+				ZFC-: = ZFC¯, ; 1 3456789
+
+				; ZFC, ; 123456789
+			; end
+		; end
+),
+[ propery```
+	∅ ∈ pure_set
+``` ]

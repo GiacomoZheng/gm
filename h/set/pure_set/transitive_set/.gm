@@ -1,0 +1,24 @@
+: ; transitive_set
+(
+	; * different from Kenneth Kunen
+	⊆ pure_set,
+	⊆ poset,
+	(
+		∀z: ∈ transitive_set,
+		z.<: = &∈&, ; prove: z.≤ = &⊆&
+		z.<.D: = z ∪ {z}, ; z.successor, I'll define it in ordinal; ? D
+	),
+	; location
+		
+),
+[ equivalent```
+	∀y: ∈ z, y ⊆ z
+	```
+	or```
+	∀y: ∈ z, ∀x: ∈ y, x ∈ z
+	```
+	or```
+	∀x: ∈ pure_set,
+	∀y: ∈ pure_set,
+	∀(x ∈ y, y ∈ z) ⇒ x ∈ z
+``` ]

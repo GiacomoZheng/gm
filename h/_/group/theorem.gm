@@ -11,7 +11,7 @@
 		∀G: ∈ group, ∀H: ⊆ G,
 		H ∈ sub(G) ⇔
 		∀(
-			!(H = ∅),
+			¬(H = ∅),
 			(∀{x, y}: ⊆ H, x G.* inv[G](y) ∈ H)
 		)
 	),
@@ -71,7 +71,7 @@
 		r'group:
 		(
 			⊆ semigroup,
-			∀G: ∈ r'group, !(G = ∅),
+			∀G: ∈ r'group, ¬(G = ∅),
 			G.e: ∈ G,
 			*: = &G.*&,
 			∀g: ∈ G, g * G.e = g, ; right identity
@@ -80,7 +80,7 @@
 		l'group:
 		(
 			⊆ semigroup,
-			∀G: ∈ l'group, !(G = ∅),
+			∀G: ∈ l'group, ¬(G = ∅),
 			G.e: ∈ G,
 			*: = &G.*&,
 			∀g: ∈ G, G.e * g = g, ; left identity
@@ -166,7 +166,7 @@
 	),
 	[ prove```
 		e: = G.e, K: = ∩[](ℋ), *: = &G.*&, ; !
-		(∀H: ∈ ℋ, e ∈ H) ⇒ !(K = ∅),
+		(∀H: ∈ ℋ, e ∈ H) ⇒ ¬(K = ∅),
 		∀{a, b}: ∈ K,
 		(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
 	``` ]
@@ -185,7 +185,7 @@
 		C[G](A) ∈ sub(G) ⇐
 		(
 			∀a: ∈ A,
-			e * a = a * e ⇒ e ∈ C[G](A) ⇒ !(C[G](A) = ∅),
+			e * a = a * e ⇒ e ∈ C[G](A) ⇒ ¬(C[G](A) = ∅),
 			∀{h, k}: ⊆ C[G](A),
 			∀(inv[G](h) * a * h = a, inv[G](k) *  a * k = a)
 			⇒ inv[G](h) * a * h = inv[G](k) *  a * k
@@ -196,7 +196,7 @@
 		N[G](A) ∈ sub(G) ⇐
 		(
 			∀a: ∈ A,
-			e * a = a * e ⇒ e ∈ N[G](A) ⇒ !(N[G](A) = ∅),
+			e * a = a * e ⇒ e ∈ N[G](A) ⇒ ¬(N[G](A) = ∅),
 			∀{h, k}: ⊆ N[G](A),
 			inv[G](h) * a * h ∈ A
 			⇒ k * inv[G](h) * a * h * inv[G](k) ∈ A
@@ -233,9 +233,9 @@
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
 		@ℤ,
-			∀x: ∈ G, ∀m: (∈ ℤ, !(m = 0)),
+			∀x: ∈ G, ∀m: (∈ ℤ, ¬(m = 0)),
 			n: = order[G](x),
-			!(n ∈ ℕ) ⇒ !(order[G](e (* x)^m) ∈ ℕ),
+			¬(n ∈ ℕ) ⇒ ¬(order[G](e (* x)^m) ∈ ℕ),
 			n ∈ ℕ ⇒ order[G](e (* x)^m) = n / gcd(n, m)
 		■
 	),
@@ -278,11 +278,11 @@
 	[ proof```
 		; G / H is disjoint
 		∀{A, B}: ⊆ G /["l"] H,
-		!(A = B) ⇒ A ∩ B = ∅ ⇐ (
-			!(A = B) ⇒ (
+		¬(A = B) ⇒ A ∩ B = ∅ ⇐ (
+			¬(A = B) ⇒ (
 				∃a: ∈ A\B, A = {a G.* h}[∀h: ∈ H]
 				∃b: ∈ B\A, B = {b G.* h}[∀h: ∈ H]
-				!(A ∩ B = ∅) ⇒ (
+				¬(A ∩ B = ∅) ⇒ (
 					∃c: ∈ A ∩ B,
 				)
 			)
@@ -322,7 +322,7 @@
 	),
 	[ proof, with the help of the lemma``` ; +
 		G: ∈ group, H: ∈ sub(G), *: = &G.*&
-		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ !(x * H = ∅),
+		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ ¬(x * H = ∅),
 		|G| ∈ ℕ ⇒
 		(
 			∃m: (∈ ℕ, ≤ |G|),
@@ -606,6 +606,6 @@ p"Jordon-Holder Theorem":
 ; Theorem: start
 	ex.A[5] ∈ solvable_group,
 	ex.S[∀n: ∈ {3, 4}] ∈ solvable_group,
-	∀n: (∈ ℕ, n ≥ 5), !(ex.S[n] ∈ solvable_group),
+	∀n: (∈ ℕ, n ≥ 5), ¬(ex.S[n] ∈ solvable_group),
 	∀G: ∈ group, |G| ∈ prime_number ⇒ G ∈ solvable_group
 ; Theorem: end

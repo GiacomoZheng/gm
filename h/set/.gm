@@ -1,54 +1,69 @@
 : ; !+ set
 (
 	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
+		`Source: "The Foundations of Mathematics" --- Kenneth Kunen`,
 		(
+			"if two set has totally he same elements, they are the same set, it means, there has the same attributes defined by set class"
 			∀A: ∈ set,
 			∃B: ∈ set, ∀x: ∈ ◉, x ∈ A ⇔ x ∈ B
-		), ; 1. extension, ; ? I don't know why we need it
+		), ; 1. extension,
+		[ for example:
+			``` A set.= B ⇒ A ∪ C set.= B ∪ C ```
+		 ]
 
 		(
 			∀A: ∈ set,
-			!(A = ∅) ⇒
+			¬(A = ∅) ⇒
 			(
-				∃x: ∈ A, x ∈ set ⇒ x ∩ A = ∅ ; ! if not?
+				∃x: ∈ A, x ∈ set ⇒ x ∩ A = ∅ ; if not, correct ; ? pure set or not
 			)
-		), ; 2. regularity
+		), ; 2. regularity or fundation
 
 		(
 			∀A: ∈ set,
-			∀cls: ◉.⊆ ◉,
-			∃B: ∈ set, ∀x: ∈ B, x ∈ cls
-		), ; 3. specification
+			∀cls: ⊆ ◉, ; ? set
+			∃B: ∈ set, ∀x: ∈ B, x ∈ cls, x ∈ A
+		), ; 3. specification, or comprehension
+
+		; (
+		; 	∃∅: ∈ set,
+		; 	∀x: ∈ ◉, ¬(x ∈ ◉)
+		; ), ; 3.2: empty set
+		; can be proved by extension and comprehension axiom, add with the existence of empty class
 
 		(
-			∃∅: ∈ set,
-			∀x: ∈ ◉, !(x ∈ ◉)
-		), ; 3.2: empty set
-		(
-			∀x: ∈ ◉, ∃A: ∈ set,
-			∀y: ∈ A, y = x
-		), ; 3.3: existence singleton set
+			∀A: ∈ set, ∀B: ∈ set,
+
+		), ; 4. paring
+		; (
+		; 	∀x: ∈ ◉, ∃A: ∈ set,
+		; 	∀y: ∈ A, y = x
+		; ), ; 4.2: existence singleton set
 		(
 
 		)
 	; end
 
 	; * I cannot deal with the ⊆ ∈ (for class) and ⊆ ∈ (for set)
-	; * idea 1: differ the symbol for classes and samples
-	; * idea 2: give other symbols for class
+		; * idea 1: differ the symbol for classes and samples
+		; * idea 2: give other symbols for class
 
-	◉.⊆ ◉,
+	⊆ ◉,
 	(
 		∀X: ∈ set, ; +
+		`
+			my opinion about ZFC:
+
+		`
 
 		; attributes
-			X.cover(∀S: ⊆ subset):
+			X.cover(∀S: ∈ sub(X)):
 			(
-				"cover of S, set of subsets",
-				; * the element in it may be empty, as I define the topology as a cover latter
-				◉.⊆ sub(Ps(S)), ; every element of the cover should be a subset of the S of it
+				"cover of S in X",
+				; * the element in it may be empty, as I define the topology as a cover later
+				⊆ sub(Ps(X)), ; every element of the cover should be a subset of the X
 				∀𝒞: ∈ X.cover(S),
-				S ⊆ ∪(𝒞)
+				S ∈ sub(⋃(𝒞)) ; ! ⋃
 			),
 	),
 
@@ -57,40 +72,56 @@
 			; ! countable: , ; this terminology may cause some ambiguity 
 			; at_most_countable: = 
 			countablely_infinite: = denumerable,
-			enumerable: = denumerable, ; I don't think using this term is a good idea indeed
+			enumerable: = denumerable, ; I don't think that using this term is a good idea indeed
 		; end
 
-		quotient(∀S: ∈ set):
+		; ! about tools
+			universe:
+			(
+
+			)
+		; end
+
+		quotient(∀S: ∈ set): ; or partition
 		(
-			◉.⊆ cover(S), ; ?
+			⊆ S.cover,
 
 			∀𝒫: ∈ quotient(S),
-			!({} ∈ 𝒫),; ? others may not require the sets in partition nonempty
+			¬({} ∈ 𝒫),; ? others may not require the sets in partition nonempty
 			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
-			!(A = B) ⇒ A ∩ B = ∅
+			¬(A = B) ⇒ A ∩ B = ∅
 		),
 
 		sub(∀S: ∈ set):
 		(
 			"subset",
-			◉.⊆ set,
+			⊆ set,
 			∀A: ∈ sub(S),
 			∀a: ∈ A, a ∈ S
 		),
 		⊆: (∈ relator, &⊆&.r = sub), ; !
 
+		variable(∀D: ∈ set):
+		(
+			"a generalization of random variable in statistics",
+			"a subset which can work as an element"
+			; for example: [0, 1] + [2, 4] = [2, 4], we can read it as the summation of two variables",
+			; + it will be use in analysis to define something like polynomial or dy/dx
+			⊆ sub(D), ; Intuitively, the domain for it to pick some
+			(
+				∀X: ∈ variable(D),
+				; + I need to find the operators or relators on set
+			)
+		),
+		[ hierarchy chain: variable ⊇ random_variable ]
+
 		element(∀S: ∈ set): ; +
 		(
 		),
 
-		Ps(∀S: ∈ set): = {A}[∀A: ⊆ S], ; + return a set ; I'll create another function return a class
+		Ps(∀S: ∈ set): = {A}[∀A: ⊆ S], ; return a set ; + I'll create another function return a class
 
-		equal(∀S: ∈ set): ; ?
-		(
-			◉.⊆ set,
-		),
-		=: (∈ relator, &=&.r = equal),
-
+		; ! =: ; equal has been defined automatically in class
 		×: ; !
 		(
 			∈ operator,

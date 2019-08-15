@@ -1,0 +1,10 @@
+: ; well-orderable_set
+(
+	"Source: The Foundations of Mathematics - Kenneth Kunen, I.11.18",
+	⊆ set,
+	(
+		∀w: ∈ well-orderable_set,
+		∃𝓅: ∈ order_relator, w.≤: = &𝓅&, w ∈ well-ordered_set
+	)
+),
+[ ZFC ⊆ well-orderable_set ]

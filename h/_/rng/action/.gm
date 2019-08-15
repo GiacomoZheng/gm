@@ -1,12 +1,12 @@
 : ; action, or regular action, or l'action
 (
-	"a homomorphism from a rng into the rng of endomorphia on an abelian group",
+	"a rng homomorphism from a rng into the rng of endomorphia on an abelian group",
 	⊆ set.homomorphism, ; mapping ; *** it is not a group action
 	(
 		∀π: ∈ action,
 		π.D ∈ rng,
 		π.S: ∈ abelian_group, ; * important
-		π.C = abelian_group.End(π.S), ; it is an ring in some sence
+		π.C ∈ sub(abelian_group.End(π.S)), ; + it is an rng
 		π.C.+:
 		(
 			⊆ operator,
@@ -22,6 +22,7 @@
 		■
 	),
 ),
+[ hierarchy chain: rng.action ⊇ ring.action ]
 [ ```
 	∀z: ∈ D, ∀{r, t}: ∈ S, π(z)(r S.+ t) = π(z)(r) S.+ π(z)(t),
 	π(z)(S.0) = S.0,

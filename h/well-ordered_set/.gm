@@ -1,9 +1,9 @@
-: ; + well_ordered_set, or least_well_ordered_set
+: ; + well-ordered_set, or well_ordered_set, or least_well_ordered_set
 (
 	⊆ totally_ordered_set,
 	"every subset of it has its least",
 	(
-		∀S: ∈ well_ordered_set,
+		∀S: ∈ well-ordered_set,
 		∀R: ∈ sub(S), ∃x: ∈ S, x ∈ R.least
 		; attributes
 			S.initial_segment(∀a: ∈ S): = {x|x S.< a}[∀x: ∈ S],
@@ -12,7 +12,7 @@
 
 	; location
 		; about inheritance	
-			sub(∀R: ∈ well_ordered_set): = poset.sub(R), ; ?
-			; * every subset of a well_ordered_set is still a well_ordered_set
+			sub(∀R: ∈ well-ordered_set): = poset.sub(R), ; ?
+			; * every subset of a well-ordered set is still a well-ordered set
 		; end
 ),

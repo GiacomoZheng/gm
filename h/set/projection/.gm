@@ -1,5 +1,5 @@
 : ; projection
 (
 	⊆ endomorphism, ; maybe homo is enough
-	⊆ function.idempotent
+	⊆ function.idempotence
 ),

@@ -1,0 +1,21 @@
+: ; + cardinal, or cardinal_number, or von_Neumann_cardinal
+(
+	"Source: The Foundations of Mathematics - Kenneth Kunen",
+	⊆ ordinal,
+	(
+		∀α: ∈ cardinal,
+		∀ξ: ∈ α, ξ ≺ α ; α.<
+
+	),
+	; location
+		; about tools
+			≼:
+			≽
+			≺:
+			(
+				∈ relator, 
+			)
+			≻
+		; end
+
+),

@@ -4,11 +4,11 @@
 	(
 		∀K: ∈ Kolmogorov_space,
 		∀{x, y}: ⊆ K,
-		!(x = y) ⇒
+		¬(x = y) ⇒
 		∃(
 			; open set is the same, compare it with T1, T2
-			∃X: ∈ X.nbh(x), !(y ∈ X),
-			∃Y: ∈ H.nbh(y), !(x ∈ Y)
+			∃X: ∈ X.nbh(x), ¬(y ∈ X),
+			∃Y: ∈ H.nbh(y), ¬(x ∈ Y)
 		)
 	)
 ),

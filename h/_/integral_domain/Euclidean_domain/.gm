@@ -6,7 +6,7 @@
 		∀R: ∈ Euclidean_domain,
 		R.σ: ∈ norm, R ∈ sub(R.σ.D), ; integral_domain.sub
 		@R.σ,
-			∀a: ∈ R, ∀b: (∈ R, !(b = D.0)),
+			∀a: ∈ R, ∀b: (∈ R, ¬(b = D.0)),
 			∃p: ∈ R, ∃r: (∈ R, σ(r) C.< σ(b)),
 			@D,
 				a = b × p + r

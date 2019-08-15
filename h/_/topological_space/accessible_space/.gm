@@ -4,11 +4,11 @@
 	(
 		∀H: ∈ accessible_space,
 		∀{x, y}: ∈ H,
-		!(x = y) ⇒
+		¬(x = y) ⇒
 		∀(
 			; open set is the same, compare it with T0, T2
-			∃X: ∈ H.nbh(x), !(y ∈ X),
-			∃Y: ∈ H.nbh(y), !(x ∈ Y) ; this line is indeed superfluous
+			∃X: ∈ H.nbh(x), ¬(y ∈ X),
+			∃Y: ∈ H.nbh(y), ¬(x ∈ Y) ; this line is indeed superfluous
 		)
 	)
 ),

@@ -9,11 +9,17 @@
 		∀x: ∈ P.D, P(x) ⊆ set.sub(P.C)
 	),
 	; locations
-		; about alias
+		; + about alias
 			
 		; end
 
-		; about 
-			
+		; about operaions (nothing to do with operator)
+			dual(∀R: ∈ relation)(∀x: ∈ R.D): ; +
+			(
+				∀y: ∈ dual(R)(x),
+				x ∈ R(y)
+			),
+			dual(∀R: ∈ relation).D: = R.C,
+			dual(∀R: ∈ relation).C: = R.D,
 		; end
 ),

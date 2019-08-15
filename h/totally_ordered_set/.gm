@@ -1,0 +1,9 @@
+: ; totally-ordered_set, or totally_ordered_set, or linearly_ordered_set
+(
+	⊆ poset,
+
+	∀S: ∈ totally-ordered_set,
+	∀a: ∈ S, ∀b: ∈ S,
+	[ all the elements are comparable ]
+	¬(a S.≤ b) ⇔ b S.≤ a ; ? closure
+),

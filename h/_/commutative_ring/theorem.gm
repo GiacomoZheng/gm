@@ -9,7 +9,7 @@ s"simple commutative ring is the same as field": ; !
 	@R,
 	∀a: ∈ R,
 	(
-		!(a = 0) ⇒ I[R](a) = R ⇒ 1 ∈ I[R](a)
+		¬(a = 0) ⇒ I[R](a) = R ⇒ 1 ∈ I[R](a)
 		⇒ ∃a': ∈ R, a' × a = 1 ⇒ a ∈ unit(R),
 		R ∈ commutative_ring
 	) ⇒ R ∈ field
@@ -33,7 +33,7 @@ s"every maximal ideal of a commutative ring is prime ideal":
 	@R/P,
 		R/P = {0, 2}, ; ! where 2 × 2 = 0
 		P ∈ maximal_ideal(R), ; but
-		!(P ∈ prime_ideal(R)) ⇐ ∀(2 × 2 ∈ 4×Z, !(2 ∈ 4×Z))
+		¬(P ∈ prime_ideal(R)) ⇐ ∀(2 × 2 ∈ 4×Z, ¬(2 ∈ 4×Z))
 	■
 	```
 	proof```
