@@ -1,9 +1,8 @@
-; + replace the "redefine" into "@"
 ; about generalizing
 	s"criterion of trivial group"
 	(
 		∀G: ∈ trivial,
-		G = {G.e}
+		G set.= {G.e}
 	),
 
 	s"criterions of subgroup":
@@ -28,10 +27,12 @@
 ; about basis
 	s"uniqueness in group": ; +
 	(
-		∀G: ∈ group, *: = &G.*&, e: = G.e
-		∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
-		∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
-			∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
+		∀G: ∈ group,
+		@G,
+			∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
+			∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
+				∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
+		■
 	),
 	[ proof```
 		"indentity:", ∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ (i = i * e = e * i = e) ⇒ i = e,
@@ -43,20 +44,26 @@
 	(
 		∀G: ∈ group, ∀a: ∈ G,
 		inv[G](inv[G](a)) = a ; the inverse of inverse is itself
-		∀b: ∈ G, *: = &G.*&,
+		∀b: ∈ G,
+		@G,
 		inv[G](a * b) = inv[G](b) * inv[G](a) ; be careful about the order
+		■
 	),
 	[ proof```
-		∀G: ∈ group, ∀a: ∈ G, ∀b: ∈ G, *: = &G.*&,
+		∀G: ∈ group, ∀a: ∈ G, ∀b: ∈ G,
 		"inverse of inverse:",
+		@G,
 		a = a * e = (a * inv[G](a)) * inv[G](inv[G](a)) = e * inv[G](inv[G](a)) = inv[G](inv[G](a)), ; because of two-side inverse and two-side identity
+		■
 	``` ]
 
 	s"cancellation in a group":
 	(
-		∀G: ∈ group, ∀a: ∈ G, *: = &G.*&,
+		∀G: ∈ group, ∀a: ∈ G,
 		∀{u, v}: ⊆ G,
+		@G,
 		a * u = a * v ⇔ u = v ⇔ u * a = v * a ; because the inverse of every element exist
+		■
 	),
 
 	s"direct product of two groups is also a group":
@@ -73,23 +80,26 @@
 			⊆ semigroup,
 			∀G: ∈ r'group, ¬(G = ∅),
 			G.e: ∈ G,
-			*: = &G.*&,
+			@G,
 			∀g: ∈ G, g * G.e = g, ; right identity
 				∃g': ∈ G, g * g' = G.e ; right inverse
+			■
 		),
 		l'group:
 		(
 			⊆ semigroup,
 			∀G: ∈ l'group, ¬(G = ∅),
 			G.e: ∈ G,
-			*: = &G.*&,
+			@G,
 			∀g: ∈ G, G.e * g = g, ; left identity
 				∃g': ∈ G, g' * g = G.e ; left inverse
+			■
 		),
-		l'group ◉.= group ◉.= r'group
+		l'group ◉.= group ◉.= r'group ; ?
 	),
 	[ proof with the example of r'group```
-		∀R: ∈ r'group, *: = &R.*&, e: = G.e,
+		∀R: ∈ r'group,
+		@G,
 		∀g: ∈ G, ∃g': ∈ G, g * g' = e,
 		∃g'': ∈ G, g' * g'' = e,
 		g' * g = e ⇐
@@ -100,6 +110,7 @@
 		(
 			e * g = (g * g') * g = g * (g' * g) = g * e ; due to the proof above, the left inverse is also the right one
 		)
+		■
 	``` ]
 ; end
 
@@ -161,17 +172,19 @@
 	s"any intersection of subgroups are still subgroup":
 	(
 		∀G: ∈ group,
-		∀ℋ: ∈ {∀H: ∈ sub(G)},
-		∩[](ℋ) ∈ sub(G) ; !
+		∀ℋ: ⊆ {∀H: ∈ sub(G)},
+		⋂(ℋ) ∈ sub(G) ; ! ⋂
 	),
 	[ prove```
-		e: = G.e, K: = ∩[](ℋ), *: = &G.*&, ; !
-		(∀H: ∈ ℋ, e ∈ H) ⇒ ¬(K = ∅),
-		∀{a, b}: ∈ K,
-		(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
+		K: = ⋂(ℋ), ; ! ⋂
+		@G,
+			(∀H: ∈ ℋ, e ∈ H) ⇒ ¬(K = ∅),
+			∀{a, b}: ∈ K,
+			(∀H: ∈ ℋ, a * inv[G](b) ∈ H) ⇒ a * inv[G](b) ∈ K
+		■
 	``` ]
 
-	s"centralizers, centers and normalizers are all subgroup":
+	s"centralizers, centers and normalizers are all subgroup": ; + newer format has been used
 	(
 		∀G: ∈ group,
 		∀A: ⊆ G,
@@ -181,7 +194,7 @@
 		C[G](A) ∈ sub(N[G](A))
 	),
 	[ prove ```
-		*: = &G.*&, e: = G.e,
+		@G,
 		C[G](A) ∈ sub(G) ⇐
 		(
 			∀a: ∈ A,
@@ -210,15 +223,17 @@
 			C[G](A).e = e = N[G](A).e,
 			&C[G](A).*& = &N[G](A).*&
 		)
+		■
 	``` ]
 
-	s"inner subgroups are commutative":
+	s"inner product subgroups are commutative":
 	(
-		∀G: ∈ group, *: = &G.*&,
+		∀G: ∈ group,
 		∀H: ∈ sub(G), ∀K: ∈ sub(G),
+		@G,
 		{h * k}[∀h: ∈ H, ∀k: ∈ K] = {k * h}[∀h: ∈ H, ∀k: ∈ K]
 		⇔ {h * k}[∀h: ∈ H, ∀k: ∈ K] ∈ sub(G)
-		⇔ {k * h}[∀h: ∈ H, ∀k: ∈ K] ∈ sub(G),
+		■
 	),
 	[ proof```
 		s"1 ⇒ 2":
@@ -228,7 +243,7 @@
 	``` ]
 ; end
 
-; + about order
+; ! about order
 	s"the orders in a group": ; !+ Proposition 3.13
 	(
 		∀G: ∈ group, *: = &G.*&, e: = G.e,
@@ -292,11 +307,14 @@
 	s"the cardinal number of cosets of the same subgroup are the same":
 	(
 		; lemma for Lagrange theorem
-		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		G: ∈ group, H: ∈ sub(G),
+		@G,
 		∀x: ∈ G, |H| = |{x * h}[∀h: ∈ H]|
+		■
 	),
 	[ proof```
-		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		G: ∈ group, H: ∈ sub(G),
+		@G,
 		∀x: ∈ G,
 		∃φ[x](∀h: ∈ H): = x * h,
 		(
@@ -313,6 +331,7 @@
 		)
 		⇒ φ[x] ∈ bijection ⇒ |φ[x].D| = |φ[x].C|
 		⇒ |H| = |x * H|
+		■
 	``` ]
 
 	s"Lagrange's Theorem":
@@ -321,7 +340,8 @@
 		|G| ∈ ℕ ⇒ |G|/|H| ∈ ℕ
 	),
 	[ proof, with the help of the lemma``` ; +
-		G: ∈ group, H: ∈ sub(G), *: = &G.*&
+		G: ∈ group, H: ∈ sub(G),
+		@G,
 		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ ¬(x * H = ∅),
 		|G| ∈ ℕ ⇒
 		(
@@ -331,6 +351,7 @@
 			= +[∀n: (∈ ℕ, ≤ m)](|x[n] * H|)
 			= |H| × m
 		)
+		■
 	``` ]
 
 	s`The converse of "Lagrange" is true when G is cyclic`:
@@ -340,14 +361,14 @@
 	),
 ; end
 
-; + about normal and quotient group
+; + about normal subgroup and quotient group
 	s"criterions of normal": ; +
 	(
 
 	),
 
 	s"the quotient space of normal subgroup is still a group":
-	(N
+	(
 		∀G: ∈ group, ∀No: ∈ normal(G),
 		H: = G / N,
 		H ∈ group,
@@ -360,9 +381,11 @@
 		abelian_group ⊆ Dedekind_group
 	),
 	[ prove ```
-		∀G: ∈ abelian_group, *: = &G.*&,
+		∀G: ∈ abelian_group,
 		∀H: ∈ sub(G),
+		@G,
 		(∀a: ∈ G, ∀h: ∈ H, a * h * inv[G](a) = h ∈ H) ⇒ H ∈ normal(G)
+		■
 	``` ]
 
 	s"center of a group is a normal subgroup, and it is the intersection of all the normal subgroups": ; +
@@ -370,19 +393,21 @@
 		∀G: ∈ group, Z(G) ∈ normal(G)
 	),
 	[ proof```
-		*: = &G.*&,
+		@G,
 		Z(G) = {z|z * g = g * z}[∀g: ∈ G],
 		∀g: ∈ G, ∀z: ∈ Z(G), g * z * inv[G](g) = z * g * inv[G](g) = z ∈ Z(G)
+		■
 	``` ]
 
 	s"the elements from two normal subgroups are commuative is they are independent":
 	(
 		"Lemma for the next theorem",
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
+		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
+		@G,
 		H ∩ K = {e} ⇒ (∀h: ∈ H, ∀k: ∈ K, h * k = k * h)
+		■
 	),
 	[ proof```
-		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G), *: = &G.*&, e: = G.e,
 		H ∩ K = {e} ⇒
 		(
 			∀h: ∈ H, ∀k: ∈ K,
@@ -398,11 +423,12 @@
 	s"the direct product of two independent normal subgroup is monomorphic to original group":
 	(
 		∀G: ∈ group, ∀H: ∈ normal(G), ∀K: ∈ normal(G),
-		*: = &G.*&, e: = G.e,
+		@G,
 		H ∩ K = {e} ⇒
 		(
 			∃f: ∈ momomorphism, f.D = H × K, f.C = G
 		)
+		■
 	),
 	[ proof, with the help of the above one```
 		∃φ: ∈ mapping, φ.D = H × K, φ.C = G, f(∀h: ∈ H, ∀k: ∈ K) = h * k,

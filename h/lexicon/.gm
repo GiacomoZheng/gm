@@ -1,0 +1,17 @@
+: ; + lexicon, or language
+(
+	"Source: The Foundations of Mathematics - Kenneth Kunen, II.4",
+	"the set of indivisible part -- words -- of a language",
+	⊆ set,
+	(
+		∀L: ∈ lexicon,
+	),
+	; location
+		; about
+			^:
+			(
+				; to construct the W^n
+				""
+			)
+		; end
+)

@@ -7,6 +7,28 @@
 		; attributes
 			; ! I won't define G.^ as it will be confused with it in ring
 			; ! I won't define G./ as it will be confused with it in commutative_ring
+
+			; ? about coset
+				; I may move it to somewhere like magma
+				G.l'coset(∀H: ∈ sub(G)):
+				(
+					⊆ set,
+					∀C: ∈ G.l'coset(H),
+					∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; Order
+				),
+				G.left_coset: = G.l'coset,
+	
+				G.r'coset(∀H: ∈ sub(G)):
+				(
+					⊆ set,
+					∀C: ∈ G.r'coset(H),
+					∃g: ∈ G, C = {h G.* g}[∀h: ∈ H] ; Order
+				),
+				G.right_coset: = G.r'coset,
+
+				G.coset(∀N: ∈ normal(G)): = G.l'coset(N),
+			; end
+
 	),
 	[ hierarchy chain: group ⊆ monoid ⊆ semigroup ⊆ magma ]
 
@@ -19,6 +41,16 @@
 				left_action: = l'action,
 			r'action: = anti_action,
 				right_action: = r'action,
+			
+			
+
+			; about coset
+				l'coset[∀G: ∈ group]: = G.l'coset,
+					left_coset: = G.l'coset,
+				r'coset[∀G: ∈ group]: = G.r'coset,
+					right_coset: = G.r'coset,
+				coset[∀G: ∈ group]: = G.coset,
+			; end
 		; end
 
 		; + about inheritance
@@ -33,10 +65,10 @@
 				&H.*& = &G.*&
 			),
 
-			×:
+			×: ; ?
 			(
 				"product space: the result of it is indeed a group",
-				∈ operator,
+				∈ operator, ; !
 				∀A: ∈ group, ∀B: ∈ group,
 				(A × B) set.= A set.× B,
 				(A × B).*:
@@ -46,96 +78,97 @@
 				)
 			),
 
-			; ! min_sub[∀G: ∈ group](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
+			Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f ∈ homomorphism}[∀f: ∈ set.Hom(G, H)], ; +
 
-			Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f ∈ homomorphism}[∀f: ∈ set.Hom(G, H)],
-			; +
+			quotient(∀G: ∈ group): ; +
+			(
+				⊆ set.quotient(G), ; + may be I should use varibale to define it
+				⊆ group,
+				∀Q: ∈ quotient(G),
+				Q.e ∈ normal(G),
+				∀x: ∈ Q, ∃g: ∈ G, 
+				; +
+			)
 		; end
-		inv[∀G: ∈ group](∀g: ∈ G):
-		(
-			[ valid because the unqeness of the inverse in the group  ]
-			@G,
-			∃g': ∈ G, g' * g = g * g' = e,
-			= g'
-			■
-		),
 
-		order[∀G: ∈ group](∀x: ∈ G):
-		(
-			"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
-			D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e]
-			¬(D = ∅) ⇒ order[G](x) = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur; ! I may change the inf function later
-			; + otherwise return the cardinal of Z
-		),
+		; about basic
+			inv[∀G: ∈ group](∀g: ∈ G):
+			(
+				[ valid because the unqeness of the inverse in the group  ]
+				@G,
+				∃g': ∈ G, g' * g = g * g' = e,
+				= g'
+				■
+			),
 
-		generator(∀G: ∈ cyclic_group): ; !
-		(
-			⊆ set.element(G),
-			∀g: ∈ generator(G),
-			G = {G.e (G.* g)^n}[∀n: ∈ ℤ]
-		),
+			order[∀G: ∈ group](∀x: ∈ G):
+			(
+				"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
+				D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e] ; !
+				¬(D = ∅) ⇒ order[G](x) = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur; ! I may change the inf function later
+				; + otherwise return the cardinal of Z
+			),
 
-		C[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G], ; centralizer
+			; span[∀G: ∈ group](∀A: ⊆ G): = {},
 
-		Z(∀G: ∈ group): = C[G](G), ; center
+			isomorphic(∀G: ∈ group):
+			(
+				⊆ group,
+				∀H: ∈ isomorphic(G),
+				∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
+			),
+			≌: (∈ relator, &≌&.r = isomorphic),
+			[ ≌ is an equivalent relator ]
+		; end
 
-		N[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G], ; normalizer
+		; about normal subgroup and quotient group
+			/["l"]: ; ?
+			(
+				∈ operator, ; !
+				∀G: ∈ group, ∀H: ∈ sub(G),
+				G /["l"] H = {∀x: ∈ l'coset[G](H)}
+			),
 
-		conj[∀G: ∈ group](∀a: ∈ G): = {g G.* a G.* inv[G](g)}[∀g: ∈ G], ; if b ∈ conj(a), we can say that a and b is conjugate
+			/["r"]: ; ?
+			(
+				∈ operator, ; !
+				∀G: ∈ group, ∀H: ∈ sub(G),
+				G /["r"] H = {∀x: ∈ r'coset[G](H)}
+			),
 
-		commutator_sub(∀G: ∈ group): = min_sub[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G]), ; ? Commutator subgroup, or derived subgroup
+			conjugate[∀G: ∈ group](∀a: ∈ G): ; if b ∈ conjugate(a), we can say that a and b is conjugate	
+			(
+				⊆ set.element(G),
+				∀b: ∈ conjugate[G](a),
+				∃g: ∈ G, g G.* a G.* inv[G](g)
+			),
+
+			normal(∀G: ∈ group):
+			(
+				⊆ sub(G),
+				∀N: ∈ normal(G),
+				∀g: ∈ G, g ∈ G.normalizer(N) ; g * N * inv[G](g) ∈ N
+			),
+			normal_sub: = normal,
+
+			/: ; !
+			(
+				∈ operator, ; !
+				∀G: ∈ group, ∀H: ∈ normal(G),
+				G / H = G /["l"] H ; in fact, here /[l] and /[r] has the same result
+			),
+		; end
+		
+		; about centralizer and normalizer
+			centralizer[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G],
+				C[∀G: ∈ group]: = centralizer[G]
+			center(∀G: ∈ group): = centralizer[G](G),
+				Z: = center, ; ?
+			normalizer[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G],
+				N[∀G: ∈ group]: = normalizer[G],
+		; end
+		
+		commutator_sub(∀G: ∈ group): = min_sub[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G]), ; Commutator subgroup, or derived subgroup ; ?
+			derived_sub: = commutator_sub,
 		[ commutator_sub(G) ∈ normal(G) ]
-
-		l'coset[∀G: ∈ group](∀H: ∈ sub(G)): ; I won't write it as an attribute as it should not be inherited
-		(
-			⊆ set,
-
-			∀C: ∈ l'coset[G](H),
-			∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; Order
-		),
-		/["l"]:
-		(
-			∈ operator,
-			∀G: ∈ group, ∀H: ∈ sub(G),
-			G /["l"] H = {∀x: ∈ l'coset[G](H)}
-		),
-
-		r'coset[∀G: ∈ group](∀H: ∈ sub(G)):
-		(
-			⊆ set,
-
-			∀C: ∈ r'coset[G](H),
-			∃g: ∈ G, C = {h G.* g}[∀h: ∈ H] ; Order
-		),
-		/["r"]:
-		(
-			∈ operator,
-			∀G: ∈ group, ∀H: ∈ sub(G),
-			G /["r"] H = {∀x: ∈ r'coset[G](H)}
-		),
-
-		normal(∀G: ∈ group):
-		(
-			⊆ sub(G),
-			∀N: ∈ normal(G),
-			∀h: ∈ N, ∀g: ∈ G,
-			@G,
-				g*h*inv[G](g) ∈ N
-			■
-		),
-		/:
-		(
-			∈ operator,
-			∀G: ∈ group, ∀H: ∈ normal(G),
-			G / H = G /["l"] H ; in fact, here /[l] and /[r] has the same result
-		),
-
-		isomorphic(∀G: ∈ group):
-		(
-			⊆ group,
-			∀H: ∈ isomorphic(G),
-			∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
-		),
-		≌: (∈ relator, &≌&.r = isomorphic),
-		[ ≌ is an equivalent relator ]
 ),

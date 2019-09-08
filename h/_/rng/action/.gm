@@ -9,7 +9,7 @@
 		π.C ∈ sub(abelian_group.End(π.S)), ; + it is an rng
 		π.C.+:
 		(
-			⊆ operator,
+			⊆ operator, ; !
 			&π.C.+&.D = π.C,
 			∀{f, g}: ⊆ π.C,
 			∀s: ∈ π.S, (f π.C.+ g)(s) = f(s) π.S.+ g(s)

@@ -21,7 +21,7 @@ s"finite space are always compact":
 s"closed subsets of a compact space are compact, too":
 (
 	∀X: ∈ compact_space,
-	X.closed ⊆ X.compact
+	X.closed ⊆ compact_sub(X)
 ),
 [ proof```
 

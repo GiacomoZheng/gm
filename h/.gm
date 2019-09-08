@@ -12,7 +12,7 @@
 		; end
 
 		cover(∀X: ∈ set): = X.cover(X),
-		partition: = set.quotient,
+		partition(∀X: ∈ set): = X.partition,
 	; end
 
 	; about function
@@ -60,7 +60,7 @@
 	; end
 ; end
 
-; about variable
+; ! about variable
 	variable(∀D: ∈ set): ; ?
 	(
 		"a generalization of random variable in statistics",

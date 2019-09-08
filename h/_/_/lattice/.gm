@@ -1,0 +1,15 @@
+: ; + lattice
+(
+	; something different with reference: https://en.wikipedia.org/wiki/Lattice_(order)
+	⊆ poset,
+	(
+		∀L: ∈ lattice,
+		∀{a, b}: ⊆ L, ∃!x: ∈ L,
+
+		; attributs
+			; about alias
+				L.join(∀a: ∈ L)(∀b: ∈ L): ; + L.supremum({a, b}), ; ? join
+				L.meet(∀a: ∈ L)(∀b: ∈ L): ; + L.infimum({a, b}), ; ? meet
+			; end
+	)
+)

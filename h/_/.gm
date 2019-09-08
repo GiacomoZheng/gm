@@ -29,6 +29,8 @@
 	; about topology
 		bicontinuous_function: = topological_space.homeomorphism,
 		; topological_isomorphism: = topological_space.isomorphism,
+		identification_space: = toplogical_space.quotient,
+
 	; end
 
 	; about vector space
@@ -63,6 +65,11 @@
 			; about topological space
 				connected_subspace: = topological_space.connected_sub,
 				dense_subspace: = topological_space.dense_sub,
+			; end
+			; about group
+				normal_subgroup: = group.normal_sub,
+				commutator_subgroup: = group.commutator_sub,
+				derived_subgroup: = group.commutator_sub,
 			; end
 		; end
 	; end

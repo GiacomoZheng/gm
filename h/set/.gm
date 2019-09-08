@@ -65,6 +65,14 @@
 				∀𝒞: ∈ X.cover(S),
 				S ∈ sub(⋃(𝒞)) ; ! ⋃
 			),
+			X.partition:
+			(
+				⊆ X.cover(X),
+				∀𝒫: ∈ X.partition(X),
+				; * ¬({} ∈ 𝒫), ; for a partition, there can be an empty set inside, but it is not allowed in quotient
+				∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
+				¬(A = B) ⇒ A ∩ B = ∅
+			),
 	),
 
 	; location
@@ -82,14 +90,11 @@
 			)
 		; end
 
-		quotient(∀S: ∈ set): ; or partition
+		quotient(∀S: ∈ set):
 		(
-			⊆ S.cover,
-
-			∀𝒫: ∈ quotient(S),
-			¬({} ∈ 𝒫),; ? others may not require the sets in partition nonempty
-			∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
-			¬(A = B) ⇒ A ∩ B = ∅
+			⊆ S.partition,
+			∀𝒫: ∈ quotient(X),
+			¬({} ∈ 𝒫) ; for the definition of quotient space / group
 		),
 
 		sub(∀S: ∈ set):
@@ -124,7 +129,7 @@
 		; ! =: ; equal has been defined automatically in class
 		×: ; !
 		(
-			∈ operator,
+			∈ operator, ; !
 			∀A: ∈ set, ∀B: ∈ set,
 			A × B = {(x, y)}[∀x: ∈ A, ∀y: ∈ B]
 		),

@@ -75,35 +75,41 @@
 				X.↔: (∈ relator, &X.↔& = X.be_indistinguishable_with),
 			; end
 
-			; about closure interor and boundary
-				X.accumulation_point(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), ¬(A ∩ N\{x} = ∅)}[ ; + bug ...
-					∀x: ∈ X],
-				X.closure(∀A: ⊆ X): = {x|∀N: ∈ X.nbh(x), ¬(A ∩ N = ∅)}[ ; + bug ...
-					∀x: ∈ X], ; the minimal closed set in X containing the A
-					; = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; ?
-				X.interior(∀A: ⊆ X): = {x|A ∈ X.nbh(x)}[∀x: ∈ X], ; the maximal open set in X contained in the A,
+			; ? about closure interor and boundary
+				; * be attension, the `A` below are all just subset, not subspace
+				X.accumulation_point(∀A: ⊆ X):
+				(
+					⊆ set.element(X),
+					∀x: ∈ X.accumulation_point(A),
+					∀N: ∈ X.nbh(x), ¬((N \ {x}) ∩ A = ∅)
+				),
+					X.limit_point: = X.accumulation_point,
+					X.cluster_point: = X.accumulation_point,
+				
+				
+				X.closure_point(∀A: ⊆ X):
+				(
+					⊆ set.element(X),
+					∀x: ∈ X.closure_point(A),
+					∀N: ∈ X.nbh(x), ¬(N ∩ A = ∅)
+				)
+				X.closure(∀A: ⊆ X): = {∀x: ∈ X.closure_point} ; the minimal closed set in X containing the A ; or = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; ?
+
+				X.interior_point(∀A: ⊆ X):
+				(
+					⊆ set.element(X),
+					∀x: ∈ X.interior_point(A), A ∈ X.nbh(x)
+				),
+				X.interior(∀A: ⊆ X): = {∀x: ∈ X.interior_point(A)}, ; the maximal open set in X contained in the A,
 
 				X.exterior(∀A: ⊆ X): = X.interior(X \ A),
 
+				X.boundary_point(∀A: ⊆ X):
+				(
+					⊆ X.closure_point(A),
+					⊆ X.closure_point(X \ A)
+				),
 				X.boundary(∀A: ⊆ X): = X.closure(A) \ X.interior(A),
-			; end
-
-			; + about identification space or quotient space
-				X.identification_space:
-				(
-					⊆ set.partition(X),
-					∀Q: ∈ X.identification_space,
-					Q.τ = {U|∪[∀x: ∈ U](x) ∈ X.τ}[∀U: ∈ set.Ps(Q)] ; ? ∪
-				),
-				X.quotient_space: = X.identification_space, ; I don't choose this name as I think in topology, it has nothing to do with the "quotient"
-			; end
-
-			; about compact subspace
-				X.compact:
-				(
-					⊆ set.sub(X),
-					⊆ compact_space
-				),
 			; end
 	),
 
@@ -137,11 +143,16 @@
 				open_cover(∀X: ∈ topological_space): = X.open_cover(X),
 
 				accumulation_point[∀X: ∈ topological_space]: X.accumulation_point,
-				limit_point[∀X: ∈ topological_space]: = accumulation_point[X],
-				closure[∀X: ∈ topological_space]: = X.closure,
-				interior[∀X: ∈ topological_space]: = X.interior,
-				exterior[∀X: ∈ topological_space]: = X.exterior,
-				boundary[∀X: ∈ topological_space]: = X.boundary,
+				limit_point[∀X: ∈ topological_space]: = X.accumulation_point,
+
+				closure_point[∀X: ∈ topological_space]: = X.closure_point,
+					closure[∀X: ∈ topological_space]: = X.closure,
+				interior_point[∀X: ∈ topological_space]: = X.interior_point,
+					interior[∀X: ∈ topological_space]: = X.interior,
+				exterior_point[∀X: ∈ topological_space]: = X.exterior_point,
+					exterior[∀X: ∈ topological_space]: = X.exterior,
+				boundary_point[∀X: ∈ topological_space]: = X.boundary_point,
+					boundary[∀X: ∈ topological_space]: = X.boundary,
 			; end
 
 			; about function and morphism
@@ -174,15 +185,31 @@
 
 			×: ; + I may change the corresponding definition in group as well
 			(
-				∈ operator, ; ?
+				∈ operator, ; !
 				∀A: ∈ topological_space, ∀B: ∈ topological_space,
 				(A × B): set.= A set.× B, ; ?
 				{U × V}[∀U: ∈ A.τ, ∀V: ∈ B.τ] ∈ (A × B).basis
 			),
 
 			⊆: , ; ? I don't know up to now
-		; end
 
+			quotient(∀X: ∈ topological_space): ; or identification_space
+			(
+				⊆ set.quotient(X),
+				⊆ topological_space,
+				∀Q: ∈ quotient,
+				Q.τ = {U|∪(U) ∈ X.τ}[∀U: ∈ Q] ; ? ∪
+			),
+
+			isomorphic(∀X: ∈ topological_space): ; ?
+			(
+				⊆ topological_space,
+				∀T: ∈ isomorphic(X),
+				∃f: ∈ isomorphism, ∀(f.D = X, f.C = T)
+			),
+			≌: (∈ relator, &≌&.r = isomorphic),
+		; end
+				
 		; about continuity
 			C(∀S: ∈ topological_space, ∀T: ∈ topological_space): = {f|f ∈ continuous_map}[f ∈ set.Hom(S, T)], ; space of continous function
 
@@ -192,7 +219,7 @@
 				∀S: ∈ homeomorphic(T),
 				∃f: ∈ homeomorphism, f.D = S, f.C = T
 			),
-			≌: (∈ relator, &≌&.r = homeomorphic),
+			; theorem: homeomorphic = isomorphism
 		; end
 
 		; about subspace
@@ -206,7 +233,13 @@
 			(
 				⊆ set.sub(X),
 				∀D: ∈ dense_sub(X),
-				closure[X](D) = X
+				X.closure(D) = X
+			),
+
+			compact_sub(∀X: ∈ topological_space):
+			(
+				⊆ set.sub(X),
+				⊆ compact_space
 			),
 		; end
 
@@ -259,7 +292,7 @@
 			universal_covering_space(∀X: ∈ connected_space): ; ? X may need to be path-connected and locally path-connected
 			(
 				⊆ covering_space(X),
-				⊆ simple_connected_space
+				⊆ simple_connected_space ; +
 			),
 			[  universal covering space of X is the covring space of all the covering space of X ]
 		; end

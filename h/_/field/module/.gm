@@ -96,8 +96,8 @@
 			isomorphic(∀V: ∈ module): ; ?
 			(
 				⊆ module,
-				∀H: ∈ isomorphic(G),
-				∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
+				∀X: ∈ isomorphic(V),
+				∃f: ∈ isomorphism, ∀(f.D = V, f.C = X)
 			),
 			≌: (∈ relator, &≌&.r = isomorphic),
 		; end

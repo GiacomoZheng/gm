@@ -5,10 +5,6 @@ gm
     ├── _
     	├── _
     		├── _
-    			├── _cs
-    				├── _deterministic_automaton
-    				├── fake_alphabet
-    				└── grammar
     			├── _random_space
     			├── measurable_space
     			├── metric_space
@@ -155,7 +151,6 @@ gm
     	    ├── _ex
     	    	└── cofinite_space
     	    ├── _homomorphism
-    	    ├── _isomorphism
     	    ├── _metrizable_space
     	    ├── _trivial
     	    ├── accessible_space
@@ -167,6 +162,7 @@ gm
     	    ├── discrete_set
     	    ├── epimorphism
     	    ├── homeomorphism
+    	    ├── isomorphism
     	    ├── open_map
     	    ├── theorem.gm
     	    └── triangulable_space
@@ -176,6 +172,9 @@ gm
     ├── endorelation
     ├── function
     	└── idempotence
+    ├── lexicon
+    	├── Polish
+    	└── predicate
     ├── operator
     	├── associative
     		└── theorem.gm
@@ -254,4 +253,4 @@ gm
     ├── ℝ
     └── ℤ
 
-212 directories, 42 files
+211 directories, 42 files

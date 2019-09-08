@@ -10,7 +10,7 @@ s"principle ideal 'doman' has its identity":
 ),
 [ proof```
 	∀R: ∈ PI'doman, R ∈ ideal(R) = principle_ideal(P),
-	∃b: ∈ generator[R](P), ; ?
+	∃b: ∈ generator[R](P), ; !
 	∃i: ∈ R,
 	@R,
 		b × i = b,

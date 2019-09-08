@@ -253,7 +253,7 @@
 s"compact subsets of Hausdorff_space are closed":
 (
 	∀X: ∈ Hausdorff_space,
-	X.compact ⊆ X.closed
+	compact_sub(X) ⊆ X.closed
 ),
 [ counterexample if the space is not accessible (T1)```
 		∀X: ∈ topological_space,
@@ -261,7 +261,7 @@ s"compact subsets of Hausdorff_space are closed":
 		∀(
 			∀{x}: ⊆ X,
 			¬({x} ∈ X.closed), ; otherwise, X is accessible
-			{x} ∈ X.compact,
+			{x} ∈ compact_sub(X),
 		)
 	```
 	counterexample if the space is not Hausdorff (T2)```
@@ -272,7 +272,7 @@ s"compact subsets of Hausdorff_space are closed":
 			¬(X ∈ Hausdorff_space),
 			∀A: (⊆ X, ¬(A ∈ set.finite)),
 			¬(A ∈ X.closed),
-			A ∈ X.compact
+			A ∈ compact_sub(X)
 		)
 	```
 	proof``` ; +

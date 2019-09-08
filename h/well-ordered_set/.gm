@@ -1,6 +1,6 @@
 : ; + well-ordered_set, or well_ordered_set, or least_well_ordered_set
 (
-	⊆ totally_ordered_set,
+	⊆ totally-ordered_set,
 	"every subset of it has its least",
 	(
 		∀S: ∈ well-ordered_set,

@@ -1,0 +1,15 @@
+: ; Polish
+(
+	⊆ lexicon, ; !
+	(
+		∀W: ∈ Polish,
+		W.α(∀w: ∈ W): ∈ ℕ, ; ω
+		W.list[∀n: ∈ ℕ]: = W.α.fiber(n), ; the elements in W with arity n ; ? I just need a set
+		; W.
+	),
+	; location
+		expression(∀W: ∈ Polish):
+		(
+			; +
+		),
+),

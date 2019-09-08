@@ -1,5 +1,5 @@
-s"an equivalent relation can induce an partion on set",
+s"an equivalent relation can induce an partition on set",
 (
 	∀R: ∈ equivalent_relation,
-	P: = {{y}[∀y: ∈ R(x)]}[∀x: ∈ R.D], P ∈ partion(R.D)
+	P: = {{∀y: ∈ R(x)}}[∀x: ∈ R.D], P ∈ R.D.partition
 ),

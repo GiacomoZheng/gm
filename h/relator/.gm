@@ -1,6 +1,6 @@
-: ; relator
+: ; ? relator
 (
-	⊆ keyword, ; ?
+	⊆ keyword(r"\$D\  \*\♁ \*\$D\ \/\1 ∈ \$r\ \(\2\)"p),
 
 	(
 		∀𝓅: ∈ relator,

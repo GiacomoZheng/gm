@@ -1,0 +1,33 @@
+: ; + predicate, or first-order_logic
+(
+	⊆ Polish,
+	(
+		∀L: ∈ predicate,
+		{L.ℱ, L.𝒫, L.𝒞, L.𝒱, L.𝒬}: ∈ L.partition, ; can be empty
+			L.function: = L.ℱ, ; operators
+				L.constant: = L.ℱ ∩ L.list(ℕ.0),
+			L.predicate_symbol: = L.𝒫, ; relators
+				L.judgement: = L.𝒫 ∩ L.list(ℕ.0),
+			L.connective: = L.𝒞,
+			L.VAR: = L.𝒱,
+				L.variable: = L.VAR,
+			L.quantifier: = L.𝒬,
+		(∀x: ∈ L.𝒬, L.α(x) = ℕ.2),
+		(∀x: ∈ L.𝒱, L.α(x) = ℕ.0)
+	),
+	; location
+		; about inheritance
+			expression: = Polish.expression,
+		; end
+
+		term(∀L: ∈ predicate):
+		(
+			; +
+			⊆ expression,
+		),
+
+		formula(∀L: ∈ predicate):
+		(
+			⊆ expression,
+		),
+),
