@@ -1,6 +1,12 @@
 gm
+├── __interest
+	├── Physics
+		├── point
+		└── point_mass
+	└── Russell.gm
 ├── _keyword
 ├── _string
+├── class
 └── h
     ├── _
     	├── _
@@ -114,6 +120,7 @@ gm
     		├── norm
     			└── theorem.gm
     		└── theorem.gm
+    	├── lattice
     	├── magma
     		└── homomorphism
     	├── monoid
@@ -167,14 +174,14 @@ gm
     	    ├── theorem.gm
     	    └── triangulable_space
     ├── _bracket
-    ├── _quantifier
-    ├── alphabet
-    ├── endorelation
-    ├── function
-    	└── idempotence
-    ├── lexicon
+    ├── _lexicon
     	├── Polish
     	└── predicate
+    ├── _quantifier
+    ├── _space
+    ├── alphabet
+    ├── function
+    	└── idempotence
     ├── operator
     	├── associative
     		└── theorem.gm
@@ -192,30 +199,10 @@ gm
     	├── strictly_increasing_function
     	├── strictly_monotonic_function
     	└── theorem.gm
-    ├── relation
-    	├── antisymmetric
-    		└── relator
-    	├── antitransitive
-    		└── relator
-    	├── equivalent
-    		└── relator
-    	├── irreflexive
-    		└── relator
-    	├── order
-    		└── relator
-    	├── preorder
-    		└── relator
-    	├── reflexive
-    		└── relator
-    	├── symmetric
-    		└── relator
-    	├── theorem.gm
-    	└── transitive
-    	    └── relator
     ├── relator
     ├── set
-    	├── _algebra
     	├── _continuum
+    	├── _endorelation
     	├── _finite
     	├── _σ_algebra
     	├── automorphism
@@ -226,22 +213,41 @@ gm
     	├── isomorphism
     	├── monomorphism
     	├── projection
-    	└── pure_set
-    	    ├── Z
-    	    ├── ZC
-    	    ├── ZC¯
-    	    ├── ZF
-    	    ├── ZFC
-    	    ├── ZFC¯
-    	    ├── ZF¯
-    	    ├── Z¯
-    	    ├── cardinal
-    	    ├── ordinal
-    	    	└── theorem.gm
-    	    ├── transitive_set
-    	    	└── theorem.gm
-    	    └── well-orderable_set
-    ├── space
+    	├── pure_set
+    		├── Z
+    		├── ZC
+    		├── ZC¯
+    		├── ZF
+    		├── ZFC
+    		├── ZFC¯
+    		├── ZF¯
+    		├── Z¯
+    		├── cardinal
+    		├── ordinal
+    			└── theorem.gm
+    		├── transitive_set
+    			└── theorem.gm
+    		└── well-orderable_set
+    	└── relation
+    	    ├── antisymmetric
+    	    	└── relator
+    	    ├── antitransitive
+    	    	└── relator
+    	    ├── equivalent
+    	    	└── relator
+    	    ├── irreflexive
+    	    	└── relator
+    	    ├── order
+    	    	└── relator
+    	    ├── preorder
+    	    	└── relator
+    	    ├── reflexive
+    	    	└── relator
+    	    ├── symmetric
+    	    	└── relator
+    	    ├── theorem.gm
+    	    └── transitive
+    	        └── relator
     ├── totally_ordered_set
     ├── well-ordered_set
     	└── theorem.gm
@@ -253,4 +259,4 @@ gm
     ├── ℝ
     └── ℤ
 
-211 directories, 42 files
+216 directories, 43 files

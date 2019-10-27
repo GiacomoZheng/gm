@@ -1,0 +1,4 @@
+; about alias
+	motion: = point,
+	parameterized_curve: = point,
+; end

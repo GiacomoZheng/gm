@@ -1,12 +1,13 @@
-: ; relation, or multivalued_function
+: ; ? relation, or multivalued_function
 (
+	; ? maybe I'll change the output into variable
 	"multivalued (or null) function (mapping indeed), in fact the output is still unique, but it is a class",
 	; * really different with others
 	⊆ function,
 	(
 		∀P: ∈ relation,
 		P.D: ∈ set, P.C: ∈ set,
-		∀x: ∈ P.D, P(x) ⊆ set.sub(P.C)
+		∀x: ∈ P.D, P(x) ⊆ sub(P.C)
 	),
 	; locations
 		; + about alias
@@ -14,8 +15,10 @@
 		; end
 
 		; about operaions (nothing to do with operator)
-			dual(∀R: ∈ relation)(∀x: ∈ R.D): ; +
+			dual(∀R: ∈ relation)(∀x: ∈ R.C): ; +
 			(
+				"inverse indeed",
+				⊆ sub(R.D),
 				∀y: ∈ dual(R)(x),
 				x ∈ R(y)
 			),

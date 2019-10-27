@@ -1,0 +1,16 @@
+: ; point_mass
+(
+	"Newton and Einstein (maybe) 's research on Mechanics",
+	⊆ point,
+	(
+		∀α: ∈ point_mass,
+		@h.ℝ
+			α.m(∀t: ∈ α.D): ∈ ℝ, ; may be I'll rewite it as a variable, for further definition
+				α.mass: = α.m,
+			(∀t: ∈ α.D, α.m ≥ 0), ; ? I think mass should be positve. Might it be 0 or even negative?
+			
+			α.p(∀t: ∈ α.D): = α.D.π[m(t)](v(t)), ; ? maybe m(t) mult v(t)
+				α.momentum: = α.p,
+		■
+	)
+)

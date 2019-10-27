@@ -5,7 +5,7 @@
 		[ not all the elements are comparable ]
 		∀S: ∈ poset,
 		S.≤: = &S.~&,
-		&S.≤& ∈ order_relator,
+		&S.≤& ∈ set.order_relator,
 		; attributions
 			; about relator
 				S.≥: (∈ relator, &S.≥&.r = relation.dual(&S.≤&.r)), ; ∀{x, y}: ⊆ S, x S.≥ y ⇔ y S.≤ x
@@ -22,20 +22,22 @@
 			; about extreme
 				S.lowerest:
 				(
-					"smaller than anyone else",
+					"smaller (or equal) than anyone else",
 					⊆ set.element(S),
 					∀x: ∈ S.lowerest,
 					∀y: ∈ S, x S.≤ y
 				),
 				S.least: = S.lowerest,
+				[ property: there is one or zero lowerest elements ]
 
 				S.greatest:
 				(
-					"larger than anyone else",
+					"larger (or equal) than anyone else",
 					⊆ set.element(S),
 					∀x: ∈ S.greatest,
 					∀y: ∈ S, x S.≥ y
 				),
+				[ property: there is one or zero greatest elements ]
 
 				S.minimal:
 				(
@@ -59,6 +61,12 @@
 					∀x: ∈ S.lower_bound(A),
 					∀a: ∈ A, a S.≤ x
 				),
+				S.bounded_below_subset:
+				(
+					⊆ set.sub(S),
+					∀A: ∈ S.bounded_below_subset,
+					∃x: ∈ S, x ∈ S.lower_bound(A) ; ? I may change it into nonempty class
+				),
 				
 				S.upper_bound(∀A: ⊆ S):
 				(
@@ -66,46 +74,60 @@
 					∀x: ∈ S.upper_bound(A),
 					∀a: ∈ A, a S.≥ x
 				),
+				S.bounded_above_subset:
+				(
+					⊆ set.sub(S),
+					∀A: ∈ S.bounded_above_subset,
+					∃x: ∈ S, x ∈ S.upper_bound(A) ; ? I may change it into nonempty class
+				),
 
-				S.greatest_lower_bound(∀A: ⊆ S): = L[S](A).greatest
+				S.bounded_subset:
+				(
+					; not confuse with bounded_set ; ?
+					⊆ S.bounded_above_subset,
+					⊆ S.bounded_below_subset
+				),
+				[ finite_set ⊆ bounded ]
+
+				S.greatest_lower_bound(∀A: ∈ S.bounded_below_subset): = L[S](A).greatest
 					S.infimum: = S.greatest_lower_bound,
 					S.inf: = S.infimum,
-					S.glb: = S.greatest_lower_bound,
-				S.lowerest_upper_bound(∀A: ⊆ S): = U[P](A).lowerest,
+					; S.glb: = S.greatest_lower_bound,
+				S.lowerest_upper_bound(∀A: ∈ S.bounded_above_subset): = U[S](A).lowerest,
 					S.least_upper_bound: = S.lowerest_upper_bound,
 					S.supremum: = S.lowerest_upper_bound,
 					S.sup: = S.supremum,
-					S.lub: = S.lowerest_upper_bound,
+					; S.lub: = S.lowerest_upper_bound,
 			; end
 	),
 
 	; location
 		; about alias
-			maximal(∀P: ∈ poset): = P.maximal,
-			minimal(∀P: ∈ poset): = P.minimal,
+			maximal(∀S: ∈ poset): = S.maximal,
+			minimal(∀S: ∈ poset): = S.minimal,
 
-			L[∀P: ∈ poset](∀A: ∈ sub(P)):
+			L[∀S: ∈ poset](∀A: ∈ sub(S)):
 			(
-				∈ sub(P),
-				L[P](A) set.= {∀x: ∈ P.lower_bound(A)}
+				∈ sub(S),
+				L[S](A) set.= {∀x: ∈ S.lower_bound(A)}
 			),
-				lower_bound_space[∀P: ∈ poset]: = L[P],
-			U[∀P: ∈ poset](∀A: ∈ sub(P)):
+				lower_bound_space[∀S: ∈ poset]: = L[S],
+			U[∀S: ∈ poset](∀A: ∈ sub(S)):
 			(
-				∈ sub(P),
-				U[P](A) set.= {∀x: ∈ P.upper_bound(A)}
+				∈ sub(S),
+				U[S](A) set.= {∀x: ∈ S.upper_bound(A)}
 			),
-				upper_bound_space[∀P: ∈ poset]: = U[P],
+				upper_bound_space[∀S: ∈ poset]: = U[S],
 
-			infimum[∀P: ∈ poset]: = P.infimum,
-				inf[∀P: ∈ poset]: = P.inf,
-			supremum[∀P: ∈ poset]: = P.supremum,
-				sup[∀P: ∈ poset]: = P.sup,
+			infimum[∀S: ∈ poset]: = S.infimum,
+				inf[∀S: ∈ poset]: = S.inf,
+			supremum[∀S: ∈ poset]: = S.supremum,
+				sup[∀S: ∈ poset]: = S.sup,
 		; end
 
-		chain(∀P: ∈ poset):
+		chain(∀S: ∈ poset):
 		(
-			⊆ set.sub(P),
+			⊆ set.sub(S),
 			⊆ total_ordered_set
 		),
 ),

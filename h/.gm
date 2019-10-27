@@ -1,5 +1,3 @@
-; ? set.=:
-
 ; about alias
 	; about set
 		; about morphism
@@ -20,38 +18,10 @@
 	; end
 
 	; ! about relation
-		multivalued_function: = relation, ; I'll use it is complex analysis
-
+		multivalued_function: = set.relation, ; I'll use it is complex analysis
+		
 		endo_relation: = endorelation,
 		homogeneous_relation: = endorelation,
-
-		reflexive_relation: = relation.reflexive,
-		transitive_relation: = relation.transitive,
-		symmetric_relation: = relation.symmetric,
-
-		irreflexive_relation: = relation.irreflexive,
-		antitransitive_relation: = relation.antitransitive,
-		antisymmetric_relation: = relation.antisymmetric,
-
-		preorder_relation: = relation.preorder,
-
-		equivalent_relation: = relation.equivalent,
-		order_relation: = relation.order,
-	; end
-
-	; ! about relator
-		reflexive_relator: = relation.reflexive.relator,
-		transitive_relator: = relation.transitive.relator,
-		symmetric_relator: = relation.symmetric.relator,
-
-		irreflexive_relator: = relation.irreflexive.relator,
-		antitransitive_relator: = relation.antitransitive.relator,
-		antisymmetric_relator: = relation.antisymmetric.relator,
-
-		preorder_relator: = relation.preorder.relator,
-
-		equivalent_relator: = relation.equivalent.relator,
-		order_relator: = relation.order.relator,
 	; end
 
 	; ! about operator

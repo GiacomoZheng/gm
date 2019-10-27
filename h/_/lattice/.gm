@@ -1,0 +1,20 @@
+: ; + lattice
+(
+	; something different with reference: https://en.wikipedia.org/wiki/Lattice_(order)
+	"a poset with ∨ ∧ algebra structure",
+	⊆ poset,
+	(
+		∀L: ∈ lattice,
+		∀{a, b}: ⊆ L,
+		∃x: ∈ L, x ∈ L.sup({a, b})
+		∃y: ∈ L, y ∈ L.inf({a, b})
+
+		; attributs
+			; about alias
+			; end
+
+			L.join(∀a: ∈ L)(∀b: ∈ L): ∈ L.sup({a, b}), ; as it is a singleton class
+			L.meet(∀a: ∈ L)(∀b: ∈ L): ∈ L.inf({a, b}),
+			
+	)
+)

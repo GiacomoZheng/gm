@@ -1,10 +1,7 @@
 : ; finite_group
 (
 	⊆ group,
-	(
-		∀G: ∈ finite_group,
-		|G| ∈ ℕ
-	),
+	⊆ set.finite, ; ?
 
 	[ attributes ]
 		composition_series(∀G: ∈ finite_group): ; +

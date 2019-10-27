@@ -277,88 +277,26 @@
 ; end
 
 ; ? about coset and Lagrange's Theorem
-	s"the elements in the same coset": ; ?
+	s"relation of the elements in the same (left) coset": ; ?
 	(
 		∀G: ∈ group, ∀H: ∈ sub(G),
 		∀{a, b}: ⊆ G,
-		(∃C: ∈ l'coset[G](H), {a, b} ⊆ C) ⇒ inv[G](a) * b ∈ H,
-		(∃C: ∈ r'coset[G](H), {a, b} ⊆ C) ⇒ a * inv[G](b) ∈ H
+		@G,
+			(∃C: ∈ l'coset(H), {a, b} ⊆ C) ⇒ inv(a) * b ∈ H
+		■
 	),
 
-	s"set of cosets consist of a partition": ; +
+	s"this relation (above one) is an equivalent relation":
 	(
 		∀G: ∈ group, ∀H: ∈ sub(G),
-		G /["l"] H ∈ set.partition(G) ; ?
-	),
-	[ proof```
-		; G / H is disjoint
-		∀{A, B}: ⊆ G /["l"] H,
-		¬(A = B) ⇒ A ∩ B = ∅ ⇐ (
-			¬(A = B) ⇒ (
-				∃a: ∈ A\B, A = {a G.* h}[∀h: ∈ H]
-				∃b: ∈ B\A, B = {b G.* h}[∀h: ∈ H]
-				¬(A ∩ B = ∅) ⇒ (
-					∃c: ∈ A ∩ B,
-				)
-			)
+		∀{a, b, c}: ⊆ G,
+		∀(
+			inv(a) * a ∈ H
+			inv(a) * b ∈ H ⇒ inv(b) * a ∈ H,
+			∀(inv(a) * b ∈ H, inv(b) * c ∈ H) ⇒ inv(a) * c ∈ H
 		)
-	``` ]
-
-	s"the cardinal number of cosets of the same subgroup are the same":
-	(
-		; lemma for Lagrange theorem
-		G: ∈ group, H: ∈ sub(G),
-		@G,
-		∀x: ∈ G, |H| = |{x * h}[∀h: ∈ H]|
-		■
 	),
-	[ proof```
-		G: ∈ group, H: ∈ sub(G),
-		@G,
-		∀x: ∈ G,
-		∃φ[x](∀h: ∈ H): = x * h,
-		(
-			(
-				∀h: ∈ H, ∀h': ∈ H,
-				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
-			)
-			⇒ φ[x] ∈ injection,
-			(
-				∀y: ∈ φ[x].C,
-				∃h: ∈ H, y = x * h, φ[x](h) = y
-			)
-			⇒ φ[x] ∈ surjection
-		)
-		⇒ φ[x] ∈ bijection ⇒ |φ[x].D| = |φ[x].C|
-		⇒ |H| = |x * H|
-		■
-	``` ]
-
-	s"Lagrange's Theorem":
-	(
-		G: ∈ group, H: ∈ sub(G),
-		|G| ∈ ℕ ⇒ |G|/|H| ∈ ℕ
-	),
-	[ proof, with the help of the lemma``` ; +
-		G: ∈ group, H: ∈ sub(G),
-		@G,
-		(∀x: ∈ G, G.e ∈ H ⇒ x ∈ x * H) ⇒ ¬(x * H = ∅),
-		|G| ∈ ℕ ⇒
-		(
-			∃m: (∈ ℕ, ≤ |G|),
-			|G| = |∪({x * H|∀x: ∈ G})|
-			= |∪[]({x[n] * H|∀x[∀n: (∈ ℕ, ≤ m)]: ∈ G})|
-			= +[∀n: (∈ ℕ, ≤ m)](|x[n] * H|)
-			= |H| × m
-		)
-		■
-	``` ]
-
-	s`The converse of "Lagrange" is true when G is cyclic`:
-	(
-		G: ∈ group,
-		|G| ∈ ℕ ⇒ (∀d: ∈ ℕ, m/d ∈ ℤ ⇒ (∃H: ∈ sub(G), |H| = d))
-	),
+	; Lagrange's Theorem has been moved to finite group 
 ; end
 
 ; + about normal subgroup and quotient group

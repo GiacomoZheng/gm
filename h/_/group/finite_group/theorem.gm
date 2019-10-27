@@ -1,10 +1,74 @@
-; + about Sylow's theorems
-	s"the groups with size prime are cyclic"
-
-	s"lemma: the center of p-group": ; +
+; ? about coset and Lagrange's Theorem
+	s"the cardinal number of cosets of the same subgroup are the same":
 	(
-		∀G: ∈ group, ∀p: ∈ ℕ.prime, ∀n: ∈ ℕ,
-		|G| = p^n ⇒ ¬(center(G) = {G.e})
+		; lemma for Lagrange theorem
+		∀G: ∈ group, ∀H: ∈ sub(G),
+		@G,
+		∀x: ∈ G, |H| = |{x * h}[∀h: ∈ H]|
+		■
+	),
+	[ proof```
+		∀G: ∈ group, ∀H: ∈ sub(G),
+		@G,
+		∀x: ∈ G,
+		∃φ[x](∀h: ∈ H): = x * h,
+		(
+			(
+				∀h: ∈ H, ∀h': ∈ H,
+				φ[x](h) = φ[x](h') ⇒ x * h = x * h' ⇒ h = h'
+			)
+			⇒ φ[x] ∈ injection,
+			(
+				∀y: ∈ φ[x].C,
+				∃h: ∈ H, y = x * h, φ[x](h) = y
+			)
+			⇒ φ[x] ∈ surjection
+		)
+		⇒ φ[x] ∈ bijection ⇒ |φ[x].D| = |φ[x].C|
+		⇒ |H| = |x * H|
+		■
+	``` ]
+
+	s"Lagrange's Theorem":
+	(
+		∀G: ∈ group, ∀H: ∈ sub(G),
+		|G| ∈ ℕ ⇒ |G|/|H| ∈ ℕ
+	),
+	[ proof, with the help of the lemma``` ; +
+		@G,
+			(∀x: ∈ G, e ∈ H ⇒ x ∈ x * H ⇒ ¬( = ∅)),
+			|G| ∈ ℕ ⇒
+			(
+				∃m: (∈ ℕ, ≤ |G|),
+				|G| = |∪({x * H|∀x: ∈ G})|
+				= |∪[]({x[n] * H|∀x[∀n: (∈ ℕ, ≤ m)]: ∈ G})| ; +
+				= +[∀n: (∈ ℕ, ≤ m)](|x[n] * H|)
+				= |H| × m
+			)
+		■
+	``` ]
+
+	s`The converse of "Lagrange" is true when G is cyclic`:
+	(
+		∀G: ∈ finite_group,
+		(∀d: ∈ ℕ, m/d ∈ ℤ) ⇒ (∃H: ∈ sub(G), |H| = d)
+	),
+; end
+
+; + about Sylow's theorems
+	s"the groups with size prime are cyclic":
+	(
+		∀G: ∈ finite_group,
+
+	),
+
+	s"lemma: the center of p-group": ; !
+	(
+		∀G: ∈ finite_group,
+		@ℕ,
+			∀p: ∈ prime_number, ∀n: ∈ ℕ,
+			|G| = p^n ⇒ ¬(center(G) = {e})
+		■
 	),
 
 	s"Sylow's First Theorem": ; ! ex
@@ -12,7 +76,7 @@
 		; + after the writting of natural numbers
 		∀G: ∈ finite_group,
 		@ℕ,
-		∀p: ∈ prime(ℕ), ; ?
+		∀p: ∈ prime_number, ; +
 			∀n: ∈ ℕ, m: = |G|/(p^n),
 			∀(m ∈ ℕ, gcd(m, p) = 1) ⇒
 			(

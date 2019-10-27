@@ -1,0 +1,21 @@
+: ; point, or motion, or parameterized_curve
+(
+	"Galileo's reasearch on Kinematics",
+	@h.ℝ,
+		⊆ smooth_function,
+		(
+			∀α: ∈ point,
+			; maybe I'll add the unit like meter and second later.
+			α.D: ∈ open_interval, ; time
+			α.C: = ℝ ^ 3, ; space
+
+			; for physics
+			α.v(∀t: ∈ α.D): = 𝒟(α)(t),
+				α.velocity: = α.v,
+			α.speed(∀t: ∈ α.D): = norm(α.v(t)),
+			
+			α.a(∀t: ∈ α.D): = 𝒟(α.v)(t),
+				α.acceleration: = α.a,
+		)
+	■
+),

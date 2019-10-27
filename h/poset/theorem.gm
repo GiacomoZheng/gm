@@ -5,9 +5,22 @@ s"a set is always a maximal of its power set":
 	Ps(X) ∈ poset, X ∈ G.maximal ; in fact, it is the only one
 ),
 
-s"every finite poset cathes its maximal":
+s"every finite poset cathes its maximal (minimal)":
 (
 	∀P: ∈ poset,
 	set.#(P) ∈ ℕ ; ? # cardinal number
 	⇒ (∃x: ∈ P, x ∈ G.maximal),
 ),
+s"Corollary: all the finite subsets are bounded subset",
+
+s"there is one or zero lowerest (greatest) elements":
+(
+	∀P: ∈ poset,
+	; ∀x: ∈ P.lowerest, ∀y: ∈ P.lowerest,
+	(∃x: ∈ P, x ∈ P.lowerest) ⇒
+	(
+		∀x: ∈ P.lowerest, ∀y: ∈ P.lowerest,
+		x = y ⇐ x ≤ y, y ≤ x
+	),
+),
+
