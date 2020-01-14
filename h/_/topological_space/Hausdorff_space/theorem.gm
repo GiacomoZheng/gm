@@ -20,10 +20,10 @@ s"the product space reserve the Hausdorff property":
 
 ``` ]
 
-s"the injective continuous function reserve the Hausdorff property":
+s"preimage of an injective continuous function on a Hausdorff_space is a also a Hausdorff_space":
 (
 	∀f: ∈ continuous_function,
-	∀(f ∈ injection, f.C = X) ⇒ f.D ∈ Hausdorff_space
+	∀(f ∈ injection, f.C ∈ Hausdorff_space) ⇒ f.D ∈ Hausdorff_space
 ),
 [ proof```
 	@f,
@@ -31,8 +31,21 @@ s"the injective continuous function reserve the Hausdorff property":
 	¬(a = b) ⇒ ¬(f(a) = f(b)) ⇒ (
 		∃U: ∈ C.nbh(f(a)),
 		∃V: ∈ C.nbh(f(b)),
-		U ∩ V = ∅
-	),
-	; the preimage of these two open sets are what we want
+		U ∩ V = ∅,
+		; the preimage of these two open sets are what we want
+		a ∈ f.preimage(U),
+		b ∈ f.preimage(V),
+		f.preimage(U) ∩  f.preimage(V) = ∅
+	)
 	■
 ``` ]
+
+s"the set of fixed points in an Hausdorff_space is closed":
+(
+	; I don't want to use the theorem below
+	; guess: is it always compact? × but is it always some stronger?
+	∀f: ∈ continuous_function,
+
+),
+
+s"X is Hausdorff if and only if the diagonal of X×X is closed",

@@ -1,0 +1,8 @@
+: ; + holomorphism, or holomorphic_function
+(
+	⊆ function,
+	(
+		∀f: ∈ holomorphism,
+		f.d'd
+	)
+),

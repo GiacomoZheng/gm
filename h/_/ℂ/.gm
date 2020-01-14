@@ -1,0 +1,32 @@
+: ; + ℂ
+(
+	"the set of complex number",
+	∈ field,
+	...
+	(
+		∀x: ∈ ℂ,
+		Re(x): ∈ ℝ,
+		Im(x): ∈ ℝ
+	),
+
+	conjugate(∀x: ∈ ℂ): =  Re(x) - i × Im(x) ; or complex conjugate
+		complex_conjugate: = conjugate,
+
+	norm(∀x: ∈ ℂ): = ℝ.√( Re(x) ℝ.^ ℕ.2 + Im(x) ℝ.^ ℕ.2 ) , ; + sqrt
+
+	dis(∀x: ∈ ℂ)(∀y: ∈ ℂ) = norm(x - y), ; or distance
+		distance: = dis,
+
+	; location of complex analysis
+		; about alias
+			holomorphic_function: = holomorphism, ; indeed they are not map
+			meromorphic_function: = meromorphism
+
+			complex_differentiable: = differentiable
+		; end
+
+		differentiable(∀f: ∈ function): ; or complex_differentiable
+		(
+
+		),
+),

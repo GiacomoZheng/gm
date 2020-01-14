@@ -1,0 +1,12 @@
+: ; homomorphism
+(
+	⊆ set.homomorphism, ; ?
+	(
+		∀f: ∈ set.homomorphism,
+		f.D: ∈ marked_graph, f.C: ∈ marked_graph,
+		@f,
+			; ∀{u, v}: ∈ D, 
+			∀e: ∈ D.E, image( D.E.φ(e) ) ∈ C.E
+		■
+	)
+),

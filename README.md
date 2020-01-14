@@ -24,7 +24,7 @@ The file `.tree` is the menu of the whole file
     - Hom
     - End
     - Aut
-* adjust relation into generaler function 
+<!-- * adjust relation into generaler function  -->
 <!-- * create a `space` class as the superclass of `group`, `topological_space`. -->
 
 

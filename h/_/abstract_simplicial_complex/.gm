@@ -1,4 +1,5 @@
 : ; abstract_simplicial_complex
+; ? I want to call it simplicial set
 (
 	⊆ set, ; * I have do some changes on it
 	`

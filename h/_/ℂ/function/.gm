@@ -1,0 +1,12 @@
+: ; function, or complex_function
+(
+	"indeed not a mapping",
+	⊆ relation,
+	(
+		∀f: ∈ function, ; the function here is not the function defined in the root
+		f.D = ℂ, f.C = ℂ,
+
+		f.domain: = {x| f(x) ≠ ∅}[∀x: ∈ f.D] ; ! ≠ and ∅ ; + after the development of variable
+		; In complex analysis, with a good pair of domain and range, we would get a branch, which is an well-defined mapping
+	)
+),

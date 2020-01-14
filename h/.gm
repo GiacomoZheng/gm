@@ -2,6 +2,7 @@
 	; about set
 		; about morphism
 			mapping: = set.homomorphism,
+				map: = set.homomorphism, ; I don't like to use it
 			injection: = set.monomorphism,
 			surjection: = set.epimorphism,
 			bijection: = set.isomorphism,
@@ -28,6 +29,20 @@
 		associative_operator: = operator.associative,
 		commutative_operator: = operator.commutative,
 	; end
+
+	; about analysis
+		; about real analysis
+		
+		; end
+
+		; about complex analysis
+			complex_function: = ℂ.function,
+		; end
+	; end
+
+	; about number theory
+
+	; end
 ; end
 
 ; ! about variable
@@ -50,17 +65,3 @@
 		; ⊆ variable
 	)
 ; end
-
-; ? the items below are waitting for adjustment
-
-∅: = {},
-
-{…}: ; +
-(
-	∈ bracket,
-),
-
-{…|…}: ; +
-(
-	∈ bracket,
-),

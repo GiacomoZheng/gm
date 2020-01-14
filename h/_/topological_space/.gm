@@ -5,6 +5,10 @@
 	(
 		∀X: ∈ topological_space,
 		X.τ: ∈ topology(X), ; defined in the tools
+			X.𝒯: = X.τ, ; I won't use this one later
+			; ! X.topology: ; it may cause me confused
+			X.open: = set.element(X.τ), ; just trans it to a class
+
 		; attibutions
 			; via open set
 				X.basis: ; do not be confuse with the basis in tools
@@ -14,19 +18,20 @@
 					∀U: ∈ τ, ∃ℬ': ⊆ ℬ, U = ∪(ℬ')
 					; for U = ∅, just pick ℬ' empty
 				),
+					X.base: = X.basis,
+				
+				X.subbasis:
+				(
+					"is a subset of basis but not a subclass of basis",
+					⊆ sub(X.τ),
+
+				)
 
 				X.open_cover(∀A: ∈ sub(X)): ; ?
 				(
 					⊆ X.cover(A),
 					⊆ set.sub(X.τ)
 				),
-
-				; about alias
-					X.base: = X.basis,
-					X.𝒯: = X.τ, ; I won't use this one later
-					; ! X.topology: ; it may cause me confused
-					X.open: = set.element(X.τ), ; just trans it to a class
-				; end
 			; end
 
 			; via neighborhood
@@ -58,7 +63,7 @@
 					⊆ sub(X),
 					(
 						∀y: ∈ X.approach_to(x),
-						X.nbh(x) ⊆ X.nhb(y) ; ◉.⊆
+						X.nbh(x) ⊆ X.nbh(y) ; ◉.⊆
 					)
 				),
 				X.→: (∈ relator, &X.→& = X.approach_to),
@@ -126,7 +131,7 @@
 			),
 			[ cover + union closure ⇒ D ∈ τ ]
 
-			basis(∀D: ∈ set): ; ? space
+			basis(∀D: ∈ set): ; ? space ; or base
 			(
 				"generated a topological space from a of basis",
 				⊆ cover(D),
@@ -137,6 +142,8 @@
 
 		; about alias
 			; about basic
+				base: = basis,
+
 				open(∀X: ∈ topological_space): = X.open, ; a class
 				closed(∀X: ∈ topological_space): = X.closed,
 
@@ -160,7 +167,7 @@
 				quotient_map: = epimorphism,
 			; end
 
-			; about separable space
+			; about separable axiom
 				T0_space: = Kolmogorov_space,
 				T1_space: = accessible_space,
 					; ! Fréchet_space: = accessible_space, ; ? this name might be confusing
@@ -218,29 +225,33 @@
 				⊆ topological_space,
 				∀S: ∈ homeomorphic(T),
 				∃f: ∈ homeomorphism, f.D = S, f.C = T
+				[ while, homeomorphism = isomorphism ]
 			),
-			; theorem: homeomorphic = isomorphism
 		; end
 
-		; about subspace
-			connected_sub(∀X: ∈ topological_space):
-			(
-				⊆ set.sub(X),
-				⊆ connected_space,
-			),
+		; about special subspace
+			; for intrinsic
+				connected_sub(∀X: ∈ topological_space):
+				(
+					⊆ set.sub(X),
+					⊆ connected_space,
+				),
 
-			dense_sub(∀X: ∈ topological_space): ; ? I may write down some equivalent version for it
-			(
-				⊆ set.sub(X),
-				∀D: ∈ dense_sub(X),
-				X.closure(D) = X
-			),
+				compact_sub(∀X: ∈ topological_space):
+				(
+					⊆ set.sub(X),
+					⊆ compact_space
+				),
+			; end
 
-			compact_sub(∀X: ∈ topological_space):
-			(
-				⊆ set.sub(X),
-				⊆ compact_space
-			),
+			; for extrinsic
+				dense_sub(∀X: ∈ topological_space): ; ? I may write down some equivalent version for it
+				(
+					⊆ set.sub(X),
+					∀D: ∈ dense_sub(X),
+					X.closure(D) = X
+				),
+			; end
 		; end
 
 		; about covering space
@@ -264,8 +275,7 @@
 					∀C: ∈ covering_space(X),
 					; C.base_space: = X, ; I think it useless
 					C.p: ∈ topological_space.C(C, X), ; covering map (also covering projection), may not be surjective ; ! X should be temporary
-					∃𝒞: ∈ open_cover(X), ; indeed cover of connected open sets
-					∀U: ∈ 𝒞, U ∈ evenly_covered(p) ; makes the elements in 𝒞 connected
+					∀x: ∈ X,  ∃U: ∈ X.nbh(x), U ∈ evenly_covered(p)
 				),
 				; location
 					isomorphism:
@@ -282,7 +292,7 @@
 						⊆ set.endomorphism
 					),
 					; about alias
-						deck_transformation: = automorphism,
+						deck_transformation: = automorphism, ; !
 						covering_transformation: = automorphism,
 					; end
 					Aut(∀C: ∈ covering_space): = {f|f ∈ automorphism}[∀f: ∈ toplogical_space.C(C, C)],
