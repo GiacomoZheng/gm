@@ -18,21 +18,24 @@ gm
     				└── theorem.gm
     			├── normed_abelian_group
     			└── valued_field
-    		├── abstract_simplicial_complex
-    			└── homomorphism
-    		├── affine_space
-    		├── cell_complex
+    		├── _affine_space
+    		├── _tree
     		├── contractible_space
     		├── graph
+    		├── marked_graph
+    			├── homomorphism
+    			└── isomorphism
     		├── topological_group
     			└── theorem.gm
-    		├── tree
     		└── Δ-complex
     	├── _preordered_set
     	├── _ring_theroy.gm
     	├── abelian_group
     		├── _norm
     		└── theorem.gm
+    	├── abstract_simplicial_complex
+    		└── homomorphism
+    	├── cell_complex
     	├── commutative_ring
     		├── _polynomial
     			├── ex.gm
@@ -151,28 +154,33 @@ gm
     	├── semigroup
     		└── homomorphism
     	├── skew_field
-    	└── topological_space
-    	    ├── Hausdorff_space
-    	    	└── theorem.gm
-    	    ├── Kolmogorov_space
-    	    ├── _ex
-    	    	└── cofinite_space
-    	    ├── _homomorphism
-    	    ├── _metrizable_space
-    	    ├── _trivial
-    	    ├── accessible_space
-    	    	└── theorem.gm
-    	    ├── compact_space
-    	    	└── theorem.gm
-    	    ├── connected_space
-    	    ├── continuous_function
-    	    ├── discrete_set
-    	    ├── epimorphism
-    	    ├── homeomorphism
-    	    ├── isomorphism
-    	    ├── open_map
-    	    ├── theorem.gm
-    	    └── triangulable_space
+    	├── topological_space
+    		├── Hausdorff_space
+    			└── theorem.gm
+    		├── Kolmogorov_space
+    		├── _ex
+    			└── cofinite_space
+    		├── _homomorphism
+    		├── _metrizable_space
+    		├── _trivial
+    		├── accessible_space
+    			└── theorem.gm
+    		├── compact_space
+    			└── theorem.gm
+    		├── connected_space
+    		├── continuous_function
+    		├── discrete_set
+    		├── epimorphism
+    		├── homeomorphism
+    		├── isomorphism
+    		├── open_map
+    		├── theorem.gm
+    		└── triangulable_space
+    	├── ℂ
+    		├── function
+    		├── holomorphism
+    		└── meromorphism
+    	└── ℝ
     ├── _bracket
     ├── _lexicon
     	├── Polish
@@ -199,6 +207,26 @@ gm
     	├── strictly_increasing_function
     	├── strictly_monotonic_function
     	└── theorem.gm
+    ├── relation
+    	├── antisymmetric
+    		└── relator
+    	├── antitransitive
+    		└── relator
+    	├── equivalent
+    		└── relator
+    	├── irreflexive
+    		└── relator
+    	├── order
+    		└── relator
+    	├── preorder
+    		└── relator
+    	├── reflexive
+    		└── relator
+    	├── symmetric
+    		└── relator
+    	├── theorem.gm
+    	└── transitive
+    	    └── relator
     ├── relator
     ├── set
     	├── _continuum
@@ -213,50 +241,26 @@ gm
     	├── isomorphism
     	├── monomorphism
     	├── projection
-    	├── pure_set
-    		├── Z
-    		├── ZC
-    		├── ZC¯
-    		├── ZF
-    		├── ZFC
-    		├── ZFC¯
-    		├── ZF¯
-    		├── Z¯
-    		├── cardinal
-    		├── ordinal
-    			└── theorem.gm
-    		├── transitive_set
-    			└── theorem.gm
-    		└── well-orderable_set
-    	└── relation
-    	    ├── antisymmetric
-    	    	└── relator
-    	    ├── antitransitive
-    	    	└── relator
-    	    ├── equivalent
-    	    	└── relator
-    	    ├── irreflexive
-    	    	└── relator
-    	    ├── order
-    	    	└── relator
-    	    ├── preorder
-    	    	└── relator
-    	    ├── reflexive
-    	    	└── relator
-    	    ├── symmetric
-    	    	└── relator
-    	    ├── theorem.gm
-    	    └── transitive
-    	        └── relator
+    	└── pure_set
+    	    ├── Z
+    	    ├── ZC
+    	    ├── ZC¯
+    	    ├── ZF
+    	    ├── ZFC
+    	    ├── ZFC¯
+    	    ├── ZF¯
+    	    ├── Z¯
+    	    ├── cardinal
+    	    ├── ordinal
+    	    	└── theorem.gm
+    	    ├── transitive_set
+    	    	└── theorem.gm
+    	    └── well-orderable_set
     ├── totally_ordered_set
     ├── well-ordered_set
     	└── theorem.gm
-    ├── ℂ
-    	├── holomorphism
-    	└── meromorphism
     ├── ℕ
     ├── ℚ
-    ├── ℝ
     └── ℤ
 
-216 directories, 43 files
+220 directories, 43 files

@@ -1,5 +1,6 @@
-: ; !homomorphism,
+: ; ! homomorphism,
 (
+	; ! I'm not sure about the realtion between it and increasing function now
 	⊆ set.homomorphism, ; ? may change to preorder later
 	∀f: ∈ homomorphism,
 	f.D = poset, f.C = poset,

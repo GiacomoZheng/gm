@@ -1,0 +1,10 @@
+: ; supremum-ordered_set, or supremum_ordered_set
+(
+	⊆ poset.bounded_below, ; bounded_below_poset
+	"every subset has its supremum, I defined",
+	(
+		∀S: ∈ supremum_ordered_set,
+		∀R: ⊆ S, ∃x: ∈ S, x ∈ S.supremum(R)
+	)
+),
+[ hierarchy chain: poset ⊇ totally-ordered_set ⊇ supremum-ordered_set ⊇ well-ordered_set ]

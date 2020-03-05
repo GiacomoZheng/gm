@@ -1,0 +1,9 @@
+: ;  bounded_below, or bounded_below_poset
+(
+	⊆ poset,
+	(
+		∀S: ∈ bounded_below,
+		∃x: ∈ S, x ∈ S.least ; + class is nonempty
+	)
+),
+[ properties: S.bounded_below = S ]

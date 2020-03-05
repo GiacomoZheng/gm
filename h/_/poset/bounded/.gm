@@ -1,0 +1,5 @@
+: ; bounded, or bounded_poset
+(
+	⊆ bounded_above,
+	⊆ bounded_below
+),

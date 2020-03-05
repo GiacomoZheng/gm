@@ -46,12 +46,6 @@ s"the cardinal of the cyclic (sub)group is the order of generator":
 	),
 ``` ]
 
-s"direct product of finite cyclic group": ; ! ex
-(
-	∀m: (∈ ℕ, > 1), ∀n: (∈ ℕ, > 1),
-	ℤ[m] × ℤ[n] ≌ ℤ[m × n] ⇔ gcd(m, n) = 1
-),
-
 s"about the orders in a cyclic group":
 (
 	∀G: ∈ cyclic_group, e: = G.e, *: = &G.*&,

@@ -1,0 +1,9 @@
+: ;  bounded_above, or bounded_above_poset
+(
+	⊆ poset,
+	(
+		∀S: ∈ bounded_above,
+		∃x: ∈ S, x ∈ S.greatest ; + class is nonempty
+	)
+),
+[ properties: S.bounded_above = S ]

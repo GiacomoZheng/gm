@@ -29,7 +29,6 @@
 				),
 				S.least: = S.lowerest,
 				[ property: there is one or zero lowerest elements ]
-
 				S.greatest:
 				(
 					"larger (or equal) than anyone else",
@@ -46,7 +45,6 @@
 					∀x: ∈ S.minimal,
 					¬∃y: ∈ S, y S.< x
 				),
-
 				S.maximal:
 				(
 					"no larger elements than it"
@@ -92,12 +90,10 @@
 				S.greatest_lower_bound(∀A: ∈ S.bounded_below_subset): = L[S](A).greatest
 					S.infimum: = S.greatest_lower_bound,
 					S.inf: = S.infimum,
-					; S.glb: = S.greatest_lower_bound,
 				S.lowerest_upper_bound(∀A: ∈ S.bounded_above_subset): = U[S](A).lowerest,
 					S.least_upper_bound: = S.lowerest_upper_bound,
 					S.supremum: = S.lowerest_upper_bound,
 					S.sup: = S.supremum,
-					; S.lub: = S.lowerest_upper_bound,
 			; end
 	),
 

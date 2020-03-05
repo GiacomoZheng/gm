@@ -1,10 +1,10 @@
-: ; marked_graph
+: ; labeled_graph
 (
 	"the graph in Graph theory",
 	; + I may use the marked set (complex) to redefine it
 	⊆ set, ; the set of the marks of vertices
 	(
-		∀G: ∈ marked_graph,
+		∀G: ∈ labeled_graph,
 		G.V: = G, ; dummary line, for others' habits
 		G.E: ∈ set, ; the set of the marks of edges, like "l1", "l2", .. or "a", "b", ...
 		G.E.φ(∀e: ∈ G.E): ∈ set.sub(G.V),
@@ -12,9 +12,9 @@
 	),
 
 	; location
-		isomorphic(∀G: ∈ marked_graph):
+		isomorphic(∀G: ∈ labeled_graph):
 		(
-			⊆ marked_graph,
+			⊆ labeled_graph,
 			∀H: ∈ isomorphic(G),
 			∃f: ∈ isomorphism, ∀(f.D = V, f.C = X)
 		),

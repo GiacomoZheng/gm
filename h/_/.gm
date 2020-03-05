@@ -1,6 +1,7 @@
 ; about alias
-	; about name of structure
+	; about name of structures
 		commutative_group: = abelian_group,
+
 		commutative_domain: = integral_domain,
 
 		unital_rng: = ring, ; ? I think it useless
@@ -11,15 +12,20 @@
 		; ! linear_space: = field.module, ; it would cause confusing, as the (true) linear space should be a special affine space I think
 
 		totally_ordered_set: = totally-ordered_set,
-		linearly_ordered_set: = totally-ordered_set, ; may be confusing
+			linearly_ordered_set: = totally-ordered_set, ; may be confusing
 		well_ordered_set: = well-ordered_set,
-		least_well_ordered_set: = well-ordered_set,
+			least_well_ordered_set: = well-ordered_set,
+			least_ordered_set: = well-ordered_set,
+		supremum_ordered_set: = supremum-ordered_set,
+		bounded_poset: = poset.bounded,
+			bounded_above_poset: = poset.bounded_above,
+			bounded_below_poset: = poset.bounded_below,
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
-		; simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
+		; ! simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
 	; end
 
-	; about complex
+	; ! about complex
 		CW_complex: = cell_complex, ; refernce: Allen Hatcher - Algebraic Topology
 		; about simplicial_complex
 			simplicial_map: = abstract_simplicial_complex.homomorphism, ; ?

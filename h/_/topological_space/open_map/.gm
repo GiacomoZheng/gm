@@ -8,4 +8,4 @@
 		∀O: ∈ D.τ, image(O) ∈ C.τ
 	■
 ),
-properties
+[ properties: continuous open map is homeomorphism ] ; +

@@ -1,0 +1,16 @@
+: ; + well-ordered_set, or well_ordered_set, or least_well_ordered_set, or least_ordered_set
+(
+	⊆ poset,
+	"every sub poset of it has its least",
+	(
+		∀S: ∈ well-ordered_set,
+		∀R: ∈ poset.sub(S), ∃x: ∈ S, x ∈ R.least
+	),
+
+	; location
+		; about inheritance	
+			sub(∀R: ∈ well-ordered_set): = poset.sub(R), ; ?
+			; * every subset of a well-ordered set is still a well-ordered set
+		; end
+),
+[ hierarchy chain: poset ⊇ totally-ordered_set ⊇ supremum-ordered_set ⊇ well-ordered_set ]
