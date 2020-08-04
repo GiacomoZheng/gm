@@ -2,7 +2,7 @@
 s"all the subgroups are normal":
 (
 	∀G: ∈ abelian_group,
-	normal(G) = sub(G)
+	normal(G) class.= sub(G)
 ),
 
 s"classification of finite abelian group": ; +

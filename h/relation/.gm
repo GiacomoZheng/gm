@@ -5,26 +5,29 @@
 	; * really different with others
 	⊆ function,
 	(
-		∀P: ∈ relation,
-		P.D: ∈ set, P.C: ∈ set,
-		∀x: ∈ P.D,
-			P(x) ∈ sub(P.C) ; or 
-			; P(x) ⊆ element(P.C)
+		∀R: ∈ relation,
+		R.D: ∈ set, R.C: ∈ set,
+		∀x: ∈ R.D,
+			; R(x) ∈ sub(R.C) ; or 
+			R(x) ⊆ element(R.C),
+		
+		; attribute
+			R.dual(∀x: ∈ R.C):
+			(
+				"inverse indeed",
+				⊆ element(R.D),
+				∀y: ∈ R.dual(x),
+				x ∈ R(y)
+			),
+			R.dual.D: = R.C,
+			R.dual.C: = R.D,
 	),
 	; locations
 		; + about alias
 			
 		; end
 
-		; about operaions (nothing to do with operator)
-			dual(∀R: ∈ relation)(∀x: ∈ R.C): ; +
-			(
-				"inverse indeed",
-				⊆ sub(R.D),
-				∀y: ∈ dual(R)(x),
-				x ∈ R(y)
-			),
-			dual(∀R: ∈ relation).D: = R.C,
-			dual(∀R: ∈ relation).C: = R.D,
+		; about operations (nothing to do with operator)
+			dual(∀R: ∈ relation): = R.dual,
 		; end
 ),

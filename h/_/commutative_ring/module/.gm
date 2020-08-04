@@ -5,10 +5,5 @@
 	(
 		∀M: ∈ module,
 		M.π ∈ action ; here it is the commutative_ring (left) action
-	),
-
-	; location
-		; about inheritace
-			neg[∀V: ∈ module]: = ring.module.neg[V],
-		; end
+	)
 ),

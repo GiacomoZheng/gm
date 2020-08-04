@@ -23,6 +23,12 @@
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
 		; ! simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
+
+		; about compound structures
+			; on rng
+				associative_algebra(∀R: ∈ rng): = R.algebra,
+			; end
+		; end
 	; end
 
 	; ! about complex
@@ -39,10 +45,13 @@
 
 	; end
 
-	; about vector space
+	; about vector space (field.module)
 		linear_transformation: = field.module.homomorphism,
 		linear_map: = field.module.homomorphism, ; some one may use it
 		linear_operator: = field.module.endomorphism. ; * I do not like this name
+
+		ℝ-vector_space: = ℝ.vector_space,
+		real_vector_space: = ℝ.vector_space,
 	; end
 
 	; ! about poset
@@ -65,8 +74,8 @@
 			subrng: = rng.sub,
 			subring: = ring.sub,
 			subfield: = field.sub,
-			linear_subspace: = field.module.sub,
 			vector_subspace: = field.module.sub,
+				; linear_subspace: = field.module.sub,
 			topological_subspace: = topological_space.sub,
 			; about topological space
 				connected_subspace: = topological_space.connected_sub,

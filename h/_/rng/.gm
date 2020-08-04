@@ -4,11 +4,22 @@
 	⊆ abelian_group, ; "+,-" is defined here
 	(
 		∀R: ∈ rng,
-		R.×: ∈ associative_operator, R ⊆ &R.×&.D, ; associativity
+		R.multiply: ∈ associative_operation,
+		R ∈ R.multiply.closure,
 
-		[ distribution ] ; ? I think here can be simpler
-		(a R.+ b) R.× c = a R.× c R.+ b R.× c,
-		a R.× (b R.+ c) = a R.× b R.+ a R.× c
+		R.×: (∈ operator, &R.×&.operation = R.multiply),
+
+		; distributive law ; ? I think here can be simpler
+		∀{a, b, c}: ⊆ R,
+		(a R.+ b) R.× c = (a R.× c) R.+ (b R.× c),
+		a R.× (b R.+ c) = (a R.× b) R.+ (a R.× c),
+
+		; attributes
+			; we cannot define 
+			; ! R.algebra:
+			; ! R.module:
+			; here as it will be confused with the later definition
+
 	),
 	[ hierarchy chain: rng ⊆ abelian_group ]
 
@@ -30,12 +41,10 @@
 				⊆ group.sub(R), ; just the abelian_group.sub
 
 				∀H: ∈ sub(R),
-				&H.×& = &G.×&,
+				H.multiply = G.multiply,
 			),
 
 			min_sub[∀G: ∈ rng](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! it is just the generating
-
-			neg[∀R: ∈ rng](∀a: ∈ R): = abelian_group.neg[R](a),
 		; end
 
 		char(∀R: ∈ rng): = max[∀r: ∈ R](group.order(r)), ; ? max
@@ -101,6 +110,6 @@
 			¬(P = R)
 		),
 
-		nil(∀R: ∈ rng): = {a|∃n: ∈ ℕ, a R.^ n = R.0}[∀a: ∈ R],
+		nil(∀R: ∈ rng): = {a|∃n: ∈ ℕ, R.multiply(a).power(n) (R.1) = R.0}[∀a: ∈ R], ; ! R.^
 		; nil it is interesting that it may not be an ideal
 ),

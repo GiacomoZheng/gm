@@ -1,6 +1,6 @@
 : ; homomorphism, or mapping
 (
-	⊆ function, ; maybe I want to change it to a relation
+	⊆ function, ; maybe I'll to change it to a relation
 	(
 		∀f: ∈ homomorphism,
 		f.D: ∈ set, ; domain
@@ -18,9 +18,11 @@
 			f.fiber(∀b: ∈ f.C): = f.preimage({b}), ; I would use it in covering space in topology
 			
 			f.restriction[∀U: ⊆ f.D](∀x: ∈ U): = f(x),
-			f.restriction[∀U: ⊆ f.D].D: = U, f.restriction[∀U: ⊆ f.D].C: = f.C, ; ?
+				f.restriction[∀U: ⊆ f.D].D: = U,
+				f.restriction[∀U: ⊆ f.D].C: = f.C, ; ?
 			f.restriction[∀U: ⊆ f.D][∀V: ⊆ f.image(U)](∀x: ∈ U): = f(x),
-			f.restriction[∀U: ⊆ f.D][∀V: ⊆ f.image(U)].D: = U, f.restriction[∀U: ⊆ f.D, ∀V: ∈ f.C].C: = V, ; ?
+				f.restriction[∀U: ⊆ f.D][∀V: ⊆ f.image(U)].D: = U,
+				f.restriction[∀U: ⊆ f.D, ∀V: ∈ f.C].C: = V, ; ?
 
 			f.restriction:
 			(
@@ -40,4 +42,8 @@
 			),
 	),
 	; location
+		∘:
+		(
+			∈ keyword(r"\$homomorphism\=\1 \*∘ \*\$homomorphism\=\2 \*( \*\2\.\$D\=\3 \*)\/\1(\2(\3))"p)
+		),
 ),

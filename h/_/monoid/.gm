@@ -1,10 +1,40 @@
 : ; monoid
 (
 	⊆ semigroup, ; associative magma 
+	(
+		∀S: ∈ monoid,
+		S.e: ∈ S, ; identity, and as nonemptiness, it is possible
+		∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
+	),
 
-	∀S: ∈ monoid,
-	¬(S = ∅), ; nonempty
-	S.e: ∈ S, ; identity, and as nonemptiness, it is possible
-	∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
+	; loaction
+		; about alias
+			l'action: = action,
+				left_action: = l'action,
+				act: = action,
+		; end
+
+		; simply written as R[M]
+		monoid_ring[∀R: ∈ ring](∀M: ∈ monoid):
+		(
+			; ∈ ring and ring.module over the same abelian group
+			RM: = monoid[M](R),
+
+			RM set.= set.Hom_with_finite_support(M, R) ; ! it is difficult to define finite support here
+
+			RM.add(∀g: ∈ RM)(∀f: ∈ RM) (∀x: ∈ M): = f(x) R.+ g(x),
+			RM.add.D: = R,
+			
+			RM.multiply(∀g: ∈ RM)(∀f: ∈ RM) (∀x: ∈ M): = R.+[(∀{u, v}: ⊆ M, u M.* v = m)] (f(u) R.× g(v)), ; need the help of finite support
+			RM.multiply.D: = R,
+			
+			RM.π(∀r: ∈ R)(∀f: ∈ RM)(∀m: ∈ M): = r R.× f(m),
+			RM.π.S: = RM,
+			RM.π.D: = R,
+
+			RM.R: = R,
+			; i.e. π is an action, so that R[M] is a module
+		),
+
 ),
 [ hierarchy chain: monoid ⊆ semigroup ⊆ maga ]

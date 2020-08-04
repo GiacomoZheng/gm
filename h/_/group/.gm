@@ -10,29 +10,12 @@
 
 			; ? about coset
 				; I may move it to somewhere like magma
-				G.l'coset(∀H: ∈ sub(G)):
-				(
-					⊆ set,
-					∀C: ∈ G.l'coset(H),
-					∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; Order
-				),
-				G.left_coset: = G.l'coset,
-	
-				G.r'coset(∀H: ∈ sub(G)):
-				(
-					⊆ set,
-					∀C: ∈ G.r'coset(H),
-					∃g: ∈ G, C = {h G.* g}[∀h: ∈ H] ; Order
-				),
-				G.right_coset: = G.r'coset,
-
-				G.coset(∀N: ∈ normal(G)): = G.l'coset(N),
+				G.coset(∀N: ∈ normal(G)): = l'coset[G](N), ; = r'coset[G](N)
 			; end
-
 	),
 	[ hierarchy chain: group ⊆ monoid ⊆ semigroup ⊆ magma ]
 
-	; the "group" above is just a location for the ones below
+	; location
 		; about alias
 			ker(∀f: ∈ homomorphism): = f.kernel,
 
@@ -42,13 +25,21 @@
 			r'action: = anti_action,
 				right_action: = r'action,
 			
-			
-
 			; about coset
-				l'coset[∀G: ∈ group]: = G.l'coset,
-					left_coset: = G.l'coset,
-				r'coset[∀G: ∈ group]: = G.r'coset,
-					right_coset: = G.r'coset,
+				l'coset[∀G: ∈ group]:
+				(
+					⊆ set.sub(G),
+					∀C: ∈ l'coset[G](H),
+					∃g: ∈ G, C = {g G.* h}[∀h: ∈ H] ; Order
+				),
+					left_coset[∀G: ∈ group]: = l'coset[∀G: ∈ group],
+				r'coset[∀G: ∈ group]:
+				(
+					⊆ set.sub(G),
+					∀C: ∈ r'coset[G](H),
+					∃g: ∈ G, C = {h G.* g}[∀h: ∈ H] ; Order
+				),
+					right_coset[∀G: ∈ group]: = r'coset[∀G: ∈ group],
 				coset[∀G: ∈ group]: = G.coset,
 			; end
 		; end
@@ -62,7 +53,7 @@
 
 				∀H: ∈ sub(G),
 				H.e = G.e,
-				&H.*& = &G.*&
+				H.operation set.homomorphism.= G.operation.restriction[H][set.Hom(H)],
 			),
 
 			×: ; ?
@@ -78,21 +69,20 @@
 				)
 			),
 
-			Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f ∈ homomorphism}[∀f: ∈ set.Hom(G, H)], ; +
+			Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f ∈ homomorphism}[∀f: ∈ set.Hom(G, H)], ; ! homomorphism
 
-			quotient(∀G: ∈ group): ; +
+			quotient(∀G: ∈ group): ; ?
 			(
 				⊆ set.quotient(G), ; + may be I should use varibale to define it
 				⊆ group,
 				∀Q: ∈ quotient(G),
-				Q.e ∈ normal(G),
-				∀x: ∈ Q, ∃g: ∈ G, 
-				; +
-			)
+				Q.e ∈ normal(G), ; normal subgroup
+				∀X: ∈ Q, X ∈ G.coset(Q.e)
+			),
 		; end
 
 		; about basic
-			inv[∀G: ∈ group](∀g: ∈ G):
+			inv[∀G: ∈ group](∀g: ∈ G): ; ?
 			(
 				[ valid because the unqeness of the inverse in the group  ]
 				@G,
@@ -119,6 +109,15 @@
 			),
 			≌: (∈ relator, &≌&.r = isomorphic),
 			[ ≌ is an equivalent relator ]
+		; end
+
+		; for special elements
+			involution(∀R: ∈ ring):
+			(
+				⊆ set.element(R),
+				∀x: ∈ involution(R),
+				x R.× x = R.1
+			),
 		; end
 
 		; about normal subgroup and quotient group

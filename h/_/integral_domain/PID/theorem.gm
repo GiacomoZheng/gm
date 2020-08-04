@@ -6,7 +6,7 @@ s"principle ideal 'doman' has its identity":
 		∀P: ∈ PI'doman,
 		ideal(P) = principle_ideal(P)
 	),
-	PI'doman ◉.= PID
+	PI'doman class.= PID
 ),
 [ proof```
 	∀R: ∈ PI'doman, R ∈ ideal(R) = principle_ideal(P),

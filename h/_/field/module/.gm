@@ -1,13 +1,12 @@
 : ; module, or vector_space
 (
 	"field module",
-	⊆ ring.module, ; "+" defined there
+	⊆ commutative_ring.module, ; "+" defined there
 	(
 		∀V: ∈ module,
 		V.F: = V.R,
 		V.F ∈ field,
 		V.π ∈ action, ; here it is the field action
-		V.π[∀v: ∈ V]: = V.π(v), ; ? for convenience
 		[ attributes ]
 			V.combination(∀S: ⊆ V):
 			(
@@ -87,8 +86,6 @@
 			),
 
 			min_sub[∀G: ∈ module](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure
-
-			neg[∀V: ∈ module]: = ring.module.neg[V],
 
 			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f ∈ homomorphism}[∀f: ∈ abelian_group.Hom(V, W)], ; = f|f ∈ homomorphism}[∀f: ∈ set.Hom(V, W)]
 			; + it is also a vector space

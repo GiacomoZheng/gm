@@ -1,0 +1,14 @@
+s"identity is unique in monoid":
+(
+	∀M: ∈ monoid,
+	@M,
+		∀i: ∈ M, (∀g: ∈ M, i * g = g * i = g) ⇒ i = e,
+	■
+),
+[ proof```
+	∀i: ∈ M, (∀g: ∈ M, i * g = g * i = g) ⇒ (i = i * e = e * i = e) ⇒ i = e,
+```
+however, it is possible to find some element `b`, which is not identity but a "left-identity" like
+```
+	a * b = a
+``` ]

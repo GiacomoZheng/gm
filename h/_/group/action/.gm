@@ -1,28 +1,24 @@
 : ; ? action, or regular_action, or l'action
 (
-	; ! move to semigroup, as it is associative
-	"a semigoup homomorphism from a group into a permutation group on a set",
-	; * a little bit different with others' version
-	⊆ set.homomorphism, ; mapping
+	⊆ monoid.action,
 	(
 		∀μ: ∈ action,
 		μ.D ∈ group,
-		μ.S: ∈ set, ; ? I want it to be nonempty
-		μ.C ∈ sub(set.End(μ.S)), ; permutations
 
-		@μ,
-			μ(x D.* y) = μ(x) ∘ μ(y) ; regular left compatibility
-		■
-	),
-
-	[ attributions ]
+		; attributes
+			μ.stabilizer(∀s: ∈ μ.S): = {g|μ(g)(s) = s}[∀g: ∈ G],
+			μ.orbit(∀s: ∈ μ.S): = {μ(g)(s)}[∀g: ∈ G],
+	)
+	; location
 		stabilizer[∀μ: ∈ action](∀s: ∈ μ.S): = {g|μ(g)(s) = s}[∀g: ∈ G],
 		orbit[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g)(s)}[∀g: ∈ G],
 
+
 ),
-[ property```
-	μ(D.e)(∀s: ∈ S) = s
+[ hierarchy chain: `semigroup.action` ⊇ monoid.action ⊇ group.action
+	property```
+	∀g: ∈ D, μ(g) ∈ set.isomorphism,
 	```
 	proof```
-	i = μ(a) ∘ inv(μ(a)) = μ(D.e D.* a) ∘ inv(μ(a)) = μ(D.e) ∘ μ(a) ∘ inv(μ(a)) = μ(D.e)
+	h: = inv[G](g), μ(h) ∘ μ(g) = μ(h * g) = μ(e) = μ(g * h) = μ(g) ∘ μ(h) ⇒ μ(g) ∈ set.isomorphism
 ``` ]

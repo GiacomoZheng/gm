@@ -2,7 +2,7 @@
 (
 	⊆ ring,
 	⊆ commutative_rng,
-	;
+	; location
 		; about alias
 
 		; end
@@ -49,6 +49,7 @@
 
 		P[∀R: ∈ commutative_ring](∀x: ∈ ◉):
 		(
+			; !
 			"a polynomial ring over R",
 			S[∀n: ∈ ℕ]: = {m|ℕ.0 ≤ m < n}[∀m: ∈ ℕ], ; pre definition
 			= {+[∀n: ∈ S[m]](c[n] R.× (x R.^ n))}[∀m: ∈ ℕ, ∀n: ∈ S[m], ∀c[∀n: ∈ S[m]]: ∈ R]

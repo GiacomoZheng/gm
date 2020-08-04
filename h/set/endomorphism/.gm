@@ -6,7 +6,22 @@
 		f.D = f.C
 		; attributes
 			f.identity(∀x: ∈ f.D): = x,
-			f.identity.D: = f.D, f.identity.C: = f.C,
+				f.identity.D: = f.D,
+				f.identity.C: = f.C,
 				f.id: = f.identity
-	)
+			f.power:
+			(
+				∈ function,
+				f.power(ℕ.0): = f.identity,
+				∀n: ∈ ℕ \ {ℕ.0},
+				f.power(n): = f ∘ f.power(n ℕ.- ℕ.1),
+			),
+				f.power.D: = ℕ,
+				f.power.C: = set.End(f.D),
+	),
+
+	; location
+		identity[∀S: ∈ set](∀x: ∈ S): = x,
+			identity[∀S: ∈ set].D: = S,
+			identity[∀S: ∈ set].C: = S,
 ),

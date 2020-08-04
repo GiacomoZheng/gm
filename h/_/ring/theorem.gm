@@ -39,19 +39,19 @@
 	(
 		"the special situation of 'product of negation' in rng"
 		∀R: ∈ ring, ∀a: ∈ R,
-		neg[R](R.1) R.× a = neg[R](a) = a R.× neg[R](R.1)
+		R.neg(R.1) R.× a = R.neg(a) = a R.× R.neg(R.1)
 	),
 	[ proof```
-		neg[R](R.1) R.× a = R.1 R.× neg[R](a) = neg[R](a)
+		R.neg(R.1) R.× a = R.1 R.× R.neg(a) = R.neg(a)
 	``` ]
 
 	s"other properties have implied the abelian property":
 	(
-		n'abe'ring:
+		n'abel'ring:
 		(
 			"we won't use this version as if so we need to redefine the +",
 			⊆ group, ; *
-			∀R: ∈ n'abe'ring,
+			∀R: ∈ n'abel'ring,
 
 			R.+: = &R.*&,
 			R.0: = R.e,
@@ -66,10 +66,10 @@
 			∀a: ∈ R, R.1 R.× a = a = a R.× R.1 ; multiply identity
 		),
 
-		n'abe'ring ◉.= ring
+		n'abel'ring class.= ring
 	),
 	[ proof, indeed, I want to prove it is abelian```
-		∀R: ∈ n'abe'ring,
+		∀R: ∈ n'abel'ring,
 		@R,
 		∀{a, b}: ⊆ R,
 		a + b + a + b = (a + b) × 1 + (a + b) × 1 = (a + b) × (1 + 1) = a × (1 + 1) + b × (1 + 1) = a + a + b + b

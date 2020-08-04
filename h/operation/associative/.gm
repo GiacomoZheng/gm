@@ -1,0 +1,10 @@
+: ; associative, or associative_operation
+(
+	⊆ operation, ; !
+
+	∀p: ∈ associative,
+
+	∀{a, b, c}: ⊆ p.D,
+	p(c)( p(b)(a) ) = p( p(c)(b) )(a)
+	[ (a * b) * c = a * (b * c) ]
+),

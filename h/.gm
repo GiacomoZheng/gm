@@ -15,7 +15,7 @@
 	; end
 
 	; about function
-		∘: = &function.∘&,
+		∘: = &set.homomorphism.∘&,
 	; end
 
 	; ! about relation

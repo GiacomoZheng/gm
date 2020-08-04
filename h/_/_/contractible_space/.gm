@@ -1,4 +1,4 @@
-: ; contractible_space
+: ; ! contractible_space
 (
 	⊆ topological_space,
 	(

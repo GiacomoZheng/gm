@@ -1,0 +1,31 @@
+: ; operation
+(
+	"a set action on itself",
+	⊆ set.action,
+	(
+		∀p: ∈ operation,
+		p.D = p.S,
+
+		; attributes
+			p.closure:
+			(
+				"an nonempty closure on this operation",
+				⊆ set.sub(p.D),
+				∀S: ∈ p.closure,
+				¬(S = ∅), ; nonempty ; ? I don't like it
+				∀{x, y}: ⊆ S, p(x)(y) ∈ S
+			),
+
+			p.reverse(∀x: ∈ p.D)(∀y: ∈ p.D): = p(y)(x),
+			p.reverse.D: = p.D,
+	),
+
+	; location
+		; ? it seems useless
+		; sub(∀p: ∈ operation):
+		; (
+		; 	⊆ operation,
+		; 	∀q: ∈ sub(p),
+		; 	q set.homomorphism.= p.restriction[q.D][set.Hom(q.D)]
+		; ),
+)

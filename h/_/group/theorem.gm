@@ -25,19 +25,18 @@
 ; end
 
 ; about basis
-	s"uniqueness in group": ; +
+	s"identity is unique in group", ; as group is monoid
+	s"inverse is unique in group": ; +
 	(
 		∀G: ∈ group,
 		@G,
-			∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ i = e, ; ideneity
 			∀a: ∈ G, ∃a': ∈ G, a * a' = a' * a = e,
 				∀g: ∈ G, a * g = g * a = e ⇒ g = a' ; inverse
 		■
 	),
 	[ proof```
-		"indentity:", ∀i: ∈ G, (∀g: ∈ G, i * g = g * i = g) ⇒ (i = i * e = e * i = e) ⇒ i = e,
-		"inverse:", ∀a: ∈ G, ∃a': ∈ G, ∀g: ∈ G, a * g = g * a = e
-		⇒ a' = a' * (a * g) = a' * a * g = (a' * a) * g = g ⇒ g = a'
+		∀a: ∈ G, ∀g: ∈ G,
+		a * g = g * a = e ⇒ inv[G](a) = inv[G](a) * (a * g) = (inv[G](a) * a) * g = g ⇒ g = inv[G](a)
 	``` ]
 
 	s"inverse":
@@ -95,7 +94,7 @@
 				∃g': ∈ G, g' * g = G.e ; left inverse
 			■
 		),
-		l'group ◉.= group ◉.= r'group ; ?
+		l'group class.= group class.= r'group ; ?
 	),
 	[ proof with the example of r'group```
 		∀R: ∈ r'group,

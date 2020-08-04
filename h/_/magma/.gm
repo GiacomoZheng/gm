@@ -3,26 +3,26 @@
 	⊆ set,
 	(
 		∀S: ∈ magma,
-		S.*: ∈ operator, ; !
-		∀x: ∈ S, ∀y: ∈ S, x S.* y ∈ S ; closure
+		S.operation: ∈ operation,
+
+		S ∈ S.operation.closure,
+
 		; attributes
-			S.idempotence: ; ? what about a ring
+			S.*: (∈ operator, &S.*&.operation = S.operation)
+	),
+	; location
+		; about inheritance
+			idempotence(∀S: ∈ magma):
 			(
 				⊆ set.element(S),
 				∀x: ∈ S.idempotence,
 				x S.* x = x
 			),
-	),
-	; location
-		idempotence(∀S: ∈ magma): = S.idempotence,
-		; about inheritance
-			; + variable(∀S: ∈ magma):
+
+			; ! variable(∀S: ∈ magma):
 			(
 				⊆ set.sub(S), ; Intuitively, the domain for it to pick some variable
-				(
-					∀X: ∈ variable(S),
-					X ∈ &S.*&.D,
-				)
-			),
+				; +
+			)
 		; end
 ),

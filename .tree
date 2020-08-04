@@ -4,9 +4,9 @@ gm
 		├── point
 		└── point_mass
 	└── Russell.gm
+├── _class
 ├── _keyword
 ├── _string
-├── class
 └── h
     ├── _
     	├── _
@@ -22,13 +22,14 @@ gm
     		├── _tree
     		├── contractible_space
     		├── graph
-    		├── marked_graph
+    		├── labeled_graph
     			├── homomorphism
     			└── isomorphism
     		├── topological_group
     			└── theorem.gm
     		└── Δ-complex
     	├── _preordered_set
+    	├── _pure_measure_space
     	├── _ring_theroy.gm
     	├── abelian_group
     		├── _norm
@@ -130,6 +131,22 @@ gm
     		├── action
     			└── theorem.gm
     		└── homomorphism
+    	├── poset
+    		├── _anti_homomorphism
+    		├── _anti_monomorphism
+    		├── _homomorphism
+    		├── _monomorphism
+    		├── bounded
+    		├── bounded_above
+    		├── bounded_below
+    		├── decreasing_function
+    		├── increasing_function
+    		├── isomorphism
+    		├── monotonic_function
+    		├── strictly_decreasing_function
+    		├── strictly_increasing_function
+    		├── strictly_monotonic_function
+    		└── theorem.gm
     	├── ring
     		├── action
     		├── homomorphism
@@ -154,6 +171,7 @@ gm
     	├── semigroup
     		└── homomorphism
     	├── skew_field
+    	├── supremum_ordered_set
     	├── topological_space
     		├── Hausdorff_space
     			└── theorem.gm
@@ -176,6 +194,9 @@ gm
     		├── open_map
     		├── theorem.gm
     		└── triangulable_space
+    	├── totally-ordered_set
+    	├── well-ordered_set
+    		└── theorem.gm
     	├── ℂ
     		├── function
     		├── holomorphism
@@ -194,19 +215,6 @@ gm
     	├── associative
     		└── theorem.gm
     	└── commutative
-    ├── poset
-    	├── _anti_homomorphism
-    	├── _anti_monomorphism
-    	├── _homomorphism
-    	├── _monomorphism
-    	├── decreasing_function
-    	├── increasing_function
-    	├── isomorphism
-    	├── monotonic_function
-    	├── strictly_decreasing_function
-    	├── strictly_increasing_function
-    	├── strictly_monotonic_function
-    	└── theorem.gm
     ├── relation
     	├── antisymmetric
     		└── relator
@@ -230,11 +238,10 @@ gm
     ├── relator
     ├── set
     	├── _continuum
+    	├── _denumerable
     	├── _endorelation
     	├── _finite
-    	├── _σ_algebra
     	├── automorphism
-    	├── denumerable
     	├── endomorphism
     	├── epimorphism
     	├── homomorphism
@@ -256,11 +263,8 @@ gm
     	    ├── transitive_set
     	    	└── theorem.gm
     	    └── well-orderable_set
-    ├── totally_ordered_set
-    ├── well-ordered_set
-    	└── theorem.gm
     ├── ℕ
     ├── ℚ
     └── ℤ
 
-220 directories, 43 files
+224 directories, 43 files

@@ -21,8 +21,8 @@
 				K ⊆ L,
 				K.0 = L.0,
 				K.1 = L.1,
-				&K.+& = &L.+&,
-				&K.×& = &L.×&
+				K.add = L.add,
+				K.multiply = L.multiply,
 			),
 		; end
 

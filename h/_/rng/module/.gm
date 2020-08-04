@@ -1,16 +1,13 @@
-: ; module, regular module here, or named as left module
+: ; module, or regular module, or left module
 (
 	"rng module",
 	⊆ abelian_group,
 	(
 		"the π here means 'πολλαπλασιασμός' meaning multiplication in Greek",
 		∀M: ∈ module,
-		M.π: ∈ action, ; here it is the rng (left) action
+		M.π: ∈ action, ; scalar multiplication ; here it is the rng (left) action
 		M ⊆ M.π.S,
+		M.π[∀v: ∈ V]: = V.π(v), ; ? for convenience
 		M.R: = M.π.D
-	),
-	; location
-		; about inheritace
-			neg[∀V: ∈ module]: = abelian_group.neg[V],
-		; end
+	)
 ),

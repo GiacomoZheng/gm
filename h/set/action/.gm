@@ -1,0 +1,16 @@
+: ; action
+(
+	"a homomorphism from a set into a set of endomorphism's on a set",
+	; * in some sense, it is not an "action"
+	⊆ set.homomorphism,
+	(
+		∀μ: ∈ action,
+		μ.D ∈ set,
+		μ.S: ∈ set,
+		¬(μ.S = ∅), ; ?
+		μ.C = set.End(μ.S), ; space of endomorphism's
+	),
+),
+[ hierarchy chain: set.action ⊇ `semigroup.action` ⊇ monoid.action ⊇ group.action,
+	unlike group action, `μ(g)` may not be an isomorphism
+ ]

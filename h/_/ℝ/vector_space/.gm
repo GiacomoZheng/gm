@@ -1,0 +1,18 @@
+: ; vector_space, or ℝ-vector_space, or real_vector_space
+(
+	⊆ field.module,
+	(
+		∀V: ∈ vector_space, ; ℝ-vector_space
+		V.F = ℝ,
+
+		V.•: ; scalar multiplication
+		(
+			"a • v = π(a)(v)",
+			; + tag: delimiter
+			∈ keyword(r"\$F\  \*• \*\$D\ \/\$π\ (\1)(\2)\|\$D\  \*• \*\$F\ \/\$π\ (\2)(\1)"p), ; ? keyword
+		),
+
+		V.τ: = {  | }
+	)
+
+)

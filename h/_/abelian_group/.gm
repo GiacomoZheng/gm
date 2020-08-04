@@ -3,31 +3,37 @@
 	⊆ group,
 	(
 		∀G: ∈ abelian_group,
-		&G.*& ∈ commutative_operator, G ⊆ &G.*&.D,
+		G.operation ∈ commutative_operation,
 
-		G.+: = &G.*&, ; for convince
-		G.0: = G.e, ; for convince
+		; attributes
+			G.add: = G.operation,
+				G.plus: = G.operation,
+			G.neg(∀x: ∈ G): = group.inv[G](x),
 
-		[ attributes ]
-			G.-:
-			(
-				∈ operator, ; !
-				∀{a, b}: ⊆ G,
-				a G.- b = a G.+ group.inv[G](b) ; = group.inv[G](b) G.+ a
-				; that is why the - can be defined here
-			),
+			G.+: = &G.*&,
+			G.0: = G.e,
 
-			G.coset(∀H: ∈ sub(G)): = group.l'coset[G](H), ; with the form {g + H}
+			G.minus(∀b: ∈ G)(∀a: ∈ G): = a G.+ G.neg(b) ; = G.neg(b) G.+ a ; that is why the - can be defined here
+			G.minus.D: = G,
+			G.-: (∈ operator, &G.-&.operation = G.minus),
 	),
 
-	; abut inheritance
-		sub(∀G: ∈ abelian_group): = group.sub(G),
+	; location
+		; abut inheritance
+			sub(∀G: ∈ abelian_group): = group.sub(G),
 
-		inv[∀R: ∈ abelian_group](∀a: ∈ R): = group.inv[R](a),
-		neg[∀R: ∈ abelian_group](∀a: ∈ R): = group.inv[R](a),
+			Hom(∀G: ∈ abelian_group, ∀H: ∈ abelian_group): = {f|f ∈ homomorphism}[∀f: ∈ group.Hom(G, H)], ; = ... ∈ set.Hom ... ; + a monoid
 
-		Hom(∀G: ∈ abelian_group, ∀H: ∈ abelian_group): = {f|f ∈ homomorphism}[∀f: ∈ group.Hom(G, H)], ; = ... ∈ set.Hom ... ; + a monoid
-		; coset
-	; end
+			End(∀G: ∈ abelian_group):
+			(
+				∈ abelian_group, ; in some sense, a rng
+				set.= {f|f ∈ endomorphism}[∀f: ∈ Hom(G, G)],
+				End(G).add(∀g: ∈ End(G))(∀f: ∈ End(G))(∀x: ∈ G): = f(x) G.+ g(x),
+					End(G).add.D: = End(G),
+					
+				End(G).multiply(∀g: ∈ End(G))(∀f: ∈ End(G)): = f ∘ g, 
+					End(G).multiply.D: = End(G),
+			),
+		; end
 ),
 [ hierarchy chain: abelian group ⊆ group ]
