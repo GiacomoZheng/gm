@@ -3,7 +3,7 @@
 	⊆ poset,
 	(
 		∀S: ∈ bounded_above,
-		∃x: ∈ S, x ∈ S.greatest ; + class is nonempty
+		∃x: ∈ S, x ∈ S.greatest ; ? class is nonempty
 	)
 ),
 [ properties: S.bounded_above = S ]

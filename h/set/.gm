@@ -82,35 +82,8 @@
 			countablely_infinite: = denumerable,
 			enumerable: = denumerable, ; I don't think that using this term is a good idea indeed
 
-			; about relation
-				reflexive_relation: = relation.reflexive,
-				transitive_relation: = relation.transitive,
-				symmetric_relation: = relation.symmetric,
+			
 
-				irreflexive_relation: = relation.irreflexive,
-				antitransitive_relation: = relation.antitransitive,
-				antisymmetric_relation: = relation.antisymmetric,
-
-				preorder_relation: = relation.preorder,
-
-				equivalent_relation: = relation.equivalent,
-				order_relation: = relation.order,
-			; end
-
-			; about relator
-				reflexive_relator: = relation.reflexive.relator,
-				transitive_relator: = relation.transitive.relator,
-				symmetric_relator: = relation.symmetric.relator,
-
-				irreflexive_relator: = relation.irreflexive.relator,
-				antitransitive_relator: = relation.antitransitive.relator,
-				antisymmetric_relator: = relation.antisymmetric.relator,
-
-				preorder_relator: = relation.preorder.relator,
-
-				equivalent_relator: = relation.equivalent.relator,
-				order_relator: = relation.order.relator,
-			; end
 		; end
 
 		; ! about tools
@@ -134,7 +107,7 @@
 			∀A: ∈ sub(S),
 			∀a: ∈ A, a ∈ S
 		),
-		⊆: (∈ relator, &⊆&.r = sub), ; !
+		⊆: (∈ relator, &⊆&.relation = sub), ; !
 
 		variable(∀D: ∈ set): ; ?
 		(

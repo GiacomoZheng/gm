@@ -7,7 +7,7 @@
 		R.multiply: ∈ associative_operation,
 		R ∈ R.multiply.closure,
 
-		R.×: (∈ operator, &R.×&.operation = R.multiply),
+		R.×: = operator[R.multiply],
 
 		; distributive law ; ? I think here can be simpler
 		∀{a, b, c}: ⊆ R,

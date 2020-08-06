@@ -1,9 +1,0 @@
-: ; relator, or antitransitive_relator
-(
-	⊆ relator,
-
-	(
-		∀𝓅: ∈ relator,
-		&𝓅&.r ∈ antitransitive,
-	)
-),

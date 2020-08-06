@@ -11,7 +11,14 @@
 		; attributes
 			R.action:
 			(
-
+				⊆ rng.action,
+				(
+					∀π: ∈ action,
+					π.D = R,
+					@π,
+						∀s: ∈ S, π(D.1)(s) = s
+					■
+				)
 			),
 
 			R.module:

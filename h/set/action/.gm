@@ -8,9 +8,19 @@
 		μ.D ∈ set,
 		μ.S: ∈ set,
 		¬(μ.S = ∅), ; ?
-		μ.C = set.End(μ.S), ; space of endomorphism's
-	),
+		μ.C ⊆ set.sub(set.End(μ.S)), ; space of endomorphism's
+
+		; attributes
+			μ.invariant_subset:
+			(
+				⊆ set.nonempty_sub(μ.S), ; ?
+				∀T: ∈ p.invariant_subset,
+				@μ,
+					∀x: ∈ μ.D, ∀s: ∈ S, μ(x)(s) ∈ S
+				■
+			),
+	)
 ),
-[ hierarchy chain: set.action ⊇ `semigroup.action` ⊇ monoid.action ⊇ group.action,
+[ hierarchy chain: set.action `semigroup.action` ⊇ monoid.action ⊇ group.action,
 	unlike group action, `μ(g)` may not be an isomorphism
  ]

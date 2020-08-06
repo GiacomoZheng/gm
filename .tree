@@ -20,14 +20,14 @@ gm
     			└── valued_field
     		├── _affine_space
     		├── _tree
+    		├── _Δ-complex
     		├── contractible_space
     		├── graph
     		├── labeled_graph
     			├── homomorphism
     			└── isomorphism
-    		├── topological_group
-    			└── theorem.gm
-    		└── Δ-complex
+    		└── topological_group
+    		    └── theorem.gm
     	├── _preordered_set
     	├── _pure_measure_space
     	├── _ring_theroy.gm
@@ -130,7 +130,8 @@ gm
     	├── monoid
     		├── action
     			└── theorem.gm
-    		└── homomorphism
+    		├── homomorphism
+    		└── theorem.gm
     	├── poset
     		├── _anti_homomorphism
     		├── _anti_monomorphism
@@ -171,7 +172,6 @@ gm
     	├── semigroup
     		└── homomorphism
     	├── skew_field
-    	├── supremum_ordered_set
     	├── topological_space
     		├── Hausdorff_space
     			└── theorem.gm
@@ -179,6 +179,7 @@ gm
     		├── _ex
     			└── cofinite_space
     		├── _homomorphism
+    		├── _isomorphism
     		├── _metrizable_space
     		├── _trivial
     		├── accessible_space
@@ -190,7 +191,6 @@ gm
     		├── discrete_set
     		├── epimorphism
     		├── homeomorphism
-    		├── isomorphism
     		├── open_map
     		├── theorem.gm
     		└── triangulable_space
@@ -201,7 +201,12 @@ gm
     		├── function
     		├── holomorphism
     		└── meromorphism
-    	└── ℝ
+    	├── ℕ
+    	├── ℚ
+    	├── ℝ
+    		├── manifold
+    		└── vector_space
+    	└── ℤ
     ├── _bracket
     ├── _lexicon
     	├── Polish
@@ -211,36 +216,29 @@ gm
     ├── alphabet
     ├── function
     	└── idempotence
-    ├── operator
+    ├── operation
     	├── associative
     		└── theorem.gm
     	└── commutative
+    ├── operator
     ├── relation
     	├── antisymmetric
-    		└── relator
     	├── antitransitive
-    		└── relator
     	├── equivalent
-    		└── relator
     	├── irreflexive
-    		└── relator
     	├── order
-    		└── relator
     	├── preorder
-    		└── relator
     	├── reflexive
-    		└── relator
     	├── symmetric
-    		└── relator
     	├── theorem.gm
     	└── transitive
-    	    └── relator
     ├── relator
     ├── set
     	├── _continuum
     	├── _denumerable
     	├── _endorelation
     	├── _finite
+    	├── action
     	├── automorphism
     	├── endomorphism
     	├── epimorphism
@@ -267,4 +265,4 @@ gm
     ├── ℚ
     └── ℤ
 
-224 directories, 43 files
+221 directories, 44 files

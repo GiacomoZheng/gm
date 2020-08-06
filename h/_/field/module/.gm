@@ -96,7 +96,7 @@
 				∀X: ∈ isomorphic(V),
 				∃f: ∈ isomorphism, ∀(f.D = V, f.C = X)
 			),
-			≌: (∈ relator, &≌&.r = isomorphic),
+			≌: = relator[isomorphic],
 		; end
 
 		rank(∀T: ∈ homomorphism): = dim[T.C](range(T)),

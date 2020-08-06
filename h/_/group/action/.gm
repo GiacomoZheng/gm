@@ -1,6 +1,6 @@
 : ; ? action, or regular_action, or l'action
 (
-	⊆ monoid.action,
+	⊆ monoid.action, ; it is nonempty
 	(
 		∀μ: ∈ action,
 		μ.D ∈ group,
@@ -12,7 +12,6 @@
 	; location
 		stabilizer[∀μ: ∈ action](∀s: ∈ μ.S): = {g|μ(g)(s) = s}[∀g: ∈ G],
 		orbit[∀μ: ∈ action](∀s: ∈ μ.S): = {μ(g)(s)}[∀g: ∈ G],
-
 
 ),
 [ hierarchy chain: `semigroup.action` ⊇ monoid.action ⊇ group.action

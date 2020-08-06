@@ -8,7 +8,7 @@
 		S ∈ S.operation.closure,
 
 		; attributes
-			S.*: (∈ operator, &S.*&.operation = S.operation)
+			S.*: = operator[S.operation]
 	),
 	; location
 		; about inheritance

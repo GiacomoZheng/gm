@@ -1,7 +1,8 @@
 : ; commutative, or commutative_operator
 (
-	⊆ operator, ; !
+	⊆ operator,
 
-	∀𝓅: ∈ commutative,
-	∀{a, b}: ⊆ &𝓅&.D, a 𝓅 b = b 𝓅 a
+	∀p: ∈ commutative,
+	p operator.= p.reverse
+	; a * b = b * a
 ),

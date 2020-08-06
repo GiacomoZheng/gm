@@ -7,6 +7,7 @@
 	(
 		∀μ: ∈ action,
 		μ.D ∈ monoid,
+		μ.C ⊆ monoid.sub(set.End(μ.S)), ; space of endomorphism's
 
 		@μ,
 			∀{g, h}: ⊆ μ.D, (g D.* h) = μ(g) ∘ μ(h) ; regular left compatibility

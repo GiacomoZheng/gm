@@ -23,6 +23,19 @@
 		
 		endo_relation: = endorelation,
 		homogeneous_relation: = endorelation,
+
+		reflexive_relation: = relation.reflexive,
+		transitive_relation: = relation.transitive,
+		symmetric_relation: = relation.symmetric,
+
+		irreflexive_relation: = relation.irreflexive,
+		antitransitive_relation: = relation.antitransitive,
+		antisymmetric_relation: = relation.antisymmetric,
+
+		preorder_relation: = relation.preorder,
+
+		equivalent_relation: = relation.equivalent,
+		order_relation: = relation.order,
 	; end
 
 	; ! about operator
@@ -64,4 +77,18 @@
 	(
 		; ⊆ variable
 	)
+; end
+
+; about operators and relators
+	operator[∀p: ∈ operation]: ; ?
+	(
+		∈ operator,
+		&operator[p]&.operation = p
+	),
+
+	relator[∀R: ∈ relation]: ; ?
+	(
+		∈ relator,
+		&relator[p]&.relation = R
+	),
 ; end

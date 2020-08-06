@@ -1,8 +1,0 @@
-: ; relator, or symmetric_relater
-(
-	⊆ relator,
-	(
-		∀𝓅: ∈ relator,
-		&𝓅&.r ∈ symmetric,
-	)
-),

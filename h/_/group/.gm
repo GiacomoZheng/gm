@@ -94,7 +94,7 @@
 			order[∀G: ∈ group](∀x: ∈ G):
 			(
 				"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
-				D: = {m}[∀m: ∈ N, G.e (G.* x)^m = G.e] ; !
+				D: = {m | G.e (G.* x)^m = G.e}[∀m: ∈ N] ; !
 				¬(D = ∅) ⇒ order[G](x) = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur; ! I may change the inf function later
 				; + otherwise return the cardinal of Z
 			),
@@ -107,7 +107,7 @@
 				∀H: ∈ isomorphic(G),
 				∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
 			),
-			≌: (∈ relator, &≌&.r = isomorphic),
+			≌: = relator[isomorphic],
 			[ ≌ is an equivalent relator ]
 		; end
 

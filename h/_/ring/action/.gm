@@ -3,9 +3,12 @@
 	⊆ rng.action,
 	(
 		∀π: ∈ action,
-		@π,
-			D ∈ ring,
-			∀s: ∈ S, π(D.1)(s) = s
-		■
+		∃R: ∈ ring,
+		π ∈ R.action,
+		; or
+		; @π,
+		; 	D ∈ ring,
+		; 	∀s: ∈ S, π(D.1)(s) = s
+		; ■
 	)
 ),

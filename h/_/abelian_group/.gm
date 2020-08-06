@@ -15,7 +15,7 @@
 
 			G.minus(∀b: ∈ G)(∀a: ∈ G): = a G.+ G.neg(b) ; = G.neg(b) G.+ a ; that is why the - can be defined here
 			G.minus.D: = G,
-			G.-: (∈ operator, &G.-&.operation = G.minus),
+			G.-: = operator[G.minus],
 	),
 
 	; location

@@ -1,8 +1,0 @@
-: ; relator, or transitive_relator
-(
-	⊆ relator,
-	(
-		∀𝓅: ∈ relator,
-		&𝓅&.r ∈ transitive,
-	)
-),

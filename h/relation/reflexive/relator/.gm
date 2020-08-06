@@ -1,8 +1,0 @@
-: ; relator, or reflexive_relator
-(
-	⊆ relator,
-	(
-		∀𝓅: ∈ relator,
-		&𝓅&.r ∈ reflexive,
-	)
-),
