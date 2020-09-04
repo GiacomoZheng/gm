@@ -133,7 +133,7 @@
 	(
 		∀R: ∈ ring,
 		∀I: ∈ ideal(R),
-		(∃i: ∈ I, i ∈ unit(R)) ⇒ I = R
+		(∃i: ∈ unit(R), i ∈ I) ⇒ I = R
 	),
 ; end
 

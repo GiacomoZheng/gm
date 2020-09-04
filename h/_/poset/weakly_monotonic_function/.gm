@@ -1,0 +1,9 @@
+: ; weakly_monotonic_function
+(
+	"homomorphism or antihomophism",
+	⊆ set.homomorphism, ; mapping
+	(
+		∀f: ∈ weakly_monotonic_function,
+		∃(f ∈ weakly_increasing_function, f ∈ weakly_decreasing_function)
+	)
+),

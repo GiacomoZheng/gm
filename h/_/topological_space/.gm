@@ -208,13 +208,13 @@
 				Q.τ = {U|∪(U) ∈ X.τ}[∀U: ∈ Q] ; ? ∪
 			),
 
-			isomorphic(∀X: ∈ topological_space): ; ?
-			(
-				⊆ topological_space,
-				∀T: ∈ isomorphic(X),
-				∃f: ∈ isomorphism, ∀(f.D = X, f.C = T)
-			),
-			≌: = relator[isomorphic],
+			; isomorphic(∀X: ∈ topological_space): ; ?
+			; (
+			; 	⊆ topological_space,
+			; 	∀T: ∈ isomorphic(X),
+			; 	∃f: ∈ isomorphism, ∀(f.D = X, f.C = T)
+			; ),
+			; ≌: = relator[isomorphic],
 		; end
 				
 		; about continuity
@@ -268,7 +268,7 @@
 
 			covering_space(∀X: ∈ connected_space): ; ? whether should I preserve the X here
 			(
-				; Source from "Allen Hatcher - Algebraic Topology"
+				; Source from Algebraic Topology - Allen Hatcher
 				; the connected space X makes the index a constant
 				⊆ topological_space, ; allow disconnected space
 				(

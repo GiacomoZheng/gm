@@ -2,6 +2,31 @@
 (
 	⊆ ring,
 	⊆ commutative_rng,
+	(
+		∀R: ∈ commutative_ring,
+		; attributes
+			R.algebra:
+			(
+				⊆ ring,
+				⊆ R.module,
+
+				∀A:∈ R.algebra,
+
+				∀r: ∈ A.R,
+				∀{x, y}: ⊆ A,
+				@A,
+					π(r) ∘ multiply(x) = multiply(x) ∘ π(r)
+					; π(r)( multiply(x) (y) ) = multiply(x)( π(r)(y) )
+					; r • (y × x) = π(r • y) × x
+				■
+			),
+
+			R.commutative_algebra:
+			(
+				⊆ R.algebra,
+				⊆ commutative_ring
+			)
+	),
 	; location
 		; about alias
 

@@ -1,4 +1,19 @@
 ; about alias
+	; about class
+		empty_class: = class.empty,
+			contradiction: = class.empty,
+			paradox: = class.empty,
+		consistent_class: = class.nonempty, ; * Source K. Kunen's "The Foundation of Mathematics" Definition II.7.13
+			satisfiable_class: = class.nonempty, ; * Source K. Kunen's "The Foundation of Mathematics" Definition II.7.13
+				
+		collectible_class: = class.collectible,
+		proper_class: = class.proper,
+
+		singleton_class: = class.singleton,
+
+		singleton_structure: = structure.singleton,
+	; end
+	
 	; about set
 		; about morphism
 			mapping: = set.homomorphism,
@@ -39,8 +54,8 @@
 	; end
 
 	; ! about operator
-		associative_operator: = operator.associative,
-		commutative_operator: = operator.commutative,
+		associative_operation: = operation.associative,
+		commutative_operation: = operation.commutative,
 	; end
 
 	; about analysis
@@ -58,27 +73,6 @@
 	; end
 ; end
 
-; ! about variable
-	variable(∀D: ∈ set): ; ?
-	(
-		"a generalization of random variable in statistics",
-		"a subset which can work as an element"
-		; for example: [0, 1] + [2, 4] = [2, 4], we can read it as the summation of two variables",
-		; + it will be use in analysis to define something like polynomial or dy/dx
-		⊆ set.sub(D), ; Intuitively, the domain for it to pick some
-		(
-			∀X: ∈ variable,
-			; * a subclass of set, may catch some operators with it
-		)
-	),
-	[ hierarchy chain: variable ⊇ random_variable ]
-
-	constant(∀x: ∈ variable): ; +
-	(
-		; ⊆ variable
-	)
-; end
-
 ; about operators and relators
 	operator[∀p: ∈ operation]: ; ?
 	(
@@ -91,4 +85,25 @@
 		∈ relator,
 		&relator[p]&.relation = R
 	),
+; end
+
+; ! about variable
+variable(∀D: ∈ set): ; ?
+(
+	"a generalization of random variable in statistics",
+	"a subset which can work as an element"
+	; for example: [0, 1] + [2, 4] = [2, 4], we can read it as the summation of two variables",
+	; + it will be use in analysis to define something like polynomial or dy/dx
+	⊆ set.sub(D), ; Intuitively, the domain for it to pick some
+	(
+		∀X: ∈ variable,
+		; * a subclass of set, may catch some operators with it
+	)
+),
+[ hierarchy chain: variable ⊇ random_variable ]
+
+constant(∀x: ∈ variable): ; +
+(
+	; ⊆ variable
+)
 ; end

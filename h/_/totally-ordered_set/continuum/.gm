@@ -1,0 +1,7 @@
+: ; continuum, or linear_continuum
+(
+	⊆ totally-ordered_set,
+	⊆ densely-ordered_set,
+	⊆ complete-ordered_set,
+	
+),

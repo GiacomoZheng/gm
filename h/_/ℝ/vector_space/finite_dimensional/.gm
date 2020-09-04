@@ -1,0 +1,5 @@
+: ; finite_dimensional, or finite_dimensional_real_vector_space
+(
+	⊆ vector_space,
+	⊆ field.module.finite_dimensional
+),

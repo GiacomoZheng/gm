@@ -1,5 +1,0 @@
-: ; monomorphism, or strictly_increasing_function
-(
-	⊆ set.monomorphism ; ? injection
-	⊆ homomorphism,
-),

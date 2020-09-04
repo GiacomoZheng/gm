@@ -56,7 +56,7 @@
 				H.operation set.homomorphism.= G.operation.restriction[H][set.Hom(H)],
 			),
 
-			×: ; ?
+			×: ; +! universal property
 			(
 				"product space: the result of it is indeed a group",
 				∈ operator, ; !
@@ -70,28 +70,21 @@
 			),
 
 			Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f ∈ homomorphism}[∀f: ∈ set.Hom(G, H)], ; ! homomorphism
-
-			quotient(∀G: ∈ group): ; ?
-			(
-				⊆ set.quotient(G), ; + may be I should use varibale to define it
-				⊆ group,
-				∀Q: ∈ quotient(G),
-				Q.e ∈ normal(G), ; normal subgroup
-				∀X: ∈ Q, X ∈ G.coset(Q.e)
-			),
 		; end
 
 		; about basic
-			inv[∀G: ∈ group](∀g: ∈ G): ; ?
+			inv[∀G: ∈ group](∀g: ∈ G):
 			(
-				[ valid because the unqeness of the inverse in the group  ]
+				; valid because the unqeness of the inverse in the group
+				inv[G].D: = G,
+				inv[G].C: = G,
 				@G,
-				∃g': ∈ G, g' * g = g * g' = e,
-				= g'
+					∃g': ∈ G, g' * g = g * g' = e,
+					inv[G](g) = g'
 				■
 			),
 
-			order[∀G: ∈ group](∀x: ∈ G):
+			order[∀G: ∈ group](∀x: ∈ G): ; !
 			(
 				"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
 				D: = {m | G.e (G.* x)^m = G.e}[∀m: ∈ N] ; !
@@ -100,15 +93,6 @@
 			),
 
 			; span[∀G: ∈ group](∀A: ⊆ G): = {},
-
-			isomorphic(∀G: ∈ group):
-			(
-				⊆ group,
-				∀H: ∈ isomorphic(G),
-				∃f: ∈ isomorphism, ∀(f.D = G, f.C = H)
-			),
-			≌: = relator[isomorphic],
-			[ ≌ is an equivalent relator ]
 		; end
 
 		; for special elements
@@ -120,26 +104,30 @@
 			),
 		; end
 
+		; about centralizer and normalizer
+			centralizer[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G],
+				C[∀G: ∈ group]: = centralizer[G]
+			center(∀G: ∈ group): = centralizer[G](G),
+				Z: = center, ; ?
+			normalizer[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G],
+				N[∀G: ∈ group]: = normalizer[G],
+		; end
+
 		; about normal subgroup and quotient group
-			/["l"]: ; ?
-			(
-				∈ operator, ; !
-				∀G: ∈ group, ∀H: ∈ sub(G),
-				G /["l"] H = {∀x: ∈ l'coset[G](H)}
-			),
-
-			/["r"]: ; ?
-			(
-				∈ operator, ; !
-				∀G: ∈ group, ∀H: ∈ sub(G),
-				G /["r"] H = {∀x: ∈ r'coset[G](H)}
-			),
-
 			conjugate[∀G: ∈ group](∀a: ∈ G): ; if b ∈ conjugate(a), we can say that a and b is conjugate	
 			(
 				⊆ set.element(G),
 				∀b: ∈ conjugate[G](a),
 				∃g: ∈ G, g G.* a G.* inv[G](g)
+			),
+
+			quotient(∀G: ∈ group): ; ? this name like a operation ; + 
+			(
+				⊆ set.quotient(G), ; + may be I should use varibale to define it
+				⊆ group,
+				∀Q: ∈ quotient(G),
+				Q.e ∈ normal(G), ; normal subgroup
+				∀X: ∈ Q, X ∈ G.coset(Q.e)
 			),
 
 			normal(∀G: ∈ group):
@@ -148,7 +136,8 @@
 				∀N: ∈ normal(G),
 				∀g: ∈ G, g ∈ G.normalizer(N) ; g * N * inv[G](g) ∈ N
 			),
-			normal_sub: = normal,
+				normal_sub: = normal,
+				normal_subgroup: = normal,
 
 			/: ; !
 			(
@@ -156,15 +145,6 @@
 				∀G: ∈ group, ∀H: ∈ normal(G),
 				G / H = G /["l"] H ; in fact, here /[l] and /[r] has the same result
 			),
-		; end
-		
-		; about centralizer and normalizer
-			centralizer[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, a G.* g = g G.* a}[∀g: ∈ G],
-				C[∀G: ∈ group]: = centralizer[G]
-			center(∀G: ∈ group): = centralizer[G](G),
-				Z: = center, ; ?
-			normalizer[∀G: ∈ group](∀A: ⊆ G): = {g|∀a: ∈ A, g G.* a G.* inv[G](g) ∈ A}[∀g: ∈ G],
-				N[∀G: ∈ group]: = normalizer[G],
 		; end
 		
 		commutator_sub(∀G: ∈ group): = min_sub[G]({a G.* b G.* inv[G](a) G.* inv[G](b)}[∀{a, b}: ⊆ G]), ; Commutator subgroup, or derived subgroup ; ?

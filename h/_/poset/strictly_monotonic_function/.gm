@@ -3,7 +3,7 @@
 	"monomorphism or antimonophism",
 	⊆ set.homomorphism, ; mapping
 	(
-		∀f: ∈ monotonic_function,
-		∃(f ∈ monomorphism, f ∈ antimonophism)
+		∀f: ∈ strictly_monotonic_function,
+		∃(f ∈ strictly_increasing_function, f ∈ strictly_decreasing_function) ; may add an "union" in class
 	)
 ),

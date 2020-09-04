@@ -1,0 +1,41 @@
+: ; ordered_field
+(
+	; + define the ordered group/ring 
+	⊆ totally-ordered_set,
+	⊆ field,
+	(
+		∀F: ∈ ordered_field,
+		@F,
+			∀{a, b}: ⊆ F,
+			a < b ⇒ (
+				∀c: ∈ F,
+				a + c < b + c
+			),
+
+			∀(a > 0, b > 0) ⇒ a × b > 0 ; specially, 1 > 0
+		■
+
+		; attributes
+			F.positive: 
+			(
+				⊆ set.element(F),
+				∀a: ∈ F.positive, a > 0
+			),
+			F.P: = F.positive.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
+				F.positive_cone: = F.P,
+			F.negative:
+			(
+				⊆ set.element(F),
+				∀a: ∈ F.negative, a < 0
+			),
+			F.N: = F.negative.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
+				F.negative_cone: = F.N,
+			[ preperties:
+				* x ∈ F ⇒ x × x ∈ P
+				* 1 is positive and -1 is negative
+				and
+				https://en.wikipedia.org/wiki/Ordered_field#Properties_of_ordered_fields
+			]
+
+	),
+),

@@ -86,7 +86,7 @@
 	(
 		∀K: ∈ field, ∀x: ∈ ◉, ; !
 		∀f(x): ∈ P[K](x),
-		A: = {∀a: ∈ root[P[K](x)](f)},
+		A: = root[P[K](x)](f).collected, ; to the set, we need to prove it is collectible
 		+[∀a: ∈ A]()
 	),
 	[  ]

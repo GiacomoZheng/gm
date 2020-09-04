@@ -3,7 +3,7 @@
 	⊆ poset,
 	(
 		∀S: ∈ bounded_below,
-		∃x: ∈ S, x ∈ S.least ; ? class is nonempty
+		S.least ∈ class.nonempty
 	)
 ),
 [ properties: S.bounded_below = S ]

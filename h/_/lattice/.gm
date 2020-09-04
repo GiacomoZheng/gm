@@ -6,15 +6,17 @@
 	(
 		∀L: ∈ lattice,
 		∀{a, b}: ⊆ L,
-		∃x: ∈ L, x ∈ L.sup({a, b})
-		∃y: ∈ L, y ∈ L.inf({a, b})
+		L.sup({a, b}) ∈ class.singleton,
+		L.inf({a, b}) ∈ class.singleton,
 
 		; attributs
 			; about alias
 			; end
 
-			L.join(∀a: ∈ L)(∀b: ∈ L): ∈ L.sup({a, b}), ; as it is a singleton class
-			L.meet(∀a: ∈ L)(∀b: ∈ L): ∈ L.inf({a, b}),
+			L.join(∀a: ∈ L)(∀b: ∈ L): = L.sup({a, b}).instance,; as it is a singleton class
+			L.∨: = operator[L.join],
+			L.meet(∀a: ∈ L)(∀b: ∈ L): = L.inf({a, b}).instance,
+			L.∧: = operator[L.meet],
 			
 	)
 )

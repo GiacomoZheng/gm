@@ -1,0 +1,12 @@
+: ; weakly_decreasing_function
+(
+	⊆ set.homomorphism, ; ? may change to preorder later
+	(
+		∀f: ∈ weakly_decreasing_function,
+		@f,
+			D = poset, C = poset,
+			∀{a, b}: ⊆ D,
+			a D.≤ b ⇒ f(a) C.≥ f(b)
+		■
+	)
+),

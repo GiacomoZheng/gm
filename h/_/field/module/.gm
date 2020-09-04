@@ -60,7 +60,6 @@
 			V.annnihilator(∀S: ⊆ V): = {f|∀s: ∈ S, f(s) = V.F.0}[∀f: ∈ V.dual_space],
 			V.ann: = V.annnihilator,
 	),
-	[ property: ... ]
 		; about alias
 			ker(∀f: ∈ homomorphism): = f.kernel,
 			Adj(∀f: ∈ homomorphism): = f.adjoint,
@@ -82,7 +81,7 @@
 				⊆ ring.module.sub(V), ; +
 				∀S: ∈ sub(V),
 				V.F = S.F,
-				&V.π& = &S.π&
+				V.multiply = S.multiply
 			),
 
 			min_sub[∀G: ∈ module](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure
@@ -90,13 +89,14 @@
 			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f ∈ homomorphism}[∀f: ∈ abelian_group.Hom(V, W)], ; = f|f ∈ homomorphism}[∀f: ∈ set.Hom(V, W)]
 			; + it is also a vector space
 
-			isomorphic(∀V: ∈ module): ; ?
-			(
-				⊆ module,
-				∀X: ∈ isomorphic(V),
-				∃f: ∈ isomorphism, ∀(f.D = V, f.C = X)
-			),
-			≌: = relator[isomorphic],
+			; replaced by space
+			; isomorphic(∀V: ∈ module): ; ?
+			; (
+			; 	⊆ module,
+			; 	∀X: ∈ isomorphic(V),
+			; 	∃f: ∈ isomorphism, ∀(f.D = V, f.C = X)
+			; ),
+			; ≌: = relator[isomorphic],
 		; end
 
 		rank(∀T: ∈ homomorphism): = dim[T.C](range(T)),

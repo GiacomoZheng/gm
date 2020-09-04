@@ -7,7 +7,7 @@ s"all the subgroups are normal":
 
 s"classification of finite abelian group": ; +
 (
-	∀T: ∈ abelian_group, n: = |T|,
+	∀T: ∈ abelian_group, n: = set.#(T),
 	T ∈ finite_group ⇒
 ),
 
@@ -16,7 +16,7 @@ s"Fundamental Theorem of Finite generated abelian group":
 	∀G: ∈ finitely_generated_group,
 	G ∈ abelian_group ⇒
 	(
-		∃m: ∈ ℕ,(∃T: ∈ abelian_group, |T| ∈ ℕ), G ≌ ℤ^m × T ; !
+		∃m: ∈ ℕ, (∃T: ∈ abelian_group, set.#(T) ∈ ℕ), G ≌ ℤ^m × T ; !
 	)
 ),
 ; Proof

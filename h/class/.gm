@@ -1,0 +1,72 @@
+: ; class
+(
+	"the '?' of all class, the biggest thing in the classlevel 2",
+	∋ ◉, ; * it means `class` contains ◉ and all of its subclasses
+
+	; loaction
+		empty: ; or empty_class, or contradiction, or paradox
+		(
+			"there is no instance for this class: there is some contradiction within the criteria",
+
+		),
+		
+		nonempty: ; or nonempty_class, or consistent_class, or satisfiable_class
+		(
+			"there is some instance for this class",
+
+		),
+			non-empty: = nonempty,
+			consistent: = nonempty, ; * Source K. Kunen's "The Foundation of Mathematics" Definition II.7.13
+			satisfiable: = nonempty, ; * Source K. Kunen's "The Foundation of Mathematics" Definition II.7.13
+
+		singleton: ; or singleton_class
+		(
+			"instance (sample) of this class is unique"
+			⊆ nonempty,
+
+			∀s: ∈ singleton, 
+			∀X: ∈ s, ∀Y: ∈ s,
+			X s.= Y,
+
+			; attributes
+				s.instance:
+				(
+					; safe
+					"pick the (only) element of s",
+					∃X: ∈ s,
+					= X
+				),
+					s.sample: = s.instance,
+					s.take(): = s.instance, ; in rust manner
+		),
+
+		collectible: ; collectible_class
+		(
+			; in rust manner
+			"set-lizible: the class can be \"collected\" as a set",
+			⊆ class,
+
+			∀s: ∈ collectible,
+			∃S: ∈ set,
+			S.element class.= s ; S.element is the class with only the elements in 
+
+			; attributes
+				s.collected: set.= S, ; convert a collectible class into a set
+		),
+		[ preoperties:
+			* empty ⊆ collectible => ∅,
+			* singleton ⊆ collectible => {e}, 
+			* `◉` is not collectible
+		]
+
+		proper: ; or proper_class
+		(
+			"the class which is not collectible",
+			⊆ class,
+			∀s: ∈ proper, !(s ∈ collectible)
+		),
+
+		collect(∀s: ∈ collectible): = s.collected,
+
+
+),

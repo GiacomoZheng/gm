@@ -1,0 +1,12 @@
+: ; ℝ-like_space
+(
+	; + claim: ℝ-like_space is a structure with unique_up_to_isomorphism property
+	⊆ linear_continuum,
+	⊆ ordered_field,
+
+	; location
+		homomorphism:
+		(
+			⊆ ordered_field.homomorphism,
+		),
+),

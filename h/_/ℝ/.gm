@@ -1,7 +1,30 @@
-: ; + ℝ
+: ; ℝ
 (
+	; ! I'm not sure about to write `-` or `ℝ.-` yet
 	"the set of real number",
-	∈ set,
-	...
+	∈ ℝ-like_space, ;  as ℝ-like_space is a structure with unique_up_to_isomorphism property
+	
 	; location of real analysis
+		; about inheritance
+		; end
+
+		; about metric on ℝ
+			abs(∀x: ∈ ℝ):
+			(
+				"absolute value",
+				x ≥ 0 ⇒ = x, ; ≥ is defined in the poset
+				x < 0 ⇒ = neg(x) ; neg is defined in abelian_group
+			),
+
+			; distance function
+			d(∀x: ∈ ℝ)(∀x: ∈ ℝ): = abs(x - y) ; - is defined in abelian_group
+				d.D: = ℝ, ;  D means Domain of definition
+				d(∀x: ∈ ℝ).D: = ℝ,
+				d(∀x: ∈ ℝ).C: = P ∪ {0}, ; C means Codomain
+				dis: = d,
+				distance: = d, ; dis, distance an alias of d 
+		; end
+
+		; + about measure structure
+		; end
 ),

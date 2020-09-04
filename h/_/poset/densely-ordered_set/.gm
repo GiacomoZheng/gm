@@ -1,0 +1,11 @@
+; densely-ordered_set
+(
+	⊆ poset,
+	(
+		∀S: ∈ densely-ordered_set,
+		∀{x, y}: ∈ S,
+		@S,
+			x < y ⇒ ∃c: ∈ S, x < c < y
+		■
+	)
+),

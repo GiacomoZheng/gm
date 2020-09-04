@@ -1,5 +1,0 @@
-: ; class
-(
-	"the '?' of all class",
-	∋ ◉, ; * it means `class` contains ◉ and all of its subclasses
-),

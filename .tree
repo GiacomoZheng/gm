@@ -4,7 +4,7 @@ gm
 		├── point
 		└── point_mass
 	└── Russell.gm
-├── _class
+├── _alphabet
 ├── _keyword
 ├── _string
 └── h
@@ -19,13 +19,15 @@ gm
     			├── normed_abelian_group
     			└── valued_field
     		├── _affine_space
+    		├── _labeled_graph
+    			└── homomorphism
     		├── _tree
     		├── _Δ-complex
     		├── contractible_space
     		├── graph
-    		├── labeled_graph
-    			├── homomorphism
-    			└── isomorphism
+    		├── ordered_field
+    			└── homomorphism
+    		├── partial_ordered_group
     		└── topological_group
     		    └── theorem.gm
     	├── _preordered_set
@@ -62,16 +64,14 @@ gm
     		├── extension
     		├── finite_extension
     		├── homomorphism
-    		├── isomorphism
     		├── module
     			├── endomorphism
-    			├── finite_generated_vector_space
+    			├── finite_dimensional
     			├── homomorphism
     				└── theorem.gm
     			├── inner_product
     			├── inner_product_space
     				└── theorem.gm
-    			├── isomorphism
     			├── norm
     			├── theorem.gm
     			└── trivial
@@ -90,10 +90,8 @@ gm
     			├── theorem.gm
     			└── transitive_action
     		├── anti_action
-    		├── automorphism
     		├── cyclic_group
     			└── theorem.gm
-    		├── epimorphism
     		├── ex.gm
     		├── finite_group
     			└── theorem.gm
@@ -134,20 +132,20 @@ gm
     		└── theorem.gm
     	├── poset
     		├── _anti_homomorphism
-    		├── _anti_monomorphism
     		├── _homomorphism
-    		├── _monomorphism
     		├── bounded
     		├── bounded_above
     		├── bounded_below
-    		├── decreasing_function
-    		├── increasing_function
-    		├── isomorphism
-    		├── monotonic_function
+    		├── densely-ordered_set
+    		├── finite
     		├── strictly_decreasing_function
     		├── strictly_increasing_function
     		├── strictly_monotonic_function
-    		└── theorem.gm
+    		├── supremum-ordered_set
+    		├── theorem.gm
+    		├── weakly_decreasing_function
+    		├── weakly_increasing_function
+    		└── weakly_monotonic_function
     	├── ring
     		├── action
     		├── homomorphism
@@ -195,6 +193,7 @@ gm
     		├── theorem.gm
     		└── triangulable_space
     	├── totally-ordered_set
+    		└── continuum
     	├── well-ordered_set
     		└── theorem.gm
     	├── ℂ
@@ -204,8 +203,12 @@ gm
     	├── ℕ
     	├── ℚ
     	├── ℝ
+    		├── Lie_group
     		├── manifold
-    		└── vector_space
+    		├── smooth_manifold
+    		├── vector_space
+    			└── finite_dimensional
+    		└── ℝ-like_space
     	└── ℤ
     ├── _bracket
     ├── _lexicon
@@ -213,7 +216,8 @@ gm
     	└── predicate
     ├── _quantifier
     ├── _space
-    ├── alphabet
+    ├── class
+    	└── theorem.gm
     ├── function
     	└── idempotence
     ├── operation
@@ -261,8 +265,9 @@ gm
     	    ├── transitive_set
     	    	└── theorem.gm
     	    └── well-orderable_set
+    ├── structure
     ├── ℕ
     ├── ℚ
     └── ℤ
 
-221 directories, 44 files
+225 directories, 45 files

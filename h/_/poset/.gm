@@ -71,11 +71,12 @@
 					∀x: ∈ S.lower_bound(A),
 					∀a: ∈ A, a S.≤ x
 				),
-				S.bounded_below_subset:
+				S.bounded_below:
 				(
+					"the bounded below subset of S",
 					⊆ set.sub(S),
-					∀A: ∈ S.bounded_below_subset,
-					∃x: ∈ S, x ∈ S.lower_bound(A) ; ? I may change it into nonempty class
+					∀A: ∈ S.bounded_below,
+					S.lower_bound(A) ∈ class.nonempty; ? I may change it into nonempty class
 				),
 				
 				S.upper_bound(∀A: ⊆ S):
@@ -84,25 +85,26 @@
 					∀x: ∈ S.upper_bound(A),
 					∀a: ∈ A, a S.≥ x
 				),
-				S.bounded_above_subset:
+				S.bounded_above:
 				(
+					"the bounded above subset of S",
 					⊆ set.sub(S),
-					∀A: ∈ S.bounded_above_subset,
-					∃x: ∈ S, x ∈ S.upper_bound(A) ; ? I may change it into nonempty class
+					∀A: ∈ S.bounded_above,
+					S.upper_bound(A) ∈ class.nonempty; ? I may change it into nonempty class
 				),
 
-				S.bounded_subset:
+				S.bounded:
 				(
-					; not confuse with bounded_set ; ?
-					⊆ S.bounded_above_subset,
-					⊆ S.bounded_below_subset
+					"the bounded subset of S",
+					⊆ S.bounded_above,
+					⊆ S.bounded_below
 				),
 				[ finite_set ⊆ bounded ]
 
-				S.greatest_lower_bound(∀A: ∈ S.bounded_below_subset): = L[S](A).greatest
+				S.greatest_lower_bound(∀A: ∈ S.bounded_below): = L[S](A).greatest,
 					S.infimum: = S.greatest_lower_bound,
 					S.inf: = S.infimum,
-				S.lowerest_upper_bound(∀A: ∈ S.bounded_above_subset): = U[S](A).lowerest,
+				S.lowerest_upper_bound(∀A: ∈ S.bounded_above): = U[S](A).lowerest,
 					S.least_upper_bound: = S.lowerest_upper_bound,
 					S.supremum: = S.lowerest_upper_bound,
 					S.sup: = S.supremum,
@@ -111,8 +113,8 @@
 
 	; location
 		; about alias
-			maximal(∀S: ∈ poset): = S.maximal,
-			minimal(∀S: ∈ poset): = S.minimal,
+			max(∀S: ∈ poset): = S.maximal,
+			min(∀S: ∈ poset): = S.minimal,
 
 			L[∀S: ∈ poset](∀A: ∈ sub(S)):
 			(

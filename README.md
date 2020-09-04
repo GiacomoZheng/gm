@@ -18,17 +18,14 @@ The file `.tree` is the menu of the whole file
 * `; ?` is equal to `; WAIT`, meaning I haven't determined about whether I'll keep on use it.
 * `; !` is equal to `; WARN`, meaning it is something wrong here, and I'll fix it later
 
+## folders named `_` are transparent, and it is just used for typesetting.
+<!-- * There should be no `.gm` file for it.  -->
+
 ## TODO
 * delete all the `|…|`
 * adjust all the
     - Hom
     - End
     - Aut
+* remove the `_ring_theorem.gm`
 <!-- * adjust relation into generaler function  -->
-<!-- * create a `space` class as the superclass of `group`, `topological_space`. -->
-
-
-## some "high order class", "class of classes"
-    
-
-# *.= defined by default for everything with classleval not 0 (except ◉)

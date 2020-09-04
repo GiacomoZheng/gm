@@ -1,10 +1,12 @@
-: ; increasing_function
+: ; strictly_decreasing_function
 (
 	⊆ set.homomorphism, ; ? may change to preorder later
-	∀f: ∈ increasing_function,
-	f.D = poset, f.C = poset,
-	@f,
-	∀{x, y}: ⊆ D,
-	x D.> y ⇒ f(x) C.> f(y)
-	■
+	(
+		∀f: ∈ strictly_decreasing_function,
+		@f,
+			D = poset, C = poset,
+			∀{a, b}: ⊆ D,
+			a D.< b ⇒ f(a) C.> f(b)
+		■
+	),
 ),

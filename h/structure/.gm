@@ -1,0 +1,72 @@
+: ; structure
+(
+	"a class with isomorphism"
+	⊆ class,
+	(
+		∀s: ∈ structure,
+		s ⊆ set,
+		s.homomorphism: ⊆ set.homomorphism,
+		s.epimorphism:
+		(
+			⊆ s.homomorphism,
+			⊆ set.epimorphism
+		),
+
+		s.monomorphism:
+		(
+			⊆ s.homomorphism,
+			⊆ set.monomorphism
+		),
+
+		s.endomorphism:
+		(
+			⊆ s.homomorphism,
+			⊆ set.endomorphism
+		),
+
+		s.isomorphism:
+		(
+			⊆ s.homomorphism,
+			⊆ set.isomorphism
+		),
+		s.isomorphic(∀X: ∈ s):
+		(
+			⊆ labeled_graph,
+			∀Y: ∈ s.isomorphic(X),
+			∃f: ∈ s.isomorphism, ∀(f.D = V, f.C = X)
+		),
+		s.isomorphic ∈ relation.equivalent,
+		
+		s.≌: = relator[isomorphic],
+
+		s.automorphism:
+		(
+			⊆ s.homomorphism,
+			⊆ set.automorphism
+		),
+	),
+
+	; location
+		singleton: ; or singleton_structure
+		(
+			⊆ class.singleton,
+			⊆ structure,
+		),
+
+		unique_up_to_isomorphism:
+		(
+			"instances unique up to isomorphism"
+			⊆ structure,
+
+			∀s: ∈ unique_up_to_isomorphism, 
+			∀X: ∈ s, ∀Y: ∈ s,
+
+			X ∈ s.isomorphic(Y)
+		),
+			uni-iso: = unique_up_to_isomorphism, ; * Mario's opinion
+		[ properties:
+			* a (structure-) singleton is always unique_up_to_isomorphism
+		]
+
+
+),

@@ -1,7 +1,8 @@
-: ; trivial
+: ; trivial, or trivial_group
 (
 	⊆ group,
 
 	∀G: ∈ trivial,
 	∀f: (∈ mapping, f.D ∈ group, f.C = G), f ∈ homomorphism 
 ),
+[ property: trivial_group is a structure.singleton ]
