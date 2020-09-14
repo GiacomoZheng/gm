@@ -5,12 +5,10 @@ gm
 		└── point_mass
 	└── Russell.gm
 ├── _alphabet
-├── _keyword
-├── _string
-└── h
-    ├── _
-    	├── _
-    		├── _
+├── h
+	├── _
+		├── _
+			├── _
     			├── _random_space
     			├── measurable_space
     			├── metric_space
@@ -40,10 +38,10 @@ gm
     		└── homomorphism
     	├── cell_complex
     	├── commutative_ring
-    		├── _polynomial
-    			├── ex.gm
-    			├── monic
-    			└── theorem.gm
+			├── _polynomial
+				├── ex.gm
+				├── monic
+				└── theorem.gm
     		├── action
     		├── module
     			└── homomorphism
