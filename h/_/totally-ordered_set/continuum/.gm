@@ -5,3 +5,6 @@
 	⊆ complete-ordered_set,
 	
 ),
+[ property: 
+	+ linear_continuum ∈ universal_structure
+]

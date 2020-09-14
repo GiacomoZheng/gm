@@ -5,45 +5,52 @@
 	(
 		∀s: ∈ structure,
 		s ⊆ set,
-		s.homomorphism: ⊆ set.homomorphism,
-		s.epimorphism:
-		(
-			⊆ s.homomorphism,
-			⊆ set.epimorphism
-		),
-
-		s.monomorphism:
-		(
-			⊆ s.homomorphism,
-			⊆ set.monomorphism
-		),
-
-		s.endomorphism:
-		(
-			⊆ s.homomorphism,
-			⊆ set.endomorphism
-		),
-
-		s.isomorphism:
-		(
-			⊆ s.homomorphism,
-			⊆ set.isomorphism
-		),
-		s.isomorphic(∀X: ∈ s):
-		(
-			⊆ labeled_graph,
-			∀Y: ∈ s.isomorphic(X),
-			∃f: ∈ s.isomorphism, ∀(f.D = V, f.C = X)
-		),
 		s.isomorphic ∈ relation.equivalent,
-		
-		s.≌: = relator[isomorphic],
+		; attributes
+			s.homomorphism:
+			(
+				⊆ set.homomorphism,
+				∀f: ∈ s.homomorphism,
+				f.D: ∈ s, f.C: ∈ s
+			),
 
-		s.automorphism:
-		(
-			⊆ s.homomorphism,
-			⊆ set.automorphism
-		),
+			s.epimorphism:
+			(
+				⊆ s.homomorphism,
+				⊆ set.epimorphism
+			),
+
+			s.monomorphism:
+			(
+				⊆ s.homomorphism,
+				⊆ set.monomorphism
+			),
+
+			s.endomorphism:
+			(
+				⊆ s.homomorphism,
+				⊆ set.endomorphism
+			),
+
+			s.isomorphism:
+			(
+				⊆ s.homomorphism,
+				⊆ set.isomorphism
+			),
+			s.isomorphic(∀X: ∈ s):
+			(
+				⊆ labeled_graph,
+				∀Y: ∈ s.isomorphic(X),
+				∃f: ∈ s.isomorphism, ∀(f.D = V, f.C = X)
+			),
+			
+			s.≌: = relator[isomorphic],
+
+			s.automorphism:
+			(
+				⊆ s.homomorphism,
+				⊆ set.automorphism
+			),
 	),
 
 	; location
@@ -53,17 +60,18 @@
 			⊆ structure,
 		),
 
-		unique_up_to_isomorphism:
+		universal: ; or universal_structure ; originate from the universal property.
 		(
-			"instances unique up to isomorphism"
+			"instances unique up to isomorphism, also, every space defined by universal property is a universal structure"
 			⊆ structure,
 
-			∀s: ∈ unique_up_to_isomorphism, 
+			∀s: ∈ universal, 
 			∀X: ∈ s, ∀Y: ∈ s,
 
 			X ∈ s.isomorphic(Y)
 		),
-			uni-iso: = unique_up_to_isomorphism, ; * Mario's opinion
+			unique_up_to_isomorphism: = universal, ; ? I don;t like this name indeed
+			uni-iso: = universal, ; * Mario's suggestion
 		[ properties:
 			* a (structure-) singleton is always unique_up_to_isomorphism
 		]

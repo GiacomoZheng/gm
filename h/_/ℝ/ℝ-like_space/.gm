@@ -1,6 +1,6 @@
 : ; ℝ-like_space
 (
-	; + claim: ℝ-like_space is a structure with unique_up_to_isomorphism property
+	; + claim: ℝ-like_space is a universal_structure
 	⊆ linear_continuum,
 	⊆ ordered_field,
 

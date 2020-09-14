@@ -14,28 +14,46 @@
 
 			∀(a > 0, b > 0) ⇒ a × b > 0 ; specially, 1 > 0
 		■
+		[ preperties:
+			* x ∈ F ⇒ x × x ∈ P
+			* 1 is positive and -1 is negative
+			and
+			https://en.wikipedia.org/wiki/Ordered_field#Properties_of_ordered_fields
+		]
 
 		; attributes
-			F.positive: 
+			F.strictly_positive: 
 			(
 				⊆ set.element(F),
-				∀a: ∈ F.positive, a > 0
+				∀a: ∈ F.strictly_positive, a > 0
 			),
-			F.P: = F.positive.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
-				F.positive_cone: = F.P,
-			F.negative:
+				F.positive: = F.strictly_positive,
+			F.positive_cone: = F.strictly_positive.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
+				F.P: = F.positive_cone,
+				
+			F.strictly_negative:
 			(
 				⊆ set.element(F),
-				∀a: ∈ F.negative, a < 0
+				∀a: ∈ F.strictly_negative, a < 0
 			),
-			F.N: = F.negative.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
-				F.negative_cone: = F.N,
-			[ preperties:
-				* x ∈ F ⇒ x × x ∈ P
-				* 1 is positive and -1 is negative
-				and
-				https://en.wikipedia.org/wiki/Ordered_field#Properties_of_ordered_fields
-			]
+				F.negative: = F.strictly_negative,
+			F.negative_cone: = F.strictly_negative.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
+				F.N: = F.negative_cone,
+				
+			F.weakly_positive: 
+			(
+				⊆ set.element(F),
+				∀a: ∈ F.weakly_positive, a > 0
+			),
+				F.nonnegative: = F.weakly_positive,
+			F.nonnegative_cone: = F.strictly_positive.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
 
+			F.weakly_negative:
+			(
+				⊆ set.element(F),
+				∀a: ∈ F.weakly_negative, a < 0
+			),
+				F.nonpositive: = F.weakly_negative,
+			F.nonpositive_cone: = F.weakly_negative.collected, ; to the set, we need to prove it is collectible (as it ⊆ F)
 	),
 ),

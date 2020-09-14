@@ -1,0 +1,5 @@
+: ; + content_space
+(
+	"measure space but only need finite addition",
+	⊆ set,
+),

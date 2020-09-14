@@ -1,0 +1,14 @@
+: ; + probability_space, or sample_space
+(
+	⊆ measure_space, ; + I'll define it
+	(
+		∀Ω: ∈ sample_space,
+
+	)
+
+),
+[ property:
+	* P(∅) = 0
+	* finite additive
+	* monotonicity
+]

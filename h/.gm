@@ -12,6 +12,7 @@
 		singleton_class: = class.singleton,
 
 		singleton_structure: = structure.singleton,
+		universal_structure: = structure.universal,
 	; end
 	
 	; about set

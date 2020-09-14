@@ -15,7 +15,7 @@
 ; about
 ; end
 
-; todo rewrite
+; + rewrite
 s"extension field with irreducible polynomial":
 (
 	K: ∈ field,

@@ -1,10 +1,9 @@
-: ; extension
+: ; + extension
 (
 	⊆ homomorphism,
 	⊆ injection,
 
-	f.degree: = |f.C / range(f)|
-	; ? I may delete it
+	; + f.degree:
 ),
 [
 	it is true that a field.homomorphism is always an injection,

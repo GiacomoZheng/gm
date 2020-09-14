@@ -6,12 +6,14 @@
 	; loaction
 		empty: ; or empty_class, or contradiction, or paradox
 		(
+			; ! A fatal problem occurs, a subclass of a nonempty_class might be an empty_class  
 			"there is no instance for this class: there is some contradiction within the criteria",
 
 		),
 		
 		nonempty: ; or nonempty_class, or consistent_class, or satisfiable_class
 		(
+			; ! A fatal problem occurs, a subclass of a nonempty_class might be an empty_class  
 			"there is some instance for this class",
 
 		),
@@ -40,6 +42,8 @@
 					s.take(): = s.instance, ; in rust manner
 		),
 
+		; unique_
+
 		collectible: ; collectible_class
 		(
 			; in rust manner
@@ -67,6 +71,5 @@
 		),
 
 		collect(∀s: ∈ collectible): = s.collected,
-
 
 ),

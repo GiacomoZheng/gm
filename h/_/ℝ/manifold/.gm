@@ -2,5 +2,8 @@
 (
 	"a topological space with local homeomorphisc to a Eucildean space",
 	⊆ topological_space,
-
+	(
+		∀M: ∈ manifold,
+		
+	)
 ),

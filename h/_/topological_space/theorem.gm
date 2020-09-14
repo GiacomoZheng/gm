@@ -198,7 +198,7 @@
 	``` ]
 ; end
 
-; about product topology
+; about product topology ; + I'll define it with universal property
 	s"product of two topological space gives a new topology":
 	(
 

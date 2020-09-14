@@ -8,6 +8,12 @@
 		; about inheritance
 		; end
 
+		; alias
+			; about content, measure and probability
+				sample_space: = probability_space,
+			; end
+		; end
+
 		; about metric on ℝ
 			abs(∀x: ∈ ℝ):
 			(
@@ -17,7 +23,7 @@
 			),
 
 			; distance function
-			d(∀x: ∈ ℝ)(∀x: ∈ ℝ): = abs(x - y) ; - is defined in abelian_group
+			d(∀x: ∈ ℝ)(∀y: ∈ ℝ): = abs(x - y) ; - is defined in abelian_group
 				d.D: = ℝ, ;  D means Domain of definition
 				d(∀x: ∈ ℝ).D: = ℝ,
 				d(∀x: ∈ ℝ).C: = P ∪ {0}, ; C means Codomain
@@ -25,6 +31,7 @@
 				distance: = d, ; dis, distance an alias of d 
 		; end
 
-		; + about measure structure
+		; about content, measure and probability
+			
 		; end
 ),

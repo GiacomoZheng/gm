@@ -4,7 +4,7 @@
 	"the integal domain in which every non-zero element not a unit can be written as the product of finite unique irreducible factorization",
 	⊆ integral_domain,
 	... ; +
-	∀U: ∈ unique_factorization_ring,
+	∀U: ∈ UFD,
 	[ hierarchy chain: integral_domain ⊇ GCD_domain ⊇ UFD ]
 	; location
 		; about inheritance

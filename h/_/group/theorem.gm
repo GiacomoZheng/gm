@@ -446,7 +446,7 @@
 	s"relation between isomorphic groups": ; +
 	(
 		∀φ: ∈ isomorphism, G: = φ.D, H: = φ.C,
-		|G| = |H|, ; injection
+		|G| = |H|, ; injection ; ! |̇…|
 		G ∈ abelian_group ⇔ H ∈ abelian_group,
 		G ∈ cyclic_group ⇔ H ∈ cyclic_group,
 		∀x: ∈ G, order[G](x) = order[H](φ(x))

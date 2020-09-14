@@ -2,6 +2,7 @@
 (
 	⊆ manifold,
 	(
+		∀S: ∈ smooth_manifold,
 		
 	)
 ),
