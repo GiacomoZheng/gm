@@ -1,0 +1,10 @@
+: ; !? inherence
+(
+	"use for structure",
+	∋ class,
+	
+	(
+		∀A: ∈ inherence,
+		∀a: ∈ A, ∀b: ⊆ a, b ∈ A
+	)
+)

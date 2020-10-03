@@ -7,7 +7,7 @@
 		∀M: ∈ module,
 		M.π: ∈ action, ; scalar multiplication ; here it is the rng (left) action
 		M ⊆ M.π.S,
-		M.π[∀v: ∈ V]: = V.π(v), ; ? for convenience
+		M.π[∀v: ∈ V]: = M.π(v), ; ? for convenience
 		M.R: = M.π.D
 	)
 ),

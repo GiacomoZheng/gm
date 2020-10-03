@@ -7,24 +7,29 @@
 		V.F: = V.R,
 		V.F ∈ field,
 		V.π ∈ action, ; here it is the field action
-		[ attributes ]
+		; attributes
 			V.combination(∀S: ⊆ V):
 			(
 				⊆ set.sub(V),
 				∀x: ∈ combination[V](S),
-				∃c[∀α: ∈ S]: ∈ V.F,
-				x = V.+[∀α: ∈ I](V.π(c[α])(α)) ; means it is the elements of V
+				∃S': ∈ set.finite_sub(S),
+				∃c[∀α: ∈ S']: ∈ V.F,
+				x = V.+[∀α: ∈ S'](V.π(c[α])(α)) ; means it is the elements of V
+				; i.e. x = c1 α1 + c2 α2 + ... + cn αn
 			),
 
-			V.span(∀S: ⊆ V): = {∀x: ∈ combination[V](S)},
+			V.span(∀S: ⊆ V): = combination[V](S).collect(), ; + collectible
 
 			V.independent: ; ?
 			(
 				"independent subset of this vector space",
 				⊆ set.sub(V),
 				∀I: ∈ V.independent,
-				∀c[∀α: ∈ I]: ∈ V.F,
-				V.+[∀α: ∈ I](V.π(c[α])(α)) = V.0 ⇒ (∀α: ∈ I, c[α] = V.F.0) ; ? as an abelian group, order of addition is unimportant
+				∃I': ∈ set.finite_sub(I),
+				∀c[∀α: ∈ I']: ∈ V.F,
+				@V,
+					+[∀α: ∈ I'](π(c[α])(α)) = 0 ⇒ (∀α: ∈ I', c[α] = F.0) ; ? as an abelian group, order of addition is unimportant
+				■
 			),
 
 			V.spanning_set:
@@ -45,12 +50,12 @@
 
 			),
 
+			; ! only for a finite dimensional vector space
 			V.coordinate[∀ℬ: ∈ V.basis](∀x: ∈ V):
 			; be similar to the actions
 			(
-				; an isomorphism
-				∃f: ∈ V.F set.^ ℬ,
-				x = +[∀b: ∈ ℬ](V.π[f(b)](b)), ; + f is unique
+				; an isomorphism to 
+				∃f(∀b: ∈ ℬ): ∈ V.F, x = +[∀b: ∈ ℬ]( V.π[f(b)](b) ), ; + f is unique
 				= f
 			),
 
@@ -59,6 +64,10 @@
 
 			V.annnihilator(∀S: ⊆ V): = {f|∀s: ∈ S, f(s) = V.F.0}[∀f: ∈ V.dual_space],
 			V.ann: = V.annnihilator,
+
+			; about representation
+				; may be Group.representation
+			; end
 	),
 		; about alias
 			ker(∀f: ∈ homomorphism): = f.kernel,
@@ -77,17 +86,18 @@
 		; + about inheritance
 			sub(∀V: ∈ module):
 			(
-				⊆ module,
 				⊆ ring.module.sub(V), ; +
+				⊆ module,
 				∀S: ∈ sub(V),
 				V.F = S.F,
 				V.multiply = S.multiply
 			),
 
+			; Hom(∀V: ∈ module, ∀W: ∈ module), ; moved to the structure
+			; it is also a vector space
+
 			min_sub[∀G: ∈ module](∀S: ⊆ G): = ∩[∀H: ∈ sub(G), S ⊆ H](H), ; ! ; ? maybe I'll change it to closure
 
-			Hom(∀V: ∈ module, ∀W: ∈ module): = {f|f ∈ homomorphism}[∀f: ∈ abelian_group.Hom(V, W)], ; = f|f ∈ homomorphism}[∀f: ∈ set.Hom(V, W)]
-			; + it is also a vector space
 
 			; replaced by space
 			; isomorphic(∀V: ∈ module): ; ?

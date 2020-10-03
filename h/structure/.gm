@@ -7,61 +7,85 @@
 		s ⊆ set,
 		s.isomorphic ∈ relation.equivalent,
 		; attributes
-			s.homomorphism:
-			(
-				⊆ set.homomorphism,
-				∀f: ∈ s.homomorphism,
-				f.D: ∈ s, f.C: ∈ s
-			),
+			; about morphism
+				s.homomorphism:
+				(
+					⊆ set.homomorphism,
+					∀f: ∈ s.homomorphism,
+					f.D: ∈ s, f.C: ∈ s
+				),
 
-			s.epimorphism:
-			(
-				⊆ s.homomorphism,
-				⊆ set.epimorphism
-			),
+				s.epimorphism:
+				(
+					⊆ s.homomorphism,
+					⊆ set.epimorphism
+				),
 
-			s.monomorphism:
-			(
-				⊆ s.homomorphism,
-				⊆ set.monomorphism
-			),
+				s.monomorphism:
+				(
+					⊆ s.homomorphism,
+					⊆ set.monomorphism
+				),
 
-			s.endomorphism:
-			(
-				⊆ s.homomorphism,
-				⊆ set.endomorphism
-			),
+				s.endomorphism:
+				(
+					⊆ s.homomorphism,
+					⊆ set.endomorphism
+				),
 
-			s.isomorphism:
-			(
-				⊆ s.homomorphism,
-				⊆ set.isomorphism
-			),
-			s.isomorphic(∀X: ∈ s):
-			(
-				⊆ labeled_graph,
-				∀Y: ∈ s.isomorphic(X),
-				∃f: ∈ s.isomorphism, ∀(f.D = V, f.C = X)
-			),
-			
-			s.≌: = relator[isomorphic],
+				s.isomorphism:
+				(
+					⊆ s.homomorphism,
+					⊆ set.isomorphism
+				),
+				s.isomorphic(∀X: ∈ s):
+				(
+					⊆ labeled_graph,
+					∀Y: ∈ s.isomorphic(X),
+					∃f: ∈ s.isomorphism, ∀(f.D = V, f.C = X)
+				),
+				
+				s.≌: = relator[isomorphic],
 
-			s.automorphism:
-			(
-				⊆ s.homomorphism,
-				⊆ set.automorphism
-			),
+				s.automorphism:
+				(
+					⊆ s.homomorphism,
+					⊆ set.automorphism
+				),
+				[ property:
+					A ∈ s, the identity map on A is always an automorphism
+				]
+
+				; about set of morphism
+					s.Hom(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.homomorphism}[∀f: ∈ set.Hom(X)(Y)],
+					s.Epi(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.epimorphism}[∀f: ∈ set.Epi(X)(Y)],
+					; s.Mon(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.monomorphism}[∀f: ∈ set.Hom(X, Y)],
+					s.End(∀X: ∈ s): = {f|f ∈ s.endomorphism}[∀f: ∈ set.End(X)],
+					; s.Iso(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.endomorphism}[∀f: ∈ set.Iso(X, Y)],
+					s.Aut(∀X: ∈ s): = {f|f ∈ s.automorphism}[∀f: ∈ set.Aut(X)],
+				; end
+			; end
+
+			; about inherence
+				s.sub(∀X: ∈ s): ; + there should be a universal property
+				(
+					⊆ set.sub(X),
+					⊆ s,
+				),
+			; end
 	),
 
 	; location
 		singleton: ; or singleton_structure
 		(
+			; ?
 			⊆ class.singleton,
 			⊆ structure,
 		),
 
 		universal: ; or universal_structure ; originate from the universal property.
 		(
+			; ?
 			"instances unique up to isomorphism, also, every space defined by universal property is a universal structure"
 			⊆ structure,
 

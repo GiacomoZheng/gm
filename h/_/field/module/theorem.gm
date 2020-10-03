@@ -85,7 +85,7 @@
 
 ; end
 
-; about dimension
+; + about dimension
 	s"any two bases of a finite generated vector space, the cardinal number of them are the same":
 	(
 
@@ -130,6 +130,7 @@
 	(
 		∀V: ∈ vector_space, ∀W: ∈ vector_space,
 		Hom(V, W) ∈ vector_space ; especially, dual space are also vector space
+		; + define the structure on it
 	),
 
 	s"Ann(W) ≌ (V/W)*": , ; +

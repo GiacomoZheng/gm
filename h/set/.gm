@@ -49,12 +49,11 @@
 		; * idea 1: differ the symbol for classes and samples
 		; * idea 2: give other symbols for class
 
-	⊆ ◉, ; I may change it to, ∈ class
+	⊆ ◉, ; I may change it to, ∈ structure
 	(
 		∀X: ∈ set, ; +
 		`
 			my opinion about ZFC:
-
 		`
 
 		; attributes
@@ -69,10 +68,11 @@
 			X.partition:
 			(
 				⊆ X.cover(X),
-				∀𝒫: ∈ X.partition(X),
-				; * ¬({} ∈ 𝒫), ; for a partition, there can be an empty set inside, but it is not allowed in quotient
-				∀A: ∈ 𝒫, ∀B: ∈ 𝒫,
-				¬(A = B) ⇒ A ∩ B = ∅
+				⊆ disjoint_sub(X),
+				; ∀𝒫: ∈ X.partition(X), ; ¬({} ∈ 𝒫), ; ? for a partition, there can be an empty set inside, but it is not allowed in quotient
+				; * In fact, I'm not sure about it, but I know
+					; * covers can contain empty set
+					; * quotient cannot contain empty set
 			),
 	),
 
@@ -84,10 +84,57 @@
 			enumerable: = denumerable, ; I don't think that using this term is a good idea indeed
 		; end
 
-		; ! about tools
-			universe:
-			(
 
+		; + about structure
+			sub(∀S: ∈ set): ; ?
+			(
+				"subset",
+				⊆ set,
+				∀A: ∈ sub(S),
+				∀a: ∈ A, a ∈ S
+			),
+
+			Hom(∀S: ∈ set)(∀T: ∈ set): ; + the set of homomorphisms from S to T
+			Epi(∀S: ∈ set)(∀T: ∈ set): ; +
+			; Mon(∀S: ∈ set)(∀T: ∈ set): ; +
+			End(∀S: ∈ set): ; +
+			; Iso(∀S: ∈ set)(∀T: ∈ set): ; +
+			Aut(∀S: ∈ set): ; +
+
+			; + quotient
+		; end
+
+		; about special subsets
+			disjoint_sub(∀S: ∈ set):
+			(
+				"disjoint subset",
+				⊆ sub(S),
+				∀X: ∈ disjoint_sub(S), ∀Y: ∈ disjoint_sub(S),
+				¬(X = Y) ⇒ X ∩ Y = ∅
+			),
+
+			finite_sub(∀S: ∈ set):
+			(
+				"finite subset",
+				⊆ finite, ; + to be define
+				⊆ sub(S),
+			),
+			disjoint_finite_sub(∀S: ∈ set):
+			(
+				⊆ finite_sub(S),
+				⊆ disjoint_sub(S),
+			),
+			
+			countable_sub(∀S: ∈ set):
+			(
+				"countable subset",
+				⊆ countable, ; ? countable I'm not sure about what it is 
+				⊆ sub(S),
+			),
+			disjoint_countable_sub(∀S: ∈ set):
+			(
+				⊆ countable_sub(S),
+				⊆ disjoint_sub(S),
 			),
 		; end
 
@@ -97,15 +144,6 @@
 			∀𝒫: ∈ quotient(X),
 			¬({} ∈ 𝒫) ; for the definition of quotient space / group
 		),
-
-		sub(∀S: ∈ set):
-		(
-			"subset",
-			⊆ set,
-			∀A: ∈ sub(S),
-			∀a: ∈ A, a ∈ S
-		),
-		; !! ⊆: = relator[sub], ; !
 
 		variable(∀D: ∈ set): ; ?
 		(
@@ -123,12 +161,14 @@
 
 		element(∀S: ∈ set): ; +
 		(
+			"the class contains exactly what this S has; in another word, the class of elements of S",
 		),
 
-		Ps(∀S: ∈ set): = {A}[∀A: ⊆ S], ; return a set ; + I'll create another function return a class
+		Ps(∀S: ∈ set): = set.sub(S).collect(), ; return a set ; + set.sub(S) is collectible
 
 		#(∀S: ∈ set):, ; + cardinal number of a set
 
+		; + rewrite later (about universal property)
 		×: ; !
 		(
 			∈ operator, ; !
@@ -136,7 +176,7 @@
 			A × B = {(x, y)}[∀x: ∈ A, ∀y: ∈ B]
 		),
 
-		∪: ; !
+		∪: ; ! ; + rewrite later (about universal property)
 		(
 			; ∈
 			∀τ: ∈ set, ; set of set
@@ -146,7 +186,7 @@
 			∀(A ∈ set, B ∈ set) ⇒ (A ∪ B) = ∪[]({A, B})
 		),
 
-		∩: ; !
+		∩: ; ! ; + rewrite later (about universal property)
 		(
 			; ∈
 

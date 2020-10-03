@@ -1,0 +1,13 @@
+: ; homomorphism
+(
+	⊆ abelian_group.homomorphism,
+	(
+		∀f: ∈ homomorphism,
+		@f,
+			D.G = C.G,
+			∀α: ∈ D.G, f ∘ D.π[α] = C.π[α] ∘ f
+		■
+		
+		f.G: = f.D.G ; for convince
+	)
+)

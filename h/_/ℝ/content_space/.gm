@@ -1,5 +1,52 @@
 : ; + content_space
 (
+	; Source: https://en.wikipedia.org/wiki/Content_(measure_theory)
 	"measure space but only need finite addition",
 	⊆ set,
+	(
+		∀X: ∈ content_space,
+		X.𝒜: ∈ algebra(X),
+		X.μ: ∈ mapping, ; ? I don;t know about a better choice
+			X.μ.D: = X.𝒜,
+			X.μ.C: = nonnegative_cone; ! including ∞
+		@X,
+			∀A: ∈ 𝒜, ∀B: ∈ 𝒜,
+			A ∩ B = ∅ ⇒ μ(A ∪ B) = μ(A) + μ(B) 
+		■
+	)
+
+	; location
+		algebra(∀X: ∈ set):
+		(
+			⊆ set.sub(set.Ps(X)),
+			∀𝒜: ∈ union_complement_algebra(X),
+			X ∈ 𝒜, ; the universe is always in it
+			∀C: ∈ 𝒜, X \ C ∈ 𝒜, ; complement ; ? \
+			
+			∀A: ∈ 𝒜, ∀B: ∈ 𝒜, A ∪ B ∈ 𝒜, ; union of 2 elements
+			; * in measure_space, σ_algebra need to be a closure for countably union
+
+			[ property:
+				* ∅ ∈ 𝒜,
+				* A ∩ B ∈ 𝒜 (from Union and Complement
+			]
+
+			; location
+				span(∀𝒞: ∈ set.sub(set.Ps(X))):
+				(
+					"the smallest algebra contains 𝒞",
+					∈ algebra(X),
+					set.= ∩[∀𝒜: (∈ algebra, 𝒞 ⊆ 𝒜)](𝒜) ; as it is still a algebra
+				),
+					generated_from: = span,
+					from: = span, ; + I wan to use `from` to replace these things like `span` or `generated`
+		),
+			union_algebra: = algebra,
+			union_complement_algebra: = algebra,
+		[ property:
+			* union of two algebra's over the same space is still a algebra
+			? what about coutably union? And general union ; * for σ-algebra, it is not generally true for countably union.
+			* intersection of set of algebra's over the same space is still a algebra
+		]
+
 ),

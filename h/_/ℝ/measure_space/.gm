@@ -1,0 +1,36 @@
+: ; measure_space
+(
+	⊆ content_space,
+	(
+		∀X: ∈ content_space,
+		X.Σ: = X.𝒜,
+		X.Σ ∈ σ_algebra,
+		
+		@X,
+			∀ℬ: ∈ set.disjoint_countable_sub(𝒜),
+			μ(∪(ℬ)) = +[∀A: ∈ ℬ](μ(A)) ; as μ(A)'s are nonnegative (or ∞) ; ? +
+		■
+	)
+
+	; locations
+		σ_algebra(∀X: ∈ set):
+		(
+			⊆ content_space.algebra(X),
+			∀𝒜: ∈ σ_algebra,
+
+			∀ℬ: ∈ set.countable_sub(𝒜), ∪(ℬ) ∈ 𝒜 ; ? ∪
+
+			span(∀𝒞: ∈ set.sub(set.Ps(X))):
+			(
+				"the smallest algebra contains 𝒞",
+				∈ algebra(X),
+				set.= ∩[∀𝒜: (∈ σ_algebra, 𝒞 ⊆ 𝒜)](𝒜) ; as it is still a σ-algebra
+			),
+				generated_from: = span,
+				from: = span, ; + I wan to use `from` to replace these things like `span` or `generated`
+		),
+		[ property:
+			* intersection of set of algebra's over the same space is still a algebra
+			* union of (σ-)algebra's may not be a (σ-)algebra.
+		]
+),

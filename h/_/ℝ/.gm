@@ -10,7 +10,6 @@
 
 		; alias
 			; about content, measure and probability
-				sample_space: = probability_space,
 			; end
 		; end
 

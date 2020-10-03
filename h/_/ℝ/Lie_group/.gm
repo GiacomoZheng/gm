@@ -1,4 +1,4 @@
-: ; Lie_group
+: ; + Lie_group
 (
 	⊆ smooth_manifold,
 	⊆ vector_space.finite_dimensional,

@@ -5,8 +5,8 @@
 	f.D ∈ module, f.C ∈ module,
 
 	@f,
-	D.R = C.R,
-	∀α: ∈ D.R, ∀x: ∈ D, f(D.π[α](x)) = C.π[α](f(x))
+		D.R = C.R,
+		∀α: ∈ D.R, f ∘ D.π[α] = C.π[α] ∘ f
 	■
 	f.R: = f.D.R ; for convince
 ),

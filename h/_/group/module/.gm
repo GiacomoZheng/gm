@@ -1,0 +1,11 @@
+: ; module
+(
+	"group module",
+	⊆ abelian_group, ; "+" defined there
+	(
+		∀V: ∈ module,
+		V.ρ: ∈ action, ; here it is the group action
+		V.G: = V.ρ.D
+		V ⊆ V.ρ.S,
+	)
+),

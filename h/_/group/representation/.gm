@@ -1,0 +1,16 @@
+: ; representation
+(
+	"a vector space with group action ρ and field action π commuting",
+	⊆ module, ; group module, with ρ, +
+	⊆ field.module, ; vector_space, with π
+	(
+		∀V: ∈ representation,
+		V.ρ.C = field.module.Aut(V) ; = GL(V)
+		[ property```
+			∀g: ∈ G, ∀f: ∈ F, ρ(g) ∘ π(f) = π(f) ∘ ρ(g)
+		``` as ρ(g) is linear ]
+	),
+	[ property:
+		* ×, tensor product, dual space, vector space Hom can all be defined as representation
+	]
+),

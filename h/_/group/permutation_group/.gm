@@ -4,7 +4,7 @@
 	⊆ group,
 	(
 		∀G: ∈ permutation_group,
-		G.S: ∈ set,
-		∀f: ∈ G, f ∈ set.automorphism, f.D = G.S
+		G.M: ∈ set,
+		G ∈ set.sub(set.Aut(G.M))
 	)
 ),

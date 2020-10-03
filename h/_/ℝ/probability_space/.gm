@@ -1,9 +1,14 @@
-: ; + probability_space, or sample_space
+: ; + probability_space
 (
-	⊆ measure_space, ; + I'll define it
+	⊆ measure_space,
 	(
-		∀Ω: ∈ sample_space,
-
+		∀Ω: ∈ probability_space,
+		Ω.P: = Ω.μ,
+		Ω.P(Ω) = 1,
+		
+		Ω.sample_space: = Ω,
+		Ω.event_space: = Ω.𝒜,
+		
 	)
 
 ),

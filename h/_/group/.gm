@@ -69,7 +69,7 @@
 				)
 			),
 
-			Hom(∀G: ∈ group, ∀H: ∈ group): = {f|f ∈ homomorphism}[∀f: ∈ set.Hom(G, H)], ; ! homomorphism
+			; Hom(∀G: ∈ group, ∀H: ∈ group), ; * moved to the structure
 		; end
 
 		; about basic
@@ -87,8 +87,8 @@
 			order[∀G: ∈ group](∀x: ∈ G): ; !
 			(
 				"it is the cardinal of the smallest subgroup of G with x  in it, generally speaking"
-				D: = {m | G.e (G.* x)^m = G.e}[∀m: ∈ N] ; !
-				¬(D = ∅) ⇒ order[G](x) = inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur; ! I may change the inf function later
+				; D: = {m | G.e (G.* x)^m = G.e}[∀m: ∈ N] ; !
+				; ¬(D = ∅) ⇒ order[G](x) = ℕ.inf(D) ; the domian of inf function do not contains ∅. If so, the error will occur; ! I may change the inf function later
 				; + otherwise return the cardinal of Z
 			),
 
@@ -96,11 +96,14 @@
 		; end
 
 		; for special elements
-			involution(∀R: ∈ ring):
+			involution(∀G: ∈ group):
 			(
-				⊆ set.element(R),
-				∀x: ∈ involution(R),
-				x R.× x = R.1
+				⊆ set.element(G),
+				∀x: ∈ involution(G),
+				@G,
+					¬(x = e),
+					x * x = e
+				■
 			),
 		; end
 
@@ -139,11 +142,11 @@
 				normal_sub: = normal,
 				normal_subgroup: = normal,
 
-			/: ; !
+			/: ; + universal property
 			(
 				∈ operator, ; !
 				∀G: ∈ group, ∀H: ∈ normal(G),
-				G / H = G /["l"] H ; in fact, here /[l] and /[r] has the same result
+				; G / H = G /["l"] H ; in fact, here /[l] and /[r] has the same result
 			),
 		; end
 		
