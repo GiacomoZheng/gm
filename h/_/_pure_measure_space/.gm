@@ -1,9 +1,0 @@
-: ; pure_measure_space
-(
-	"generalize the ℝ of measure_space into a supremum-ordered_set",
-	⊆ set,
-	(
-		∀S: ∈ pure_measure_space,
-		; + after the set algebra
-	)
-),

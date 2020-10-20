@@ -59,18 +59,26 @@ would be replace by
 ```gm
 b.something
 ```
+specially, if `a`, `b` are both has nonzero class level, like if they are both subclass of `◉`, we can also replace
+```gm
+something ∈ a
+```
+by
+```gm
+something ∈ b
+```
 Remark. `x.a` may have no relationship with `a`, so that it may not equal to `x.b` (which may not even be defined).
 ### class equal
-Although it has the name "`class` equal", every identifier with nonzero classlevel (i.e. not an instance of `◉`) defiend a "equal" automatically and recursively for their instances. Intuitively, it means two of its instances are "the same" as this class, like
-* n-dimensional Euclidean space `topological_space.=` n-dimensional real space.
+From the name we can see, the absolute equal induce any class equal. Although it has the name "`class` equal", every identifier with nonzero classlevel (i.e. not an instance of `◉`) defiend a "equal" automatically and recursively for their instances. Intuitively, it means two of its instances are "the same" as this class, like
+* a n-dimensional Euclidean space `topological_space.=` a n-dimensional real space.
 * a `quotient_group` of `group` `G` `set.=` a `partition` of `G`
 * a `cardinal_number` `set.=` a `set` of `set` of `set` of ... of `set`.
 
-As `A.=` is defined automatically with `A`, I do not allow any rewrite or a
+As `A.=` is defined automatically with `A`, I do not allow any rewrite on it.
 
 Remark. `gm` is an instance of `◉` so that the absolutely equal `gm.=` is not a class equal. Similarly, we can define anything like `a.=` if `a` is an instance of `◉`.  
 
-Formally speacking with recursion,
+Formally speacking, we can define this "`class` equal" with recursion,
 * To begin with, `◉.=` satisfies any two instances of it, in other words, `◉` is a `singleton_class`.
 * For a subclass `A` of `◉` with every instance `a` of it has an attribute `a.s` as an instance of `◉`, as
 ```gm
@@ -80,25 +88,46 @@ A:
     ∀a: ∈ A,
     a.s: ∈ ◉
 ),
+f(∀a: ∈ A): ∈ B, ; B ⊆ ◉
 ```
-then for `a, b` instances of `A`, `a A.= b` if and only iff `a ◉.= b` (as `A ⊆ ◉`) and `a.s ◉.= b.s`. Of course, in this example, `A` is still a `singleton class`.
+then for `a, b` instances of `A`, `a A.= b` if and only iff `a ◉.= b` (as `A ⊆ ◉`), `a.s ◉.= b.s` and `f(a) = f(b)` (absolute equal, due to definition of function, ?though I haven't defined the functions well?). Of course, in this example, `A` is still a `singleton class`.
+<!-- + function -->
+<!-- ? function -->
 * To construct a non-singleton class, we need something else than the instance of `◉`, that is the subclass of `◉`,
 ```gm
 A:
 (
-    ⊆ ◉,
-    ∀a: ∈ A,
+    ...
     a.s: ⊆ ◉
 ),
+...
 ```
-Intuitively, `a.s` now is a class, to define `a A.= b`, we need to define `a.s class.= b.s`, which can be defined as `a.s ⊆ b.s` and `b.s ⊆ a.s`. <!-- ? I may define it strictly later -->
+Intuitively, `a.s` now is a class, to define `a A.= b`, we need `a.s class.= b.s`. Recall the definition of class,
+```gm
+class:
+(
+	∋ ◉, ; * it means `class` contains ◉ and all of its subclasses
+	; loaction
+		sub(∀c: ∈ class):
+		(
+			⊆ class,
+			∀b: ∈ sub(c),
+			∀x: ∈ b, x ∈ c
+		),
+    ...
+)
+```
+so that `a.s class.= b.s` means `class.sub(a.s) = class.sub(b.s)`
+
+
+which can be defined as `a.s ⊆ b.s` and `b.s ⊆ a.s`. <!-- ? I may define it strictly later -->
 ```gm
 a: (∈ A, a.s = ◉),
 b: (∈ A, b.s = A),
 ```
 in this case, `a` and `b` is different from each other in the sense of instance of `A`, as `A` is not equal to `◉` in class sense.
 * For `A` with higher classlevel, the idea is similar.<!-- , there is always something simple as `◉` (for classlevel 2, it is `class`)  -->
-* To aviod the risk of "the third great crises in mathematics" and "stack overflow", let's consider about the "self-reference".
+* To aviod the risk of "the third great crisis in mathematics" and "stack overflow", let's consider about the "self-reference".
 ```gm
 A: (⊆ A),
 ```

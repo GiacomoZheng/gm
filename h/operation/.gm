@@ -1,10 +1,12 @@
 : ; operation
 (
+	; ? defining the set
 	"a set action on itself",
 	⊆ set.action,
 	(
 		∀p: ∈ operation,
 		p.D = p.S,
+		; NOTE p(y)(x) = x × y, i.e. order is reversed
 
 		; attributes
 			p.closure:
@@ -16,6 +18,6 @@
 			),
 
 			p.reverse(∀x: ∈ p.D)(∀y: ∈ p.D): = p(y)(x),
-			p.reverse.D: = p.D,
+			p.reverse.D: = p.D, ; ? may be useless later
 	)
 )

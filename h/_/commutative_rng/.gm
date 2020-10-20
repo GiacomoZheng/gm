@@ -1,7 +1,6 @@
 : ; commutative_rng
 (
-	⊆ rng,
-
+	∈ structure.full_sub(rng),
 	(
 		∀R: ∈ commutative_rng,
 		∀{a, b}: ⊆ R,

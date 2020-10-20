@@ -4,6 +4,13 @@
 	∋ ◉, ; * it means `class` contains ◉ and all of its subclasses
 
 	; loaction
+		sub(∀c: ∈ class):
+		(
+			⊆ class, ; ! ⊆ is not defined yet
+			∀b: ∈ sub(c),
+			∀x: ∈ b, x ∈ c
+		),
+		
 		empty: ; or empty_class, or contradiction, or paradox
 		(
 			; + 
@@ -69,9 +76,8 @@
 
 		proper: ; or proper_class
 		(
-			"the class which is not collectible",
-			⊆ class,
-			∀s: ∈ proper, !(s ∈ collectible)
+			"the class is to big to be collectible",
+			; +
 		),
 
 		collect(∀s: ∈ collectible): = s.collected,

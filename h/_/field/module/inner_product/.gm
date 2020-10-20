@@ -1,6 +1,0 @@
-: ; + inner_product
-(
-	⊆ function,
-	∀in: ∈ inner_product,
-	in.D: ∈ module,
-),

@@ -1,6 +1,7 @@
 : ; smooth_manifold
 (
-	⊆ manifold,
+	∈ structure.sub(manifold),
+	; + homo
 	(
 		∀S: ∈ smooth_manifold,
 		

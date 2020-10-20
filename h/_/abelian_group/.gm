@@ -1,6 +1,7 @@
 : ; abelian_group
 (
-	⊆ group,
+	; ⊆ group,
+	∈ structure.full_sub(group), ; define the homomorphism here
 	(
 		∀G: ∈ abelian_group,
 		G.operation ∈ commutative_operation,

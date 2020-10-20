@@ -1,0 +1,15 @@
+: ; + normed_vector_space
+(
+	⊆ vector_space, ; real vector space
+	∀V: ∈ normed_vector_space,
+	V.norm(∀v: ∈ V): ∈ norm,
+	; + ‖
+
+	; location
+		; about tools
+			norm:
+			(
+				; + 
+			)
+		; end
+)

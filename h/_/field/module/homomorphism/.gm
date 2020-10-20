@@ -1,12 +1,12 @@
 : ; homomorphism, or linear_transformation, or linear_map
 (
-	⊆ ring.module.homomorphism,
-
+	; from the field ∈ structure.full_sub(commutative_ring.module)
+	; ⊆ ring.module.homomorphism,
+	; T.D ∈ module, T.C ∈ module,
+	
 	∀T: ∈ homomorphism,
-	T.D ∈ module, T.C ∈ module,
 
 	T.F: = T.R,
-
 	; ! T.adjoint(∀d: ∈ dual(T.D)): = d ∘ T, this notation is confusing
 	; they may use f* to represent it
 	T.transpose(∀d: ∈ dual(T.D)): = d ∘ T, ; the generation of matrix transpose, to infinite dimemsion

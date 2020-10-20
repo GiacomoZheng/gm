@@ -1,6 +1,6 @@
 : ; GCD_domain
 (
-	⊆ integral_domain,
+	∈ structure.full_sub(integral_domain),
 	(
 		"the integral domain in which all the great common divisors are associated",
 		∀R: ∈ GCD_domain,

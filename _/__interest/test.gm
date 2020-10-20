@@ -1,0 +1,46 @@
+; 一个实例, classlevel = 0
+a:
+(
+	∈ ◉,
+	; aa, bb, cc 都是它的属性
+	aa: ∈ ◉,
+	bb: ⊆ ◉,
+	cc: = aa,
+),
+
+; 一个类, classlevel = 1
+B:
+(
+	⊆ ◉,
+	; dd 是 B 的属性，但不是 b 的属性
+	dd: ∈ ◉,
+	(
+		∀b: ∈ B,
+		; ee 是 b 的属性，但不是 B 的属性
+		b.ee: ∈ ◉,
+	)
+),
+
+
+; 一个实例, classlevel = 0
+c:
+(
+	∈ B,
+	; aa, bb, cc 都是它的属性
+	aa: ∈ ◉,
+	bb: ⊆ ◉,
+	cc: = aa,
+),
+
+; 一个类, classlevel = 1
+A:
+(
+	⊆ ◉,
+	(
+		∀d: ∈ A
+		; aa, bb, cc 都是d的属性
+		d.aa: ∈ ◉,
+		d.bb: ⊆ ◉,
+		d.cc: = d.aa,
+	)
+),

@@ -1,13 +1,15 @@
 : ; + compact_space
 (
-	⊆ topological_space,
+	∈ structure.full_sub(topological_space),
+	; ⊆ topological_space,
 	∀𝒞: ∈ open_cover(X),
-	∃𝒞': (⊆ 𝒞, |𝒞'| ∈ N), ; ! | |
+
+	∃𝒞': ∈ set.finite_sub(𝒞),
 	∪(𝒞') = X ; subset
 ),
 [ equivalently``` ; +
 	∀X: ∈ compact_space,
-	∀ℱ: ⊆ {∀x: ∈ X.closed},
+	∀ℱ: ⊆ set.collect(X.closed),
 	; ∀S: ∈ finite(ℱ)
 	```
 	proof``` ; +

@@ -1,7 +1,7 @@
 : ; + Euclidean_domain, or ED, I'll define it after I learn something about lattice
 (
 	"a integral domain satisfies the Euclidean algorithm",
-	⊆ integral_domain, ; + in fact, here it needn't be unital, and we can prove it is.
+	∈ structure.full_sub(integral_domain), ; + in fact, here it needn't be unital, and we can prove it is.
 	(
 		∀R: ∈ Euclidean_domain,
 		R.σ: ∈ norm, R ∈ sub(R.σ.D), ; integral_domain.sub

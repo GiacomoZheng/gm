@@ -1,7 +1,7 @@
 : ; rng, the ring without multiplication identity
 (
 	"an abelian group on +, and a semigroup on ×",
-	⊆ abelian_group, ; "+,-" is defined here
+	∈ structure.sub(abelian_group), ; "+,-" is defined here
 	(
 		∀R: ∈ rng,
 		R.multiply: ∈ associative_operation,

@@ -1,0 +1,15 @@
+: ; category
+(
+	"a coarser structure with only morphism defiend (the bi-version may not be isomorphism)",
+	⊆ class.sub(set), ; a category is a subclass of set
+	(
+		∀c: ∈ category,
+		c.morphism: ⊆ set.homomorphism,
+		∀f: ∈ c.morphism, f.D ∈ c, f.C ∈ c,
+
+		; attributes
+			; +
+	),
+	; location
+		; +
+),

@@ -1,7 +1,7 @@
 : ; module, or vector_space
 (
 	"field module",
-	⊆ commutative_ring.module, ; "+" defined there
+	∈ structure.full_sub(commutative_ring.module), ; "+" defined there
 	(
 		∀V: ∈ module,
 		V.F: = V.R,
@@ -18,7 +18,7 @@
 				; i.e. x = c1 α1 + c2 α2 + ... + cn αn
 			),
 
-			V.span(∀S: ⊆ V): = combination[V](S).collect(), ; + collectible
+			V.span(∀S: ⊆ V): = combination[V](S).collected, ; + collectible
 
 			V.independent: ; ?
 			(

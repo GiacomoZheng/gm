@@ -1,7 +1,8 @@
 : ; integral_domain
 (
-	⊆ domain, ; doman is ok
-	⊆ commutative_ring,
+	∈ structure.full_sub(domain),
+	∈ structure.sub(commutative_rng),
+
 	; location
 		; about alias
 			ED: = Euclidean_domain,

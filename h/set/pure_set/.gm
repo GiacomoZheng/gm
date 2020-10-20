@@ -1,12 +1,7 @@
 : ; + pure_set
 (
 	"the set of sets (of sets ...)",
-	⊆ set,
-	(
-		∀z: ∈ pure_set,
-		∀x: ∈ z, x ∈ pure_set ; ?
-		
-	)
+	⊆ set[set], ; set with set as universe
 	; location
 		; about alias
 			ordinal_numbers: = ordinal,

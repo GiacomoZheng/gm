@@ -1,9 +1,12 @@
 : ; topological_space, or top'space
 (
 	"topological space via topology (open set)",
-	⊆ set, ; * I have given up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
+	∈ structure.sub(set),
+	; * pay attention, homomorphism of top'space is not exactly continuous function
 	(
 		∀X: ∈ topological_space,
+		; * I have given up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
+		
 		X.τ: ∈ topology(X), ; defined in the tools
 			X.𝒯: = X.τ, ; I won't use this one later
 			; ! X.topology: ; it may cause me confused

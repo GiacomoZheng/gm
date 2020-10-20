@@ -1,14 +1,16 @@
 : ; abstract_simplicial_complex
 ; ? I want to call it simplicial set
 (
-	⊆ set, ; * I have do some changes on it
+	; ⊆ set, ; * I have do some changes on it
+	∈ structure.sub(set), ; ? I may do some more changes on it
 	`
 		people write it as K = (V, Σ), so that intutively, I should write as K, K.V and K.Σ
 		however, it make the "K" as a dummy character.
-		it may casue some unconvenience when I define the mapings on it, so that I change it to K and K.Σ
+		it may casue some inconvenience when I define the mapings on it, so that I change it to K and K.Σ
 	`,
 	(
 		∀K: ∈ abstract_simplicial_complex,
+		K.V: = K, ; for convenience
 		K.Σ: ∈ set.sub(set.Ps(K)),
 		@K,
 			∀v: ∈ V, {v} ∈ Σ,

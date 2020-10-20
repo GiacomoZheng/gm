@@ -1,20 +1,16 @@
-: ; structure
+: ; structure, 
 (
-	"a class with isomorphism"
-	⊆ class,
+	"a category (class) with isomorphism defined",
+	; it seems that a morphism in category don't need to be a homomorphism
+	⊆ category,
 	(
-		∀s: ∈ structure,
-		s ⊆ set,
-		s.isomorphic ∈ relation.equivalent,
+		∀s: ∈ structure, ; s ⊆ set
+		s.homomorphism: ⊆ s.morphism,
+
+		s.isomorphic ∈ relation.equivalent, ; ?
+		∀X: ∈ s, s.identity = s.isomorphism, ; ! ; ?
 		; attributes
 			; about morphism
-				s.homomorphism:
-				(
-					⊆ set.homomorphism,
-					∀f: ∈ s.homomorphism,
-					f.D: ∈ s, f.C: ∈ s
-				),
-
 				s.epimorphism:
 				(
 					⊆ s.homomorphism,
@@ -56,18 +52,26 @@
 					A ∈ s, the identity map on A is always an automorphism
 				]
 
-				; about set of morphism
-					s.Hom(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.homomorphism}[∀f: ∈ set.Hom(X)(Y)],
-					s.Epi(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.epimorphism}[∀f: ∈ set.Epi(X)(Y)],
-					; s.Mon(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.monomorphism}[∀f: ∈ set.Hom(X, Y)],
-					s.End(∀X: ∈ s): = {f|f ∈ s.endomorphism}[∀f: ∈ set.End(X)],
-					; s.Iso(∀X: ∈ s)(∀Y: ∈ s): = {f|f ∈ s.endomorphism}[∀f: ∈ set.Iso(X, Y)],
-					s.Aut(∀X: ∈ s): = {f|f ∈ s.automorphism}[∀f: ∈ set.Aut(X)],
+				; ? about set of morphism
+					s.Hom(∀X: ∈ s)(∀Y: ∈ s): set.= {f|f ∈ s.homomorphism}[∀f: ∈ set.Hom(X)(Y)],
+
+					s.Epi(∀X: ∈ s)(∀Y: ∈ s): set.= {f|f ∈ s.epimorphism}[∀f: ∈ set.Epi(X)(Y)],
+					; s.Mon(∀X: ∈ s)(∀Y: ∈ s): set.= {f|f ∈ s.monomorphism}[∀f: ∈ set.Hom(X, Y)],
+					s.End(∀X: ∈ s): set.= {f|f ∈ s.endomorphism}[∀f: ∈ set.End(X)],
+					; s.Iso(∀X: ∈ s)(∀Y: ∈ s): set.= {f|f ∈ s.endomorphism}[∀f: ∈ set.Iso(X, Y)],
+					s.Aut(∀X: ∈ s): set.= {f|f ∈ s.automorphism}[∀f: ∈ set.Aut(X)],
 				; end
+
+				s.induced_homorphism(∀t: ∈ sub(s)): ; ?
+				(
+					⊆ s.homomorphism,
+					∀f: ∈ s.induced_homorphism,
+					f.D ∈ t, f.C ∈ t
+				),
 			; end
 
 			; about inherence
-				s.sub(∀X: ∈ s): ; + there should be a universal property
+				s.sub(∀X: ∈ s):
 				(
 					⊆ set.sub(X),
 					⊆ s,
@@ -76,6 +80,35 @@
 	),
 
 	; location
+		sub(∀x: ∈ structure): ; or substructure, ; ! or subcategory
+		(
+			⊆ class.sub(x),
+			∀y: ∈ sub(x),
+			y.homomorphism ⊆ x.homomorphism,
+			; by category theory, it is subcategory
+			; y.Hom(A, B) ⊆ x.Hom(A, B)
+		),
+		
+		full_sub(∀x: ∈ structure): ; or substructure, ; ! or subcategory
+		(
+			⊆ sub(x),
+			∀y: ∈ full_sub(x),
+			y.homomorphism class.= x.induced_homorphism(y),
+			; ; by category theory, it is subcategory
+			; ∀A: ∈ y, ∀B: ∈ y,
+			; y.Hom(A, B) = x.Hom(A, B),
+		),
+		[ example:```
+			field ∈ structure.full_sub(ring),
+			field.homomorphism:
+			(
+				⊆ ring.homomorphism,
+
+				∀f: ∈ homomorphism,
+				f.D ∈ field, f.C ∈ field
+			),
+		``` ]
+
 		singleton: ; or singleton_structure
 		(
 			; ?

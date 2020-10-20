@@ -3,7 +3,7 @@
 	⊆ semigroup.homomorphism, ; mapping
 	(
 		∀f: ∈ homomorphism,
-		f.D ∈ monoid, f.C ∈ monoid,
-		f(D.e) = C.e ; in fact, this line is useless for group
+		; f.D ∈ monoid, f.C ∈ monoid, ; by structure
+		f(D.e) = C.e ; this line is useless for group, but important for monoid
 	)
 ),

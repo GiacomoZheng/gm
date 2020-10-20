@@ -1,7 +1,8 @@
 : ; ? doman, I name it like rng
 (
 	"the rng with cancellation",
-	⊆ rng, ; * may not have identity
+	∈ structure.full_sub(rng),
+	; ⊆ rng, ; * may not have identity
 
 	∀R: ∈ doman,
 	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)

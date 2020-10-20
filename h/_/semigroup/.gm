@@ -1,6 +1,6 @@
 : ; semigroup
 (
-	⊆ magma, ; closure on *
+	∈ structure.full_sub(magma), ; closure on *
 
 	∀S: ∈ semigroup,
 	S.operator ∈ associative_operation

@@ -1,6 +1,6 @@
 : ; PID, or principle_ideal_domain
 (
-	⊆ integral_domain,
+	∈ structure.full_sub(integral_domain),
 	∀P: ∈ PID,
 	ideal(P) = principle_ideal(P)
 ),

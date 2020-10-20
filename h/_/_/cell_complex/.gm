@@ -1,4 +1,4 @@
-: ; cell_complex (by A. Hatcher), or CW_complex
+: ; + cell_complex (by A. Hatcher), or CW_complex
 (
 	"refernce: Allen Hatcher - Algebraic Topology",
 	⊆ topological_space,

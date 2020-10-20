@@ -1,6 +1,6 @@
 : ; measure_space
 (
-	⊆ content_space,
+	∈ structure.full_sub(content_space),
 	(
 		∀X: ∈ content_space,
 		X.Σ: = X.𝒜,

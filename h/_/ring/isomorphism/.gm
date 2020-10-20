@@ -1,5 +1,0 @@
-: ; isomorphism
-(
-	⊆ bijection,
-	⊆ homomorphism ; ring.homomorphism
-),

@@ -1,6 +1,7 @@
 : ; connected_space
 (
-	⊆ topological_space,
+	∈ structure.full_sub(topological_space),
+	; ⊆ topological_space,
 	(
 		∀X: ∈ connected_space,
 		∀{A, B}: ∈ open_cover(X), ¬(A ∩ B = ∅) ; ?
@@ -8,6 +9,7 @@
 	; location
 		component(∀X: ∈ topological_space):
 		(
+			"biggest connected subspace",
 			⊆ sub(X),
 			⊆ connected_space,
 			∀C: ∈ component(X),

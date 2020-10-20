@@ -1,6 +1,6 @@
 : ; group
 (
-	⊆ monoid, ; semigroup with identity
+	∈ structure.full_sub(monoid), ; semigroup with identity
 	(
 		∀G: ∈ group,
 		∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse

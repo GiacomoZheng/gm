@@ -1,4 +1,5 @@
 : ; transitive_set
+; ! until set
 (
 	; * different from Kenneth Kunen
 	⊆ pure_set,

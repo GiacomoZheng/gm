@@ -1,3 +1,11 @@
+set[∀cls: ⊆ ◉]:
+(
+	⊆ set,
+	∀S: ∈ set,
+	S.universe = cls
+),
+; set[set] is pure_set
+
 ; about alias
 	; about class
 		empty_class: = class.empty,

@@ -1,11 +1,10 @@
 : ; endomorphism
 (
-	⊆ homomorphism,
-	⊆ set.endomorphism,
+	; from the field ∈ structure.full_sub(commutative_ring.module)
+	; ⊆ homomorphism,
+	; ⊆ set.endomorphism,
 
-	(
-		∀T: ∈ endomorphism,
-		; attribute
-			T.characteristic_polynomial(): ; +
-	),
+	∀T: ∈ endomorphism,
+	; attribute
+		T.characteristic_polynomial(): ; +
 ),

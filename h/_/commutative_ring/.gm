@@ -1,7 +1,7 @@
 : ; commutative_ring
 (
-	⊆ ring,
-	⊆ commutative_rng,
+	∈ structure.full_sub(ring), ; for R.1
+	∈ structure.sub(commutative_rng),
 	(
 		∀R: ∈ commutative_ring,
 		; attributes

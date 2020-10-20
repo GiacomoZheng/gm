@@ -1,6 +1,6 @@
 : ; + probability_space
 (
-	⊆ measure_space,
+	∈ structure.full_sub(measure_space),
 	(
 		∀Ω: ∈ probability_space,
 		Ω.P: = Ω.μ,

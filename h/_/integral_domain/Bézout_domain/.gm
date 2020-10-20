@@ -1,12 +1,12 @@
 : ; Bézout_domain, or Bezout_domain
 (
 	"the integral domain who satisfies the Bézout identity",
-	⊆ integral_domain
+	∈ structure.full_sub(integral_domain),
 	(
 		∀R: ∈ Bézout_domain,
 		@R,
-		∀{a, b}: ⊆ R\{0},
-		(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)) ; integral_domain.gcd
+			∀{a, b}: ⊆ R\{0},
+			(∃{u, v}: ⊆ S, a × u + b × u = gcd(a, b)) ; integral_domain.gcd
 		■
 	),
 	[ hierarchy chain: Bézout_domain ⊇ PID ]

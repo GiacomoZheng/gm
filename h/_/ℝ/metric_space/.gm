@@ -1,6 +1,6 @@
-: ; metric_space
+: ; ! metric_space
 (
-	⊆ metrizable_space, ; ?
+	∈ structure.sub(topological_space.metrizable_space), ; ?
 	(
 		∀M: ∈ metric_space,
 		M.d: ∈ metric, ; defined below

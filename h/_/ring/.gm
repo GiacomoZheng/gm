@@ -1,7 +1,7 @@
 : ; ring, or unital_ring, or unital_rng
 (
 	"rng with multiplication identity"
-	⊆ rng,
+	∈ structure.sub(rng), ; we need to renew the homomorphism about the R.1
 	(
 		∀R: ∈ ring,
 		R.1: ∈ R,

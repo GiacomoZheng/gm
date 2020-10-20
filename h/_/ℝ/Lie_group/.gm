@@ -1,7 +1,8 @@
 : ; + Lie_group
 (
-	⊆ smooth_manifold,
-	⊆ vector_space.finite_dimensional,
+	∈ structure.sub(smooth_manifold),
+	∈ structure.sub(group),
+	; + homomorphism
 	(
 
 	)

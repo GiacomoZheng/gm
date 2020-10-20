@@ -1,6 +1,6 @@
 : ; monoid
 (
-	⊆ semigroup, ; associative magma 
+	∈ structure.sub(semigroup), ; associative magma 
 	(
 		∀S: ∈ monoid,
 		S.e: ∈ S, ; identity, and as nonemptiness, it is possible

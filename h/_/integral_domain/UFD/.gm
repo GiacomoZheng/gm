@@ -2,7 +2,7 @@
 ; !
 (
 	"the integal domain in which every non-zero element not a unit can be written as the product of finite unique irreducible factorization",
-	⊆ integral_domain,
+	∈ structure.full_sub(integral_domain),
 	... ; +
 	∀U: ∈ UFD,
 	[ hierarchy chain: integral_domain ⊇ GCD_domain ⊇ UFD ]

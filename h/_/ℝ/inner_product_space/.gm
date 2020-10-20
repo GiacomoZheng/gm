@@ -1,10 +1,10 @@
-: ; inner_product_space
+: ; + inner_product_space
 (
-	⊆ normed_module,
+	∈ structure.sub(normed_vector_space),
 	(
 		∀V: ∈ inner_product_space,
 		V.in: ∈ inner_product,
-
+		; +
 	),
 
 	; on location
