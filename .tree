@@ -18,7 +18,6 @@ gm
 ├── h
 	├── _
 		├── _
-			├── _
 			├── abstract_simplicial_complex
 				└── homomorphism
 			├── _affine_space
@@ -100,7 +99,6 @@ gm
 				└── theorem.gm
 			├── ex.gm
 			├── free_group
-			├── homomorphism
 			├── isomorphism
 			├── module
 				└── homomorphism
@@ -113,10 +111,10 @@ gm
 		├── integral_domain
 			├── Bézout_domain
 			├── Euclidean_domain
+				├── norm
+					└── theorem.gm
 				└── theorem.gm
 			├── GCD_domain
-				└── theorem.gm
-			├── norm
 				└── theorem.gm
 			├── PID
 				└── theorem.gm
@@ -126,7 +124,7 @@ gm
 			    	├── primitive
 			    	└── theorem.gm
 			    └── theorem.gm
-		├── lattice
+		├── _lattice
 		├── magma
 			└── homomorphism
 		├── monoid
@@ -159,7 +157,6 @@ gm
 				└── theorem.gm
 			├── Lie_group
 			├── manifold
-			├── measurable_space
 			├── measure_space
 			├── metric_space
 				├── _complete_space
@@ -174,7 +171,6 @@ gm
 			├── action
 			├── homomorphism
 			├── module
-				└── homomorphism
 			├── simple
 			└── theorem.gm
 		├── _ring_theroy.gm
@@ -194,16 +190,15 @@ gm
 			└── homomorphism
 		├── skew_field
 		├── topological_space
+			├── _
+				├── cofinite_space
+				└── discrete_set
 			├── accessible_space
 				└── theorem.gm
 			├── compact_space
 				└── theorem.gm
 			├── connected_space
 			├── continuous_function
-			├── discrete_set
-			├── epimorphism
-			├── _ex
-				└── cofinite_space
 			├── Hausdorff_space
 				└── theorem.gm
 			├── homeomorphism
@@ -273,4 +268,4 @@ gm
 └── _tutorials
     └── _old
 
-227 directories, 46 files
+222 directories, 46 files

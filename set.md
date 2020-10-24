@@ -194,7 +194,7 @@ If you are confused about what I have claimed, just remember that `s ◉.= ∅` 
 Following this idea, I think the **Axiom of regularity (2)** should relate to the property of universe.
 
 <!-- Another important effect of `set◉` is that it surely not satisfies the **Axiom of infinity (7)**, but it doesn't matter, as I can still construct it in the `pure_set`. -->
-<!-- For **Axiom of infinity (7)**, assume the **Axiom of union (5)** let's try the general case at first,
+For **Axiom of infinity (7)**, assume the **Axiom of union (5)** let's try the general case at first,
 ```gm
 U: ⊆ ◉, ; universe
 0: (∈ set, universe = U, element ∈ empty_class),
@@ -209,6 +209,6 @@ U: ⊆ ◉, ; universe
 	N.universe = U,
 	0 ∈ ℕ, ∀x: ∈ ℕ, x ∪ {x} ∈ ℕ,
 ),
-``` -->
+```
 
 

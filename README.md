@@ -5,18 +5,20 @@ my source gmfile
 Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out of date)
 
 ## name of folders
-* folders named `_` are transparent, and it is just used for typesetting.
+* folders whose name begin and end with `_` are transparent, and it is just used for typesetting; the words insides are just comments.
+	- Specially, `_/` and `__/` are transparent.
+	- `_vector_space_/` would appear together with `vector_space/` and means the topics related to vector space.
 <!-- * There should be no `.gm` file for it.  -->
 
-* **the folder names** are the true name of the `.gm` file in it, like `group/.gm` is the definition of group.
+* **the folder names** are the true name of the `.gm` file inside, like `group/.gm` is the definition of group.
 
-* The names start with `_` is the ones I think would be deleted or renamed later.
+* The names start with `_` but not end with `_` is the ones I think would be deleted or renamed later.
 
 * The folder `gm/h` is the entry of the main files (about the math-related concepts). I may rename it.
 
-* The file `.tree` is the menu of the whole file
+* The file `.tree` is the menu this project.
 
-* The file `.size` records the size of all of the files.
+<!-- * The file `.size` records the size of all of the files. -->
 
 ## about the better comment
 * `; *` is equal to `; NOTE`, meaning it is important.
@@ -30,6 +32,7 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
     - Hom
     - End
     - Aut
+* define the `set` and complete the `set.md`
 * remove the `_ring_theorem.gm`
 * remove the the last part of `field/theorem.gm`
 * define the `variable`
@@ -170,16 +173,18 @@ probability_space:
 I may use this interesting setting in the definition of `set`.
 
 ## about inherentance
-<!-- set: ∈ structure,
-group: ⊆ set,
-; then automatically we have
-group ∈ structure,
-; in addition,
-group.homomorphism ⊆ set.homomorphism
-group.epimorphism ⊆ set.epimorphism
-; and so on -->
-
-<!-- ; ! what about ≌ or, in general, the other classlevel 0 attributes defined in struture?
-; ! A fatal problem occurs, a subclass of a nonempty_class might be an empty_class
-; ! also, the a subclass of a universal structure might not be a universal structure -->
-
+The main idea is
+```gm
+a ∈ B ⊆ A ⇒ a ∈ A,
+a ⊆ b ∈ B ; may not ⇒ a ∈ B
+```
+for example,
+```gm
+set ∈ structure ⊆ class,
+set ⊆ ◉ ∈ singleton_class
+```
+the deeper reason is that, `structure ⊆ class` is defined as
+```gm
+∀s: ∈ structure, s ⊆ class
+```
+but say nothing about the higher classlevel.
