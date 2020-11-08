@@ -28,15 +28,18 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 
 ## TODO
 * delete all the `|…|`
-* adjust all the
-    - Hom
-    - End
-    - Aut
+
 * define the `set` and complete the `set.md`
 * remove the `_ring_theorem.gm`
 * remove the the last part of `field/theorem.gm`
 * define the `variable`
 * adjust the output of `relation` into `variable` 
+
+## DONE
+* adjust all the `Hom`, `End`, `Aut`, into the `structure`
+
+## Definition order (only for reference)
+`class`, `set`, `structure` (`category`), other structures like `poset`, `group` e.t.c
 
 **I'll move the below ones to the tutorials.**
 

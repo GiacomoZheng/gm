@@ -64,6 +64,7 @@
 			∀s: ∈ collectible,
 			∃S: ∈ set,
 			S.element class.= s ; S.element is the class with only the elements in 
+			; like, x is a element of ℕ iff x is a natural_number
 
 			; attributes
 				s.collected: set.= S, ; convert a collectible class into a set
