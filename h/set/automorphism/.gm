@@ -1,5 +1,6 @@
 : ; automorphism, or permutation
 (
-	⊆ isomorphism, ; in fact the mono or epi is enough
+	⊆ isomorphism,
+	; ? in fact for set, mono or epi is enough, but I'm not sure for the general case
 	⊆ endomorphism
 ),

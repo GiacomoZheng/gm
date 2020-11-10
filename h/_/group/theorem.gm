@@ -129,8 +129,8 @@
 			(i ∘ α)(x) = i(α(x)) = α(x)
 		)
 		⇒ α ∘ i = α = i ∘ α ⇒ i = sym(S).e,
-		∃α^-1: ∈ sym(S), ; bijection
-		α ∘ α^-1 = e = α^-1 ∘ α
+		∃α': ∈ sym(S), ; bijection
+		α ∘ α' = e = α' ∘ α
 	``` ]
 
 	s"linear group":
@@ -363,7 +363,7 @@
 		@G,
 		H ∩ K = {e} ⇒
 		(
-			∃f: ∈ momomorphism, f.D = H × K, f.C = G
+			∃f: ∈ momomorphism, f.D = H × K, f.C = G ; ? ×
 		)
 		■
 	),
@@ -377,7 +377,7 @@
 			),
 			φ ∈ injection ⇐
 			(
-				∀(h, k): ∈ H × K, φ(h, k) = e ⇒ h * k = e ⇒ h = k^-1 ⇒ ∀(h ∈ K, k ∈ H) ⇒ ∀(h ∈ {e}, k ∈ {e}) ⇒ (h, k) = (e, e) ⇒ ker(φ) = {(H × K).e}
+				∀(h, k): ∈ H × K, φ(h, k) = e ⇒ h * k = e ⇒ h = inv[G](k) ⇒ ∀(h ∈ K, k ∈ H) ⇒ ∀(h ∈ {e}, k ∈ {e}) ⇒ (h, k) = (e, e) ⇒ ker(φ) = {(H × K).e}
 			)
 		)
 		⇒ φ ∈ monomorphism

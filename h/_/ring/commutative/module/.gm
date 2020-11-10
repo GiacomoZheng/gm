@@ -1,7 +1,7 @@
 : ; module
 (
 	"ring module",
-	⊆ ring.module,
+	∈ structure.full_sub(rng.module),
 	(
 		∀M: ∈ module,
 		M.π ∈ action ; here it is the commutative_ring (left) action

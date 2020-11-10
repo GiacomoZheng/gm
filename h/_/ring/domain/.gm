@@ -1,0 +1,6 @@
+: ; domain
+(
+	"an ring-like structure, has nothing to do with function's domain",
+	∈ structure.sub(rng.domain),
+	∈ structure.full_sub(ring),
+),

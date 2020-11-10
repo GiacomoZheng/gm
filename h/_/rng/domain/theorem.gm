@@ -1,0 +1,36 @@
+s"cancellation of the multiplication in a rng domain":
+(
+	∀R: ∈ rng.domain,
+	∀{a, b, c}: ⊆ R, ×: = &R.×&,
+	¬(c = R.0) ⇒ (a × c = b × c ⇒ a = b)
+),
+[ proof```
+	a × c = b × c
+	⇒ R.0 = a × c + neg(b × c) = a × c + neg(b) × c = (a + neg(b)) × c
+	⇒ a + neg(b) = R.0 ; as c ≠ 0
+	⇒ a = b
+``` ]
+
+s"nonzero finite rng domain is a ring domain":
+(
+	∀R: ∈ rng.domain,
+	∀(R ∈ set.finite, ¬(R = {R.0})) ⇒ R ∈ ring.domain ; ? ∀()
+
+),
+[ proof is similar to the group``` ; +
+	; if set.#(R) = 1, then R = {R.0}
+	; for the case n ≠ 1
+	@R, 
+	(∃a: ∈ R, ¬(a = 0)) ⇒ (
+		∀a: (∈ R, ¬(a = 0)),
+		{a ^ i}[∀i: ∈ ℤ] ⊆ R ∈ set.finite
+		⇒ (∃m: ∈ ℤ, ∃r: ∈ ℤ, a ^ m = a ^ r) ⇒ (∃i(a): ∈ R, a × i(a) = i(a) × a = a), ; i = m - n, by cancellation
+		; I have found ∀a, ∃i, now I want to prove ∃i, ∀a
+		∀{a, b}: ⊆ R \ {R.0},
+		a × i(b) × b = a × b ⇒ a × i(b) = a = a × i(a) ⇒ i(b) = i(a)
+	)
+	■
+``` ]
+
+s"nonzero finite rng domain is a skew field",
+; as nonzero finite ring domain is a skew field and nonzero finite rng domain is ring domain

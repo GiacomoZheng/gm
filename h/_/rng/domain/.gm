@@ -1,0 +1,8 @@
+: ; rng.domain, or doman
+(
+	"the rng with cancellation",
+	∈ structure.full_sub(rng), ; * may not have identity
+
+	∀R: ∈ domain,
+	∀x: ∈ R, ∀y: ∈ R, x R.× y = 0 ⇒ ∃(x = 0, y = 0)
+),

@@ -1,5 +1,5 @@
 : ; integral_domain
 (
-	⊆ commutative_rng, ; can be zero
-	⊆ domain,
+	∈ structure.sub(commutative_rng),
+	∈ structure.full_sub(ring.domain),
 ),

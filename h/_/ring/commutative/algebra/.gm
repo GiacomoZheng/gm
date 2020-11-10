@@ -1,0 +1,6 @@
+: ; commutative_ring.algebra
+(
+	∈ structure.full_sub(module), ; commutative_ring.algebra
+	∈ structure.sub(ring.module),
+
+),

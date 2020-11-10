@@ -1,23 +1,23 @@
-: ; commutative_rng
+: ; commutative, or commutative_rng
 (
 	∈ structure.full_sub(rng),
 	(
-		∀R: ∈ commutative_rng,
+		∀R: ∈ rng.commutative,
 		∀{a, b}: ⊆ R,
 		a R.× b = b R.× a ; commutativity
 	),
 
 	; location
 		; about inheritance
-			nil(∀R: ∈ commutative_rng): = rng.nil(R),
+			nil(∀R: ∈ rng.commutative): = rng.nil(R),
 			; nilradical ideal, the intersection of all prime ideals
 
-			principle_ideal(∀R: ∈ commutative_rng): = rng.l'principle_ideal(R), ; as commutative
+			principle_ideal(∀R: ∈ rng.commutative): = rng.l'principle_ideal(R), ; as commutative
 
-			proper_ideal(∀R: ∈ commutative_rng): = rng.proper_ideal(R),
+			proper_ideal(∀R: ∈ rng.commutative): = rng.proper_ideal(R),
 		; end
 
-		prime(∀R: ∈ commutative_rng):
+		prime(∀R: ∈ rng.commutative):
 		(
 			"prime elements: p | ab then p | a or p |b",
 			⊆ set.element(R),
@@ -29,30 +29,30 @@
 			■
 		),
 
-		divisor[∀R: ∈ commutative_rng](∀a: ∈ R):
+		divisor[∀R: ∈ rng.commutative](∀a: ∈ R):
 		(
 			⊆ set.element(R),
 			[ 0 can nver be a divisor ]
 			∀b: ∈ divisor[R](a),
 			∃c: ∈ R, c R.× b = a
 		),
-		factor[∀R: ∈ commutative_rng]: = divisor[R],
+		factor[∀R: ∈ rng.commutative]: = divisor[R],
 
-		common_divisor[∀R: ∈ commutative_rng](∀S: ⊆ R\{R.0}):
+		common_divisor[∀R: ∈ rng.commutative](∀S: ⊆ R\{R.0}):
 		(
 			⊆ set.element(R),
 			; specially, if S is empty, return the set.element(R),
 			∀c: ∈ common_divisor[R](S),
 			∀x: ∈ S, c ∈ divisor[R](x)
 		),
-		common_factor[∀R: ∈ commutative_rng]: = common_divisor[R],
+		common_factor[∀R: ∈ rng.commutative]: = common_divisor[R],
 
-		gcd[∀R: ∈ commutative_rng](∀S: ⊆ R\{R.0}): ; +
+		gcd[∀R: ∈ rng.commutative](∀S: ⊆ R\{R.0}): ; +
 		(
 
 		),
 
-		multiple[∀R: ∈ commutative_rng](∀a: ∈ R):
+		multiple[∀R: ∈ rng.commutative](∀a: ∈ R):
 		(
 			⊆ set.element(R),
 			∀b: ∈ multiple[R](a),
@@ -60,7 +60,7 @@
 			[ here, 0 is a multiple of every elements and every every element is the multiple of itself ]
 		),
 
-		zero_divisor(∀R: ∈ commutative_rng): ; ? includes 0
+		zero_divisor(∀R: ∈ rng.commutative): ; ? includes 0
 		(
 			; ? may move it to rng
 			"divisor of 0, someone else may restrict it not 0",

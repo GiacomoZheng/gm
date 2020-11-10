@@ -78,15 +78,20 @@ constant(∀x: ∈ variable): ; +
 	; about name of structures
 		commutative_group: = abelian_group,
 
-		commutative_domain: = integral_domain,
-
 		unital_rng: = ring, ; ? I think it useless
 		unital_ring: = ring,
+		doman: = rng.domain,
+		; ! domain: = ring.domain, ; a little bit confusing
+		commutative_domain: = integral_domain,
+		commutative_rng: = rng.commutative,
+		commutative_ring: = ring.commutative,
+
 		division_ring: = skew_field, ; I mat not use this name, as division_ring don't define the division indeed
-		unital_module: = ring.module, ; left module ; * I'll do not define the singel module in this level
+		unital_module: = ring.module, ; left module
+		; ! module: = ring.module, ; a little bit confusing
 		vector_space: = field.module,
-		finite_dimensional_vector_space: = field.module.finite_dimensional
-		; ! linear_space: = field.module, ; it would cause confusing, as the (true) linear space should be a special affine space I think
+		; ? linear_space: = field.module,
+		finite_dimensional_vector_space: = field.module.finite_dimensional,
 
 		partial-ordered_set: = poset,
 			partial_ordered_set: = poset,
@@ -104,6 +109,7 @@ constant(∀x: ∈ variable): ; +
 			bounded_below_poset: = poset.bounded_below,
 		
 		top'space: = topological_space, ; My (year 2) topology teacher use it
+
 		; ! simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
 		CW_complex: = cell_complex, ; refernce: Allen Hatcher - Algebraic Topology
 	; end
@@ -138,8 +144,13 @@ constant(∀x: ∈ variable): ; +
 	; end
 
 	; ! about compound structures
-		; on rng
-			associative_algebra(∀R: ∈ rng): = R.algebra, ; ! R.algebra
+		; on commutative_ring
+			associative_algebra[∀R: ∈ rng]: = R.algebra, ; ! R.algebra
+			commutative_algebra[∀R: ∈ rng]: = R.commutative_algebra, ; ! R.algebra
+		; end
+
+		; on field
+			; vector_space[∀F: ∈ field]:
 		; end
 	; end
 

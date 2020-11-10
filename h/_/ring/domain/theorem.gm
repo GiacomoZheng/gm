@@ -1,0 +1,25 @@
+s"nonzero finite ring domain is a skew field":
+(
+	∀R: ∈ ring.domain,
+	∀(R ∈ set.finite, ¬(R = {R.0})) ⇒ R ∈ skew_field
+),
+[ proof ```
+	@R,
+	(
+		∀x: ∈ R \{0},
+		∃φ: ∈ mapping, φ.D = R, φ.C = R,
+		∀y: ∈ R, φ(y) = x × y,
+		(
+			φ ∈ injection ⇐
+			(
+				∀{a, b}: ⊆ R, φ(a) = φ(b) ⇒ x × a = x × b
+				⇒ a = b ; rng domain
+			),
+			φ ∈ surjection ⇐ ∀(R ∈ set.finite, φ.D = φ.C)
+		)
+		⇒ φ ∈ bijection ⇒ (∃z: ∈ R, x × z = 1),
+		; similar, ψ(y): = y × x
+	)
+	⇒ (∀x: R \{0}, x ∈ unit(R)) ⇒ R ∈ skew_field
+	■
+``` ]

@@ -1,6 +1,0 @@
-: ; domain
-(
-	"an algebra structure, has nothing to do with function's domain",
-	∈ structure.sub(doman),
-	∈ structure.full_sub(ring),
-),
