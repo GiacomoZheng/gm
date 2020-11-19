@@ -1,8 +1,8 @@
-: ; commutative, or commutative_operator
+: ; commutative, or commutative_operation
 (
-	⊆ operator,
+	⊆ operation,
 
 	∀p: ∈ commutative,
-	p operator.= p.reverse
+	p operation.= p.dual
 	; a * b = b * a
 ),

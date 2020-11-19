@@ -3,6 +3,6 @@
 	∈ structure.full_sub(magma), ; closure on *
 
 	∀S: ∈ semigroup,
-	S.operator ∈ associative_operation
+	S.operation ∈ associative_operation
 ),
 [ hierarchy chain: semigroup ⊆ magma ]

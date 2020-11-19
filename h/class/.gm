@@ -52,8 +52,6 @@
 					s.take(): = s.instance, ; in rust manner
 		),
 
-		; unique_
-
 		collectible: ; or collectible_class
 		(
 			; in rust manner

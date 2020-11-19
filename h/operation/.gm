@@ -17,7 +17,8 @@
 				∀{x, y}: ⊆ S, p(x)(y) ∈ S
 			),
 
-			p.reverse(∀x: ∈ p.D)(∀y: ∈ p.D): = p(y)(x),
-			p.reverse.D: = p.D, ; ? may be useless later
+			p.dual(∀x: ∈ p.D)(∀y: ∈ p.D): = p(y)(x),
+				p.dual.D: = p.D, ; ? may be useless later
+				p.reverse: = p.dual,
 	)
 )

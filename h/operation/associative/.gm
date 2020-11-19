@@ -1,10 +1,11 @@
 : ; associative, or associative_operation
 (
-	⊆ operation, ; !
+	⊆ operation, ; ? name
 
 	∀p: ∈ associative,
 
-	∀{a, b, c}: ⊆ p.D,
-	p(c)( p(b)(a) ) = p( p(c)(b) )(a)
-	[ (a * b) * c = a * (b * c) ]
+	∀{a, b}: ⊆ p.D,
+	p(b) ∘ p.dual(a) = p.dual(a) ∘ p(b)
+	; i.e.
+	; (a * c) * b = a * (c * b)
 ),

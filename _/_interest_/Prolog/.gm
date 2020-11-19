@@ -1,0 +1,17 @@
+[
+	I want to write a program to convert some `gm` code,
+	which must be in a finite set, into `Prolog` code.
+]
+
+Enum:
+(
+	"Enum (enumerated) type in computer science",
+	@gm.h,
+		⊆ class.collectible, ; ?
+		∀e: ∈ Enum, ; is a class
+		class.collect(e) ∈ set.finite,
+		∀x: ∈ e, ∀y: ∈ e,
+		x e.= y ⇒ x gm.= y
+	■
+),
+

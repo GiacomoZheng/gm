@@ -1,7 +1,8 @@
-: ; ? relation, or multivalued_function
+: ; relation, ; ? or multivalued_function
 (
+	;  I'll change the Doamin into the input_universe
 	; ? maybe I'll change the output into variable
-	; ? defining the set
+	; ? after defining the set
 	"multivalued (or null) function (mapping indeed), in fact the output is still unique, but it is a variable (now it is a class)",
 	; * really different with others
 	⊆ function,
@@ -26,10 +27,10 @@
 	),
 	; locations
 		; + about alias
+			; about operations
+				dual(∀R: ∈ relation): = R.dual,
+			; end
 			
 		; end
 
-		; about operations (nothing to do with operator)
-			dual(∀R: ∈ relation): = R.dual,
-		; end
 ),
