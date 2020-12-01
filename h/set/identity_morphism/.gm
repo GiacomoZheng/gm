@@ -1,0 +1,9 @@
+: ; identity_morphism
+(
+	⊆ automorphism,
+	(
+		∀f: ∈ identity_morphism,
+		∀x: ∈ f.D,
+		f(x) = x ; ? function
+	)
+),

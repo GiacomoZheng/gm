@@ -1,6 +1,6 @@
 : ; magma
 (
-	∈ structure.sub(Set),
+	∈ structure.sub(set),
 	(
 		∀S: ∈ magma,
 		S.operation: ∈ operation,

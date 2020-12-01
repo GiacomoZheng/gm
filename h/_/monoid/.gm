@@ -4,8 +4,12 @@
 	(
 		∀S: ∈ monoid,
 		S.e: ∈ S, ; identity, and as nonemptiness, it is possible
-		∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
+
+		S.operation(e) ∈ set.identity_map,
+		S.operation.dual(e) ∈ set.identity_map,
+		; ∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
 	),
+	[ hierarchy chain: monoid ⊆ semigroup ⊆ maga ]
 
 	; loaction
 		; about alias
@@ -15,7 +19,7 @@
 		; end
 
 		; simply written as R[M]
-		monoid_ring[∀R: ∈ ring](∀M: ∈ monoid):
+		monoid_ring[∀R: ∈ ring](∀M: ∈ monoid): ; ?
 		(
 			; ∈ ring and ring.module over the same abelian group
 			RM: = monoid[M](R),
@@ -37,4 +41,3 @@
 		),
 
 ),
-[ hierarchy chain: monoid ⊆ semigroup ⊆ maga ]

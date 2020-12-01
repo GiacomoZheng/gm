@@ -27,8 +27,9 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 * `; !` is equal to `; WARN`, meaning it is something wrong here, and I'll fix it later.
 
 ## TODO
+<!-- * add `idempotent` operation -->
+* rewrite `R.algebra` as something like `ring.algebra` or some similar thing.
 * delete all the `|…|`
-
 * define the `set` and complete the `set.md`
 * remove the `_ring_theorem.gm`
 * remove the the last part of `field/theorem.gm`

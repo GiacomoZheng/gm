@@ -22,6 +22,17 @@
 	),
 ; end
 
+; ! about compound structures
+	; ! on commutative_ring
+		associative_algebra[∀R: ∈ rng]: = R.algebra, ; ! R.algebra
+		commutative_algebra[∀R: ∈ rng]: = R.commutative_algebra, ; ! R.algebra
+	; end
+
+	; on field
+		; vector_space[∀F: ∈ field]:
+	; end
+; end
+
 ; ! about variable
 variable(∀D: ∈ set): ; ?
 (
@@ -67,8 +78,9 @@ constant(∀x: ∈ variable): ; +
 			injection: = set.monomorphism,
 			surjection: = set.epimorphism,
 			bijection: = set.isomorphism,
-
+			; set.endomorphism, ; no such a set version yet
 			permutation: = set.automorphism,
+			identity_map: = set.identity_morphism,
 		; end
 
 		cover(∀X: ∈ set): = X.cover(X),
@@ -115,7 +127,13 @@ constant(∀x: ∈ variable): ; +
 	; end
 
 	; about function
-		∘: = &set.homomorphism.∘&,
+		∘: = &set.homomorphism.∘&, ; !
+	; end
+
+	; about operation
+		associative_operation: = operation.associative,
+		commutative_operation: = operation.commutative,
+		idempotent_operation: = operation.idempotent
 	; end
 
 	; ! about relation
@@ -138,22 +156,6 @@ constant(∀x: ∈ variable): ; +
 		order_relation: = relation.order,
 	; end
 
-	; ! about operator
-		associative_operation: = operation.associative,
-		commutative_operation: = operation.commutative,
-	; end
-
-	; ! about compound structures
-		; on commutative_ring
-			associative_algebra[∀R: ∈ rng]: = R.algebra, ; ! R.algebra
-			commutative_algebra[∀R: ∈ rng]: = R.commutative_algebra, ; ! R.algebra
-		; end
-
-		; on field
-			; vector_space[∀F: ∈ field]:
-		; end
-	; end
-
 	; about topology
 		continuous_function: = topological_space.continuous_function,
 		bicontinuous_function: = topological_space.homeomorphism,
@@ -162,7 +164,7 @@ constant(∀x: ∈ variable): ; +
 	; end
 
 	; about poset
-		linear_continuum: = poset.continuum, ; as it is a linearly-ordered_set
+		linear_continuum: = linearly-ordered_set.continuum, ; as it is a linearly-ordered_set
 	; end
 
 	; about vector space (field.module)

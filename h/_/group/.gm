@@ -3,6 +3,7 @@
 	∈ structure.full_sub(monoid), ; semigroup with identity
 	(
 		∀G: ∈ group,
+		; + write it as an operation "inv"
 		∃x': ∈ G, x' G.* x = x G.* x' = G.e, ; inverse
 		; attributes
 			; ! I won't define G.^ as it will be confused with it in ring

@@ -1,0 +1,11 @@
+: ; idempotent, or idempotent_operation
+(
+	⊆ operation, ; ? name
+
+	∀p: ∈ idempotent,
+
+	∀a: ∈ p.D,
+	p(a) ∘ p(a) = p(a)
+	; i.e.
+	; (b * a) * a = b * a
+),

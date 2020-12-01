@@ -9,7 +9,7 @@
 		(
 			∀g: ∈ G,
 			G.operation(g) ∈ continuous_function, ; x ↦ g * x
-			G.operation.inv(g) ∈ continuous_function, ; x ↦ x * g
+			G.operation.dual(g) ∈ continuous_function, ; x ↦ x * g
 		),
 		; I think it is equivalent to * : G × G → G is continuous
 

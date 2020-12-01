@@ -3,7 +3,7 @@
 	; about ZFC (https://en.wikipedia.org/wiki/Zermelo–Fraenkel_set_theory)
 		`Source: "The Foundations of Mathematics" --- Kenneth Kunen`,
 		(
-			"if two set has totally he same elements, they are the same set, it means, there has the same attributes defined by set class"
+			"if two sets have totally the same elements, they are the same set, it means, there are totally the same attributes defined by set class"
 			∀A: ∈ set,
 			∃B: ∈ set, ∀x: ∈ ◉, x ∈ A ⇔ x ∈ B
 		), 1. Axiom of extensionality
@@ -126,7 +126,7 @@
 			End(∀S: ∈ set): ; +
 			; Iso(∀S: ∈ set)(∀T: ∈ set): ; +
 			Aut(∀S: ∈ set): ; +
-
+			
 			; + quotient
 		; end
 
