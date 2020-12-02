@@ -6,14 +6,14 @@
 	(
 		[ not all the elements are comparable ]
 		∀S: ∈ poset,
-		S.relation ∈ order_relator,
+		S.relation ∈ order_relation, ; ? name 
 
 		; attributions
 			; about relator
 				S.weekly_less_than: = S.relation,
 				S.≤: = relator[S.weekly_less_than]
 				
-				S.weekly_great_than: = relation.inv(S.relation),
+				S.weekly_great_than: = S.relation.dual,
 				S.≥: = relator[S.weekly_great_than], ; ∀{x, y}: ⊆ S, x S.≥ y ⇔ y S.≤ x
 
 				S.strictly_less_than(∀x: ∈ S):

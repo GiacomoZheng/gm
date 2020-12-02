@@ -66,12 +66,12 @@
 					⊆ sub(X),
 					(
 						∀y: ∈ X.approach_to(x),
-						X.nbh(x) ⊆ X.nbh(y) ; ◉.⊆
+						X.nbh(x) ⊆ X.nbh(y) ; class.⊆
 					)
 				),
 				X.→: = relator[X.approach_to],
 
-				X.be_approached_to: = relation.inv(X.approach_to)
+				X.be_approached_to: = X.approach_to.dual
 				X.→: = relator[X.be_approached_to],
 
 				X.be_indistinguishable_with(∀x: ∈ X):

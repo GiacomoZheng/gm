@@ -1,4 +1,4 @@
-: ; ? relator
+: ; relator
 (
 	⊆ keyword(r"\$D\  \*\$relator\  \*\$D\ \/\1 ∈ \$r\ \(\2\)"p), ; ? keyword
 
