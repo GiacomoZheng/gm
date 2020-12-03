@@ -1,6 +1,7 @@
+*.html linguist-vendored
+
 # Set default behavior to automatically normalize line endings.
 # * text=auto
 * text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
-*.html linguist-vendored
