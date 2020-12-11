@@ -1,6 +1,6 @@
 : ; identity_morphism
 (
-	⊆ automorphism,
+	⊆ automorphism, ; ? endo?
 	(
 		∀f: ∈ identity_morphism,
 		∀x: ∈ f.D,

@@ -1,14 +1,15 @@
 : ; structure, 
 (
-	"a category (class) with isomorphism defined",
+	; ? I'm not sure the relation between it and the category
 	; it seems that a morphism in category don't need to be a homomorphism
-	⊆ category,
+	⊆ category, ; ?
 	(
-		∀s: ∈ structure, ; s ⊆ set
+		∀s: ∈ structure, ; s is a set
 		s.homomorphism: ⊆ s.morphism,
 
 		s.isomorphic ∈ relation.equivalent, ; ?
-		∀X: ∈ s, s.identity = s.isomorphism, ; ! ; ?
+		s.identity_morphism ⊆ s.automorphism,
+		
 		; attributes
 			; about morphism
 				s.epimorphism:
@@ -64,17 +65,18 @@
 
 				s.induced_homorphism(∀t: ∈ sub(s)): ; ?
 				(
+					"Hom_t(X, Y) = Hom_s(X, Y)",
 					⊆ s.homomorphism,
 					∀f: ∈ s.induced_homorphism,
 					f.D ∈ t, f.C ∈ t
 				),
 			; end
 
-			; about inherence
+			; about sub
 				s.sub(∀X: ∈ s):
 				(
+					∈ full_sub(s), ; ⊆ s
 					⊆ set.sub(X),
-					⊆ s,
 				),
 			; end
 	),
@@ -94,44 +96,74 @@
 			⊆ sub(x),
 			∀y: ∈ full_sub(x),
 			y.homomorphism class.= x.induced_homorphism(y),
-			; ; by category theory, it is subcategory
+			; ; by category theory, it is full subcategory
 			; ∀A: ∈ y, ∀B: ∈ y,
 			; y.Hom(A, B) = x.Hom(A, B),
 		),
 		[ example:```
+			group ∈ structure.full_sub(abelian_group),
 			field ∈ structure.full_sub(ring),
-			field.homomorphism:
+		``` counterexample:```
+			¬(rng ∈ structure.full_sub(abelian_group)),
+			¬(ring ∈ structure.full_sub(rng)),
+		```]
+
+		half-full_sub(∀x: ∈ structure):
+		(
+			; Source: M. Kashiwara and P. Schapira, Categories and Sheaves: Definition 1.3.17
+			⊆ sub(x),
+			∀y: ∈ half-full_sub(x),
+			∀A: ∈ y, ∀B: ∈ y,
+			A x.≌ B ⇒ A y.≌ B
+		),
+			half_full_sub: = half-full_sub,
+		[ property:
+			* on the other hand, we have `A y.≌ B ⇒ A x.≌ B` for y ∈ sub(x) with the isomorphism
+			* full_substrutures are always half-full
+		example: ```
+			cyclic_group ∈ structure.half-full_sub(set),
+			¬(cyclic_group ∈ structure.full_sub(set)),
+		```]
+
+		saturated_sub(∀x: ∈ structure):
+		(
+			⊆ full_sub(x),
+			∀y: ∈ saturated_sub(x),
+			∀X: ∈ x,
+			(∃Y: ∈ y, X x.≌ Y) ⇒ X ∈ y
+		),
+		[example: most of full substructures we defined are still saturated substructures,
+			counterexample: the struture of all the subgroup of G is an full substruture of group but not an saturated substructure ```
+			∀G: ∈ group,
+			group.sub(G) ∈ structure.full_sub(group),
+			¬(group.sub(G) ∈ structure.saturated_sub(group)),
+		```]
+
+
+		; about universal structure
+			singleton: ; or singleton_structure
 			(
-				⊆ ring.homomorphism,
-
-				∀f: ∈ homomorphism,
-				f.D ∈ field, f.C ∈ field
+				; ?
+				⊆ class.singleton,
+				⊆ structure,
 			),
-		``` ]
 
-		singleton: ; or singleton_structure
-		(
-			; ?
-			⊆ class.singleton,
-			⊆ structure,
-		),
+			universal: ; or universal_structure ; originate from the universal property.
+			(
+				; ?
+				"instances unique up to isomorphism, also, every space defined by universal property is a universal structure"
+				⊆ structure,
 
-		universal: ; or universal_structure ; originate from the universal property.
-		(
-			; ?
-			"instances unique up to isomorphism, also, every space defined by universal property is a universal structure"
-			⊆ structure,
+				∀s: ∈ universal, 
+				∀X: ∈ s, ∀Y: ∈ s,
 
-			∀s: ∈ universal, 
-			∀X: ∈ s, ∀Y: ∈ s,
-
-			X ∈ s.isomorphic(Y)
-		),
-			unique_up_to_isomorphism: = universal, ; ? I don;t like this name indeed
-			uni-iso: = universal, ; * Mario's suggestion
-		[ properties:
-			* a (structure-) singleton is always unique_up_to_isomorphism
-		]
-
+				X s.≌ Y
+			),
+				unique_up_to_isomorphism: = universal, ; ? I don't like this name indeed
+				uni-iso: = universal, ; * Mario's suggestion
+			[ properties:
+				* a (structure-) singleton is always unique_up_to_isomorphism
+			]
+		; end
 
 ),

@@ -13,16 +13,18 @@
 			f.power:
 			(
 				∈ function,
-				f.power(ℕ.0): = f.identity,
+				f.power(ℕ.0) = f.identity,
 				∀n: ∈ ℕ \ {ℕ.0},
-				f.power(n): = f ∘ f.power(n ℕ.- ℕ.1),
+				f.power(n) = f ∘ f.power(n ℕ.- ℕ.1),
 			),
 				f.power.D: = ℕ,
 				f.power.C: = set.End(f.D),
+
+			f.^: ,; +
 	),
 
 	; location
-		identity[∀S: ∈ set](∀x: ∈ S): = x,
-			identity[∀S: ∈ set].D: = S,
-			identity[∀S: ∈ set].C: = S,
+		; identity[∀S: ∈ set](∀x: ∈ S): = x,
+		; 	identity[∀S: ∈ set].D: = S,
+		; 	identity[∀S: ∈ set].C: = S,
 ),

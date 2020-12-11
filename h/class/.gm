@@ -52,6 +52,10 @@
 					s.take(): = s.instance, ; in rust manner
 		),
 
+		sub(∀x: ∈ class): ; +
+
+		; * I need to deal with the issues of sets before to rewrite the below lines
+
 		collectible: ; or collectible_class
 		(
 			; in rust manner
@@ -73,14 +77,12 @@
 			* `◉` is not collectible
 		]
 
+		collect(∀s: ∈ collectible): = s.collected,
+
 		proper: ; or proper_class
 		(
 			"the class is to big to be collectible",
 			; +
 		),
-
-		collect(∀s: ∈ collectible): = s.collected,
-
-		sub(∀x: ∈ class): ; +
 
 ),
