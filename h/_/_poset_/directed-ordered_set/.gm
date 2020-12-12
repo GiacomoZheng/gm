@@ -1,0 +1,14 @@
+: ; directed-ordered_set, or filtrant-ordered_set, or directed_ordered_set, or filtrant_ordered_set
+(
+	∈ structure.full_sub(poset),
+	∈ set.nonempty, ; ?
+
+	(
+		∀S: ∈ directed-ordered_set,
+		∀{i, j}: ⊆ S, ∃k: ∈ S,
+		@S,
+			i ≤ k,
+			j ≤ k,
+		■
+	)
+),

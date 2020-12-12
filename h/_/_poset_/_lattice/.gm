@@ -1,7 +1,7 @@
-: ; + lattice
+: ; ! lattice
 (
 	; something different with reference: https://en.wikipedia.org/wiki/Lattice_(order)
-	"a poset with ∨ ∧ algebra structure",
+	"a poset with ∨ ∧ operation",
 	⊆ poset,
 	(
 		∀L: ∈ lattice,

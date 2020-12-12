@@ -1,6 +1,6 @@
 ; densely-ordered_set
 (
-	⊆ poset,
+	∈ structure.full_sub(poset),
 	(
 		∀S: ∈ densely-ordered_set,
 		∀{x, y}: ∈ S,

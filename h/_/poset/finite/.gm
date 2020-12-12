@@ -1,5 +1,0 @@
-: ; finite
-(
-	⊆ poset,
-	⊆ set.finite
-),

@@ -34,28 +34,28 @@
 ; end
 
 ; ! about variable
-variable(∀D: ∈ set): ; ?
-(
-	"a generalization of random variable in statistics",
-	"a subset which can work as an element"
-	; for example: [0, 1] + [2, 4] = [2, 4], we can read it as the summation of two variables",
-	; + it will be use in analysis to define something like polynomial or dy/dx
-	⊆ set.sub(D), ; Intuitively, the domain for it to pick some
+	variable(∀D: ∈ set): ; ?
 	(
-		∀X: ∈ variable,
-		; * a subclass of set, may catch some operators with it
-	)
-),
-[ hierarchy chain: variable ⊇ random_variable ]
+		"a generalization of random variable in statistics",
+		"a subset which can work as an element"
+		; for example: [0, 1] + [2, 4] = [2, 4], we can read it as the summation of two variables",
+		; + it will be use in analysis to define something like polynomial or dy/dx
+		⊆ set.sub(D), ; Intuitively, the domain for it to pick some
+		(
+			∀X: ∈ variable,
+			; * a subclass of set, may catch some operators with it
+		)
+	),
+	[ hierarchy chain: variable ⊇ random_variable ]
 
-constant(∀x: ∈ variable): ; +
-(
-	; ⊆ variable
-)
+	constant(∀x: ∈ variable): ; +
+	(
+		; ⊆ variable
+	)
 ; end
 
 ; about alias
-	; about class
+	; ? about class
 		empty_class: = class.empty,
 			contradiction: = class.empty,
 			paradox: = class.empty,
@@ -72,7 +72,7 @@ constant(∀x: ∈ variable): ; +
 	; end
 	
 	; about set
-		; about morphism
+		; about morphisms
 			mapping: = set.homomorphism,
 				map: = set.homomorphism, ; I don't like to use it
 			injection: = set.monomorphism,
@@ -108,13 +108,18 @@ constant(∀x: ∈ variable): ; +
 		partial-ordered_set: = poset,
 			partial_ordered_set: = poset,
 		totally_ordered_set: = totally-ordered_set,
-			linearly_ordered_set: = totally-ordered_set, ; may be confusing
+			linearly_ordered_set: = totally-ordered_set,
 		well_ordered_set: = well-ordered_set,
 			least_well_ordered_set: = well-ordered_set,
 			least_ordered_set: = well-ordered_set,
 		supremum_ordered_set: = supremum-ordered_set,
 			; ? complete-ordered_set: = supremum-ordered_set,
 			; ? complete_ordered_set: = supremum-ordered_set,
+		filtrant-ordered_set: = directed-ordered_set,
+			directed_ordered_set: = directed-ordered_set,
+			filtrant_ordered_set: = directed-ordered_set,
+		inductive_set: = inductively-ordered_set,
+			inductively_ordered_set: = inductively-ordered_set,
 
 		bounded_poset: = poset.bounded,
 			bounded_above_poset: = poset.bounded_above,
@@ -188,6 +193,8 @@ constant(∀x: ∈ variable): ; +
 		; end
 
 		; about sub structure
+			substructure: = structure.sub,
+		
 			subgroup: = group.sub,
 			subrng: = rng.sub,
 			subring: = ring.sub,
@@ -195,6 +202,7 @@ constant(∀x: ∈ variable): ; +
 			vector_subspace: = field.module.sub,
 				; linear_subspace: = field.module.sub,
 			topological_subspace: = topological_space.sub,
+
 			; about topological space
 				connected_subspace: = topological_space.connected_sub,
 				dense_subspace: = topological_space.dense_sub,

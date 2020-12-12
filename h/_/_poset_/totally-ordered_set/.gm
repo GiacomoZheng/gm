@@ -1,6 +1,6 @@
 : ; totally-ordered_set, or totally_ordered_set, or linearly_ordered_set
 (
-	⊆ poset,
+	∈ structure.full_sub(poset),
 
 	∀S: ∈ totally-ordered_set,
 	∀a: ∈ S, ∀b: ∈ S,

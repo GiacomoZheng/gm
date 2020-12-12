@@ -1,0 +1,7 @@
+: ; inductively-ordered_set, or inductive_set, or inductively_ordered_set
+(
+	"sets fulfilling the assumption of Zorn's lemma",
+	∈ structure.full_sub(poset),
+	
+	∀S: ∈ inductively_ordered_set,
+),

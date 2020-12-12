@@ -72,7 +72,7 @@
 				),
 			; end
 
-			; about sub
+			; ? about sub
 				s.sub(∀X: ∈ s):
 				(
 					∈ full_sub(s), ; ⊆ s
@@ -104,8 +104,8 @@
 			group ∈ structure.full_sub(abelian_group),
 			field ∈ structure.full_sub(ring),
 		``` counterexample:```
-			¬(rng ∈ structure.full_sub(abelian_group)),
-			¬(ring ∈ structure.full_sub(rng)),
+			¬(rng ∈ structure.full_sub(abelian_group)), ; we add an ×
+			¬(ring ∈ structure.full_sub(rng)), ; we add an 1
 		```]
 
 		half-full_sub(∀x: ∈ structure):
@@ -118,7 +118,7 @@
 		),
 			half_full_sub: = half-full_sub,
 		[ property:
-			* on the other hand, we have `A y.≌ B ⇒ A x.≌ B` for y ∈ sub(x) with the isomorphism
+			* on the other hand, we have `A y.≌ B ⇒ A x.≌ B` for y ∈ sub(x) with the same y isomorphism
 			* full_substrutures are always half-full
 		example: ```
 			cyclic_group ∈ structure.half-full_sub(set),
@@ -140,7 +140,7 @@
 		```]
 
 
-		; about universal structure
+		; + about universal structure
 			singleton: ; or singleton_structure
 			(
 				; ?
@@ -148,7 +148,8 @@
 				⊆ structure,
 			),
 
-			universal: ; or universal_structure ; originate from the universal property.
+			universal: ; or universal_structure
+			; originate from the universal property.
 			(
 				; ?
 				"instances unique up to isomorphism, also, every space defined by universal property is a universal structure"

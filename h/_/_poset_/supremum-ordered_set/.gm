@@ -1,7 +1,7 @@
 : ; supremum-ordered_set, or ; ? complete-ordered_set
 (
 	"a poset with least upper bound property",
-	⊆ poset,
+	∈ structure.full_sub(poset),
 	(
 		∀S: ∈ supremum-ordered_set,
 		∀U: ∈ S.bounded_above,

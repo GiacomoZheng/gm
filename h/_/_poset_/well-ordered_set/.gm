@@ -1,6 +1,6 @@
 : ; + well-ordered_set, or well_ordered_set, or least_well_ordered_set, or least_ordered_set
 (
-	⊆ poset,
+	∈ structure.full_sub(poset),
 	"every sub poset of it has its least",
 	(
 		∀S: ∈ well-ordered_set,

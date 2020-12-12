@@ -1,8 +1,8 @@
 : ; poset, or partial ordered set
 (
-	∈ category.sub(preordered_set), ; ? preordered_set
-	morphism: = weakly_increasing_function, ; ? morphism
-	; I didn't find the homomorphism yet
+	∈ structure.sub(preordered_set), ; ? preordered_set
+	; ! morphism: = weakly_increasing_function, ; ? morphism
+	; * I didn't find the homomorphism yet
 	(
 		[ not all the elements are comparable ]
 		∀S: ∈ poset,
