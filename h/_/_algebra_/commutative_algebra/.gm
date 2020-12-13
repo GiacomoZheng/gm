@@ -1,0 +1,5 @@
+: ; algebra.commutative, or commutative_algebra
+(
+	∈ structure.full_sub(algebra),
+	∈ structure.sub(ring.commutative),
+),

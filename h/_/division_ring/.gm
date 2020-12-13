@@ -1,0 +1,8 @@
+: ; division_ring, or skew_field
+(
+	∈ structure.full_sub(ring),
+	∀F: ∈ division_ring,
+
+	∀x: ∈ F \ {F.0}, x ∈ ring.unit(F)
+),
+[ hierarchy chain: ring ⊇ division_ring ⊇ field ]

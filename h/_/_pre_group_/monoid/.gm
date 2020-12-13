@@ -1,0 +1,24 @@
+: ; monoid
+(
+	∈ structure.sub(semigroup), ; associative magma 
+	(
+		∀S: ∈ monoid,
+		S.e: ∈ S, ; identity, and as nonemptiness, it is possible
+
+		S.left_operation(S.e) ∈ set.identity_map,
+		S.right_operation(S.e) ∈ set.identity_map,
+		; ∀x: ∈ S, x S.* S.e = S.e S.* x = x ; identity
+	),
+	[ hierarchy chain: monoid ⊆ semigroup ⊆ maga ]
+
+	; loaction
+		; about alias
+			l'action: = action,
+				left_action: = l'action,
+				act: = action,
+		; end
+
+		; + monoid_ring
+		; simply written as R[M]
+
+),

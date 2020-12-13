@@ -5,6 +5,7 @@
 	(
 		∀G: ∈ abelian_group,
 		G.operation ∈ commutative_operation,
+		; left_operation = right_operation
 
 		; attributes
 			G.add: = G.operation,
@@ -14,14 +15,17 @@
 			G.+: = &G.*&,
 			G.0: = G.e,
 
-			G.minus(∀b: ∈ G)(∀a: ∈ G): = a G.+ G.neg(b) ; = G.neg(b) G.+ a ; that is why the - can be defined here
-			G.minus.D: = G,
+			G.minus(∀b: ∈ G): = G.add(G.neg(b))
+			; a - b = a + neg(b)
+			; it is easy to prove a -b = neg(b) + a, that is why the - can be defined here
+			G.minus.D: = G, ; ? .D
+			; remark, minus is also an operation and minus(b) is commutative with add(c)
 			G.-: = operator[G.minus],
 	),
 
 	; location
 		; abut inheritance
-			sub(∀G: ∈ abelian_group): = group.sub(G),
+			sub(∀G: ∈ abelian_group): = group.sub(G), ; ? full
 
 			Hom(∀G: ∈ abelian_group, ∀H: ∈ abelian_group): = {f|f ∈ homomorphism}[∀f: ∈ group.Hom(G, H)], ; = ... ∈ set.Hom ... ; + a monoid
 

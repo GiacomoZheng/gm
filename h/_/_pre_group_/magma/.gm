@@ -1,0 +1,22 @@
+: ; magma
+(
+	"the algebraic struture with only one (right) operation; on the contrary, the semigroup have one more left operation",
+	∈ structure.sub(set),
+	(
+		∀S: ∈ magma,
+		S.operation: ∈ operation,
+
+		S ∈ S.operation.closure,
+
+		; attributes
+			S.*: = operator[S.operation]
+	),
+	; location
+		idempotence(∀S: ∈ magma):
+		(
+			⊆ set.element(S),
+			∀x: ∈ S.idempotence,
+			x S.* x = x
+		),
+
+),

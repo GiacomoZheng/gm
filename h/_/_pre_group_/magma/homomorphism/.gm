@@ -4,7 +4,9 @@
 	(
 		∀f: ∈ homomorphism,
 		; f.D ∈ magma, f.C ∈ magma, ; from structure.sub(set)
-		∀x: ∈ f.D, ∀y: ∈ f.D,
-		f(x f.D.* y) = f(x) f.C.* f(y),
+		∀{x, y}: ∈ f.D,
+		@f,
+			f( D.operation(x)(y)) = C.operation(f(x)) (f(y))
+		■
 	)
 ),

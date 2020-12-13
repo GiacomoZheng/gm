@@ -13,3 +13,13 @@
 	; location
 		; +
 ),
+
+[ save a diagram:
+			f
+		D	-->	C
+		|		| 
+	D.oper(x)	C.oper(x)
+		∨		∨
+		D	-->	C 
+			f
+]

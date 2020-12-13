@@ -8,6 +8,9 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 * I can differ the definitions from statements easily for `classlevel` 0 case, but it would become confusing for the high case.
 
 ## name of folders
+
+* The file [`contents.md`](./contents.md) is the menu this project.
+
 * folders whose name begin and end with `_` are transparent, and it is just used for typesetting; the words insides are just comments.
 	- Specially, `_/` and `__/` are transparent.
 	- `_vector_space_/` would appear together with `vector_space/` and means the topics related to vector space.
@@ -19,10 +22,6 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 
 * The folder `gm/h` is the entry of the main files (about the math-related concepts). I may rename it.
 
-* The file [`contents.md`](./contents.md) is the menu this project.
-<!-- * The file `.tree` is the menu this project. -->
-
-<!-- * The file `.size` records the size of all of the files. -->
 
 ## about the better comment
 * `; *` is equal to `; NOTE`, meaning it is important.
@@ -33,7 +32,6 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 ## TODO
 * define the `set` and complete the `set.md`
 * rewrite `function` with class as domain.
-* rewrite `R.algebra` as something like `ring.algebra` or some similar thing.
 * delete all the `|…|`
 * define the `variable`
 * adjust the output of `relation` into `variable` 
@@ -43,6 +41,7 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 <!-- ## DONE -->
 <!-- * adjust all the `Hom`, `End`, `Aut`, into the `structure` -->
 <!-- * add `idempotent` operation -->
+<!-- * rewrite `R.algebra` as something into `algebra` -->
 
 <!-- ## Definition order (only for reference)
 `class`, `set`, `structure` (`category`), other structures like `poset`, `group` e.t.c -->

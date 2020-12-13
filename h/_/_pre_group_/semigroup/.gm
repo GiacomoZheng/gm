@@ -1,0 +1,24 @@
+: ; semigroup
+(
+	∈ structure.full_sub(magma), ; closure on *
+
+	(
+		∀S: ∈ semigroup,
+		S.right_operation: = S.operation, ; first operation
+		S.left_operation: = S.operation.dual, ; second operation
+
+		∀s: ∈ S,
+		@S,
+			; two operations are commutative
+			left_operation(s) ∘ right_operation(s) = right_operation(s) ∘ left_operation(s)
+		■
+		[ property: ```
+			S.operation ∈ associative_operation
+		```
+			* we can choose this one as the criteria but the version I choosed is more general 
+		]
+	),
+	; location
+		
+),
+[ hierarchy chain: semigroup ⊆ magma ]

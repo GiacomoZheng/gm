@@ -1,0 +1,41 @@
+: ; algebra, or associative_algebra
+(
+	"a ring as well as a commutative ring module: the domain of polynomial",
+	∈ structure.sub(ring),
+	∈ structure.sub(commutative_ring.module),
+
+	∀A: ∈ algebra,
+
+	∀r: ∈ A.R, ∀x: ∈ A,
+	@A,
+		π(r) ∘ multiply(x) = multiply(x) ∘ π(r),
+		; r • (y × x) = (r • y) × x
+		π(r) ∘ multiply.dual(x) = multiply.dual(x) ∘ π(r),
+		; r • (x × y) = x × (r • y)
+	■
+	; loaction
+		; about alias
+			commutative: = commutative_algebra,
+			division: = division_algebra,
+		; end
+
+		; about inherence
+			sub(∀A: ∈ algebra):
+			(
+				⊆ ring.sub(A),
+				⊆ commutative_ring.module.sub(A),
+			),
+		; end
+
+),
+[ remark: the commutativity of R is important as```
+	(r • y) × (s • x)
+	= s • ( (r • y) × x ) ; dual
+	= s • ( r • (y × x) ) ; mult
+	= (s × r) • (y × x)
+```but, on the other hand```
+	(r • y) × (s • x)
+	= r • (y × (s • x)) ; mult
+	= r • (s • (y × x)) ; dual
+	= (r × s) • (y × x) ; dual
+```]

@@ -8,31 +8,6 @@
 		¬(R.1 = R.0), ; ? I prefer this version
 		∀a: ∈ R, R.1 R.× a = a = a R.× R.1, ; multiply identity
 
-		; attributes
-			R.action:
-			(
-				⊆ rng.action,
-				(
-					∀π: ∈ action,
-					π.D = R,
-					@π,
-						∀s: ∈ S, π(D.1)(s) = s
-					■
-				)
-			),
-
-			R.module:
-			(
-				"ring module",
-				⊆ rng.module,
-				(
-					∀M: ∈ module,
-					M.π ∈ R.action ; here it is the ring (left) action
-					M ⊆ M.π.S,
-
-					M.R: = R,
-				)
-			)
 	),
 	[ hierarchy chain: ring ⊆ rng ⊆ abelian_group ]
 	; location

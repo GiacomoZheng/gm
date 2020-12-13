@@ -1,6 +1,6 @@
-: ; module
+: ; ring.module
 (
-	"ring module",
+	; + I would define a "module-like" struture to omit these repeated parts
 	∈ structure.full_sub(rng.module),
 	(
 		∀M: ∈ module,

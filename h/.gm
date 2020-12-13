@@ -24,8 +24,14 @@
 
 ; ! about compound structures
 	; ! on commutative_ring
-		associative_algebra[∀R: ∈ rng]: = R.algebra, ; ! R.algebra
-		commutative_algebra[∀R: ∈ rng]: = R.commutative_algebra, ; ! R.algebra
+		associative_algebra[∀R: ∈ rng]: = algebra,
+		
+		commutative_algebra[∀R: ∈ rng]:
+		(
+			∈ structure.full_sub(commutative_algebra),
+			∀A: ∈ commutative_algebra[R],
+			A.R = R
+		),
 	; end
 
 	; on field
@@ -88,17 +94,22 @@
 	; end
 
 	; about name of structures
-		commutative_group: = abelian_group,
+		; about commutative
+			commutative_group: = abelian_group,
+
+			commutative_domain: = integral_domain,
+			commutative_rng: = rng.commutative,
+			commutative_ring: = ring.commutative,
+			commutative_algebra: = algebra.commutative
+		; end
 
 		unital_rng: = ring, ; ? I think it useless
 		unital_ring: = ring,
 		doman: = rng.domain,
 		; ! domain: = ring.domain, ; a little bit confusing
-		commutative_domain: = integral_domain,
-		commutative_rng: = rng.commutative,
-		commutative_ring: = ring.commutative,
+		associative_algebra: = algebra,
 
-		division_ring: = skew_field, ; I mat not use this name, as division_ring don't define the division indeed
+		skew_field: = division_ring,
 		unital_module: = ring.module, ; left module
 		; ! module: = ring.module, ; a little bit confusing
 		vector_space: = field.module,

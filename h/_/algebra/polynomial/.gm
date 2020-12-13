@@ -1,0 +1,15 @@
+: ; ! polynomial
+(
+	⊆ homomorphism, ; may be we need commutative algebra
+	(
+		∀f: ∈ polynomial,
+		
+		
+		; attributes
+			; zero map
+	),
+	; location
+		deg(∀f: ∈ polynomial): ; +
+
+		root(∀f: ∈ polynomial): ; +
+),

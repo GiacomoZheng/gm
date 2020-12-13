@@ -1,0 +1,4 @@
+: ; + univariate_polynomial
+(
+	"the functions of form x ↦ a_n x^n",
+)

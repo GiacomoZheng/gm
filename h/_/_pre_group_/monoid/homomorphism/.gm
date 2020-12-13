@@ -1,9 +1,9 @@
 : ; homomorphism
 (
-	⊆ semigroup.homomorphism, ; mapping
+	; ⊆ semigroup.homomorphism, ; by structure
 	(
 		∀f: ∈ homomorphism,
-		; f.D ∈ monoid, f.C ∈ monoid, ; by structure
+		; f.D ∈ monoid, f.C ∈ monoid, 
 		f(D.e) = C.e ; this line is useless for group, but important for monoid
 	)
 ),

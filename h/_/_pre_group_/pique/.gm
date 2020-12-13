@@ -1,0 +1,8 @@
+: ; + pique
+(
+	∈ structure.sub(quasigroup),
+	(
+		∀P: ∈ pique,
+
+	)
+)

@@ -4,4 +4,6 @@
 	∈ structure.full_sub(poset),
 	
 	∀S: ∈ inductively_ordered_set,
+	∀I: ∈ poset.chain(S), ; totally ordered subset
+	S.upper_bound(I) ∈ class.nonempty, ; ?
 ),

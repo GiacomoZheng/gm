@@ -1,0 +1,5 @@
+: ; + quasigroup
+(
+	∈ structure.full_sub(magma),
+	
+),

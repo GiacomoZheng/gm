@@ -1,8 +1,0 @@
-: ; semigroup
-(
-	∈ structure.full_sub(magma), ; closure on *
-
-	∀S: ∈ semigroup,
-	S.operation ∈ associative_operation
-),
-[ hierarchy chain: semigroup ⊆ magma ]

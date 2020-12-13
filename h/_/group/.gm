@@ -18,9 +18,12 @@
 
 	; location
 		; about alias
+			commutative: = abelian_group, ; group.commutative
+
 			ker(∀f: ∈ homomorphism): = f.kernel,
 
-			periodic_group: = torsion_group,
+			periodic_group: = torsion_group, ; + move
+
 			l'action: = action,
 				left_action: = l'action,
 			r'action: = anti_action,

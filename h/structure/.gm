@@ -65,7 +65,7 @@
 
 				s.induced_homorphism(∀t: ∈ sub(s)): ; ?
 				(
-					"Hom_t(X, Y) = Hom_s(X, Y)",
+					"change the domain from t to s; Hom_t(X, Y) = Hom_s(X, Y) in category theory",
 					⊆ s.homomorphism,
 					∀f: ∈ s.induced_homorphism,
 					f.D ∈ t, f.C ∈ t
@@ -73,7 +73,7 @@
 			; end
 
 			; ? about sub
-				s.sub(∀X: ∈ s):
+				s.sub(∀X: ∈ s): ; + it should be the same for full substructure
 				(
 					∈ full_sub(s), ; ⊆ s
 					⊆ set.sub(X),

@@ -1,8 +1,0 @@
-: ; homomorphism
-(
-	⊆ set.homomorphism, ; mapping
-	(
-		∀f: ∈ homomorphism,
-		f.D ∈ semigroup, f.C ∈ semigroup
-	)
-),
