@@ -1,6 +1,0 @@
-: ; idempotence
-(
-	⊆ function,
-	∀f: ∈ idempotence,
-	f ∘ f = f
-),

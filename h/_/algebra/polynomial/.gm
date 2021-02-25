@@ -1,15 +1,5 @@
 : ; ! polynomial
 (
-	⊆ homomorphism, ; may be we need commutative algebra
-	(
-		∀f: ∈ polynomial,
-		
-		
-		; attributes
-			; zero map
-	),
-	; location
-		deg(∀f: ∈ polynomial): ; +
-
-		root(∀f: ∈ polynomial): ; +
+	; it is a little bit simialr to bilinear map, but x y is not a polynomial of x in general.
+	; ? may be we need commutative algebra
 ),

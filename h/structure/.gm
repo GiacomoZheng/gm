@@ -2,7 +2,8 @@
 (
 	; ? I'm not sure the relation between it and the category
 	; it seems that a morphism in category don't need to be a homomorphism
-	⊆ category, ; ?
+	; ⊆ category, ; ?
+	⊆ class,
 	(
 		∀s: ∈ structure, ; s is a set
 		s.homomorphism: ⊆ s.morphism,
@@ -75,14 +76,37 @@
 			; ? about sub
 				s.sub(∀X: ∈ s): ; + it should be the same for full substructure
 				(
-					∈ full_sub(s), ; ⊆ s
+					∈ full_sub(s), ; it is a full substructure of s, which means has the same homomorphism
 					⊆ set.sub(X),
 				),
+			; end
+
+			; about universal
+				s.initial:
+				(
+					"the class of initial objects of s, there is a unique morphism \"to\" to any objets",
+					∈ full_sub(s),
+					∀X: ∈ s.initial, ∀Y: ∈ s,
+					s.homomorphism[X][Y] ∈ class.singleton ; ? at_most_singleton
+				),
+					s.initial_object: = s.initial,
+				s.final:
+				(
+					"the class of final objects of s, there is a unique morphism \"from\" to any objets",
+					∈ full_sub(s),
+					∀X: ∈ s.initial, ∀Y: ∈ s,
+					s.homomorphism[Y][X] ∈ class.singleton ; ? at_most_singleton
+				),
+					s.final_object: = s.final,
+				[ property, ```
+					s.initial ∈ universal,
+					s.final ∈ universal,
+				```]
 			; end
 	),
 
 	; location
-		sub(∀x: ∈ structure): ; or substructure, ; ! or subcategory
+		sub(∀x: ∈ structure): ; or substructure
 		(
 			⊆ class.sub(x),
 			∀y: ∈ sub(x),
@@ -91,7 +115,7 @@
 			; y.Hom(A, B) ⊆ x.Hom(A, B)
 		),
 		
-		full_sub(∀x: ∈ structure): ; or substructure, ; ! or subcategory
+		full_sub(∀x: ∈ structure): ; or substructure
 		(
 			⊆ sub(x),
 			∀y: ∈ full_sub(x),
@@ -149,10 +173,9 @@
 			),
 
 			universal: ; or universal_structure
-			; originate from the universal property.
 			(
-				; ?
-				"instances unique up to isomorphism, also, every space defined by universal property is a universal structure"
+				; originate from the universal property.
+				"instances (may not exist) unique up to isomorphism, also, every space defined by universal property is a universal structure"
 				⊆ structure,
 
 				∀s: ∈ universal, 

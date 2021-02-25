@@ -2,7 +2,7 @@
 
 my source gmfile
 
-Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out of date)
+Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out of date) or [tutorials folder](https://github.com/GiacomoZheng/gm/wiki) (it is under construction)
 
 ## the trouble I met
 * I can differ the definitions from statements easily for `classlevel` 0 case, but it would become confusing for the high case.

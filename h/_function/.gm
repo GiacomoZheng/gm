@@ -1,9 +1,0 @@
-: ; + function
-(
-	⊆ ◉,
-	(
-		"for every input, a function would give an unique output",
-		; maybe all the inputs undefined can output empty class
-	),
-
-),

@@ -15,6 +15,7 @@
         * [predicate](./_/_lexicon/predicate/.gm)
     * [_quantifier](./_/_quantifier/.gm)
     * [_string](./_/_string/.gm)
+* [_function](./_function/.gm)
 * [h](./h/.gm)
     * _
         * _
@@ -225,11 +226,9 @@
                 * [finite_dimensional](./h/_/ℝ/vector_space/finite_dimensional/.gm)
             * [ℝ-like_space](./h/_/ℝ/ℝ-like_space/.gm)
         * [ℤ](./h/_/ℤ/.gm)
-    * [category](./h/category/.gm)
+    * [_category](./h/_category/.gm)
     * [class](./h/class/.gm)
         * [theorem.gm](./h/class/theorem.gm)
-    * [_function](./h/_function/.gm)
-        * [idempotence](./h/_function/idempotence/.gm)
     * [operation](./h/operation/.gm)
         * [associative](./h/operation/associative/.gm)
             * [theorem.gm](./h/operation/associative/theorem.gm)
@@ -261,6 +260,7 @@
         * [identity_morphism](./h/set/identity_morphism/.gm)
         * [isomorphism](./h/set/isomorphism/.gm)
         * [monomorphism](./h/set/monomorphism/.gm)
+        * [_morphism](./h/set/_morphism/.gm)
         * [projection](./h/set/projection/.gm)
         * [pure_set](./h/set/pure_set/.gm)
             * [Z](./h/set/pure_set/Z/.gm)

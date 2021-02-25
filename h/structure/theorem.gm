@@ -1,2 +1,8 @@
 c"endo + epi = auto?",
 c"endo + mono = auto?",
+
+s"an initial / final object is unique up to isomorphic":
+(
+	s.initial ∈ universal,
+	s.final ∈ universal,
+),

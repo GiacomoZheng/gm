@@ -72,7 +72,11 @@
 		proper_class: = class.proper,
 
 		singleton_class: = class.singleton,
+		absolute_singleton_class: = class.absolute_singleton,
+		at_most_singleton_class: = class.at_most_singleton,
 
+	; end 
+	; about structure
 		singleton_structure: = structure.singleton,
 		universal_structure: = structure.universal,
 	; end
@@ -80,7 +84,7 @@
 	; about set
 		; about morphisms
 			mapping: = set.homomorphism,
-				map: = set.homomorphism, ; I don't like to use it
+				map: = set.homomorphism,
 			injection: = set.monomorphism,
 			surjection: = set.epimorphism,
 			bijection: = set.isomorphism,

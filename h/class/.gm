@@ -30,15 +30,20 @@
 			consistent: = nonempty, ; * Source K. Kunen's "The Foundation of Mathematics" Definition II.7.13
 			satisfiable: = nonempty, ; * Source K. Kunen's "The Foundation of Mathematics" Definition II.7.13
 
-		singleton: ; or singleton_class
+		at_most_singleton: ; or at_most_singleton_class
 		(
-			"instance (sample) of this class is unique"
-			⊆ nonempty,
+			⊆ class,
 
 			∀s: ∈ singleton, 
-			∀X: ∈ s, ∀Y: ∈ s,
+			∀X: ∈ s, ∀Y: ∈ s, ; ? is that okay
 			X s.= Y, ; so that ◉ is a singleton
-			; X = Y, ; what if? ; ? I may name it as `absolute singleton`
+		),
+
+		singleton: ; or singleton_class
+		(
+			"instance (sample) of this class is unique",
+			⊆ nonempty,
+			⊆ at_most_singleton,
 
 			; attributes
 				s.instance:
@@ -52,10 +57,30 @@
 					s.take(): = s.instance, ; in rust manner
 		),
 
-		sub(∀x: ∈ class): ; +
+		absolute_singleton: ; or absolute_singleton_class
+		(
+			"instance (sample) of this class is absolute unique",
+			; this L2-concept is stupid since we can only define a class of it like
+			[ ```
+				c: ( ∈ class, ∀X: ∈ c, X = Y)
+			``` ]
+			⊆ nonempty,
 
-		; * I need to deal with the issues of sets before to rewrite the below lines
+			∀s: ∈ singleton,
+			∀X: ∈ s, ∀Y: ∈ s,
+			X = Y,
+		),
+		[
+			property: absolute_singleton ⊆ singleton
+		]
 
+		sub(∀x: ∈ class): ; or subclass
+		(
+			"subclass",
+			; +
+		),
+
+		; ! I need to deal with the issues of sets before to rewrite the below lines
 		collectible: ; or collectible_class
 		(
 			; in rust manner

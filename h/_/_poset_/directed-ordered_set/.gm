@@ -1,4 +1,5 @@
-: ; directed-ordered_set, or filtrant-ordered_set, or directed_ordered_set, or filtrant_ordered_set
+: ; directed-ordered_set, or filtrant-ordered_set, or filtered-ordered_set, 
+; or directed_ordered_set, or filtrant_ordered_set, or filtered_ordered_set
 (
 	∈ structure.full_sub(poset),
 	∈ set.nonempty, ; ?

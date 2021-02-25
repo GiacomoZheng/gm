@@ -1,5 +1,5 @@
 : ; homomorphism
 (
-	∈ ring.induced_homorphism(algebra),
-	∈ commutative_ring.module.induced_homorphism(algebra),
+	⊆ ring.induced_homorphism(algebra),
+	⊆ commutative_ring.module.induced_homorphism(algebra),
 ),

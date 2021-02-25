@@ -1,11 +1,11 @@
-: ; homomorphism, or mapping
+: ; homomorphism, or mapping, or map
 (
 	⊆ function, ; maybe I'll to change it to a relation
 	(
 		∀f: ∈ homomorphism,
 		f.D: ∈ set, ; domain
-		f.C: ∈ set, ; coodomain
-		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know to deal with the ones not in, I want them be error or empty class
+		f.C: ∈ set, ; codomain
+		∀x: ∈ f.D, f(x) ∈ C ; ! I don't know how to deal with the ones not in, I want them be error or empty class
 		
 		; attributes, which can never be changed in subclasses
 			f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],

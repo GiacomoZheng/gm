@@ -1,0 +1,14 @@
+: ; morphism
+(
+	⊆ function, ; but not a map
+
+	f.source: ∈ set,
+		f.D: = d.source,
+		f.Domain: = d.source,
+		f.domain: = d.source,
+	f.target: ∈ set,
+		f.C: = f.target,
+		f.Codomain: = f.target,
+		f.codomain: = f.target,
+		
+),
