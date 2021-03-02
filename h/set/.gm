@@ -120,6 +120,23 @@
 				∀a: ∈ A, a ∈ S
 			),
 
+			; homomorphism
+			; epimorphism
+			; monomorphism
+			; endomorphism
+			; isomorphism
+
+			; ? can I just replace it by set ∈ structure?
+			isomorphic(∀X: ∈ set):
+			(
+				⊆ set,
+				∀Y: ∈ isomorphic(X),
+				∃f: ∈ isomorphism, ∀(f.D = X, f.C = Y)
+			),
+			≌: = relator[isomorphic],
+			
+			; automorphism
+
 			Hom(∀S: ∈ set)(∀T: ∈ set): ; + the set of homomorphisms from S to T
 			Epi(∀S: ∈ set)(∀T: ∈ set): ; +
 			; Mon(∀S: ∈ set)(∀T: ∈ set): ; +

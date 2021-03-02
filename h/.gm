@@ -1,3 +1,27 @@
+; about function
+	; + I'll use subscript to define the function, may be f(x): = f.func[x]
+	; with an input type (with a fixed classlevel) as well as an output type (with the same type)
+	; for two input the same in the input type, it will give the same output from the output type
+
+	function[∀A: ⊆ ◉][∀B: ⊆ ◉]: ; function from a class to a class
+	(
+		⊆ ◉,
+		; keyword
+		(
+			∀f: ∈ function[A][B],
+			f.input: ⊆ A, f.output: ⊆ B,
+			f.map[∀x: ∈ f.input]: ∈ f.output, ; f map x to something
+
+			@f,
+				∀x: ∈ input, ∀y: ∈ output,
+				x input.= y ⇒ map[x] output.= map[y]
+			■
+		)
+	),
+	; a functor is in some sense a function[class][class], not defined yet
+
+; end
+
 ; about set
 	set[∀cls: ⊆ ◉]:
 	(

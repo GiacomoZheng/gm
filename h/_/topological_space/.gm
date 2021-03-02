@@ -211,13 +211,10 @@
 				Q.τ = {U|∪(U) ∈ X.τ}[∀U: ∈ Q] ; ? ∪
 			),
 
-			; isomorphic(∀X: ∈ topological_space): ; ?
-			; (
-			; 	⊆ topological_space,
-			; 	∀T: ∈ isomorphic(X),
-			; 	∃f: ∈ isomorphism, ∀(f.D = X, f.C = T)
-			; ),
-			; ≌: = relator[isomorphic],
+			; on structure
+				; isomorphic(∀X: ∈ topological_space): ; ?
+				; ≌: = relator[isomorphic],
+			; end
 		; end
 				
 		; about continuity

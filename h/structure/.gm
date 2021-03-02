@@ -5,14 +5,17 @@
 	; ⊆ category, ; ?
 	⊆ class,
 	(
-		∀s: ∈ structure, ; s is a set
-		s.homomorphism: ⊆ s.morphism,
+		∀s: ∈ structure, ; a `s` is a `set`
+		s.object: = s, ; objects
+		; s.morphism: ; !
+		; s.homomorphism: ⊆ s.morphism, ; !
+		s.homomorphism: ⊆ set.homomorphism,
 
 		s.isomorphic ∈ relation.equivalent, ; ?
-		s.identity_morphism ⊆ s.automorphism,
+		s.identity_morphism ⊆ s.automorphism, ; ?
 		
 		; attributes
-			; about morphism
+			; about morphisms
 				s.epimorphism:
 				(
 					⊆ s.homomorphism,
@@ -38,12 +41,12 @@
 				),
 				s.isomorphic(∀X: ∈ s):
 				(
-					⊆ labeled_graph,
+					⊆ s,
 					∀Y: ∈ s.isomorphic(X),
-					∃f: ∈ s.isomorphism, ∀(f.D = V, f.C = X)
+					∃f: ∈ s.isomorphism, ∀(f.D = X, f.C = Y)
 				),
 				
-				s.≌: = relator[isomorphic],
+				s.≌: = relator[s.isomorphic],
 
 				s.automorphism:
 				(
@@ -51,7 +54,7 @@
 					⊆ set.automorphism
 				),
 				[ property:
-					A ∈ s, the identity map on A is always an automorphism
+					A ∈ s, the identity morphism on A is always an automorphism
 				]
 
 				; ? about set of morphism
@@ -106,62 +109,66 @@
 	),
 
 	; location
-		sub(∀x: ∈ structure): ; or substructure
-		(
-			⊆ class.sub(x),
-			∀y: ∈ sub(x),
-			y.homomorphism ⊆ x.homomorphism,
-			; by category theory, it is subcategory
-			; y.Hom(A, B) ⊆ x.Hom(A, B)
-		),
-		
-		full_sub(∀x: ∈ structure): ; or substructure
-		(
-			⊆ sub(x),
-			∀y: ∈ full_sub(x),
-			y.homomorphism class.= x.induced_homorphism(y),
-			; ; by category theory, it is full subcategory
-			; ∀A: ∈ y, ∀B: ∈ y,
-			; y.Hom(A, B) = x.Hom(A, B),
-		),
-		[ example:```
-			group ∈ structure.full_sub(abelian_group),
-			field ∈ structure.full_sub(ring),
-		``` counterexample:```
-			¬(rng ∈ structure.full_sub(abelian_group)), ; we add an ×
-			¬(ring ∈ structure.full_sub(rng)), ; we add an 1
-		```]
+		; about substructure
+			sub(∀x: ∈ structure): ; or substructure
+			(
+				⊆ class.sub(x),
+				∀y: ∈ sub(x),
+				y.homomorphism ⊆ x.homomorphism,
+				; by category theory, it is subcategory
+				; y.Hom(A, B) ⊆ x.Hom(A, B)
+			),
+			
+			full_sub(∀x: ∈ structure): ; or substructure
+			(
+				⊆ sub(x),
+				∀y: ∈ full_sub(x),
+				y.homomorphism class.= x.induced_homorphism(y),
+				; ; by category theory, it is full subcategory
+				; ∀A: ∈ y, ∀B: ∈ y,
+				; y.Hom(A, B) = x.Hom(A, B),
+			),
+			[ example:```
+				group ∈ structure.full_sub(abelian_group),
+				field ∈ structure.full_sub(ring),
+			``` counterexample:```
+				¬(rng ∈ structure.full_sub(abelian_group)), ; we add an ×
+				¬(ring ∈ structure.full_sub(rng)), ; we add an 1
+			```]
 
-		half-full_sub(∀x: ∈ structure):
-		(
-			; Source: M. Kashiwara and P. Schapira, Categories and Sheaves: Definition 1.3.17
-			⊆ sub(x),
-			∀y: ∈ half-full_sub(x),
-			∀A: ∈ y, ∀B: ∈ y,
-			A x.≌ B ⇒ A y.≌ B
-		),
-			half_full_sub: = half-full_sub,
-		[ property:
-			* on the other hand, we have `A y.≌ B ⇒ A x.≌ B` for y ∈ sub(x) with the same y isomorphism
-			* full_substrutures are always half-full
-		example: ```
-			cyclic_group ∈ structure.half-full_sub(set),
-			¬(cyclic_group ∈ structure.full_sub(set)),
-		```]
+			half-full_sub(∀x: ∈ structure):
+			(
+				; Source: M. Kashiwara and P. Schapira, Categories and Sheaves: Definition 1.3.17
+				⊆ sub(x),
+				∀y: ∈ half-full_sub(x),
+				∀A: ∈ y, ∀B: ∈ y,
+				A x.≌ B ⇒ A y.≌ B
+			),
+				half_full_sub: = half-full_sub,
+			[ property:
+				* on the other hand, we have `A y.≌ B ⇒ A x.≌ B` for y ∈ sub(x) with the same y isomorphism
+				* full_substrutures are always half-full
+			example: ```
+				cyclic_group ∈ structure.half-full_sub(set),
+				¬(cyclic_group ∈ structure.full_sub(set)),
+			```]
 
-		saturated_sub(∀x: ∈ structure):
-		(
-			⊆ full_sub(x),
-			∀y: ∈ saturated_sub(x),
-			∀X: ∈ x,
-			(∃Y: ∈ y, X x.≌ Y) ⇒ X ∈ y
-		),
-		[example: most of full substructures we defined are still saturated substructures,
-			counterexample: the struture of all the subgroup of G is an full substruture of group but not an saturated substructure ```
-			∀G: ∈ group,
-			group.sub(G) ∈ structure.full_sub(group),
-			¬(group.sub(G) ∈ structure.saturated_sub(group)),
-		```]
+			saturated_sub(∀x: ∈ structure):
+			(
+				⊆ full_sub(x),
+				∀y: ∈ saturated_sub(x),
+				∀X: ∈ x,
+				(∃Y: ∈ y, X x.≌ Y) ⇒ X ∈ y
+			),
+			[example: most of full substructures we defined are still saturated substructures,
+				counterexample: the struture of all the subgroup of G is an full substruture of group but not an saturated substructure ```
+				∀G: ∈ group,
+				group.sub(G) ∈ structure.full_sub(group),
+				¬(group.sub(G) ∈ structure.saturated_sub(group)),
+			```]
+		; end
+
+		; about 
 
 
 		; + about universal structure

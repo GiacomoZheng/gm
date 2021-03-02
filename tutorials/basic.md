@@ -23,12 +23,12 @@ I assigned the `classlevel` 0 to `this chair` and `Giacomo` (me) since I cannot 
 
 Similar to set theory, I use `∈` to mean `is-a` relation and `⊆` to mean `a-is-a` relation. What different from set theroy is there is a special class called "the universal class" notated as `◉`, meaning the the superclass of every class. Specially, `◉` has `classlevel` 1.
 
-(This symbol from [@SkyrimWing](https://github.com/SkyrimWing))
+(This symbol is introduced by [@SkyrimWing](https://github.com/SkyrimWing))
 
 ## about equal
 
 ### absolute equal (or alias)
-If no other definitions, `=` means absolute equal, i.e.
+If no other claims, `=` means absolute equal, i.e.
 ```gm
 a: = b,
 ```
@@ -36,7 +36,7 @@ To avoid ambiguity, we can use
 ```gm
 a: gm.= b
 ```
-"Absolute equal" means a is defined as a reference (or alias) of b, in other words, all the identifier `a` below can be regarded as `b`. During the complier procedure, things like
+"Absolute equal" means `a` is defined as a alias (or reference, pointer) of `b`, in other words, all the identifier `a` below can be regarded as `b`. During the complier procedure, things like
 ```gm
 a.something
 ```
@@ -44,15 +44,16 @@ would be replace by
 ```gm
 b.something
 ```
-specially, if `a`, `b` are both has nonzero class level, like if they are both subclass of `◉`, we can also replace
+Obviously, 
 ```gm
-something ∈ a
+a ∈ A
 ```
-by
+would be replaced by
 ```gm
-something ∈ b
+b ∈ A
 ```
-Remark. `x.a` may have no relationship with `a`, so that it may not equal to `x.b` (which may not even be defined).
+**Remark**: `x.a` may have no relationship with `a`, so that it may not equal to `x.b` (which may not even be defined). 
+
 ### class equal
 From the name we can see, the absolute equal induce any class equal. Although it has the name "`class` equal", every identifier with nonzero classlevel (i.e. not an instance of `◉`) defiend a "equal" automatically and recursively for their instances. Intuitively, it means two of its instances are "the same" as this class, like
 * a n-dimensional Euclidean space `topological_space.=` a n-dimensional real space.
@@ -61,7 +62,9 @@ From the name we can see, the absolute equal induce any class equal. Although it
 
 As `A.=` is defined automatically with `A`, I do not allow any rewrite on it.
 
-Remark. `gm` is an instance of `◉` so that the absolutely equal `gm.=` is not a class equal. Similarly, we can define anything like `a.=` if `a` is an instance of `◉`.  
+**Remark**. `gm` is an instance of `◉` so that the absolutely equal `gm.=` is not a class equal. Similarly, we can define anything like `a.=` if `a` is an instance of `◉`.  
+
+**Warning**: there are still some error under below lines. This version is only reference.
 
 Formally speacking, we can define this "`class` equal" with recursion,
 * To begin with, `◉.=` satisfies any two instances of it, in other words, `◉` is a `singleton_class`.
@@ -73,11 +76,9 @@ A:
     ∀a: ∈ A,
     a.s: ∈ ◉
 ),
-f(∀a: ∈ A): ∈ B, ; B ⊆ ◉
 ```
-then for `a, b` instances of `A`, `a A.= b` if and only iff `a ◉.= b` (as `A ⊆ ◉`), `a.s ◉.= b.s` and `f(a) = f(b)` (absolute equal, due to definition of function, ?though I haven't defined the functions well?). Of course, in this example, `A` is still a `singleton class`.
-<!-- + function -->
-<!-- ? function -->
+then for `a, b` instances of `A`, `a A.= b` if and only iff `a ◉.= b` (as `A ⊆ ◉`) and `a.s ◉.= b.s`. Of course, in this example, `A` is still a `singleton class`.
+
 * To construct a non-singleton class, we need something else than the instance of `◉`, that is the subclass of `◉`,
 ```gm
 A:
@@ -102,7 +103,7 @@ class:
 			∀x: ∈ b, x ∈ c
 		),
     ...
-)
+),
 ```
 so that `a.s class.= b.s` means `class.sub(a.s) = class.sub(b.s)` -->
 
@@ -129,7 +130,7 @@ A:
 It looks similar to the above one, but I think it should be allowed, as we have got enough info from it,
 ```gm
 ... ; continue from above
-a: (∈ A, a.s = a)
+a: (∈ A, a.s = a),
 ```
 If there is no error in definition of `a`, then `a` would be an instance of `A`. Of course, `a` is legitimate, as it is an instance of
 ```gm
