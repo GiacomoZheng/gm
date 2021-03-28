@@ -1,7 +1,0 @@
-: ; trivial
-(
-	⊆ topological_space,
-
-	∀G: ∈ trivial,
-	∀f: (∈ mapping, f.D ∈ topological_space, f.C = G), f ∈ homomorphism 
-),

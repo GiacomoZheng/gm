@@ -1,0 +1,7 @@
+: ; locally_ringed_space
+(
+	∈ structure.full_sub(ringed_space),
+
+	∀X: ∈ locally_ringed_space,
+	X.structure_sheaf ∈ topological_space.sheaf[local_ring], ; + local_ring
+),

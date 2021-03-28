@@ -1,6 +1,12 @@
 : ; equivalent
 (
 	⊆ preorder,
-	⊆ symmetric
+	⊆ symmetric,
+
+	(
+		∀R: ∈ equivalent,
+		; location
+			R.partition: = { R(x).collect }[∀x: ∈ R.D]
+			[ property: R.partition ∈ set.partition(R.D) ]
+	)
 ),
-[ every equivalent relation induce a partition ]

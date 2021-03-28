@@ -1,6 +1,6 @@
 : ; homomorphism
 (
-	⊆ set.homomorphism, ; mapping
+	; ⊆ set.homomorphism, ; mapping
 	∀f: ∈ homomorphism,
 	@f,
 		D ∈ topological_space, C ∈ topological_space,

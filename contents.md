@@ -1,4 +1,4 @@
-.
+gm
 * _
     * [_alphabet](./_/_alphabet/.gm)
     * [_bracket](./_/_bracket/.gm)
@@ -15,7 +15,6 @@
         * [predicate](./_/_lexicon/predicate/.gm)
     * [_quantifier](./_/_quantifier/.gm)
     * [_string](./_/_string/.gm)
-* [_function](./_function/.gm)
 * [h](./h/.gm)
     * _
         * _
@@ -190,6 +189,9 @@
             * [Kolmogorov_space](./h/_/topological_space/Kolmogorov_space/.gm)
             * [accessible_space](./h/_/topological_space/accessible_space/.gm)
                 * [theorem.gm](./h/_/topological_space/accessible_space/theorem.gm)
+            * [_algebraic_geometry_](./h/_/topological_space/_algebraic_geometry_/.gm)
+                * [locally_ringed_space](./h/_/topological_space/_algebraic_geometry_/locally_ringed_space/.gm)
+                * [ringed_space](./h/_/topological_space/_algebraic_geometry_/ringed_space/.gm)
             * [compact_space](./h/_/topological_space/compact_space/.gm)
                 * [theorem.gm](./h/_/topological_space/compact_space/theorem.gm)
             * [connected_space](./h/_/topological_space/connected_space/.gm)
@@ -200,7 +202,6 @@
             * [open_map](./h/_/topological_space/open_map/.gm)
             * [theorem.gm](./h/_/topological_space/theorem.gm)
             * [triangulable_space](./h/_/topological_space/triangulable_space/.gm)
-            * [_trivial](./h/_/topological_space/_trivial/.gm)
         * [ℂ](./h/_/ℂ/.gm)
             * [function](./h/_/ℂ/function/.gm)
             * [holomorphism](./h/_/ℂ/holomorphism/.gm)
@@ -280,4 +281,4 @@
     * [structure](./h/structure/.gm)
         * [theorem.gm](./h/structure/theorem.gm)
 
-237 concepts, 43 theorem files
+229 concepts, 43 theorem files

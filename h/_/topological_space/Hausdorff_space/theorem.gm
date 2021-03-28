@@ -7,6 +7,35 @@ s"every converge sequence converge to a unique point",
 	)
 ``` ]
 
+s"compact subsets of Hausdorff_space are closed":
+(
+	∀X: ∈ Hausdorff_space,
+	compact_sub(X) ⊆ X.closed
+),
+[ counterexample if the space is not accessible (T1)```
+		∀X: ∈ topological_space,
+		¬(X ∈ accessible_space) ⇒
+		∀(
+			∀{x}: ⊆ X,
+			¬({x} ∈ X.closed), ; otherwise, X is accessible
+			{x} ∈ compact_sub(X),
+		)
+	```
+	counterexample if the space is not Hausdorff (T2)```
+		∀X: ∈ ex.finite_space,
+		¬(X ∈ set.finite) ⇒
+		∀(
+			X ∈ accessible_space,
+			¬(X ∈ Hausdorff_space),
+			∀A: (⊆ X, ¬(A ∈ set.finite)),
+			¬(A ∈ X.closed),
+			A ∈ compact_sub(X)
+		)
+	```
+	proof``` ; +
+
+``` ]
+
 s"Hausdorff property is a topological property":
 (
 
@@ -42,6 +71,7 @@ s"preimage of an injective continuous function on a Hausdorff_space is a also a 
 
 s"the set of fixed points in an Hausdorff_space is closed":
 (
+	; +
 	; I don't want to use the theorem below
 	; guess: is it always compact? × but is it always some stronger?
 	∀f: ∈ continuous_function,

@@ -16,6 +16,8 @@
 		
 		; attributes
 			; about morphisms
+				s.identity_morphism[∀S: ∈ s]: (∈ s.identity_morphism, s.identity_morphism[S].D = S), ; ?
+
 				s.epimorphism:
 				(
 					⊆ s.homomorphism,
@@ -76,12 +78,18 @@
 				),
 			; end
 
-			; ? about sub
+			; ? about sub and quotient
 				s.sub(∀X: ∈ s): ; + it should be the same for full substructure
 				(
 					∈ full_sub(s), ; it is a full substructure of s, which means has the same homomorphism
 					⊆ set.sub(X),
 				),
+
+				s.quotient(∀X: ∈ s):
+				(
+					∈ full_sub(s),
+					⊆ set.quotient(X), ; +
+				)
 			; end
 
 			; about universal

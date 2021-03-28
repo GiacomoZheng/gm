@@ -3,7 +3,7 @@
 	; with an input type (with a fixed classlevel) as well as an output type (with the same type)
 	; for two input the same in the input type, it will give the same output from the output type
 
-	function[∀A: ⊆ ◉][∀B: ⊆ ◉]: ; function from a class to a class
+	function[∀A: ⊆ ◉][∀B: ⊆ ◉]: ; function from a class to a class ; ?
 	(
 		⊆ ◉,
 		; keyword
@@ -204,7 +204,7 @@
 		continuous_function: = topological_space.continuous_function,
 		bicontinuous_function: = topological_space.homeomorphism,
 		; topological_isomorphism: = topological_space.isomorphism,
-		identification_space: = toplogical_space.quotient,
+		identification_space: = topological_space.quotient,
 	; end
 
 	; about poset

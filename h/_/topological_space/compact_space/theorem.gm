@@ -13,12 +13,9 @@ s"criterion of compact subset":
 
 ``` ]
 
-s"finite space are always compact":
-(
+s"finite space are always compact",
 
-),
-
-s"closed subsets of a compact space are compact, too":
+s"closed subsets of a compact space are compact as well":
 (
 	∀X: ∈ compact_space,
 	X.closed ⊆ compact_sub(X)
@@ -27,16 +24,16 @@ s"closed subsets of a compact space are compact, too":
 
 ``` ]
 
-s"continous function transitive compactness":
+s"image of continous function on a compact set is compact":
 (
 	∀f: ∈ continuous_function,
 	∀A: ⊆ f.D,
-	A ∈ compact_space ⇒ {f(a)}[∀a: ∈ A] ∈ compact_space
+	A ∈ compact_space ⇒ f.image(A) ∈ compact_space
 ),
 [ proof```
 	X: = f.D,
 	∃I: ∈ set, ∃U[∀i: ∈ I]: ∈ X.τ, f(A) ⊆ ∪[∀i: ∈ I](U[i]),
-	[ so that ] A ⊆ ∪[∀i: ∈ I](f.inv(U[i])), ; ? f.inv is f^-1
+	[ so that ] A ⊆ ∪[∀i: ∈ I](f.preimage(U[i])),
 ``` ]
 
 s"product of two compact sets are still compact, verse vice":

@@ -110,7 +110,6 @@
 			element(∀S: ∈ set): = S.element,
 		; end
 
-
 		; + about structure
 			sub(∀S: ∈ set): ; ?
 			(

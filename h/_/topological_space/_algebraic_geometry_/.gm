@@ -1,0 +1,132 @@
+; about sheaf
+	presheaf[∀type: ∈ structure](∀X: ∈ topological_space): ; = ℱ(X) in The Rising Sea: FOAGnov1817 
+	(
+		"a presheaf of the type (like set) on/over X",
+		∈ structure.sub(type),
+		∀ℱ: ∈ presheaf[type](X),
+
+		ℱ.section: = ℱ.element, ; ℱ is a set and elements of it are called sections
+
+		ℱ.on(∀U: ∈ X.open): ∈ type.quotient(ℱ),
+		ℱ.on(X) = ℱ, ; criterion 1
+		ℱ.on(∅) ∈ type.final, ; for convenience
+
+		ℱ.res[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: ∈ type.Epi(ℱ.on(V), ℱ.on(U)), ; !!!! universal
+			ℱ.restriction[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: = ℱ.res[V][U],
+		
+		ℱ.res[∀U: ∈ X.open]: = ℱ.res[X][U],
+		
+		(
+			∀U: ∈ X.open,
+			ℱ.res[U][U] = type.identity_morphism,
+		), ; criterion 2
+
+		(
+			∀W: ∈ X.open, ∀V: ∈ X.open, ∀U: ∈ X.open, 
+			W ⊆ V ⊆ U ⇒ ℱ.res[W][V] ∘ ℱ.res[V][U] = ℱ.res[W][U]
+		), ; criteria 3
+
+		; location
+			ℱ.at(∀p: ∈ X): ; +
+			(
+				"stalk at p",
+				∈ type.quotient(ℱ),
+				R(∀f: ∈ ℱ):
+				(
+					⊆ set.element(ℱ),
+					∀g: ∈ R(f),
+
+					∃U: ∈ X.open,
+					@ℱ,
+						res[U] f = res[U] g
+					■
+				)
+				set.= R.partition,
+
+				; location
+					ℱ.at(p).germ: = ℱ.element, ; element of it is a germ at p
+			),
+			ℱ.res[∀V: ∈ X.open][∀p: ∈ V]: ∈ type.Epi(ℱ.on(V), ℱ.at(p)), ; !!!! universal
+			ℱ.res[∀p: ∈ V]: ∈ ℱ.res[V][p],
+
+			ℱ.compatible_sections:
+			(
+				; !
+				⊆ set[ℱ.section], ; ! not what I want
+				
+				; ∀V: ∈ 𝒰, ∀W: ∈ 𝒰,
+				; res[V][V ∩ W](f[V]) = res[W][V ∩ W](f[W])
+			)
+
+			homomorphism:
+			(
+				; ⊆ type.homomorphism,
+				∀f: ∈ homomorphism,
+				; @f,
+				; 	∀U: ∈ X.open,
+				; 	f.res[ℱ.on(U)] ∈ type.homomorphism,
+				; ■ 
+				; ? Do I need this part?
+				@f,
+					∀V: ∈ X.open, ∀U: ∈ X.open_sub(V),
+					f.res[ℱ.on(U)] ∘ D.res[V][U] = D.res[V][U] ∘ f.res[ℱ.on(V)]
+				■
+			)
+			; ? morphism:
+			; ? sub
+
+
+	),
+	[ properties:
+		* ℱ.on(U) and ℱ.at(p) are still presheaf
+	]
+
+	separated_presheaf[∀type: ∈ structure](∀X: ∈ topological_space):
+	(
+		∈ structure.sub(presheaf[type](X)),
+
+		; identity axiom
+		∀U: ∈ X.open,
+		∀𝒰: ∈ X.open_cover(U),
+		∀f: ∈ ℱ.on(U), ∀g: ∈ ℱ.on(U),
+		@ℱ,
+			(∀V: ∈ 𝒰, res[U][V](f) = res[U][V](g)) ; ℱ.= ? where ℱ is a set
+			⇒ f = g
+		■
+	),
+
+	sheaf[∀type: ∈ structure](∀X: ∈ topological_space):
+	(
+		∈ structure.sub(separated_presheaf[type](X)),
+
+		; gluability axiom
+		∀U: ∈ X.open,
+		∀𝒰: ∈ X.open_cover(U),
+		∀f[∀V: ∈ 𝒰]: ∈ ℱ.on(V),
+		@ℱ,
+			{f[V]}[∀V: ∈ 𝒰] ∈ compatible ; + compatible
+			⇒ 
+			(
+				∃f: ∈ ℱ.on(U), ∀V: ∈ 𝒰, res[U][V](f) = f[V]
+			)
+		■
+	),
+
+	; about examples
+		; skyscraper_sheaf
+
+		constant_presheaf[∀S: ∈ set](∀X: ∈ topological_space):
+		(
+			"the constant_presheaf associated to S on X",
+			∈ presheaf[S](X),
+			constant_presheaf[S](X).on(∀U: ∈ X.open): = S, ; on other sense constant map {f : X → S}
+
+			constant_presheaf[S](X).res[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: = type.identity_morphism[S] ; identity_map
+		),
+
+		constant_sheaf[∀S: ∈ set](∀X: ∈ topological_space):
+		(
+			; +
+		)
+	; end	
+; end

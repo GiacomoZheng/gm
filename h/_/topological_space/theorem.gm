@@ -1,102 +1,9 @@
 ; about basic
-	s"criterion of trivial topological space"
-	(
-		∀T: ∈ trivial,
-		∀{a, b}: ⊆ T, ∀(a T.→ b, b T.→ a) ; my version
-	),
-	[ equivalently```
-		T.τ = {T, ∅}, ; ? I may remove the ∅ in the later verion
-	``` ]
-
-	s"criterion of isomorphism via bases of spaces":
-	(
-		∀f: (∈ bijection, f.D ∈ topological_space, f.C: ∈ topological_space),
-		@f,
-			(
-				∃ℬ: ∈ D.basis,
-				{image(∀B: ∈ ℬ)} ∈ C.basis ; image here is f.image
-			)
-			⇒ f ∈ isomorphism
-		■
-	),
-	[ proof```
-
-	``` ]
-
-	s"criterion of bicontinous_function":
-	(
-		"that is why it is called bicontinous_function",
-		∀f: ∈ continuous_function,
-		f ∈ bicontinous_function ⇔
-		∀(
-			f ∈ set.isomorphism,
-			f.inv ∈ continuous_function
-		)
-	),
-	[ proof```
-
-	``` ]
-; end
-
-; about sub
-	s"every subset of a topological space is subspace":
-	(
-		∀X: ∈ topological_space, sub(X) = set.sub(X)
-	),
-	[ proof, it is trivial```
-		∀T: ∈ set.sub(X),
-		T ∈ topological_space ⇐ T ⊆ X ⊆ &X.→&.D = &T.→&.D
-	``` ]
-
-	s"sub topology is the coarsest topology to make the inclusion map continuous": ; +
-	(
-
-	),
-
-	s"sub topology is the unique topology makes": ; !
-	(
-		∀X: ∈ topological_space, ∀A: ∈ sub(X),
-		i(∀x: ∈ A): = x, i.C: = X, ; ?
-		(
-			∀f: (∈ continuous_function, f.C = A),
-			f ∘ i ∈ continuous_function
-		),
-	),
-; end
-
-; about closure, interior and boundary
-	s"equations": ; +
-	(
-		∀X: ∈ topological_space, ∀A: ⊆ X,
-		@X,
-		¯(X\A) = X\A°, (X\B)° = X\¯B,
-		∂A = ¯A ∩ ¯(X\A)
-		■
-	),
-
-	s"closure and interior in subspace":
-	(
-		∀X: ∈ topological_space, ∀A: ⊆ X, ∀B: ⊆ A,
-		closure[A](B) = X.closure(B) ∩ A,
-		interior[A](B) ⊇ interior[X](B)
-	),
-	[ proof```
-		∀(B ⊆ ¯B, B ⊆ A) ⇒ B ⊆ ¯B ∩ A ⇒
-		∃V: ∈ X.closed, V ∩ A = clous
-	``` ]
+	s"criterion of trivial topological space",
 ; end
 
 ; about open and closed
-	s"open and closed are both transitive relation": ; !
-	(
-		X.open.D: = set.Ps(X),
-		X.open ∈ transitive_relation,
-		X.closed.D: = set.Ps(X),
-		X.closed ∈ transitive_relation
-	),
-	[ proof```
-
-	``` ]
+	s"open and closed are both transitive relation",
 
 	s"all the elements of a open set are interior points, vise verse":
 	(
@@ -142,26 +49,83 @@
 	[ proof```
 
 	``` ]
+; end
 
-	s"the complement of open set is closed and vice versa":
+; about criteria of homeomorphism
+	s"bicontinous_function":
 	(
-		∀X: ∈ topological_space,
-		∀S: ⊆ X,
-		S ∈ open(X) ⇔ X \ S ∈ closed(X)
+		bicontinous_function class.= homeomorphism
 	),
-	[ proof``` ; +
-		S ∈ open(X) ⇒
-		(
-			∀x: ∈ X\S,
-		)
+
+	s"a bijection preserve a base is a homeomorphism":
+	(
+		∀f: (∈ bijection, f.D ∈ topological_space, f.C ∈ topological_space),
+		@f,
+		∀ℬ[D]: ∈ D.base,
+		{f.image(B)|∀B: ∈ ℬ[D]} ∈ C.base ⇒ f ∈ homeomorphism
+		■
+	),
+	[ proof```
+		@f,
+			ℬ[C]: = {f.image(B)|∀B: ∈ ℬ[D]},
+			; f is continuous as
+			∀O: ∈ C.τ, ∃𝒪: ⊆ ℬ[C], O = ∪(𝒪),
+		■
 	``` ]
 ; end
 
-; about base / basis
-	s"generate a topology from basis":
+; about sub
+	s"every subset of a topological space is subspace":
+	(
+		∀X: ∈ topological_space, sub(X) = set.sub(X)
+	),
+	[ proof, it is trivial```
+		∀T: ∈ set.sub(X),
+		T ∈ topological_space ⇐ T ⊆ X ⊆ &X.→&.D = &T.→&.D
+	``` ]
+
+	s"sub topology is the coarsest topology to make the inclusion map continuous": ; +
+	(
+	),
+
+	s"sub topology is the unique topology makes": ; !
+	(
+		∀X: ∈ topological_space, ∀A: ∈ sub(X),
+		i(∀x: ∈ A): = x, i.C: = X, ; ?
+		(
+			∀f: (∈ continuous_function, f.C = A),
+			f ∘ i ∈ continuous_function
+		),
+	),
+; end
+
+; about closure, interior and boundary
+	s"equations": ; +
+	(
+		∀X: ∈ topological_space, ∀A: ⊆ X,
+		@X,
+		¯(X\A) = X\A°, (X\B)° = X\¯B,
+		∂A = ¯A ∩ ¯(X\A)
+		■
+	),
+
+	s"closure and interior in subspace":
+	(
+		∀X: ∈ topological_space, ∀A: ⊆ X, ∀B: ⊆ A,
+		closure[A](B) = X.closure(B) ∩ A,
+		interior[A](B) ⊇ interior[X](B)
+	),
+	[ proof```
+		∀(B ⊆ ¯B, B ⊆ A) ⇒ B ⊆ ¯B ∩ A ⇒
+		∃V: ∈ X.closed, V ∩ A = clous
+	``` ]
+; end
+
+; about base
+	s"generate a topology from base":
 	(
 		∀X: ∈ set,
-		∀ℬ: ∈ basis(X),
+		∀ℬ: ∈ base(X),
 		{∪(𝒰)}[∀𝒰: ⊆ ℬ] ∈ topology(X)
 	),
 	[ proof```
@@ -178,24 +142,8 @@
 		T = ∪[∀x: ∈ T](B[x]) ∈ 𝒯,
 	``` ]
 
-	s"basis implies all the structure of topological space":
+	s"base implies all the structure of topological space":
 	[ as the union of open sets are still open in a topological space ]
-
-	s"a bijection preserve a basis is a homeomorphism":
-	(
-		∀f: (∈ bijection, f.D ∈ topological_space, f.C ∈ topological_space),
-		@f,
-		∀ℬ[D]: ∈ D.basis,
-		{{f(∀x: ∈ B)}|∀B: ∈ ℬ[D]} ∈ C.basis ⇒ f ∈ homeomorphism
-		■
-	),
-	[ proof```
-		@f,
-			ℬ[C]: = {{f(∀x: ∈ B)}|∀B: ∈ ℬ[D]},
-			; f is continuous as
-			∀O: ∈ C.τ, ∃𝒪: ⊆ ℬ[C], O = ∪(𝒪),
-		■
-	``` ]
 ; end
 
 ; about product topology ; + I'll define it with universal property
@@ -249,35 +197,6 @@
 
 	s"the universal property of identification space": ,
 ; end
-
-s"compact subsets of Hausdorff_space are closed":
-(
-	∀X: ∈ Hausdorff_space,
-	compact_sub(X) ⊆ X.closed
-),
-[ counterexample if the space is not accessible (T1)```
-		∀X: ∈ topological_space,
-		¬(X ∈ accessible_space) ⇒
-		∀(
-			∀{x}: ⊆ X,
-			¬({x} ∈ X.closed), ; otherwise, X is accessible
-			{x} ∈ compact_sub(X),
-		)
-	```
-	counterexample if the space is not Hausdorff (T2)```
-		∀X: ∈ ex.finite_space,
-		¬(X ∈ set.finite) ⇒
-		∀(
-			X ∈ accessible_space,
-			¬(X ∈ Hausdorff_space),
-			∀A: (⊆ X, ¬(A ∈ set.finite)),
-			¬(A ∈ X.closed),
-			A ∈ compact_sub(X)
-		)
-	```
-	proof``` ; +
-
-``` ]
 
 s"bijective continuous function from compact set to Hausdorff_space are homeomorpism":
 (

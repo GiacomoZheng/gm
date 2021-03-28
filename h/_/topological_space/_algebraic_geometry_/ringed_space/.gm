@@ -1,0 +1,10 @@
+: ; ringed_space
+(
+	∈ structure.sub(topological_space),
+
+	∀X: ∈ ringed_space,
+
+	X.structure_sheaf: ∈ topological_space.sheaf[commutative_ring],
+	
+	; + morphism
+),
