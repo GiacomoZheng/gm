@@ -48,5 +48,11 @@
 			■
 		),
 
+		localization[∀R: ∈ commutative](∀S: ∈ R.multiplicative_set):
+		(
+			"S^-1 R or R/S"
+			set.= ; +
+		),
+
 		; ? polynomial ring
 ),

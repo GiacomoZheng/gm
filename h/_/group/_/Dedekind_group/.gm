@@ -1,7 +1,9 @@
 : ; Dedekind_group
 (
+	∈ structure.sub(group),
+	
 	∀D: ∈ Dedekind_group,
-	sub(D) = normal(D)
+	sub(D) class.= normal(D)
 ),
 [ hierarchy chain: group ⊇ Dedekind_group ⊇ abelian_group
 By the way, the nonabelian Dedekind groups are called Hamiltonian group

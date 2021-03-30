@@ -47,7 +47,7 @@
 ; end
 
 ; ! about compound structures
-	; ! on commutative_ring
+	; on algebra
 		associative_algebra[∀R: ∈ rng]: = algebra,
 		
 		commutative_algebra[∀R: ∈ rng]:
@@ -76,7 +76,7 @@
 			; * a subclass of set, may catch some operators with it
 		)
 	),
-	[ hierarchy chain: variable ⊇ random_variable ]
+	[ hierarchy chain: variable ⊇ random_variable ] ; !
 
 	constant(∀x: ∈ variable): ; +
 	(
@@ -135,8 +135,9 @@
 		unital_ring: = ring,
 		doman: = rng.domain,
 		; ! domain: = ring.domain, ; a little bit confusing
+		non_zero_ring: = ring.non_zero,
+		nonzero_ring: = ring.non_zero,
 		associative_algebra: = algebra,
-
 		skew_field: = division_ring,
 		unital_module: = ring.module, ; left module
 		; ! module: = ring.module, ; a little bit confusing

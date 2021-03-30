@@ -1,5 +1,6 @@
 : ; finite_group
 (
+	; + 
 	⊆ group,
 	⊆ set.finite, ; ?
 

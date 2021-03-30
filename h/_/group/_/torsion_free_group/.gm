@@ -1,7 +1,7 @@
 : ; torsion_free_group
 (
-	⊆ group,
+	∈ structure.full_sub(group),
 	∀T: ∈ torsion_free_group,
-	∀x: ∈ T, ¬(x = T.e) ⇒ ¬(order[T](x) ∈ ℕ)
+	∀x: ∈ T \ {T.e}, order[T](x) ∈ ℕ
 ),
 [ example: ℤ ]

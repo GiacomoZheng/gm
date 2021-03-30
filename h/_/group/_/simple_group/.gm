@@ -1,9 +1,9 @@
-: ; simple
+: ; simple_group
 (
 	; + generalize
 	"the groups which has no new group in its quetient groups"
-	⊆ group,
+	∈ structure.full_sub(group),
 
-	∀G: ∈ simple,
+	∀G: ∈ simple_group,
 	∀N: ∈ normal(G), N ∈ {{G.e}, G}
 ),

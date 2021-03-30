@@ -2,7 +2,7 @@
 # Function: from subscript to parameter
 
 ## subscript
-Roughly speaking, a program is an arrangement of **finite** many characters, which make it impossible to define infinite many concepts in a program. It is terrible. The notation of subscript is exactly created to write all of definitions into a file.
+Roughly speaking, a program is an arrangement of **finite** many characters, which make it impossible to define infinite many concepts in a program. It is terrible. In order to solve it, I'll introduce the notation of subscript.
 
 ### Index of Concept
 In analysis, we would write a sequence of points as `a`<sub>`i`</sub>, with the natural numbers (`1`, `2`, ..., `n`, ...) plays the role of index. By this notation, if we have a uncountable index set `I`, we can define uncountable many concepts by `a`<sub>`i`</sub>. 

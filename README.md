@@ -8,7 +8,8 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 * I can differ the definitions from statements easily for `classlevel` 0 case, but it would become confusing for the higher case.
 * Define `Rel` category (structure).
 * What is function?
-<!-- * What is concept -->
+* Model Theory or Category Theory?
+* What is `concept`
 
 ## name of folders
 

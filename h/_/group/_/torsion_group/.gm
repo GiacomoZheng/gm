@@ -1,6 +1,6 @@
 : ; torsion_group, or periodic_group
 (
-	⊆ group,
+	∈ structure.full_sub(group),
 	∀T: ∈ torsion_group,
 	∀x: ∈ T, order[T](x) ∈ ℕ
 ),

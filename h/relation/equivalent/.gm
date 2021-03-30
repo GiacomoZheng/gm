@@ -6,7 +6,7 @@
 	(
 		∀R: ∈ equivalent,
 		; location
-			R.partition: = { R(x).collect }[∀x: ∈ R.D]
+			R.partition: = { R(x).collect }[∀x: ∈ R.D] ; ! I want to find a better version
 			[ property: R.partition ∈ set.partition(R.D) ]
 	)
 ),

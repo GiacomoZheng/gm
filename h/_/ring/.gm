@@ -5,14 +5,33 @@
 	(
 		∀R: ∈ ring,
 		R.1: ∈ R,
-		¬(R.1 = R.0), ; ? I prefer this version
-		∀a: ∈ R, R.1 R.× a = a = a R.× R.1, ; multiply identity
+		; ! ¬(R.1 = R.0), ; move to (integral) domain
+		∀a: ∈ R,
+		@R,
+			1 × a = a = a × 1, ; multiply identity
+		■
+		; attributes
+			R.multiplicative_set:
+			(
+				"closed under multiplication and contains 1"
+				⊆ set.sub(R),
+				∀S: ∈ R.multiplicative_set,
+				@R,
+					1 ∈ S,
+					∀{x, y}: ⊆ S, x × y ∈ S
+				■
+			),
+				R.multiplicative_subset: = R.multiplicative_set,
+				R.multiplicatively_closed_set: = R.multiplicative_set,
+				R.multiplicatively_closed_subset: = R.multiplicative_set,
 
 	),
 	[ hierarchy chain: ring ⊆ rng ⊆ abelian_group ]
 	; location
 		; about alias
 			commutative_domain: = integral_domain,
+
+			nonzero: = non_zero,
 
 			regular_module: = module,
 			l'module: = module,

@@ -1,6 +1,6 @@
 : ; perfect_group
 (
-	⊆ group,
+	∈ structure.full_sub(group),
 	∀G: ∈ perfect_group,
 	G = commutator_sub(G) ; ?
 ),

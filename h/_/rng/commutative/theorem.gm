@@ -14,8 +14,9 @@
 		⇒ ∃(x + I = 0 + I, y + I = 0 + I) ⇔ ∃(x ∈ I, y ∈ I),
 	``` ]
 
-	s"nil ideal is the intersection of all the prime ideal": ; +
+	s"nilradical ideal is the intersection of all the prime ideal": 
 	(
+		; + 
 		∀R: ∈ commutative_rng, 
 	),
 ; end

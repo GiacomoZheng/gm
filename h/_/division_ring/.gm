@@ -1,6 +1,6 @@
 : ; division_ring, or skew_field
 (
-	∈ structure.full_sub(ring),
+	∈ structure.full_sub(ring.non_zero),
 	∀F: ∈ division_ring,
 
 	∀x: ∈ F \ {F.0}, x ∈ ring.unit(F)

@@ -1,6 +1,7 @@
 : ; rng, the ring without multiplication identity
 (
 	"an abelian group on +, and a semigroup on ×",
+	; * This will be a template of all the rng-like structres, like commutative_rng, ring and field
 	∈ structure.sub(abelian_group), ; "+,-" is defined here
 	(
 		∀R: ∈ rng,
@@ -15,6 +16,15 @@
 		a R.× (b R.+ c) = (a R.× b) R.+ (a R.× c),
 
 		; attributes
+			R.power[ℕ.0](∀a: ∈ R): = R.1,
+			R.power[∀n: ∈ ℕ\{ℕ.0}](∀a: ∈ R): = R.power[n ℕ.- N.1] R.× a,
+			
+			R.^: ; ! power
+			(
+				; + tag: delimiter
+				∈ keyword(r"\$R\  \*^ \*\$ℕ\ \/\$power\ [\2](\1)"p), ; ! keyword
+			),
+
 			; we cannot define 
 			; ! R.algebra:
 			; ! R.module:
@@ -110,6 +120,8 @@
 			¬(P = R)
 		),
 
-		nil(∀R: ∈ rng): = {a|∃n: ∈ ℕ, R.multiply(a).power(n) (R.1) = R.0}[∀a: ∈ R], ; ! R.^
-		; nil it is interesting that it may not be an ideal
+		radical[∀R: ∈ rng](∀I: ∈ ideal(R)): = {r | ∃n: ∈ ℕ, r R.^ n ∈ I}[∀a: ∈ R]
+		; ∨(I), looks like sqrt of I, but not only the square case
+
+		nilradical(∀R: ∈ rng): = radical[R]({R.0}),
 ),

@@ -10,18 +10,17 @@
 	; location
 		; about inheritance
 			nil(∀R: ∈ rng.commutative): = rng.nil(R),
-			; nilradical ideal, the intersection of all prime ideals
 
 			principle_ideal(∀R: ∈ rng.commutative): = rng.l'principle_ideal(R), ; as commutative
 
 			proper_ideal(∀R: ∈ rng.commutative): = rng.proper_ideal(R),
 		; end
 
-		prime(∀R: ∈ rng.commutative):
+		prime_element(∀R: ∈ rng.commutative):
 		(
 			"prime elements: p | ab then p | a or p |b",
 			⊆ set.element(R),
-			∀p: ∈ prime(R),
+			∀p: ∈ prime_element(R),
 			¬(p ∈ unit(R)), ; ?
 			@R,
 				∀{a, b}: ∈ R,
@@ -32,7 +31,7 @@
 		divisor[∀R: ∈ rng.commutative](∀a: ∈ R):
 		(
 			⊆ set.element(R),
-			[ 0 can nver be a divisor ]
+			[ 0 can never be a divisor ]
 			∀b: ∈ divisor[R](a),
 			∃c: ∈ R, c R.× b = a
 		),

@@ -1,7 +1,8 @@
 : ; ? prime_field
 (
 	"the field who has no proper subfield",
-	⊆ field,
+	∈ structure.full_sub(field),
+
 	∀F: ∈ prime_field,
-	∀S: ∈ sub(F), S = F ; I wiped the trivial field in definition of ring
+	∀S: ∈ sub(F), S = F ; fields are nonzero ring
 ),

@@ -1,0 +1,11 @@
+: ; Dedekind_domain
+(
+	∈ structure.sub(integral_domain),
+
+
+),
+[ property: hierarchy chain
+	Dedekind_domain ⊇ PID,
+	and in some sense
+	PID = UFD ∩ Dedekind_domain
+]
