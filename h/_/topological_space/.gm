@@ -5,9 +5,8 @@
 	; * pay attention, homomorphism of top'space is not exactly continuous function
 	(
 		∀X: ∈ topological_space,
-		; * I have given up my "→" version ; ! I cannot deal with some problems like Hausdorff and compact with my version now
 		
-		X.τ: ∈ topology(X), ; defined in the tools
+		X.τ: ∈ topology(X),
 			X.𝒯: = X.τ, ; I won't use this one later
 			; ! X.topology: ; it may cause me confused
 			
@@ -25,7 +24,7 @@
 				(
 					⊆ sub(X.τ), ; a class
 					∀ℬ: ∈ X.base,
-					∀U: ∈ τ, ∃ℬ': ⊆ ℬ, U = ∪(ℬ')
+					∀U: ∈ X.open, ∃ℬ': ⊆ ℬ, U = ∪(ℬ')
 					; for U = ∅, just pick ℬ' empty
 				),
 					X.basis: = X.base, ; someone prefer it
@@ -48,9 +47,6 @@
 					⊆ set.sub(X),
 					∀F: ∈ X.closed,
 					X \ F ∈ X.open,
-					
-					; ? ∀x: ∈ X, (∃y: ∈ F, y X.→ x) ⇒ x ∈ F
-
 				),
 			; end
 
@@ -68,77 +64,77 @@
 				; end
 			; end
 
-			; ! about arrow
-				X.approach_to(∀x: ∈ X): ; ?
-				(
-					⊆ sub(X),
-					(
-						∀y: ∈ X.approach_to(x),
-						X.nbh(x) ⊆ X.nbh(y) ; class.⊆
-					)
-				),
-				X.→: = relator[X.approach_to],
-
-				X.be_approached_to: = X.approach_to.dual
-				X.→: = relator[X.be_approached_to],
-
-				X.be_indistinguishable_with(∀x: ∈ X):
-				(
-					⊆ X.approach_to(x),
-					⊆ X.be_approached_to(x)
-				),
-					X.be_topological_indistinguishable_with: = X.be_indistinguishable_with, ; ?
-				X.↔: = relator[X.be_indistinguishable_with],
-			; end
-
-			; ? about closure interor and boundary
+			; about closure interor and boundary
 				; * be attension, the `A` below are all just subset, not subspace
-				X.accumulation_point(∀A: ⊆ X):
+				X.limit_point[∀A: ⊆ X]:
 				(
 					⊆ set.element(X),
-					∀x: ∈ X.accumulation_point(A),
+					∀x: ∈ X.limit_point(A),
 					∀N: ∈ X.nbh(x), ¬((N \ {x}) ∩ A = ∅)
 				),
-					X.limit_point: = X.accumulation_point,
-					X.cluster_point: = X.accumulation_point,
+					X.accumulation_point[∀A: ⊆ X]: = X.limit_point[A],
+					X.cluster_point[∀A: ⊆ X]: = X.limit_point[A],
 				
+				X.closure(∀A: ⊆ X): = ∩({F | F ⊇ A}[∀F: ∈ X.closed]), ; the minimal closed set in X containing the A
+				X.closure_point[∀A: ⊆ X]: = X.closure[A].collected,
+					X.adherent_point[∀A: ⊆ X]: = X.closure_point[A],
+				[ equivalent```
+					(
+						⊆ set.element(X),
+						∀x: ∈ X.closure_point(A),
+						∀N: ∈ X.nbh(x), ¬(N ∩ A = ∅)
+					),
+					``` or
+					```
+					= A ∪ X.limit_point(A).collected
+				```]
+
+				X.isolated_point[∀A: ⊆ X]: = (X.closure(A) \ X.limit_point(A)).collected,
 				
-				X.closure_point(∀A: ⊆ X):
-				(
-					⊆ set.element(X),
-					∀x: ∈ X.closure_point(A),
-					∀N: ∈ X.nbh(x), ¬(N ∩ A = ∅)
-				)
-				X.closure(∀A: ⊆ X): = {∀x: ∈ X.closure_point} ; the minimal closed set in X containing the A ; or = {x|∃a: ∈ A, a X.→ x}[∀x: ∈ X], ; ?
-
-				X.interior_point(∀A: ⊆ X):
-				(
-					⊆ set.element(X),
-					∀x: ∈ X.interior_point(A), A ∈ X.nbh(x)
-				),
-				X.interior(∀A: ⊆ X): = {∀x: ∈ X.interior_point(A)}, ; the maximal open set in X contained in the A,
-
+				X.interior(∀A: ⊆ X): = ∪({G | G ⊆ A}[∀G: ∈ X.open]), ; the maximal open set in X contained in the A,
+				X.interior_point[∀A: ⊆ X]: = X.interior[A].collected,
+				[ equivalent```
+					(
+						⊆ set.element(X),
+						∀x: ∈ X.interior_point(A), A ∈ X.nbh(x)
+					),
+				```]
+				
 				X.exterior(∀A: ⊆ X): = X.interior(X \ A),
 
-				X.boundary_point(∀A: ⊆ X):
+				X.boundary(∀A: ⊆ X): = X.closure(A) ∩ X.closure(X \ A),
+				X.boundary_point[∀A: ⊆ X]: = X.boundary(A).element,
+				[ property
+					X.boundary(A) = X.closure(A) \ X.interior(A),
+				]
+			; end
+
+			; about specialization, generization and generic 
+				; Source: https://en.wikipedia.org/wiki/Specialization_(pre)order
+				X.specialization(∀y: ∈ X): = X.closure_point({y}),
+				
+				X.generization: = X.specialization.dual,
+
+				X.generic_point[∀S: ∈ X.closed]:
 				(
-					⊆ X.closure_point(A),
-					⊆ X.closure_point(X \ A)
+					∀x: ∈ X.generic_point[S],
+					S = X.closure_point({x}),
 				),
-				X.boundary(∀A: ⊆ X): = X.closure(A) \ X.interior(A),
+				X.generic_point: = X.generic_point[X],
 			; end
 	),
 
 	; location
 		; about tools
-			topology(∀X: ∈ set): ; +
+			topology(∀X: ∈ set):
 			(
-				"a topological structure on X",
-				⊆ X.cover,
+				"a topology structure on X",
+				⊆ set.sub(set.Ps(X)),
 				∀τ: ∈ topology(X),
 				(∅ ∈ τ),
+				(X ∈ τ),
 				(∀{A, B}: ⊆ τ, A ∩ B ∈ τ),
-				(∀𝒞: ⊆ τ, ∪(𝒞) ∈ τ) ; ! ∪ ; so that D ∈ τ
+				(∀𝒞: ⊆ τ, ∪(𝒞) ∈ τ) ; ! ∪ ; so that X ∈ τ
 			),
 			[ cover + union closure ⇒ D ∈ τ ]
 

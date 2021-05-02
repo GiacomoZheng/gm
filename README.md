@@ -34,6 +34,16 @@ Go to the [tutorials](https://github.com/GiacomoZheng/gm/wiki) (it has been out 
 * `; !` is equal to `; WARN`, meaning there is something wrong here, and I'll fix it later.
 
 ## TODO
+* add content
+  * affine scheme, scheme, projective scheme
+  * local ring, graded ring
+  * localization 
+  * more about `algebra`
+  * `ideal` and `sub-algebra` 
+  * `dense set` and `dense subset`
+  *  [Noetherian ring](https://en.wikipedia.org/wiki/Noetherian_ring)
+  * [`Reduced ring`](https://en.wikipedia.org/wiki/Reduced_ring) and `Reduced algebra`
+  * a `ring` is `C.algebra` where `C` is the center of it .
 * define the `set` and complete the `set.md`
 * rewrite `function` with class.
 * delete all the `|…|`

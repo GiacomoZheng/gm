@@ -1,0 +1,10 @@
+: ; Alexandrov-discrete_space
+(
+	; the topology is uniquely determined by the family of all finite subspaces
+	∈ structure.full_sub(topological_space),
+	(
+		∀T: ∈ Alexandrov-discrete_space,
+		∀𝒞: ⊆ τ, ∩(𝒞) ∈ τ
+	)
+),
+[ property: relat to preordered space ] ; +

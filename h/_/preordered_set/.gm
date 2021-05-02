@@ -1,0 +1,9 @@
+: ; preordered_set
+(
+	∈ structure.sub(set),
+
+	∀S: ∈ preordered_set,
+	S.relation: ∈ preorder_relation,
+	S ∈ S.relation.closure
+),
+[ relat to Alexandrov topology: https://en.wikipedia.org/wiki/Alexandrov_topology ]

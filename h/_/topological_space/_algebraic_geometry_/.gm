@@ -7,11 +7,11 @@
 
 		ℱ.section: = ℱ.element, ; ℱ is a set and elements of it are called sections
 
-		ℱ.on(∀U: ∈ X.open): ∈ type.quotient(ℱ),
-		ℱ.on(X) = ℱ, ; criterion 1
-		ℱ.on(∅) ∈ type.final, ; for convenience
+		ℱ.on[∀U: ∈ X.open]: ∈ type, ; may not be the quotient of ℱ, think about S^1\{p}
+		ℱ.on[X] = ℱ,
+		ℱ.on[∅] ∈ type.final, ; criterion 1
 
-		ℱ.res[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: ∈ type.Epi(ℱ.on(V), ℱ.on(U)), ; !!!! universal
+		ℱ.res[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: ∈ type.Hom(ℱ.on[V], ℱ.on[U]), ; ? is it enough
 			ℱ.restriction[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: = ℱ.res[V][U],
 		
 		ℱ.res[∀U: ∈ X.open]: = ℱ.res[X][U],
@@ -27,10 +27,10 @@
 		), ; criteria 3
 
 		; location
-			ℱ.at(∀p: ∈ X): ; +
+			ℱ.at[∀p: ∈ X]: ; +
 			(
 				"stalk at p",
-				∈ type.quotient(ℱ),
+				∈ type.quotient(ℱ), ; !
 				R(∀f: ∈ ℱ):
 				(
 					⊆ set.element(ℱ),
@@ -44,10 +44,14 @@
 				set.= R.partition,
 
 				; location
-					ℱ.at(p).germ: = ℱ.element, ; element of it is a germ at p
+					ℱ.at[p].germ: = ℱ.element, ; element of it is a germ at p
 			),
-			ℱ.res[∀V: ∈ X.open][∀p: ∈ V]: ∈ type.Epi(ℱ.on(V), ℱ.at(p)), ; !!!! universal
-			ℱ.res[∀p: ∈ V]: ∈ ℱ.res[V][p],
+			[ property: 
+				if {p} is open, `at[p] = on[{p}]`
+			]
+
+			ℱ.res[∀V: ∈ X.open][∀p: ∈ V]: ; ?
+			ℱ.res[∀p: ∈ V]: = ℱ.res[V][p],
 
 			ℱ.compatible_sections:
 			(
@@ -64,12 +68,12 @@
 				∀f: ∈ homomorphism,
 				; @f,
 				; 	∀U: ∈ X.open,
-				; 	f.res[ℱ.on(U)] ∈ type.homomorphism,
+				; 	f.res[ℱ.on[U]] ∈ type.homomorphism,
 				; ■ 
 				; ? Do I need this part?
 				@f,
 					∀V: ∈ X.open, ∀U: ∈ X.open_sub(V),
-					f.res[ℱ.on(U)] ∘ D.res[V][U] = D.res[V][U] ∘ f.res[ℱ.on(V)]
+					f.res[ℱ.on[U]] ∘ D.res[V][U] = D.res[V][U] ∘ f.res[ℱ.on[V]]
 				■
 			)
 			; ? morphism:
@@ -78,7 +82,7 @@
 
 	),
 	[ properties:
-		* ℱ.on(U) and ℱ.at(p) are still presheaf
+		* ℱ.on[U] and ℱ.at[p] are still presheaf
 	]
 
 	separated_presheaf[∀type: ∈ structure](∀X: ∈ topological_space):
@@ -88,7 +92,7 @@
 		; identity axiom
 		∀U: ∈ X.open,
 		∀𝒰: ∈ X.open_cover(U),
-		∀f: ∈ ℱ.on(U), ∀g: ∈ ℱ.on(U),
+		∀f: ∈ ℱ.on[U], ∀g: ∈ ℱ.on[U],
 		@ℱ,
 			(∀V: ∈ 𝒰, res[U][V](f) = res[U][V](g)) ; ℱ.= ? where ℱ is a set
 			⇒ f = g
@@ -102,12 +106,12 @@
 		; gluability axiom
 		∀U: ∈ X.open,
 		∀𝒰: ∈ X.open_cover(U),
-		∀f[∀V: ∈ 𝒰]: ∈ ℱ.on(V),
+		∀f[∀V: ∈ 𝒰]: ∈ ℱ.on[V],
 		@ℱ,
 			{f[V]}[∀V: ∈ 𝒰] ∈ compatible ; + compatible
 			⇒ 
 			(
-				∃f: ∈ ℱ.on(U), ∀V: ∈ 𝒰, res[U][V](f) = f[V]
+				∃f: ∈ ℱ.on[U], ∀V: ∈ 𝒰, res[U][V](f) = f[V]
 			)
 		■
 	),
@@ -119,7 +123,7 @@
 		(
 			"the constant_presheaf associated to S on X",
 			∈ presheaf[S](X),
-			constant_presheaf[S](X).on(∀U: ∈ X.open): = S, ; on other sense constant map {f : X → S}
+			constant_presheaf[S](X).on[∀U: ∈ X.open]: = S, ; on other sense constant map {f : X → S}
 
 			constant_presheaf[S](X).res[∀V: ∈ X.open][∀U: ∈ X.open_sub(V)]: = type.identity_morphism[S] ; identity_map
 		),

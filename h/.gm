@@ -46,16 +46,16 @@
 	),
 ; end
 
-; ! about compound structures
+; ? about compound structures
 	; on algebra
-		associative_algebra[∀R: ∈ rng]: = algebra,
+	; + I'll create something like "#[add_subscript]" in `rust` to simplify it
+		associative_algebra: = algebra,
+		algebra[∀R: ∈ commutative_ring]: = R.algebra,
+		associative_algebra[∀R: ∈ commutative_ring]: = algebra[R],
 		
-		commutative_algebra[∀R: ∈ rng]:
-		(
-			∈ structure.full_sub(commutative_algebra),
-			∀A: ∈ commutative_algebra[R],
-			A.R = R
-		),
+		commutative_algebra[∀R: ∈ commutative_ring]: = R.commutative_algebra,
+
+		reduced_algebra[∀R: ∈ commutative_ring]: = R.reduced_algebra,
 	; end
 
 	; on field

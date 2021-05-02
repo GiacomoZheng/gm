@@ -31,7 +31,7 @@
 		divisor[∀R: ∈ rng.commutative](∀a: ∈ R):
 		(
 			⊆ set.element(R),
-			[ 0 can never be a divisor ]
+			[ 0 is and only is a zero-divisor ]
 			∀b: ∈ divisor[R](a),
 			∃c: ∈ R, c R.× b = a
 		),

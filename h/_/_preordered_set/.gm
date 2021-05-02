@@ -1,8 +1,0 @@
-: ; preordered_set
-(
-	⊆ set,
-
-	∀S: ∈ preordered_set,
-	S.relation ∈ preorder_relation,
-	S ⊆ S.relation.D
-),

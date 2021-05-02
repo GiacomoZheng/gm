@@ -1,7 +1,7 @@
 : ; Hausdorff_space, or separated_space, or T2_space
 (
 	"second separated space",
-	⊆ topological_space,
+	∈ structure.full_sub(topological_space),
 	(
 		∀H: ∈ Hausdorff_space,
 		∀{x, y}: ∈ H,

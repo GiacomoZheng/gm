@@ -1,6 +1,8 @@
 : ; algebra, or associative_algebra
 (
+	; + tag: algebra[R] 
 	"a ring as well as a commutative ring module: the domain of polynomial",
+	; * I want the property that a `ring` is `C.algebra` where `C` is the center of it
 	∈ structure.sub(ring),
 	∈ structure.sub(commutative_ring.module),
 
@@ -8,9 +10,9 @@
 
 	∀r: ∈ A.R, ∀x: ∈ A,
 	@A,
-		π(r) ∘ multiply(x) = multiply(x) ∘ π(r),
+		π(r) ∘ r'multiply(x) = r'multiply(x) ∘ π(r),
 		; r • (y × x) = (r • y) × x
-		π(r) ∘ multiply.dual(x) = multiply.dual(x) ∘ π(r),
+		π(r) ∘ l'multiply(x) = l'multiply(x) ∘ π(r),
 		; r • (x × y) = x × (r • y)
 	■
 	; loaction

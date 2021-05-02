@@ -1,6 +1,6 @@
 : ; Kolmogorov_space, or T0_space
 (
-	⊆ topological_space,
+	∈ structure.full_sub(topological_space),
 	(
 		∀K: ∈ Kolmogorov_space,
 		∀{x, y}: ⊆ K,

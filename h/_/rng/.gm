@@ -8,6 +8,11 @@
 		R.multiply: ∈ associative_operation,
 		R ∈ R.multiply.closure,
 
+		R.right_multiply: = R.multiply,
+			R.r'multiply: = R.right_multiply,
+		R.left_multiply: = R.multiply.dual,
+			R.l'multiply: = R.left_multiply,
+
 		R.×: = operator[R.multiply],
 
 		; distributive law ; ? I think here can be simpler
@@ -17,9 +22,9 @@
 
 		; attributes
 			R.power[ℕ.0](∀a: ∈ R): = R.1,
-			R.power[∀n: ∈ ℕ\{ℕ.0}](∀a: ∈ R): = R.power[n ℕ.- N.1] R.× a,
+			R.power[∀n: ∈ ℕ\{ℕ.0}](∀a: ∈ R): = R.power[n ℕ.- N.1] R.× a, ; ! recursion
 			
-			R.^: ; ! power
+			R.^: ; power
 			(
 				; + tag: delimiter
 				∈ keyword(r"\$R\  \*^ \*\$ℕ\ \/\$power\ [\2](\1)"p), ; ! keyword

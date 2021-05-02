@@ -3,6 +3,35 @@
 	∈ structure.full_sub(ring), ; for R.1
 	∈ structure.sub(rng.commutative),
 
+	(
+		∀R: ∈ ring.commutative,
+
+		; attribute
+			; about algebra
+				; + I'll create something like "#[add_subscript]" in `rust` to simplify it
+				R.algebra:
+				(
+					∈ structure.full_sub(algebra),
+					∀A: ∈ commutative_algebra[R],
+					A.R = R
+				),
+
+				R.commutative_algebra:
+				(
+					∈ structure.full_sub(commutative_algebra),
+					∀A: ∈ commutative_algebra[R],
+					A.R = R
+				),
+
+				R.reduced_algebra:
+				(
+					∈ structure.full_sub(reduced_algebra),
+					∀A: ∈ commutative_algebra[R],
+					A.R = R
+				),
+			; end
+	),
+
 	; location
 		; about alias
 

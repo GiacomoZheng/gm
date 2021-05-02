@@ -1,6 +1,6 @@
 : ; accessible_space, or T1_space
 (
-	⊆ topological_space,
+	∈ structure.full_sub(topological_space),
 	(
 		∀H: ∈ accessible_space,
 		∀{x, y}: ∈ H,
