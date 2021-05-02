@@ -1,5 +1,7 @@
 个人整理思路用，尚未正式发布
 
+**Warning**: Far from completion.
+
 # From Class to Set
 
 Many mathematicians regrad the `sets` as primitive objects in math, they would assume there is something named `set`, and
@@ -18,7 +20,7 @@ Some mathematician think the ZF system is enough for mathematician to understand
 
 Generally speaking, I don't appreciate this answer. `Set` is the core of math, but it is not simple enough for us to ignore the detail of it. Since there is still some criteria on it and we would really meet some "proper class" like `ordinal` without these restriction.
 
-For me, I think the concept of `class` is simple and intuitive enough for everyone, including mathematicial beginners and passers-by. Here, I'll use it to define the `set` and prove it follows the ZF (No AC up to now).
+For me, I think the concept of `class` is simple and intuitive enough for everyone, including mathematicial beginners and passers-by. Here, I'll try to use it to define the `set` which follows the ZFC.
 
 To begin with, although we always ignore, a set has its "type", or mathematically speaking, it has a `universe`, and it is meaningless for us to discuss whether anything else in inside or outside this set. A set may not (and may not be able to) contains everything in the `universe`, so we call the subclass contains elements in the set as `element` i.e.
 ```gm

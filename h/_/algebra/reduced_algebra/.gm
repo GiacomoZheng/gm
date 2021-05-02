@@ -1,0 +1,5 @@
+: ; algebra.reduced, or reduced_algebra
+(
+	∈ structure.full_sub(algebra),
+	∈ structure.sub(ring.reduced),
+),

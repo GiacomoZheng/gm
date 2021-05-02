@@ -1,0 +1,5 @@
+: ; algebra.division, or division_algebra
+(
+	∈ structure.full_sub(algebra),
+	∈ structure.sub(ring.division),
+),

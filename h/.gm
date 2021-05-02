@@ -1,25 +1,24 @@
 ; about function
-	; + I'll use subscript to define the function, may be f(x): = f.func[x]
-	; with an input type (with a fixed classlevel) as well as an output type (with the same type)
-	; for two input the same in the input type, it will give the same output from the output type
+	; with an input type (with a fixed classlevel) as well as an output type
+	; for two inputs the same in the input type, it will give the same output in the output type
 
-	function[∀A: ⊆ ◉][∀B: ⊆ ◉]: ; function from a class to a class ; ?
+	function[∀A: ∈ class.sub(◉)][∀B: ∈ class.sub(◉)]: ; function from a class to a class ; ?
 	(
 		⊆ ◉,
-		; keyword
+		; + tag: keyword
 		(
 			∀f: ∈ function[A][B],
 			f.input: ⊆ A, f.output: ⊆ B,
-			f.map[∀x: ∈ f.input]: ∈ f.output, ; f map x to something
+			f.of[∀x: ∈ f.input]: ∈ f.output, ; exactly means f(x), by wikipedia: https://en.wikipedia.org/wiki/Function_(mathematics)
 
 			@f,
 				∀x: ∈ input, ∀y: ∈ output,
-				x input.= y ⇒ map[x] output.= map[y]
+				x input.= y ⇒ of[x] output.= of[y]
 			■
 		)
 	),
-	; a functor is in some sense a function[class][class], not defined yet
-
+	; a functor is in some sense a function[class][class], thoufh I haven't defined it yet
+𝔽
 ; end
 
 ; about set
@@ -98,9 +97,9 @@
 		singleton_class: = class.singleton,
 		absolute_singleton_class: = class.absolute_singleton,
 		at_most_singleton_class: = class.at_most_singleton,
-
 	; end 
-	; about structure
+
+	; ? about structure
 		singleton_structure: = structure.singleton,
 		universal_structure: = structure.universal,
 	; end
@@ -117,58 +116,80 @@
 			identity_map: = set.identity_morphism,
 		; end
 
+		; ? move to set?
 		cover(∀X: ∈ set): = X.cover(X),
 		partition(∀X: ∈ set): = X.partition,
 	; end
 
 	; about name of structures
-		; about commutative
+		; about group-like structures
 			commutative_group: = abelian_group,
-
-			commutative_domain: = integral_domain,
-			commutative_rng: = rng.commutative,
-			commutative_ring: = ring.commutative,
-			commutative_algebra: = algebra.commutative
 		; end
 
-		unital_rng: = ring, ; ? I think it useless
-		unital_ring: = ring,
-		doman: = rng.domain,
-		; ! domain: = ring.domain, ; a little bit confusing
-		non_zero_ring: = ring.non_zero,
-		nonzero_ring: = ring.non_zero,
-		associative_algebra: = algebra,
-		skew_field: = division_ring,
-		unital_module: = ring.module, ; left module
-		; ! module: = ring.module, ; a little bit confusing
-		vector_space: = field.module,
-		; ? linear_space: = field.module,
-		finite_dimensional_vector_space: = field.module.finite_dimensional,
+		; about rng/ring-like structures
+			commutative_rng: = rng.commutative,
+			; reduced_rng: = rng.reduced, ; ?
 
-		partial-ordered_set: = poset,
-			partial_ordered_set: = poset,
-		totally_ordered_set: = totally-ordered_set,
-			linearly_ordered_set: = totally-ordered_set,
-		well_ordered_set: = well-ordered_set,
-			least_well_ordered_set: = well-ordered_set,
-			least_ordered_set: = well-ordered_set,
-		supremum_ordered_set: = supremum-ordered_set,
-			; ? complete-ordered_set: = supremum-ordered_set,
-			; ? complete_ordered_set: = supremum-ordered_set,
-		filtrant-ordered_set: = directed-ordered_set,
-			directed_ordered_set: = directed-ordered_set,
-			filtrant_ordered_set: = directed-ordered_set,
-		inductive_set: = inductively-ordered_set,
-			inductively_ordered_set: = inductively-ordered_set,
+			commutative_ring: = ring.commutative,
+			division_ring: = ring.division,
+			reduced_ring: = ring.reduced,
+			unital_rng: = ring, ; ? I think it is useless
+			unital_ring: = ring,
 
-		bounded_poset: = poset.bounded,
-			bounded_above_poset: = poset.bounded_above,
-			bounded_below_poset: = poset.bounded_below,
+			non_zero_ring: = ring.non_zero,
+			nonzero_ring: = ring.non_zero,
+
+			doman: = rng.domain,
+			; ! domain: = ring.domain, ; a little bit confusing
+			commutative_domain: = integral_domain,
+
+			skew_field: = division_ring,
+		; end
+
+		; about module-like structures
+			unital_module: = ring.module, ; left module
+			; ! module: = ring.module, ; a little bit confusing
+
+			vector_space: = field.module,
+			; ? linear_space: = field.module,
+			finite_dimensional_vector_space: = field.module.finite_dimensional, ; ?
+		; end
 		
-		top'space: = topological_space, ; My (year 2) topology teacher use it
+		; about algebra-like structures
+			associative_algebra: = algebra,
+			commutative_algebra: = algebra.commutative,
+			division_algebra: = algebra.division,
+			reduced_algebra: = algebra.reduced,
+		; end
 
-		; ! simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
-		CW_complex: = cell_complex, ; refernce: Allen Hatcher - Algebraic Topology
+		; about poset
+			partial-ordered_set: = poset,
+				partial_ordered_set: = poset,
+			totally_ordered_set: = totally-ordered_set,
+				linearly_ordered_set: = totally-ordered_set,
+			well_ordered_set: = well-ordered_set,
+				least_well_ordered_set: = well-ordered_set,
+				least_ordered_set: = well-ordered_set,
+			supremum_ordered_set: = supremum-ordered_set,
+				; ? complete-ordered_set: = supremum-ordered_set,
+				; ? complete_ordered_set: = supremum-ordered_set,
+			filtrant-ordered_set: = directed-ordered_set,
+				directed_ordered_set: = directed-ordered_set,
+				filtrant_ordered_set: = directed-ordered_set,
+			inductive_set: = inductively-ordered_set,
+				inductively_ordered_set: = inductively-ordered_set,
+
+			bounded_poset: = poset.bounded,
+				bounded_above_poset: = poset.bounded_above,
+				bounded_below_poset: = poset.bounded_below,
+		; end
+
+		; about topology
+			top'space: = topological_space, ; My (year 2) topology teacher use it
+
+			; ! simplicial_complex: = abstract_simplicial_complex, ; the latter maight be confusing
+			CW_complex: = cell_complex, ; refernce: Allen Hatcher - Algebraic Topology
+		; end
 	; end
 
 	; about function

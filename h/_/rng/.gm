@@ -15,10 +15,16 @@
 
 		R.×: = operator[R.multiply],
 
-		; distributive law ; ? I think here can be simpler
-		∀{a, b, c}: ⊆ R,
-		(a R.+ b) R.× c = (a R.× c) R.+ (b R.× c),
-		a R.× (b R.+ c) = (a R.× b) R.+ (a R.× c),
+		; distributive law ; ? I think here can be even simpler
+		@R,
+			∀{b, c}: ⊆ R,
+			(r'multiply(c) ∘ add(b)) = add(r'multiply(c)(b)) ∘ r'multiply(c),
+			(l'multiply(c) ∘ add(b)) = add(l'multiply(c)(b)) ∘ l'multiply(c),
+		■
+		[ i.e.```
+			(a R.+ b) R.× c = (a R.× c) R.+ (b R.× c),
+			c R.× (a R.+ b) = (c R.× a) R.+ (c R.× b),
+		```]
 
 		; attributes
 			R.power[ℕ.0](∀a: ∈ R): = R.1,

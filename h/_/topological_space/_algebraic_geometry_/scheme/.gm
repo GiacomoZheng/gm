@@ -1,6 +1,6 @@
 : ; scheme
 (
-	; + 
+	; + I need to define affine scheme first
 	; ∈ structure.sub(ringed_space),
 
 ),
