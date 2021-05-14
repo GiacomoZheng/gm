@@ -1,6 +1,6 @@
 : ; operator
 (
-	⊆ keyword(r"\$D\=\2 \*\$operator\  \*\$D\=\1 \/\$operation\ (\1)(\2)"p), ; keyword
+	⊆ keyword(r"\$D\=\2 \*\$operator\  \*\$D\=\1 \/\$operation\ (\1)(\2)"p), ; ! keyword
 	
 	(
 		∀𝓅: ∈ operator,

@@ -36,13 +36,13 @@ class Flags:
 				self.others = True
 
 def sorted(ls):
-	def split(s, prefix = "_"):
+	def lstrip(s, prefix = "_"):
 		if s.startswith(prefix):
-			return split(s[len(prefix):], prefix)
+			return lstrip(s[len(prefix):], prefix)
 		else:
 			return s
 
-	ls.sort(key=lambda s: split(s, "_"))
+	ls.sort(key=lambda s: lstrip(s, "_"))
 	return ls
 
 class Tree:
@@ -171,7 +171,6 @@ def analyze_inv(path, root = "https://doc.gm-lang.org/src/", ext : str = ".gm"):
 				continue
 		web += "." + item
 	return root + web
-
 
 if __name__ == "__main__":
 	if len(sys.argv) > 1:

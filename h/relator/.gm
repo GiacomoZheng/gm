@@ -1,6 +1,6 @@
 : ; relator
 (
-	⊆ keyword(r"\$D\  \*\$relator\  \*\$D\ \/\1 ∈ \$r\ \(\2\)"p), ; ? keyword
+	⊆ keyword(r"\$D\  \*\$relator\  \*\$D\ \/\1 ∈ \$r\ \(\2\)"p), ; ! keyword
 
 	(
 		∀𝓅: ∈ relator,

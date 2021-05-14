@@ -1,0 +1,83 @@
+: ; + category
+(
+	⊆ ◉, ; a category of `A` is something represent some property of `A` (which might be a structure)
+	(
+		∀𝒞: ∈ category,
+		𝒞.object: ⊆ ◉,
+		𝒞.morphism: ; ! I think there is some ambiguity here
+		(
+			; here means I can pick sth as the `𝒞.morphism`
+			⊆ ◉,
+			∀f: ∈ 𝒞.morphism,
+			f.source: ∈ 𝒞.object, f.target: ∈ 𝒞.object,
+			; ! I need to define the equality of it, which should not be allowed
+		),
+
+		𝒞.morphism[∀A: ∈ 𝒞.object]: ; ! I think there is some ambiguity here
+		(
+			; here means everything in `𝒞.morphism` is in it if it satisfies some condition
+			⊆ 𝒞.morphism,
+			∀f: ∈ 𝒞.morphism[A],
+			f.source = A
+		),
+		𝒞.morphism[∀A: ∈ 𝒞.object][∀B: ∈ 𝒞.object]: ; ! I think there is some ambiguity here
+		(
+			; here means everything in `𝒞.morphism` is in it if it satisfies some condition
+			⊆ 𝒞.morphism[A],
+			∀f: ∈ 𝒞.morphism[A][B],
+			f.target = B
+		),
+
+		𝒞.composition(∀g: ∈ 𝒞.morphism)(∀f: ∈ 𝒞.morphism[g.target]): ∈ 𝒞.morphism[g.source][f.target],
+	),
+	; location
+		; about tools
+		; end
+),
+
+[ I'll delete the below parts```
+(
+	"maybe concrete category",
+	⊆ class.sub(set), ; a category is a subclass of set
+	(
+		∀c: ∈ category,
+		c.morphism: ⊆ set.morphism, ; + now I think it should be like a set to set map
+		∀f: ∈ c.morphism, f.D ∈ c, f.C ∈ c,
+		; I'm considering about something called natrural subsets (like topology)
+
+		; attributes
+			c.morphism[∀X: ∈ c][∀Y: ∈ c]:
+			(
+				⊆ c.morphism,
+				∀f: ∈ c.morphism[X][Y],
+				f.D = X, f.C = Y
+			),
+
+			c.Mor(∀X: ∈ c)(∀Y: ∈ c): , ; + I don't know what is it yet
+	),
+	; location
+		filtered_index: ; + or filtered_index_category
+		(
+			⊆ category,
+			∀c: ∈ filtered_index,
+			∀X: ∈ c, ∀Y: ∈ c, ∃Z: ∈ c,
+			c.morphism[X][Z] ∈ class.nonempty, ; X → Z
+			c.morphism[Y][Z] ∈ class.nonempty, ; Y → Z
+			; and 
+			∀f: ∈ c.morphism[X][Y], ∀g: ∈ c.morphism[X][Y], ; may be ∀{f, g}: ⊆ c.Mor(X)(Y)
+			∃h: ∈ c.morphism[Y][Z],
+			h ∘ f c.morphism.= h ∘ g ; ? =
+		),
+		; + 1.4.D. EXECRISE
+),
+```]
+
+[ save a diagram:
+			f
+		D	-->	C
+		|		| 
+	D.oper(x)	C.oper(x)
+		∨		∨
+		D	-->	C 
+			f
+]

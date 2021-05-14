@@ -1,0 +1,11 @@
+: ; small, small_category
+(
+	⊆ locally_small,
+	(
+		∀𝒞: ∈ small,
+		𝒞.morphism ∈ class.collectible,
+
+		; attribute
+			𝒞.Mor: = 𝒞.morphism.collected, ; maybe useless
+	)
+),

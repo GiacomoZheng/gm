@@ -1,12 +1,13 @@
 : ; structure, 
 (
-	; ? I'm not sure the relation between it and the category
-	; it seems that a morphism in category don't need to be a homomorphism
-	; ⊆ category, ; ?
+	; * I'll define the category from a totally different perspective
 	⊆ class,
 	(
-		∀s: ∈ structure, ; a `s` is a `set`
-		s.object: = s, ; objects
+		∀s: ∈ structure,; `s` is a `structure`
+
+		s ⊆ set, ; a `s` is a `set`
+		
+		; s.object: = s, ; objects
 		; s.morphism: ; !
 		; s.homomorphism: ⊆ s.morphism, ; !
 		s.homomorphism: ⊆ set.homomorphism,
@@ -123,8 +124,7 @@
 				⊆ class.sub(x),
 				∀y: ∈ sub(x),
 				y.homomorphism ⊆ x.homomorphism,
-				; by category theory, it is subcategory
-				; y.Hom(A, B) ⊆ x.Hom(A, B)
+				; in category theory, it is subcategory
 			),
 			
 			full_sub(∀x: ∈ structure): ; or substructure
@@ -132,9 +132,7 @@
 				⊆ sub(x),
 				∀y: ∈ full_sub(x),
 				y.homomorphism class.= x.induced_homorphism(y),
-				; ; by category theory, it is full subcategory
-				; ∀A: ∈ y, ∀B: ∈ y,
-				; y.Hom(A, B) = x.Hom(A, B),
+				; in category theory, it is full subcategory
 			),
 			[ example:```
 				group ∈ structure.full_sub(abelian_group),
@@ -176,9 +174,6 @@
 			```]
 		; end
 
-		; about 
-
-
 		; + about universal structure
 			singleton: ; or singleton_structure
 			(
@@ -190,7 +185,7 @@
 			universal: ; or universal_structure
 			(
 				; originate from the universal property.
-				"instances (may not exist) unique up to isomorphism, also, every space defined by universal property is a universal structure"
+				"instances/objects (may not exist) unique up to isomorphism, also, every space defined by universal property is a universal structure"
 				⊆ structure,
 
 				∀s: ∈ universal, 

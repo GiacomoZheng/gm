@@ -1,6 +1,6 @@
 : ; homomorphism, or mapping, or map
 (
-	⊆ function[class.collectible][class.collectible], ; ? maybe I'll to change it to a relation
+	⊆ function[◉][◉], ; ? maybe I'll to change it to a relation
 	(
 		∀f: ∈ homomorphism,
 		f.D: ∈ set, ; domain
@@ -11,15 +11,16 @@
 			output = C.element,
 		■
 
-		; attributes, which can never be changed in subclasses
+		; attributes, you can never overwrite it in subclasses
 			f.image(∀W: ⊆ f.D): = {f(x)}[∀x: ∈ W],
-			f.image.D: = Ps(f.D), f.image.C: = Ps(f.C),
+				f.image.C: = Ps(f.C),
 
-			f.preimage(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D],
-			f.preimage.D: = Ps(f.D), f.preimage.C: = Ps(f.C),
-				f.inverse_image: = f.preimage,
-				f.inv'image: = f.preimage,
-			f.fiber(∀b: ∈ f.C): = f.preimage({b}), ; I would use it in covering space in topology
+			f.inv_image(∀U: ⊆ f.C): = {x|f(x) ∈ U}[∀x: ∈ f.D],
+				f.inv_image.C: = Ps(f.C),
+				f.inv'image: = f.inv_image,
+				f.inverse_image: = f.inv_image,
+				f.preimage: = f.inv_image, ; ? it is a little bit confusing since it looks like something weeker than image
+			f.fiber(∀b: ∈ f.C): = f.inv_image({b}),
 			
 			f.restriction[∀U: ⊆ f.D](∀x: ∈ U): = f(x), ; ?
 				f.restriction[∀U: ⊆ f.D].D: = U,
@@ -49,6 +50,6 @@
 	; location
 		∘:
 		(
-			∈ keyword(r"\$homomorphism\=\1 \*∘ \*\$homomorphism\=\2 \*( \*\2\.\$D\=\3 \*)\/\1(\2(\3))"p)
+			∈ keyword(r"\$homomorphism\=\1 \*∘ \*\$homomorphism\=\2 \*( \*\2\.\$D\=\3 \*)\/\1(\2(\3))"p), ; ! keyword
 		),
 ),

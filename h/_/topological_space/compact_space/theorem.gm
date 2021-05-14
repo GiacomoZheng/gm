@@ -33,7 +33,7 @@ s"image of continous function on a compact set is compact":
 [ proof```
 	X: = f.D,
 	∃I: ∈ set, ∃U[∀i: ∈ I]: ∈ X.τ, f(A) ⊆ ∪[∀i: ∈ I](U[i]),
-	[ so that ] A ⊆ ∪[∀i: ∈ I](f.preimage(U[i])),
+	[ so that ] A ⊆ ∪[∀i: ∈ I](f.inv_image(U[i])),
 ``` ]
 
 s"product of two compact sets are still compact, verse vice":

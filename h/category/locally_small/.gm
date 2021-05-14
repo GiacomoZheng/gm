@@ -1,0 +1,13 @@
+: ; locally_small, or locally_small_category
+(
+	⊆ category,
+	(
+		∀𝒞: ∈ locally_small,
+		∀A: ∈ 𝒞.object, ∀B: ∈ 𝒞.object,
+		𝒞.morphism[A][B] ∈ class.collectible,
+
+		; attribute
+			𝒞.Mor(A)(B): = 𝒞.morphism[A][B].collected,
+			; 𝒞.Mor(A, B) is the same
+	)
+),

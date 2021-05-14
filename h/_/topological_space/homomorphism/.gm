@@ -5,10 +5,10 @@
 	@f,
 		D ∈ topological_space, C ∈ topological_space,
 		∀U: ⊆ C,
-		U ∈ C.τ ⇔ preimage(U) ∈ D.τ ; ? preimage
+		U ∈ C.τ ⇔ inv_image(U) ∈ D.τ ; ? inverse image
 	■
 ),
 [ equivalently```
 	f ∈ continuous_function,
-	preimage(U) ∈ D.τ ⇒ U ∈ C.τ
+	inv_image(U) ∈ D.τ ⇒ U ∈ C.τ
 ``` ]

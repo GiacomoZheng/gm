@@ -2,7 +2,7 @@
 	; with an input type (with a fixed classlevel) as well as an output type
 	; for two inputs the same in the input type, it will give the same output in the output type
 
-	function[∀A: ∈ class.sub(◉)][∀B: ∈ class.sub(◉)]: ; function from a class to a class ; ?
+	function[∀A: ⊆ ◉][∀B: ⊆ ◉]: ; function from a class to a class ; ?
 	(
 		⊆ ◉,
 		; + tag: keyword
@@ -15,10 +15,38 @@
 				∀x: ∈ input, ∀y: ∈ output,
 				x input.= y ⇒ of[x] output.= of[y]
 			■
-		)
+
+			; attributes
+				; about alias
+					; in set theory manner
+					f.source: = f.input,
+					f.target: = f.output,
+				; end
+		),
+		; locations
+			from[∀input: ⊆ A]:
+			(
+				⊆ function[A][B],
+				∀f: ∈ from[input], f.input = input
+			),
+			from[∀input: ⊆ A]to[∀output: ⊆ B]:
+			(
+				⊆ from[A],
+				∀f: ∈ from[input]to[B], f.output = output
+			),
+
+			composition(∀g: ∈ function[A][B])(∀f: ∈ from[g.target]): ∈ from[g.source]to[f.target],
 	),
-	; a functor is in some sense a function[class][class], thoufh I haven't defined it yet
-𝔽
+
+	function[∀A: ⊆ ◉][∀A: ⊆ class]:,
+	function[∀A: ⊆ class][∀A: ⊆ ◉]:,
+	function[∀A: ⊆ class][∀A: ⊆ class]:, ; a functor is in some sense a function[class][class]
+	; totally the same with function[◉][◉]
+
+	; + tag: keyword, makes f(∀x: ∈ D): ∈ output, defined as  
+	
+	∘: ∈ keyword, ; ! keyword for composition
+
 ; end
 
 ; about set
@@ -97,13 +125,13 @@
 		singleton_class: = class.singleton,
 		absolute_singleton_class: = class.absolute_singleton,
 		at_most_singleton_class: = class.at_most_singleton,
-	; end 
+	; end
 
 	; ? about structure
 		singleton_structure: = structure.singleton,
 		universal_structure: = structure.universal,
 	; end
-	
+
 	; about set
 		; about morphisms
 			mapping: = set.homomorphism,
@@ -192,10 +220,6 @@
 		; end
 	; end
 
-	; about function
-		∘: = &set.homomorphism.∘&, ; !
-	; end
-
 	; about operation
 		associative_operation: = operation.associative,
 		commutative_operation: = operation.commutative,
@@ -220,6 +244,11 @@
 
 		equivalent_relation: = relation.equivalent,
 		order_relation: = relation.order,
+	; end
+
+	; about category
+		small_category: = category.small,
+		locally_small_category: = locally_small,
 	; end
 
 	; about topology
@@ -292,7 +321,4 @@
 		; end
 	; end
 
-	; about number theory
-
-	; end
 ; end

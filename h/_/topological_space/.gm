@@ -266,7 +266,7 @@
 				⊆ connected_sub(p.C), ; may not be open ; ? connected as I want to use the connected component to simplify the definition
 				(
 					∀U: ∈ evenly_covered(p),
-					∀sheet: ∈ connected_component(p.preimage(U)), ; the preimage may be empty
+					∀sheet: ∈ connected_component(p.inv_image(U)), ; the inverse image may be empty
 					p.restriction[sheet][U] ∈ homeomorphism
 				)
 			),

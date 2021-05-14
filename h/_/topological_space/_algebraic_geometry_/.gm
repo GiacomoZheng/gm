@@ -1,7 +1,7 @@
 ; about sheaf
 	presheaf[∀type: ∈ structure](∀X: ∈ topological_space): ; = ℱ(X) in The Rising Sea: FOAGnov1817 
 	(
-		"a presheaf of the type (like set) on/over X",
+		"a presheaf of a type (like set) on/over X",
 		∈ structure.sub(type),
 		∀ℱ: ∈ presheaf[type](X),
 
@@ -79,7 +79,6 @@
 			; ? morphism:
 			; ? sub
 
-
 	),
 	[ properties:
 		* ℱ.on[U] and ℱ.at[p] are still presheaf
@@ -117,7 +116,7 @@
 	),
 
 	; about examples
-		; skyscraper_sheaf
+		; + skyscraper_sheaf
 
 		constant_presheaf[∀S: ∈ set](∀X: ∈ topological_space):
 		(

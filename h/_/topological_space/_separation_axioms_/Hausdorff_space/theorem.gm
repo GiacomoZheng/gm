@@ -49,7 +49,7 @@ s"the product space reserve the Hausdorff property":
 
 ``` ]
 
-s"preimage of an injective continuous function on a Hausdorff_space is a also a Hausdorff_space":
+s"inverse image of an injective continuous function on a Hausdorff_space is a also a Hausdorff_space":
 (
 	∀f: ∈ continuous_function,
 	∀(f ∈ injection, f.C ∈ Hausdorff_space) ⇒ f.D ∈ Hausdorff_space
@@ -61,10 +61,10 @@ s"preimage of an injective continuous function on a Hausdorff_space is a also a 
 		∃U: ∈ C.nbh(f(a)),
 		∃V: ∈ C.nbh(f(b)),
 		U ∩ V = ∅,
-		; the preimage of these two open sets are what we want
-		a ∈ f.preimage(U),
-		b ∈ f.preimage(V),
-		f.preimage(U) ∩  f.preimage(V) = ∅
+		; the inverse image of these two open sets are what we want
+		a ∈ f.inv_image(U),
+		b ∈ f.inv_image(V),
+		f.inv_image(U) ∩  f.inv_image(V) = ∅
 	)
 	■
 ``` ]

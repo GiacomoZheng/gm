@@ -5,7 +5,7 @@
 		∀f: ∈ continuous_function,
 		f.D ∈ topological_space, f.C ∈ topological_space,
 		@f,
-			∀U: ∈ C.τ, f.preimage(U) ∈ D.τ
+			∀U: ∈ C.τ, f.inv_image(U) ∈ D.τ
 		■
 	)
 ),
