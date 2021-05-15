@@ -8,27 +8,56 @@
 		(
 			; here means I can pick sth as the `𝒞.morphism`
 			⊆ ◉,
-			∀f: ∈ 𝒞.morphism,
-			f.source: ∈ 𝒞.object, f.target: ∈ 𝒞.object,
-			; ! I need to define the equality of it, which should not be allowed
+			(
+				∀f: ∈ 𝒞.morphism,
+				f.source: ∈ 𝒞.object, f.target: ∈ 𝒞.object,
+				; ! I need to define the equality of it, which should not be allowed
+			),
+			; locations
+				from[∀A: ∈ object]:
+				(
+					⊆ 𝒞.morphism,
+					∀f: ∈ from[A], f.source = A
+				),
+				to[∀B: ∈ object]:
+				(
+					⊆ 𝒞.morphism,
+					∀f: ∈ to[B], f.target = B
+				),
+				from[∀A: ∈ object]to[∀B: ∈ object]:
+				(
+					⊆ from[A],
+					⊆ to[B]
+				),
 		),
+		𝒞.morphism[∀A: ∈ 𝒞.object][∀B: ∈ 𝒞.object]: = 𝒞.morphism.from[A]to[B],
 
-		𝒞.morphism[∀A: ∈ 𝒞.object]: ; ! I think there is some ambiguity here
-		(
-			; here means everything in `𝒞.morphism` is in it if it satisfies some condition
-			⊆ 𝒞.morphism,
-			∀f: ∈ 𝒞.morphism[A],
-			f.source = A
-		),
-		𝒞.morphism[∀A: ∈ 𝒞.object][∀B: ∈ 𝒞.object]: ; ! I think there is some ambiguity here
-		(
-			; here means everything in `𝒞.morphism` is in it if it satisfies some condition
-			⊆ 𝒞.morphism[A],
-			∀f: ∈ 𝒞.morphism[A][B],
-			f.target = B
-		),
+		𝒞.composition(∀g: ∈ 𝒞.morphism)(∀f: ∈ 𝒞.morphism.from[g.target]): ∈ 𝒞.morphism.from[g.source]to[f.target], ; f ∘ g
+		[ it is to say```
+			∀A: ∈ object, ∀B: ∈ object, ∀C: ∈ object,
+			∀g: ∈ morphism[A][B], ∀f: ∈ morphism[B][C],
+			∃h: ∈ morphism[A][C], composition(g)(f) morphism.= h ; f ∘ g = h
+		``` ]
 
-		𝒞.composition(∀g: ∈ 𝒞.morphism)(∀f: ∈ 𝒞.morphism[g.target]): ∈ 𝒞.morphism[g.source][f.target],
+		𝒞.∘: = operator[𝒞.composition], ; + operator for this case
+
+		(@𝒞,
+			∀A: ∈ object, ∀B: ∈ object, ∀C: ∈ object, ∀D: ∈ object,
+			∀h: ∈ morphism[A][B], ∀g: ∈ morphism[B][C], ∀f: ∈ morphism[C][D],
+			(f ∘ g) ∘ h morphism.= f ∘ (g ∘ h)
+		■),; associativity
+
+		𝒞.identity_morphism[∀A: ∈ 𝒞.object]: ∈ 𝒞.morphism.from[A]to[A],
+
+		(@𝒞,
+			∀A: ∈ object, ∀B: ∈ object,
+			(
+				∀f: ∈ morphism.from[A], f ∘ 𝒞.identity_morphism[A] morphism.= f
+			),
+			(
+				∀g: ∈ morphism.to[A], 𝒞.identity_morphism[A] ∘ g morphism.= g
+			),
+		■), ; criterion about identity_morphism
 	),
 	; location
 		; about tools
@@ -37,24 +66,6 @@
 
 [ I'll delete the below parts```
 (
-	"maybe concrete category",
-	⊆ class.sub(set), ; a category is a subclass of set
-	(
-		∀c: ∈ category,
-		c.morphism: ⊆ set.morphism, ; + now I think it should be like a set to set map
-		∀f: ∈ c.morphism, f.D ∈ c, f.C ∈ c,
-		; I'm considering about something called natrural subsets (like topology)
-
-		; attributes
-			c.morphism[∀X: ∈ c][∀Y: ∈ c]:
-			(
-				⊆ c.morphism,
-				∀f: ∈ c.morphism[X][Y],
-				f.D = X, f.C = Y
-			),
-
-			c.Mor(∀X: ∈ c)(∀Y: ∈ c): , ; + I don't know what is it yet
-	),
 	; location
 		filtered_index: ; + or filtered_index_category
 		(

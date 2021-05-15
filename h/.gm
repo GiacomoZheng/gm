@@ -29,10 +29,15 @@
 				⊆ function[A][B],
 				∀f: ∈ from[input], f.input = input
 			),
+			to[∀output: ⊆ B]:
+			(
+				⊆ function[A][B],
+				∀f: ∈ to[B], f.output = output
+			),
 			from[∀input: ⊆ A]to[∀output: ⊆ B]:
 			(
 				⊆ from[A],
-				∀f: ∈ from[input]to[B], f.output = output
+				⊆ to[B]
 			),
 
 			composition(∀g: ∈ function[A][B])(∀f: ∈ from[g.target]): ∈ from[g.source]to[f.target],
@@ -40,7 +45,7 @@
 
 	function[∀A: ⊆ ◉][∀A: ⊆ class]:,
 	function[∀A: ⊆ class][∀A: ⊆ ◉]:,
-	function[∀A: ⊆ class][∀A: ⊆ class]:, ; a functor is in some sense a function[class][class]
+	function[∀A: ⊆ class][∀A: ⊆ class]:,
 	; totally the same with function[◉][◉]
 
 	; + tag: keyword, makes f(∀x: ∈ D): ∈ output, defined as  

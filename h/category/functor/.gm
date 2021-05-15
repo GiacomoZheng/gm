@@ -1,0 +1,21 @@
+: ; functor, ; ? or homomorphism, I think it is somehow correct
+(
+	⊆ function[◉][◉], ; ! maybe two function
+	(
+		∀f: ∈ functor,
+		f.D: ∈ category, ; domain
+		f.C: ∈ category, ; codomain
+
+		@f,
+			; !
+			input = D.object ∪ D.morphism, ; ! ∪ class "or"
+			output = C.object ∪ C.morphism,
+		■
+
+
+
+
+
+		
+	),
+),

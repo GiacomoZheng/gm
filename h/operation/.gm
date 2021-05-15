@@ -18,7 +18,6 @@
 			),
 
 			p.dual(∀x: ∈ p.D)(∀y: ∈ p.D): = p(y)(x),
-				p.dual.D: = p.D, ; ? may be useless later
 				p.reverse: = p.dual,
 	)
-)
+),
