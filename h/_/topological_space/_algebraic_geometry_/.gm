@@ -23,7 +23,7 @@
 
 		(
 			∀W: ∈ X.open, ∀V: ∈ X.open, ∀U: ∈ X.open, 
-			W ⊆ V ⊆ U ⇒ ℱ.res[W][V] ∘ ℱ.res[V][U] = ℱ.res[W][U]
+			W ⊆ V ⊆ U ⇒ ℱ.res[W][V] ∘ ℱ.res[V][U] = ℱ.res[W][U] ; !
 		), ; criteria 3
 
 		; location
